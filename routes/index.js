@@ -2,11 +2,11 @@
 
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt-as-promised');
 
-const env = process.env.NODE_ENV || 'development';
-const config = require('../knexfile')[env];
+const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
+
+const bcrypt = require('bcrypt-as-promised');
 
 /* authorization middleware */
 function loginRequired (req, res, next) {
