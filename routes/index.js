@@ -2,9 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
-
-const env = 'development';
 const bcrypt = require('bcrypt-as-promised');
+
+const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const knex = require('knex')(config);
 
