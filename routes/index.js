@@ -30,9 +30,12 @@ router.get('/booyah', (req, res) => {
 
 /* User registration page */
 router.get('/register', (req, res, next) => {
-  // if they're not logged in, show the registration page
-  res.render('register');
-  // otherwise, send them to the home page
+  if (req.session.user) {
+    res.redirect('/');
+  }
+  else {
+    res.render('register');
+  }
 });
 
 /* Create new user */

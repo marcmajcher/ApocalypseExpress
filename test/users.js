@@ -4,10 +4,10 @@ var app = require('../app.js');
 var request = require('supertest');
 var should = require('should');
 
-describe('Login', () => {
+var cookieJar;
+var req;
 
-  var cookieJar;
-  var req;
+describe('Login', () => {
 
   it('home page should have login form if not logged in', (done) => {
     request(app)
@@ -50,6 +50,14 @@ describe('Login', () => {
       });
   });
 
+  xit('home page should have logout link if logged in', (done) => {
+
+  });
+
+  xit('home page should greet player by first name', (done) => {
+
+  });
+
   it('should log user out', (done) => {
     req = request(app)
       .get('/logout')
@@ -69,6 +77,33 @@ describe('Login', () => {
             done();
           });
       });
+
+  });
+});
+
+xdescribe('Registration', () => {
+
+  xit('home page should have a registration link if not logged in', (done) => {
+
+  });
+
+  xit('should be able to register a new player account', (done) => {
+
+  });
+
+  xit('user should be redirected to the home page upon successful registration', (done) => {
+
+  });
+
+  xit('should be able to log in to the newly registered account', (done) => {
+
+  });
+
+  xit('new accounts should have the player role', (done) => {
+
+  });
+
+  xit('registration should redirect a logged in user to the home page', (done) => {
 
   });
 });
