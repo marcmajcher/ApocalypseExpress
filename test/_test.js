@@ -1,7 +1,7 @@
 var app = require('../app.js');
 var request = require('supertest');
 
-describe('GET booyah', () => {
+describe('Smoke Test', () => {
   it('should respond with booyah', (done) => {
     request(app)
       .get('/booyah')

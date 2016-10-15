@@ -1,0 +1,22 @@
+<header id="header">
+  <h1 id="logo">APOX</h1>
+  <nav id="nav">
+    <ul>
+      <% if (session.user) { %>
+      <li>Hi, <%= session.user.email %></li>
+      <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+      <li>
+        <form class="" action="/login" method="post">
+          <label for="email">Login:</label>
+          <input id="email" type="text" name="email" placeholder="your.email@wherever.com">
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="password">
+          <button type="submit">Log In</button>
+        </form>
+      </li>
+      <li><a href="/register">Register</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
