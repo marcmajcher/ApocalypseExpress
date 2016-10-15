@@ -14,6 +14,7 @@ const users = require('./routes/users');
 const admin = require('./routes/admin');
 
 const app = express();
+app.disable('x-powered-by');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
