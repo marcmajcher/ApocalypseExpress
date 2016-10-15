@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Apocalypse Express</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <p><a href="/register">Register</a></p>
-    <p><a href="/login">Login</a></p>
-    <% if (typeof user !== 'undefined') { %>
-      <p><%= JSON.stringify(user) %></p>
-    <% } %>
+    <% include partials/header %>
   </body>
 </html>

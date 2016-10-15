@@ -20,7 +20,7 @@ function loginRequired (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Apocalypse Express', session: req.session });
 });
 
 router.get('/booyah', (req, res) => {
@@ -57,7 +57,7 @@ router.post('/register', (req, res, next) => {
 
 /* Log in/out */
 router.get('/login', (req, res) => {
-  res.render('login', {flash: 'cool.'});
+  res.render('login', {flash: ''});
 })
 
 router.post('/login', (req, res, next) => {
@@ -68,7 +68,8 @@ router.post('/login', (req, res, next) => {
     bcrypt.compare(req.body.password, user.hashed_password)
       .then(() => {
         req.session.user = user;
-        res.render('index', {user: user, title: 'hey'});
+        delete req.session.hashed_password;
+        res.render('index', {session: req.session, title: 'hey'});
       })
       .catch(bcrypt.MISMATCH_ERROR, (err) => {
         res.render('login', {flash: 'bad pass'});
