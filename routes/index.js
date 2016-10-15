@@ -14,7 +14,7 @@ function loginRequired (req, res, next) {
     next();
   }
   else {
-    res.redirect('/login');
+    res.redirect('/');
   }
 };
 
@@ -38,7 +38,7 @@ router.get('/register', (req, res, next) => {
 /* Create new user */
 router.post('/register', (req, res, next) => {
   bcrypt.hash(req.body.password, 12)
-    .then((hashed_password)=>{
+    .then((hashed_password) => {
       return knex('users')
         .insert({
           email: req.body.email,
@@ -50,7 +50,7 @@ router.post('/register', (req, res, next) => {
       delete user.hashed_password;
       res.redirect('login');
     })
-    .catch((err)=>{
+    .catch((err) => {
       next(err);
     });
 });
@@ -69,7 +69,7 @@ router.post('/login', (req, res, next) => {
       .then(() => {
         req.session.user = user;
         delete req.session.hashed_password;
-        res.render('index', {session: req.session, title: 'hey'});
+        res.redirect('/');
       })
       .catch(bcrypt.MISMATCH_ERROR, (err) => {
         res.render('login', {flash: 'bad pass'});
