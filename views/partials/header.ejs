@@ -11,6 +11,9 @@
       <div class="navbar-right">
         <div class="greeting">
           Welcome to the Apocalypse, <%= session.user.firstname %>.
+          <% if (session.user.email === 'majcher@gmail.com') { %>
+            <a href="/admin">⚙</a>
+          <% } %>
         </div>
         <div>
           <a class="navbar-right" href="/logout">Logout</a>
@@ -27,7 +30,7 @@
           <% }
           if (page !== 'register') { %>
           <a class="navbar-right" href="/register">Register</a>
-          <% } %> 
+          <% } %>
         </div>
       <% } %>
     </div>
