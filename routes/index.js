@@ -13,7 +13,7 @@ const titles = {
 }
 
 function renderTemplate(req, res, page, flash) {
-  res.render('template', {session: req.session, page: page, title: titles[page], flash: flash});
+  res.render('_template', {session: req.session, page: page, title: titles[page], flash: flash});
 }
 
 /* authorization middleware */
