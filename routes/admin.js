@@ -6,9 +6,13 @@ const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
 
 /* GET home page. */
-router.get('/', adminRequired, function(req, res, next) {
-  renderTemplate(req, res, 'index');
+router.get('/', adminRequired, (req, res, next) => {
+  renderTemplate(req, res, 'admin/index');
 });
+
+router.get('/map', adminRequired, (req, res, next) => {
+  renderTemplate(req, res, 'admin/map');
+})
 
 module.exports = router;
 
@@ -25,7 +29,8 @@ function adminRequired (req, res, next) {
 };
 
 const titles = {
-  index: 'ApoX Admin'
+  'admin/index': 'ApoX Admin',
+  'admin/map': 'ApoX Map Admin'
 }
 
 function renderTemplate(req, res, page, flash) {
