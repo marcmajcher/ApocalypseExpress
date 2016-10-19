@@ -6,6 +6,16 @@ const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
 const bcrypt = require('bcrypt-as-promised');
 
+const titles = {
+  index: 'Apocalypse eXpress',
+  register: 'ApoX: Register',
+  login: 'ApoX: Login'
+}
+
+function renderTemplate(req, res, page, flash) {
+  res.render('template', {session: req.session, page: page, title: titles[page], flash: flash});
+}
+
 /* authorization middleware */
 function loginRequired (req, res, next) {
   if (req.session.user) {
@@ -18,7 +28,7 @@ function loginRequired (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { session: req.session, page: 'index' });
+  renderTemplate(req, res, 'index');
 });
 
 router.get('/booyah', (req, res) => {
@@ -32,19 +42,19 @@ router.get('/register', (req, res, next) => {
     res.redirect('/');
   }
   else {
-    res.render('register', {session: req.session, page: 'register'});
+    renderTemplate(req, res, 'register');
   }
 });
 
 /* Log in/out */
 router.get('/login', (req, res) => {
-  res.render('login', {flash: '', session: req.session, page: 'login'});
+  renderTemplate(req, res, 'login');
 })
 
 router.post('/login', (req, res, next) => {
   knex('users').where({email: req.body.email}).first().then((user) => {
     if (!user) {
-      res.render('login', {flash: 'no email', session: req.session, page: 'login'});
+      renderTemplate(req, res, 'login', 'No email address provided.');
     }
     bcrypt.compare(req.body.password, user.hashed_password)
       .then(() => {
@@ -53,7 +63,7 @@ router.post('/login', (req, res, next) => {
         res.redirect('/');
       })
       .catch(bcrypt.MISMATCH_ERROR, (err) => {
-        res.render('login', {flash: 'bad pass', session: req.session, page: 'login'});
+        renderTemplate(req, res, 'login', 'Bad password.');
       })
       .catch((err) => {
         next(err);
