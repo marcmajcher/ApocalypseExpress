@@ -160,10 +160,8 @@ describe('Registration', () => {
   });
 
   it('should be able to register a new player account and redirect to home page', (done) => {
-    var p = getRegistrationParams(newUser);
-    request(app)
-      .post('/register').set('Accept', 'text/html')
-      .send(p)
+    request(app).post('/user').set('Accept', 'text/html')
+      .send(getRegistrationParams(newUser))
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
@@ -194,7 +192,7 @@ describe('Registration', () => {
                       ['', 'password', 'firstname', 'lastname'] ];
   function regParamIt(params) {
     it('registration should require all params, fail with '+params.join(', '), (done) => {
-        request(app).post('/register').set('Accept', 'text/html')
+        request(app).post('/user').set('Accept', 'text/html')
           .send(getRegistrationParams({
               email: params[0],
               password: params[1],
@@ -210,13 +208,13 @@ describe('Registration', () => {
   }
 
   it('registration should reject an existing email address', (done) => {
-    request(app).post('/register').set('Accept', 'text/html')
+    request(app).post('/user').set('Accept', 'text/html')
       .send(getRegistrationParams(newUser))
       .expect(500, done);
   });
 
   it('registration should fail if passwords do not match', (done) => {
-    request(app).post('/register').set('Accept', 'text/html')
+    request(app).post('/user').set('Accept', 'text/html')
       .send(getRegistrationParams(badPassUser))
       .expect(500).end((err, res) => {
         knex('users').where('email', badPassUser.email).first().then((user) => {
@@ -227,7 +225,7 @@ describe('Registration', () => {
   });
 
   it('registration should fail if emails do not match', (done) => {
-    request(app).post('/register').set('Accept', 'text/html')
+    request(app).post('/user').set('Accept', 'text/html')
       .send(getRegistrationParams(badEmailUser))
       .expect(500).end((err, res) => {
         knex('users').where('email', badEmailUser.email).first().then((user) => {
