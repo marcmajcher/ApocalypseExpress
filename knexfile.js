@@ -4,7 +4,8 @@ require('dotenv').load();
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.DEV_DATABASE_NAME
+    connection: process.env.DEV_DATABASE_NAME,
+    seeds: { directory: __dirname + '/seeds/dev' }
   },
   test: {
     client: 'pg',
