@@ -1,22 +1,45 @@
-<header id="header">
-  <h1 id="logo">APOX</h1>
-  <nav id="nav">
-    <ul>
-      <% if (session.user) { %>
-      <li>Hi, <%= session.user.firstname %></li>
-      <li><a href="/logout">Logout</a></li>
-      <% } else { %>
-      <li>
-        <form class="" action="/login" method="post">
-          <label for="email">Login:</label>
-          <input id="email" type="text" name="email" placeholder="your.email@wherever.com">
-          <label for="password">Password:</label>
-          <input id="password" type="password" name="password">
-          <button type="submit">Log In</button>
-        </form>
-      </li>
-      <li><a href="/register">Register</a></li>
-      <% } %>
-    </ul>
-  </nav>
-</header>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <a class="navbar-brand" id="logo">APOX</a>
+  <ul>
+    <% if (session.user) { %>
+    <li>Hi, <%= session.user.firstname %></li>
+    <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+    <li>
+      <form class="navbar-form navbar-right" action="/login" method="post">
+        <input class="form-control" id="email" type="text" name="email" placeholder="Email">
+        <input class="form-control" id="password" type="password" name="password" placeholder="Password">
+        <button class="btn btn-success" type="submit">Log In</button>
+      </form>
+    </li>
+    <li><a href="/register">Register</a></li>
+    <% } %>
+  </ul>
+</nav>
+
+<!--
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </nav> -->
