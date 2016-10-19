@@ -21,6 +21,22 @@ const newUser = {
   email: 'test2@gmail.com',
   password: 'test'
 };
+const badPassUser = {
+  firstName: 'Test3',
+  lastName: 'User3',
+  screenName: 'The Third User',
+  email: 'test3@gmail.com',
+  password: 'test',
+  vpassword: 'asdf'
+};
+const badEmailUser = {
+  firstName: 'Test4',
+  lastName: 'User4',
+  screenName: 'The Fourth User',
+  email: 'test4@gmail.com',
+  vemail: 'fasdf@gmail.com',
+  password: 'test'
+};
 
 var cookieJar;
 var req;
@@ -33,6 +49,18 @@ function rollback(done) {
       });
     });
   });
+}
+
+function getRegistrationParams(obj) {
+    return [
+      'email=' + obj.email,
+      'vemail=' + (obj.vemail || obj.email),
+      'password=' + obj.password,
+      'vpassword=' + (obj.vpassword || obj.password),
+      'firstname=' + obj.firstName,
+      'lastname=' + obj.lastName,
+      'screenname=' + obj.screenName
+    ].join('&');
 }
 
 describe('Login', () => {
@@ -86,13 +114,13 @@ describe('Login', () => {
     req.cookies = cookieJar;
     req.expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.text.should.match(new RegExp('/' + testUser.firstName + '/'));
+        res.text.should.match(new RegExp(testUser.firstName));
         done();
       })
   });
 
   it('registration should redirect a logged in user to the home page', (done) => {
-    req = request(app).get('/').set('Accept', 'text/html');
+    req = request(app).get('/register').set('Accept', 'text/html');
     req.cookies = cookieJar;
     req.expect(302).expect('Content-Type', /text/)
     .end((err, res) => {
@@ -132,12 +160,30 @@ describe('Registration', () => {
   });
 
   it('should be able to register a new player account and redirect to home page', (done) => {
+    var p = getRegistrationParams(newUser);
     request(app)
       .post('/register').set('Accept', 'text/html')
-      .send('email='+newUser.email+'&password='+newUser.password+'&firstname='+newUser.firstName+'&lastname='+newUser.lastName)
+      .send(p)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
+        done();
+      });
+  });
+
+  it('newly registered user should have all fields saved', (done) => {
+    knex('users').where('email', newUser.email).first().then((user) => {
+      user.email.should.equal(newUser.email);
+      user.firstname.should.equal(newUser.firstName);
+      user.lastname.should.equal(newUser.lastName);
+      // user.screenname.should.equal(newUser.screeName);
+      done();
+    });
+  });
+
+  it('new accounts should have the player role', (done) => {
+      knex('users').where('email', newUser.email).first().then((user) => {
+        user.role.should.equal('player');
         done();
       });
   });
@@ -149,7 +195,12 @@ describe('Registration', () => {
   function regParamIt(params) {
     it('registration should require all params, fail with '+params.join(', '), (done) => {
         request(app).post('/register').set('Accept', 'text/html')
-          .send('email='+params[0]+'&password='+params[1]+'&firstname='+params[2]+'&lastname='+params[3])
+          .send(getRegistrationParams({
+              email: params[0],
+              password: params[1],
+              firstName: params[2],
+              lastName: params[3]
+          }))
           .expect(500, done);
     });
   }
@@ -159,17 +210,33 @@ describe('Registration', () => {
   }
 
   it('registration should reject an existing email address', (done) => {
-    request(app)
-      .post('/register').set('Accept', 'text/html')
-      .send('email='+newUser.email+'&password='+newUser.password+'&firstname='+newUser.firstName+'&lastname='+newUser.lastName)
+    request(app).post('/register').set('Accept', 'text/html')
+      .send(getRegistrationParams(newUser))
       .expect(500, done);
   });
 
-  it('new accounts should have the player role', (done) => {
-      knex('users').where('email', newUser.email).first().then((user) => {
-        user.role.should.equal('player');
-        done();
+  it('registration should fail if passwords do not match', (done) => {
+    request(app).post('/register').set('Accept', 'text/html')
+      .send(getRegistrationParams(badPassUser))
+      .expect(500).end((err, res) => {
+        knex('users').where('email', badPassUser.email).first().then((user) => {
+          should.equal(user, undefined);
+          done();
+        });
       });
   });
+
+  it('registration should fail if emails do not match', (done) => {
+    request(app).post('/register').set('Accept', 'text/html')
+      .send(getRegistrationParams(badEmailUser))
+      .expect(500).end((err, res) => {
+        knex('users').where('email', badEmailUser.email).first().then((user) => {
+          should.equal(user, undefined);
+          done();
+        });
+      });
+  });
+
+
 
 });

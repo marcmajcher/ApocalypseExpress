@@ -7,10 +7,18 @@
   <body>
     <h1>Register new user</h1>
     <form class="" action="/register" method="post">
+      <label for="firstname">First Name</label>
+      <input id="firstname" type="text" name="firstname">
+      <label for="lastname">Last Name</label>
+      <input id="lastname" type="text" name="lastname">
       <label for="email">Email Address</label>
       <input id="email" type="text" name="email" placeholder="your.email@wherever.com">
+      <label for="vemail">Verify Email Address</label>
+      <input id="vemail" type="text" name="vemail" placeholder="your.email@wherever.com">
       <label for="password">Password</label>
       <input id="password" type="password" name="password">
+      <label for="vpassword">Verify Password</label>
+      <input id="vpassword" type="password" name="vpassword">
       <button type="submit">Register</button>
     </form>
   </body>
