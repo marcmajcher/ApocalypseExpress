@@ -40,22 +40,29 @@ router.get('/register', (req, res, next) => {
 
 /* Create new user */
 router.post('/register', (req, res, next) => {
-  bcrypt.hash(req.body.password, 12)
-    .then((hashed_password) => {
-      return knex('users')
-        .insert({
-          email: req.body.email,
-          hashed_password: hashed_password
-        }, '*');
-    })
-    .then((users) => {
-      const user = users[0];
-      delete user.hashed_password;
-      res.redirect('login');
-    })
-    .catch((err) => {
+  if (req.body.email && req.body.password && req.body.firstname && req.body.lastname) {
+    bcrypt.hash(req.body.password, 12)
+      .then((hashed_password) => {
+        return knex('users')
+          .insert({
+            email: req.body.email,
+            hashed_password: hashed_password
+          }, '*');
+      })
+      .then((users) => {
+        const user = users[0];
+        delete user.hashed_password;
+        res.redirect('/');
+      })
+      .catch((err) => {
+        next(err);
+      });
+    }
+    else {
+      var err = new Error('Registration missing required fields')
+      err.status = 500;
       next(err);
-    });
+    }
 });
 
 /* Log in/out */
