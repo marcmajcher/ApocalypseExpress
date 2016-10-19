@@ -1,0 +1,31 @@
+body {
+  padding-top: 140px;
+}
+
+.navbar {
+  border-top: 20px solid black;
+  border-bottom: 20px solid black;
+  height: 140px;
+  background-color: #bbc;
+}
+
+.navbar-header a {
+  color: #333;
+}
+.logo {
+  font-size: 4em;
+}
+.navbar-right {
+  padding-right: 40px;
+  padding-top: 12px;
+}
+
+a.navbar-right {
+  padding-right: 12px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+div.greeting {
+  font-size: 2em;
+}
