@@ -1,15 +1,5 @@
 <script src="/bower_components/paper/dist/paper-full.min.js"></script>
-
-<div class="">
-  we got a map here
-</div>
-
-<script type="text/paperscript" canvas="myCanvas">
-	var path = new Path();
-	path.strokeColor = 'black';
-	var start = new Point(0, 0);
-	path.moveTo(start);
-	path.lineTo(start + [ 400, 750 ]);
+<script type="text/paperscript" src="/js/map-paper.js" canvas="mapCanvas"></script>
+<script type="text/javascript">
 </script>
-	<canvas id="myCanvas" width="800" height="800"></canvas>
-</body>
+<canvas id="mapCanvas" class="map-canvas" data-paper-resize="true"></canvas>
