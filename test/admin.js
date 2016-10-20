@@ -10,14 +10,12 @@ const knex = require('knex')(config);
 const testUser = {
   firstName: 'Test',
   lastName: 'User',
-  screenName: 'The User Who Tests',
   email: 'test@gmail.com',
   password: 'test'
 }
 const adminUser = {
   firstName: 'Admin',
   lastName: 'User',
-  screenName: 'The Admin User',
   email: 'admin@gmail.com',
   password: 'admin'
 };

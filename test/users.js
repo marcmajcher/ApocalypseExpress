@@ -10,21 +10,18 @@ const knex = require('knex')(config);
 const testUser = {
   firstName: 'Test',
   lastName: 'User',
-  screenName: 'The User Who Tests',
   email: 'test@gmail.com',
   password: 'test'
 }
 const newUser = {
   firstName: 'Test2',
   lastName: 'User2',
-  screenName: 'The Second User',
   email: 'test2@gmail.com',
   password: 'test'
 };
 const badPassUser = {
   firstName: 'Test3',
   lastName: 'User3',
-  screenName: 'The Third User',
   email: 'test3@gmail.com',
   password: 'test',
   vpassword: 'asdf'
@@ -32,7 +29,6 @@ const badPassUser = {
 const badEmailUser = {
   firstName: 'Test4',
   lastName: 'User4',
-  screenName: 'The Fourth User',
   email: 'test4@gmail.com',
   vemail: 'fasdf@gmail.com',
   password: 'test'
