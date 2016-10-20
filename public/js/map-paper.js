@@ -202,7 +202,7 @@ var myData = {
     ["New Braunfels", "29.7030024", "-98.1244531"],
     ["Odessa", "31.8456816", "-102.3676431"],
     ["Orange", "30.0929879", "-93.7365549"],
-    ["Orla", "31.9685988", "-99.9018131"],
+    ["Orla", "31.8234585", "-103.9089837"],
     ["Ozona", "30.7022249", "-101.2013819"],
     ["Paducah", "34.0123005", "-100.3020588"],
     ["Palestine", "31.7621153", "-95.6307891"],
@@ -810,7 +810,7 @@ var myData = {
     ["Plano", "Sherman", "74062"],
     ["Pleasanton", "San Antonio", "58622"],
     ["Pleasanton", "Three Rivers", "67442"],
-    ["Port Lavaca",	"Port O'Connor", "39722"]
+    ["Port Lavaca",	"Port O'Connor", "39722"],
     ["Port Lavaca", "Seadrift", "28686"],
     ["Port Lavaca", "Victoria", "44610"],
     ["Port O'Connor", "Seadrift", "30843"],
@@ -854,10 +854,14 @@ var myData = {
 }
 
 var mapObj = {};
+var mapLayer = new Layer();
 
 function getPoint(loc) {
-  return new Point((parseFloat(loc[1]) * 50) - 1250, (parseFloat(loc[2]) * -50) - 4550)
+  var scale = 80;
+  return new Point((parseFloat(loc[2])+107)*scale*0.8,(parseFloat(loc[1])-37)*-scale);
 }
+
+/* Draw cities */
 
 for (var i=0; i<myData.locations.length; i++) {
   var loc = myData.locations[i];
@@ -867,12 +871,65 @@ for (var i=0; i<myData.locations.length; i++) {
     radius: 5,
     fillColor: 'black'
   })
+  console.log(loc[0],mapObj[loc[0]]);
+  var text = new PointText(mapObj[loc[0]]);
+  text.justification = 'center';
+  text.fillColor = 'red';
+  text.content = loc[0];
 }
 
+/* Draw connections */
 for (var i=0; i<myData.connections.length; i++) {
   var con = myData.connections[i];
   var path = new Path();
   path.strokeColor = 'black';
   path.moveTo(mapObj[con[0]]);
   path.lineTo(mapObj[con[1]]);
+}
+
+/* Navigation methods */
+
+$('#mapCanvas').bind('mousewheel', function(event) {
+  // console.log(event);
+  var dx = event.originalEvent.wheelDeltaX;
+  var dy = event.originalEvent.wheelDeltaY;
+
+  if (event.shiftKey) {
+    view.center = changeCenter(view.center, dx, dy, 1);
+    event.preventDefault();
+  }
+  else if (event.altKey) {
+    var mousePos = new Point(event.offsetX, event.offsetY);
+    var z = changeZoom(view.zoom, dy, view.center, mousePos);
+    view.zoom = z;//.newZoom;
+    // view.center = view.center.add(z.a);
+    event.preventDefault();
+  }
+})
+
+function changeZoom(oldZoom, delta, c, p) {
+  var factor = 1.05;
+  var newZoom = oldZoom;
+  if (delta > 0) {
+    newZoom *= factor;
+  }
+  if (delta < 0) {
+    newZoom /= factor;
+  }
+  return newZoom;
+  // var beta = oldZoom / newZoom;
+  // var pc = p.subtract(c);
+  // var a = p.subtract(pc.multiply(beta)).subtract(c);
+  // return {newZoom: newZoom, a: a};
+}
+
+function changeCenter (oldCenter, deltaX, deltaY, factor) {
+  var offset;
+  offset = new Point(deltaX, -deltaY);
+  offset = offset.multiply(factor);
+  return oldCenter.add(offset);
+}
+
+function onMouseDrag(event) {
+  mapLayer.position += event.delta;
 }
