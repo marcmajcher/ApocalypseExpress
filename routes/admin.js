@@ -11,6 +11,7 @@ router.get('/', adminRequired, (req, res, next) => {
 });
 
 router.get('/map', adminRequired, (req, res, next) => {
+// router.get('/map', (req, res, next) => {
   renderTemplate(req, res, 'admin/map');
 })
 
