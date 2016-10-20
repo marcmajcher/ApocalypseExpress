@@ -853,11 +853,14 @@ var myData = {
   ]
 }
 
+
 var mapObj = {};
 var mapLayer = new Layer();
+var texasMap = new Raster('/img/texasbg.png');
+texasMap.position = new Point(840,880);
 
 function getPoint(loc) {
-  var scale = 80;
+  var scale = 155;
   return new Point((parseFloat(loc[2])+107)*scale*0.8,(parseFloat(loc[1])-37)*-scale);
 }
 
@@ -886,6 +889,8 @@ for (var i=0; i<myData.connections.length; i++) {
   path.moveTo(mapObj[con[0]]);
   path.lineTo(mapObj[con[1]]);
 }
+
+mapLayer.position = new Point(240, 150);
 
 /* Navigation methods */
 
