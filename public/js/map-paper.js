@@ -334,7 +334,6 @@ var myData = {
     ["Amarillo", "Claude", "48439"],
     ["Amarillo", "Dumas", "75675"],
     ["Amarillo", "Fritch", "60378"],
-    ["Amarillo", "Groom", "71936"],
     ["Amarillo", "Panhandle", "44572"],
     ["Amarillo", "Vega", "58453"],
     ["Andrews", "Big Spring", "102127"],
@@ -436,7 +435,7 @@ var myData = {
     ["Breckenridge", "Seymour", "108860"],
     ["Breckenridge", "Stamford", "97694"],
     ["Brenham", "Giddings", "54697"],
-    ["Brenham", "Houston", "118324"],
+    ["Brenham", "Katy", "108324"],
     ["Brenham", "La Grange", "61973"],
     ["Brenham", "Navasota", "40246"],
     ["Brownfield", "Lamesa", "61563"],
@@ -690,7 +689,6 @@ var myData = {
     ["Hilsboro", "Waco", "54618"],
     ["Hobbes", "Seminole", "47608"],
     ["Houston", "Katy", "47798"],
-    ["Houston", "Lake Jackson", "91692"],
     ["Houston", "Livingston", "118919"],
     ["Houston", "Pasadena", "26473"],
     ["Houston", "Pearland", "37311"],
@@ -729,9 +727,8 @@ var myData = {
     ["Kilgore", "Tyler", "41649"],
     ["Kingsville", "Riviera", "26599"],
     ["Knox City", "Munday", "19465"],
-    ["Knox City", "Stamford", "58791"],
+    ["Lake Jackson", "Pearland", "5000"],
     ["Lakeview", "Memphis", "16500"],
-    ["Lamesa", "Lubbock", "99487"],
     ["Lamesa", "Seminole", "65884"],
     ["Lampasas", "San Saba", "59080"],
     ["Langtry", "Pandale", "129025"],
@@ -839,7 +836,6 @@ var myData = {
     ["Silverton", "Tulia", "43170"],
     ["Silverton", "Turkey", "42235"],
     ["Snyder", "Spur", "97740"],
-    ["Snyder", "Stamford", "117646"],
     ["Spearman", "Stratford", "86024"],
     ["Spearman", "Waka", "16408"],
     ["Spring", "The Woodlands", "14011"],
@@ -852,7 +848,6 @@ var myData = {
     ["Wickett", "Wink", "35299"]
   ]
 }
-
 
 var mapObj = {};
 var mapLayer = new Layer();
