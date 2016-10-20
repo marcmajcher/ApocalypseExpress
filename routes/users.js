@@ -54,6 +54,7 @@ module.exports = router;
 
 //////
 
+const nameList = require('../data/uniquenames');
 function generateScreenName() {
-  return 'Random Screen Name';
+  return nameList[Math.floor(Math.random()*nameList.length)] + ' ' + nameList[Math.floor(Math.random()*nameList.length)];
 }
