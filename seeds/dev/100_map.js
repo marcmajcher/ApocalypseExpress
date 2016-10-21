@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
   return knex('cities').del()
     .then(function () {
@@ -321,5019 +320,4008 @@ exports.seed = function(knex, Promise) {
             .first()
             .then((thingy) => {
               thingy.distance = 97154;
-
               return knex('city_link').insert(thingy);
             }),
-          knex(knex.raw('cities c1, cities c2'))
-            .select('c1.id as city1', 'c2.id as city2')
-            .whereRaw("?? = 'Abeline' and ?? = 'Aspermont'", ['c1.name', 'c2.name'])
-            .first()
-            .then((thingy) => {
-              thingy.distance = 97154;
-
-              return knex('city_link').insert(thingy);
-            }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Breckenridge'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 94887;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Cisco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72787;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Coleman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 84425;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Stamford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64362;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Sweetwater'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 66652;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Abeline' and ?? = 'Winters'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64385;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ackerly' and ?? = 'Big Spring'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39845;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ackerly' and ?? = 'Lamesa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32739;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alice' and ?? = 'Corpus Christi'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72593;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alice' and ?? = 'Falfurrias'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59749;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alice' and ?? = 'George West'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 66093;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alice' and ?? = 'Mathis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47744;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alice' and ?? = 'San Diego'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 17424;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Allamoore' and ?? = 'Sierra Blanca'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36302;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Allamoore' and ?? = 'Van Horn'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18952;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alpine' and ?? = 'Altuda'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25098;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alpine' and ?? = 'Fort Davis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38285;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Alpine' and ?? = 'Marfa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42133;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Altuda' and ?? = 'Fort Stockton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 105631;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Altuda' and ?? = 'Marathon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 24150;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Canyon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30001;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Claude'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48439;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Dumas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 75675;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Fritch'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 60378;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Panhandle'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44572;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Amarillo' and ?? = 'Vega'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58453;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Andrews' and ?? = 'Big Spring'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 102127;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Andrews' and ?? = 'Kermit'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 74772;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Andrews' and ?? = 'Lamesa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 79742;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Andrews' and ?? = 'Odessa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55522;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Andrews' and ?? = 'Seminole'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45854;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Angeles' and ?? = 'Loving'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46672;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Angeles' and ?? = 'Orla'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 9976;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aransas Pass' and ?? = 'Port Aransas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 13409;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aransas Pass' and ?? = 'Portland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 29704;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aransas Pass' and ?? = 'Rockport'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16544;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Arlington' and ?? = 'Dallas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34303;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Arlington' and ?? = 'Fort Worth'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 24415;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Asherton' and ?? = 'Carrizo Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 13968;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Asherton' and ?? = 'Catarina'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18732;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Guthrie'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56458;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Haskell'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49460;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Knox City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61412;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Snyder'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 95186;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Spur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 77375;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Stamford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49384;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Aspermont' and ?? = 'Sweetwater'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 87281;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Athens' and ?? = 'Canton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39601;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Athens' and ?? = 'Corsicana'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 60059;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Athens' and ?? = 'Jacksonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63073;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Athens' and ?? = 'Palestine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55827;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Athens' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58199;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Atlanta' and ?? = 'Jefferson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51903;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Atlanta' and ?? = 'Texarkana'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40634;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Bastrop'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53666;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Fredricksburg'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 125786;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Giddings'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 89064;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Marble Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 77946;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Pflugerville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28366;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'Round Rock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30755;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Austin' and ?? = 'San Marcos'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50434;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ballinger' and ?? = 'Coleman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57818;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ballinger' and ?? = 'Eden'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59584;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ballinger' and ?? = 'San Angelo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 68346;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ballinger' and ?? = 'Winters'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25422;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Balmorhea' and ?? = 'Fort Davis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59217;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Balmorhea' and ?? = 'Fort Stockton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 86384;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Balmorhea' and ?? = 'Saragosa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 12353;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Balmorhea' and ?? = 'Van Horn'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 110767;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bamhart' and ?? = 'Big Lake'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28896;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bamhart' and ?? = 'Mertzon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39568;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bamhart' and ?? = 'Ozona'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48333;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bamhart' and ?? = 'Sterling City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 83788;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bastrop' and ?? = 'Giddings'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41641;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bastrop' and ?? = 'La Grange'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51411;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bastrop' and ?? = 'San Marcos'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 70304;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bay City' and ?? = 'El Campo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51090;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bay City' and ?? = 'Lake Jackson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63693;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bay City' and ?? = 'Port Lavaca'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 81913;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Baytown' and ?? = 'Houston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42550;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Baytown' and ?? = 'Pasadena'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 29433;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beaumont' and ?? = 'Houston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 136150;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beaumont' and ?? = 'Jasper'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 113089;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beaumont' and ?? = 'Nederland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19078;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beaumont' and ?? = 'Orange'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46337;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beaumont' and ?? = 'Woodville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 89898;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beeville' and ?? = 'George West'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38730;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beeville' and ?? = 'Goliad'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47163;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beeville' and ?? = 'Kenedy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51529;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Beeville' and ?? = 'Mathis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41319;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Belton' and ?? = 'Georgetown'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53900;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Belton' and ?? = 'Harker Heights'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 21011;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Belton' and ?? = 'Temple'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 15438;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Big Lake' and ?? = 'Texon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 23040;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Big Spring' and ?? = 'Colorado City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61168;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Big Spring' and ?? = 'Stanton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32901;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Big Spring' and ?? = 'Sterling City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 69966;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Boerne' and ?? = 'Comfort'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26384;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Boerne' and ?? = 'San Antonio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50010;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Booker' and ?? = 'Perryton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25717;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Borger' and ?? = 'Dumas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67299;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Borger' and ?? = 'Fritch'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20950;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Borger' and ?? = 'Pampa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45113;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Borger' and ?? = 'Panhandle'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36830;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Borger' and ?? = 'Spearman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 68405;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bowie' and ?? = 'Decatur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45054;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bowie' and ?? = 'Gainesville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 76115;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bowie' and ?? = 'Graham'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 99196;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bowie' and ?? = 'Wichita Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 77220;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bracketville' and ?? = 'Del Rio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48722;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Bracketville' and ?? = 'Uvalde'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63934;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Brownwood'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 74119;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Llano'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 85165;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Mason'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46262;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Melvin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28150;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Menard'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54356;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'San Saba'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67349;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brady' and ?? = 'Santa Anna'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72028;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Cisco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44938;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Fort Worth'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 162671;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Graham'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53223;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Haskell'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 111434;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Seymour'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 108860;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Breckenridge' and ?? = 'Stamford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 97694;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brenham' and ?? = 'Giddings'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54697;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brenham' and ?? = 'Katy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 108324;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brenham' and ?? = 'La Grange'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61973;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brenham' and ?? = 'Navasota'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40246;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Lamesa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61563;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Levelland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47688;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Lubbock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62954;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Plains'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51916;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Post'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 84500;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownfield' and ?? = 'Seagraves'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38370;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownsville' and ?? = 'Harlingen'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42278;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownwood' and ?? = 'Cisco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 79166;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownwood' and ?? = 'Comanche'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 43921;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Brownwood' and ?? = 'Santa Anna'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33235;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Burkburnett' and ?? = 'Wichita Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 24437;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Burnet' and ?? = 'Georgetown'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56815;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Burnet' and ?? = 'Lampasas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 35523;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Burnet' and ?? = 'Llano'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47647;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Burnet' and ?? = 'Marble Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20827;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cactus' and ?? = 'Dumas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 21413;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cactus' and ?? = 'Stratford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33191;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cactus' and ?? = 'Sunray'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20030;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canadian' and ?? = 'Pampa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 74781;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canadian' and ?? = 'Perryton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 74518;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canadian' and ?? = 'Wheeler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55463;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canton' and ?? = 'Dallas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 95349;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canton' and ?? = 'Lindale'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49319;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canton' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72083;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canton' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64391;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canyon' and ?? = 'Hereford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49685;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Canyon' and ?? = 'Tulia'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53504;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carlsbad' and ?? = 'Hobbes'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 112101;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carlsbad' and ?? = 'Loving'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20682;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carlsbad' and ?? = 'Whites City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32464;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carrizo Springs' and ?? = 'Crystal City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19147;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carrizo Springs' and ?? = 'Dilley'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72257;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carta Valley' and ?? = 'Del Rio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 60411;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carta Valley' and ?? = 'RockSprings'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63672;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carthage' and ?? = 'Center'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48083;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carthage' and ?? = 'Henderson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44569;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Carthage' and ?? = 'Marshall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45587;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Catarina' and ?? = 'Enical'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56688;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Catarina' and ?? = 'Laredo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 97698;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Center' and ?? = 'Nacogdoches'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53541;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Center' and ?? = 'San Augustine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32693;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Childress' and ?? = 'Memphis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49180;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Childress' and ?? = 'Paducah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51746;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Childress' and ?? = 'Quanah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46449;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Childress' and ?? = 'Turkey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 75362;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Childress' and ?? = 'Wellington'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50912;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Chilicothe' and ?? = 'Quanah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 22470;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Chilicothe' and ?? = 'Vernon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27564;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cisco' and ?? = 'Coleman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 81235;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cisco' and ?? = 'Comanche'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 76016;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cisco' and ?? = 'Eastland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 15688;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cisco' and ?? = 'Stamford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 131707;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarendon' and ?? = 'Goodnight'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 31134;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarendon' and ?? = 'Groom'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47335;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarendon' and ?? = 'Memphis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42864;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarendon' and ?? = 'Turkey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 68960;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarksville' and ?? = 'New Boston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62810;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Clarksville' and ?? = 'Paris'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48749;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Claude' and ?? = 'Goodnight'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19874;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Claude' and ?? = 'Groom'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34478;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Claude' and ?? = 'Panhandle'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28006;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Claude' and ?? = 'Silverton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 84225;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Coleman' and ?? = 'Santa Anna'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 14721;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Coleman' and ?? = 'Winters'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56221;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'College Station' and ?? = 'Hearne'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42217;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'College Station' and ?? = 'Huntsville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 83770;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'College Station' and ?? = 'Madisonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 66095;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'College Station' and ?? = 'Navasota'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38635;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Colorado City' and ?? = 'Snyder'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40227;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Colorado City' and ?? = 'Sterling City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71621;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Colorado City' and ?? = 'Sweetwater'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45160;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Columbus' and ?? = 'El Campo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63279;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Columbus' and ?? = 'Gonzales'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 100430;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Columbus' and ?? = 'Katy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71625;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Columbus' and ?? = 'La Grange'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42536;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Comanche' and ?? = 'Gatesville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 105248;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Comanche' and ?? = 'Stephenville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57196;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Comfort' and ?? = 'Fredricksburg'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36433;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Comfort' and ?? = 'Kerrville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28987;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Commerce' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 31929;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Concan' and ?? = 'Leakey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27346;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Concan' and ?? = 'Uvalde'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 37028;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Conroe' and ?? = 'Huntsville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50211;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Conroe' and ?? = 'Navasota'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67195;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Conroe' and ?? = 'The Woodlands'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 17279;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Copperas Cove' and ?? = 'Killeen'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16894;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Copperas Cove' and ?? = 'Lampasas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30563;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cornudas' and ?? = 'El Paso'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 110454;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cornudas' and ?? = 'Pine Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 81550;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corpus Christi' and ?? = 'Kingsville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71607;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corpus Christi' and ?? = 'Mathis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59073;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corpus Christi' and ?? = 'Portland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 14398;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corsicana' and ?? = 'Dallas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 88679;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corsicana' and ?? = 'Fairfield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54596;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corsicana' and ?? = 'Hilsboro'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65815;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Corsicana' and ?? = 'Waco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 90320;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cotulla' and ?? = 'Dilley'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26552;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cotulla' and ?? = 'Enical'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46761;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cotulla' and ?? = 'Three Rivers'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 110312;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crane' and ?? = 'McCarney'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34284;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crane' and ?? = 'Odessa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51522;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Huntsville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 77489;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Lufkin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 73629;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Madisonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62472;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Nacogdoches'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 87272;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Palestine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56765;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crockett' and ?? = 'Rusk'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 73005;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crosbyton' and ?? = 'Floydada'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46124;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crosbyton' and ?? = 'Lubbock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61103;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crosbyton' and ?? = 'Post'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 60563;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crosbyton' and ?? = 'Spur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50325;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crowell' and ?? = 'Knox City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65389;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crowell' and ?? = 'Paducah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58275;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crowell' and ?? = 'Quanah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 35379;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crowell' and ?? = 'Vernon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52594;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Crystal City' and ?? = 'Uvalde'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62740;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cuero' and ?? = 'Edna'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 79443;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cuero' and ?? = 'Goliad'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50432;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cuero' and ?? = 'Gonzales'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52209;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cuero' and ?? = 'Kenedy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 66647;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Cuero' and ?? = 'Victoria'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44488;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dalhart' and ?? = 'Dumas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61204;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dalhart' and ?? = 'Perico'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41475;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dalhart' and ?? = 'Stratford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51090;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dalhart' and ?? = 'Vega'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 103596;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dallas' and ?? = 'Fort Worth'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53388;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dallas' and ?? = 'Gainesville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 114502;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dallas' and ?? = 'Hilsboro'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 99941;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dallas' and ?? = 'Plano'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32290;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dallas' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 127023;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Decatur' and ?? = 'Fort Worth'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64846;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Decatur' and ?? = 'Graham'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 105815;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Del Rio' and ?? = 'Juno'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 113761;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Del Rio' and ?? = 'Langtry'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 96670;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Del Rio' and ?? = 'Laughlin AFB'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 11869;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Denison' and ?? = 'Sherman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18663;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Denver City' and ?? = 'Plains'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26369;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Denver City' and ?? = 'Seagraves'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26965;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Denver City' and ?? = 'Seminole'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33992;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Diboll' and ?? = 'Livingston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56617;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Diboll' and ?? = 'Lufkin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18139;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dilley' and ?? = 'Pearsall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26206;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dimmitt' and ?? = 'Friona'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51796;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dimmitt' and ?? = 'Hereford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33254;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dimmitt' and ?? = 'Littlefield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71323;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dimmitt' and ?? = 'Tulia'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51810;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dryden' and ?? = 'Langtry'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64719;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dryden' and ?? = 'Sanderson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33078;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Dryden' and ?? = 'Sheffield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 94845;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eastland' and ?? = 'Ranger'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16254;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eden' and ?? = 'Melvin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27989;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eden' and ?? = 'Menard'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34677;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eden' and ?? = 'Wall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51527;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Edinburg' and ?? = 'Falfurrias'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 106913;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Edinburg' and ?? = 'McAllen'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18936;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Edna' and ?? = 'El Campo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44814;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Edna' and ?? = 'Victoria'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40510;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'El Campo' and ?? = 'Rosenburg'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62763;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'El Paso' and ?? = 'Socorro'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25812;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eldorado' and ?? = 'Menard'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 81457;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eldorado' and ?? = 'San Angelo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71858;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Eldorado' and ?? = 'Sonora'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34612;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Enical' and ?? = 'Freer'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 76780;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Enical' and ?? = 'Laredo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61718;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fairfield' and ?? = 'Madisonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 92335;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fairfield' and ?? = 'Palestine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57611;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fairfield' and ?? = 'Waco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 103024;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Falfurrias' and ?? = 'Hebbronville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55984;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Falfurrias' and ?? = 'Riviera'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36079;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floresville' and ?? = 'Kames City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39482;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floresville' and ?? = 'Pleasanton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38029;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floresville' and ?? = 'San Antonio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48772;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floydada' and ?? = 'Matador'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50809;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floydada' and ?? = 'Plainview'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44095;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Floydada' and ?? = 'Silverton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57363;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Davis' and ?? = 'Marfa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34023;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Hancock' and ?? = 'Sierra Blanca'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55525;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Hancock' and ?? = 'Socorro'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65218;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Grandfalls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51965;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Marathon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 94220;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'McCarney'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 75009;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Pecos'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 85176;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Sanderson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 105254;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Saragosa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 81424;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Stockton' and ?? = 'Sheffield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 114956;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Worth' and ?? = 'Gainesville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 104906;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Worth' and ?? = 'Granbury'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61193;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Worth' and ?? = 'Hilsboro'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 90150;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fort Worth' and ?? = 'Ranger'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 137121;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fredricksburg' and ?? = 'Junction'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 98629;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fredricksburg' and ?? = 'Kerrville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39193;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fredricksburg' and ?? = 'Llano'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61869;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Fredricksburg' and ?? = 'Mason'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67644;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Freer' and ?? = 'George West'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72095;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Freer' and ?? = 'Hebbronville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65278;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Freer' and ?? = 'Laredo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 95733;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Freer' and ?? = 'San Diego'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40206;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Friona' and ?? = 'Hereford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36132;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Friona' and ?? = 'Muleshoe'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47005;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gail' and ?? = 'Lamesa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50990;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gail' and ?? = 'Snyder'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50276;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gainesville' and ?? = 'Sherman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55491;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Galveston' and ?? = 'Pasadena'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67702;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Garden City' and ?? = 'Midland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59547;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Garden City' and ?? = 'Sterling City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51159;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gatesville' and ?? = 'Stephenville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 105454;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gatesville' and ?? = 'Temple'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57090;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gatesville' and ?? = 'Woodway'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53247;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'George West' and ?? = 'Mathis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44689;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'George West' and ?? = 'Three Rivers'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 15927;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Georgetown' and ?? = 'Lampasas'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 79248;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Georgetown' and ?? = 'Round Rock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 15033;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Giddings' and ?? = 'La Grange'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32924;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gilmer' and ?? = 'Kilgore'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44470;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gilmer' and ?? = 'Marshall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 63640;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gilmer' and ?? = 'Pittsburg'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30368;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gilmer' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58136;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Goliad' and ?? = 'Kenedy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51388;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Goliad' and ?? = 'Victoria'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41882;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Gonzales' and ?? = 'Seguin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53476;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Graham' and ?? = 'Wichita Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 97807;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Granbury' and ?? = 'Stephenville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47611;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Grandfalls' and ?? = 'Monahans'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 29080;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Grape Creek' and ?? = 'San Angelo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20286;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Grape Creek' and ?? = 'Sterling City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55520;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Groom' and ?? = 'McLean'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48862;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Groom' and ?? = 'Pampa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47093;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Guthrie' and ?? = 'Knox City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55555;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Guthrie' and ?? = 'Paducah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45052;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Guthrie' and ?? = 'Spur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67571;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Harker Heights' and ?? = 'Killeen'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 8673;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Harlingen' and ?? = 'McAllen'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56601;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Harlingen' and ?? = 'Riviera'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 128488;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Haskell' and ?? = 'Knox City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36769;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Haskell' and ?? = 'Munday'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 35174;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Haskell' and ?? = 'Stamford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26908;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hearne' and ?? = 'Waco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 106028;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hebbronville' and ?? = 'Laredo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 90782;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hebbronville' and ?? = 'San Diego'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 69092;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hebbronville' and ?? = 'Zapata'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 82854;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Henderson' and ?? = 'Jacksonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52270;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Henderson' and ?? = 'Kilgore'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28086;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Henderson' and ?? = 'Marshall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64721;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Henderson' and ?? = 'Nacogdoches'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67222;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Henderson' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54949;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hereford' and ?? = 'Vega'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49136;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hermleigh' and ?? = 'Snyder'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18908;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hermleigh' and ?? = 'Sweetwater'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 43761;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hilsboro' and ?? = 'Waco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54618;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Hobbes' and ?? = 'Seminole'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47608;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Katy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 47798;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Livingston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 118919;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Pasadena'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26473;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Pearland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 37311;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Spring'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38470;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Houston' and ?? = 'Sugar Land'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32688;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Huntsville' and ?? = 'Livingston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 69201;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Huntsville' and ?? = 'Madisonville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46423;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Iowa Park' and ?? = 'Vernon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62916;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Iowa Park' and ?? = 'Wichita Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 20730;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Iraan' and ?? = 'Rankin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 43514;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Iraan' and ?? = 'Sheffield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 29127;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jacksonville' and ?? = 'Palestine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41991;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jacksonville' and ?? = 'Rusk'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 22518;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jacksonville' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44163;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jasper' and ?? = 'Lufkin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 89152;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jasper' and ?? = 'San Augustine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 72711;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jasper' and ?? = 'Woodville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44817;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Jefferson' and ?? = 'Marshall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27074;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'Kerrville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 84326;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'Leakey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 98729;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'Mason'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 71415;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'Menard'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50005;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'RockSprings'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 75271;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Junction' and ?? = 'Sonora'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 92348;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Juno' and ?? = 'Ozona'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 68650;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kames City' and ?? = 'Kenedy'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 9660;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Katy' and ?? = 'Spring'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 70903;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Katy' and ?? = 'Sugar Land'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 34544;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kenedy' and ?? = 'Three Rivers'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 53610;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kermit' and ?? = 'Mentone'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52333;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kermit' and ?? = 'Monahans'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 37265;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kermit' and ?? = 'Odessa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 73486;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kermit' and ?? = 'Wink'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 14222;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kilgore' and ?? = 'Lindale'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57476;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kilgore' and ?? = 'Longview'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18799;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kilgore' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41649;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Kingsville' and ?? = 'Riviera'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26599;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Knox City' and ?? = 'Munday'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19465;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lake Jackson' and ?? = 'Pearland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 5000;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lakeview' and ?? = 'Memphis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16500;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lamesa' and ?? = 'Seminole'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65884;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lampasas' and ?? = 'San Saba'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 59080;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Langtry' and ?? = 'Pandale'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 129025;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Laredo' and ?? = 'Rio Bravo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26594;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Levelland' and ?? = 'Littlefield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38601;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Levelland' and ?? = 'Lubbock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 49355;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Levelland' and ?? = 'Morton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41979;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lindale' and ?? = 'Mineola'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19108;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lindale' and ?? = 'Tyler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 22262;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Littlefield' and ?? = 'Lubbock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58999;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Littlefield' and ?? = 'Sudan'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25274;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Livingston' and ?? = 'Woodville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52306;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Llano' and ?? = 'Marble Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52362;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Llano' and ?? = 'Mason'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55642;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Llano' and ?? = 'San Saba'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52438;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Longview' and ?? = 'Marshall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36783;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lubbock' and ?? = 'Plainview'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 76134;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lubbock' and ?? = 'Slaton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27077;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Lufkin' and ?? = 'Nacogdoches'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32080;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Marathon' and ?? = 'Rosenfeld'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 69210;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Marfa' and ?? = 'Ryan'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 32069;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Marfa' and ?? = 'Shafter'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 64265;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mason' and ?? = 'Menard'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61766;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Matador' and ?? = 'Paducah'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50163;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Matador' and ?? = 'Spur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62088;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Matador' and ?? = 'Turkey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 45701;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'McAllen' and ?? = 'Zapata'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 153044;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'McCarney' and ?? = 'Rankin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30845;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'McLean' and ?? = 'Memphis'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67328;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'McLean' and ?? = 'Pampa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57422;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'McLean' and ?? = 'Shamrock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33817;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mentone' and ?? = 'Orla'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42402;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mentone' and ?? = 'Pecos'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36633;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mertzon' and ?? = 'San Angelo'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 46430;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Midland' and ?? = 'Odessa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36335;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Midland' and ?? = 'Stanton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 31147;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mineola' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58969;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Monahans' and ?? = 'Odessa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57519;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Monahans' and ?? = 'Wickett'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 11115;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Morton' and ?? = 'Muleshoe'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56465;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Morton' and ?? = 'Plains'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62878;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mt Pleasant' and ?? = 'Mt Vernon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25599;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mt Pleasant' and ?? = 'New Boston'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 65493;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mt Pleasant' and ?? = 'Pittsburg'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18969;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Mt Vernon' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38870;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Muleshoe' and ?? = 'Plainview'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 95874;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Muleshoe' and ?? = 'Sudan'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 25583;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Munday' and ?? = 'Seymour'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39824;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Nacogdoches' and ?? = 'Rusk'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57362;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Nacogdoches' and ?? = 'San Augustine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56557;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Nederland' and ?? = 'Port Arthur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 14688;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'New Boston' and ?? = 'Texarkana'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38675;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'New Braunfels' and ?? = 'San Antonio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54540;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'New Braunfels' and ?? = 'San Marcos'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 30472;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'New Braunfels' and ?? = 'Seguin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 24626;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Orange' and ?? = 'Port Arthur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 36902;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ozona' and ?? = 'Sheffield'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67936;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ozona' and ?? = 'Sonora'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 57106;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Palestine' and ?? = 'Rusk'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 48928;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pampa' and ?? = 'Panhandle'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44955;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pampa' and ?? = 'Perryton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 100860;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pampa' and ?? = 'Wheeler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67682;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Paris' and ?? = 'Sherman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 103224;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Paris' and ?? = 'Sulphur Springs'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 60885;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pasadena' and ?? = 'Pearland'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 33547;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pearland' and ?? = 'Sugar Land'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41894;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pearsall' and ?? = 'San Antonio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 88680;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pecos' and ?? = 'Saragosa'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 50164;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pecos' and ?? = 'Van Horn'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 145605;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pecos' and ?? = 'Wickett'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 51202;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Perico' and ?? = 'Texline'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 18953;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Perryton' and ?? = 'Waka'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 26253;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pflugerville' and ?? = 'Round Rock'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 12321;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pine Springs' and ?? = 'Whites City'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 56761;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Plainview' and ?? = 'Tulia'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41875;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Plano' and ?? = 'Sherman'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 74062;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pleasanton' and ?? = 'San Antonio'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58622;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Pleasanton' and ?? = 'Three Rivers'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 67442;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Port Lavaca' and ?? = 'Port O''Connor'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 39722;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Port Lavaca' and ?? = 'Seadrift'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 28686;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Port Lavaca' and ?? = 'Victoria'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 44610;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Port O''Connor' and ?? = 'Seadrift'", ['c1.name', 'c2.name'])
@@ -5342,357 +4330,286 @@ exports.seed = function(knex, Promise) {
               thingy.distance = 30843;
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Post' and ?? = 'Slaton'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 38253;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Post' and ?? = 'Snyder'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 70997;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Quebec' and ?? = 'Ryan'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16130;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Quebec' and ?? = 'Valentine'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 12850;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Ranger' and ?? = 'Stephenville'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 68339;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Rankin' and ?? = 'Texon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 24862;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Rio Bravo' and ?? = 'Zapata'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 61892;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'RockSprings' and ?? = 'Sonora'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 88498;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'RockSprings' and ?? = 'Uvalde'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 110436;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Rockport' and ?? = 'Seadrift'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 79320;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Rosenburg' and ?? = 'Sugar Land'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 19031;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Rosenfeld' and ?? = 'Sanderson'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 40305;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'San Angelo' and ?? = 'Wall'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 22956;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'San Antonio' and ?? = 'Seguin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 58628;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'San Antonio' and ?? = 'Uvalde'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 137262;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'San Marcos' and ?? = 'Seguin'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 35369;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Seadrift' and ?? = 'Victoria'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 52954;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Seagraves' and ?? = 'Seminole'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27991;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Seymour' and ?? = 'Vernon'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 73961;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Seymour' and ?? = 'Wichita Falls'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 83822;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Shamrock' and ?? = 'Wellington'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 41802;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Shamrock' and ?? = 'Wheeler'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 27304;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Silverton' and ?? = 'Tulia'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 43170;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Silverton' and ?? = 'Turkey'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 42235;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Snyder' and ?? = 'Spur'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 97740;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Spearman' and ?? = 'Stratford'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 86024;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Spearman' and ?? = 'Waka'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 16408;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Spring' and ?? = 'The Woodlands'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 14011;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Stamford' and ?? = 'Sweetwater'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 89955;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Sweetwater' and ?? = 'Winters'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 78274;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Temple' and ?? = 'Waco'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 55814;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Temple' and ?? = 'Woodway'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 54112;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Valentine' and ?? = 'Van Horn'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 62270;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Waco' and ?? = 'Woodway'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 8081;
-
               return knex('city_link').insert(thingy);
             }),
-
           knex(knex.raw('cities c1, cities c2'))
             .select('c1.id as city1', 'c2.id as city2')
             .whereRaw("?? = 'Wickett' and ?? = 'Wink'", ['c1.name', 'c2.name'])
             .first()
             .then((thingy) => {
               thingy.distance = 35299;
-
               return knex('city_link').insert(thingy);
             }),
-
-        ])
+        ]);
     });
 };

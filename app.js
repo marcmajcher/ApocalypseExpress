@@ -12,6 +12,7 @@ const randomstring = require("randomstring");
 const routes = require('./routes/index');
 const users = require('./routes/users');
 const admin = require('./routes/admin');
+const mapRoutes = require('./routes/map');
 
 const app = express();
 app.disable('x-powered-by');
@@ -38,6 +39,7 @@ app.use(session({keys: randomKeys}));
 app.use('/', routes);
 app.use('/user', users);
 app.use('/admin', admin);
+app.use('/map', mapRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
