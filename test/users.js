@@ -4,7 +4,7 @@ const app = require('../app.js');
 const request = require('supertest');
 const should = require('should');
 
-const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
+const config = require('../knexfile')['test'];
 const knex = require('knex')(config);
 
 const testUser = {
