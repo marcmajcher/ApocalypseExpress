@@ -30,6 +30,12 @@ div.greeting {
   font-size: 2em;
 }
 
+div.flash-alert {
+  margin: 20px 0;
+  color: red;
+  font-size: 24px;
+}
+
 /* ----- */
 
 canvas.map-canvas {

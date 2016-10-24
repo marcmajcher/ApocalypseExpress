@@ -40,24 +40,17 @@ app.use(session({keys: randomKeys}));
 app.use(function(req, res, next) {
   var session = req.session;
   var messages = session.messages || (session.messages = []);
-  req.flash = function(type, message) {
-    messages.push([type, message]);
-    console.log("setting MESSAGES", messages)
-
+  res.locals.messages = req.session.messages;
+  req.flash = function(message, type) {
+    messages.push({message:message, type:type || 'alert'});
   }
   next();
-})
+});
 
-app.use(function(req, res, next) {
-  res.locals.messages = req.session.messages;
-  console.log(("USE messages: ",req.session.messages));
-  next();
-})
 app.use('/', routes);
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/map', mapRoutes);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

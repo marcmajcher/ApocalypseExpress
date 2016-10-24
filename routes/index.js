@@ -32,7 +32,7 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res, next) => {
   util.knex('users').where({email: req.body.email}).first().then((user) => {
     if (!user || !req.body.password) {
-      req.flash = 'Incorrect email or password.';
+      req.flash('Incorrect email or password.');
       util.renderTemplate(req, res, 'login');
     }
     else {
@@ -43,7 +43,7 @@ router.post('/login', (req, res, next) => {
           res.redirect('/');
         })
         .catch(bcrypt.MISMATCH_ERROR, (err) => {
-          req.flash = 'Incorrect email or password.';
+          req.flash('Incorrect email or password.');
           util.renderTemplate(req, res, 'login');
         })
         .catch((err) => {
