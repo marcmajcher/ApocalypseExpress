@@ -3,64 +3,13 @@
 const app = require('../app.js');
 const request = require('supertest');
 const should = require('should');
-
-const config = require('../knexfile')['test'];
-const knex = require('knex')(config);
-
-const testUser = {
-  firstName: 'Test',
-  lastName: 'User',
-  email: 'test@gmail.com',
-  password: 'test'
-}
-const newUser = {
-  firstName: 'Test2',
-  lastName: 'User2',
-  email: 'test2@gmail.com',
-  password: 'test'
-};
-const badPassUser = {
-  firstName: 'Test3',
-  lastName: 'User3',
-  email: 'test3@gmail.com',
-  password: 'test',
-  vpassword: 'asdf'
-};
-const badEmailUser = {
-  firstName: 'Test4',
-  lastName: 'User4',
-  email: 'test4@gmail.com',
-  vemail: 'fasdf@gmail.com',
-  password: 'test'
-};
+const util = require('../util/test_utils');
 
 var cookieJar;
 var req;
 
-function rollback(done) {
-  knex.migrate.rollback().then(() => {
-    knex.migrate.latest().then(() => {
-      return knex.seed.run().then(() => {
-        done();
-      });
-    });
-  });
-}
-
-function getRegistrationParams(obj) {
-    return [
-      'email=' + obj.email,
-      'vemail=' + (obj.vemail || obj.email),
-      'password=' + obj.password,
-      'vpassword=' + (obj.vpassword || obj.password),
-      'firstname=' + obj.firstName,
-      'lastname=' + obj.lastName,
-      'screenname=' + obj.screenName
-    ].join('&');
-}
-
 describe('Login', () => {
-  before(rollback);
+  before(util.rollback);
 
   it('home page should have login form if not logged in', (done) => {
     request(app).get('/').set('Accept', 'text/html')
@@ -74,7 +23,7 @@ describe('Login', () => {
   it('should be able to log in a test user and redirect to index', (done) => {
     request(app)
       .post('/login').set('Accept', 'text/html')
-      .send('email='+testUser.email+'&password='+testUser.password)
+      .send('email='+util.users.testUser.email+'&password='+util.users.testUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
@@ -110,7 +59,7 @@ describe('Login', () => {
     req.cookies = cookieJar;
     req.expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.text.should.match(new RegExp(testUser.firstName));
+        res.text.should.match(new RegExp(util.users.testUser.firstName));
         done();
       })
   });
@@ -144,7 +93,7 @@ describe('Login', () => {
 });
 
 describe('Registration', () => {
-  before(rollback);
+  before(util.rollback);
 
   it('home page should have a registration link if not logged in', (done) => {
     request(app).get('/').set('Accept', 'text/html')
@@ -157,7 +106,7 @@ describe('Registration', () => {
 
   it('should be able to register a new player account and redirect to home page', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
-      .send(getRegistrationParams(newUser))
+      .send(util.getRegistrationParams(util.users.newUser))
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
@@ -166,17 +115,17 @@ describe('Registration', () => {
   });
 
   it('newly registered user should have all fields saved', (done) => {
-    knex('users').where('email', newUser.email).first().then((user) => {
-      user.email.should.equal(newUser.email);
-      user.firstname.should.equal(newUser.firstName);
-      user.lastname.should.equal(newUser.lastName);
-      // user.screenname.should.equal(newUser.screeName);
+    util.knex('users').where('email', util.users.newUser.email).first().then((user) => {
+      user.email.should.equal(util.users.newUser.email);
+      user.firstname.should.equal(util.users.newUser.firstName);
+      user.lastname.should.equal(util.users.newUser.lastName);
+      // user.screenname.should.equal(util.users.newUser.screeName);
       done();
     });
   });
 
   it('new accounts should have the player role', (done) => {
-      knex('users').where('email', newUser.email).first().then((user) => {
+      util.knex('users').where('email', util.users.newUser.email).first().then((user) => {
         user.role.should.equal('player');
         done();
       });
@@ -189,7 +138,7 @@ describe('Registration', () => {
   function regParamIt(params) {
     it('registration should require all params, fail with '+params.join(', '), (done) => {
         request(app).post('/user').set('Accept', 'text/html')
-          .send(getRegistrationParams({
+          .send(util.getRegistrationParams({
               email: params[0],
               password: params[1],
               firstName: params[2],
@@ -205,15 +154,15 @@ describe('Registration', () => {
 
   it('registration should reject an existing email address', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
-      .send(getRegistrationParams(newUser))
+      .send(util.getRegistrationParams(util.users.newUser))
       .expect(500, done);
   });
 
   it('registration should fail if passwords do not match', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
-      .send(getRegistrationParams(badPassUser))
+      .send(util.getRegistrationParams(util.users.badPassUser))
       .expect(500).end((err, res) => {
-        knex('users').where('email', badPassUser.email).first().then((user) => {
+        util.knex('users').where('email', util.users.badPassUser.email).first().then((user) => {
           should.equal(user, undefined);
           done();
         });
@@ -222,9 +171,9 @@ describe('Registration', () => {
 
   it('registration should fail if emails do not match', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
-      .send(getRegistrationParams(badEmailUser))
+      .send(util.getRegistrationParams(util.users.badEmailUser))
       .expect(500).end((err, res) => {
-        knex('users').where('email', badEmailUser.email).first().then((user) => {
+        util.knex('users').where('email', util.users.badEmailUser.email).first().then((user) => {
           should.equal(user, undefined);
           done();
         });

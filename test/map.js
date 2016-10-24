@@ -3,23 +3,12 @@
 const app = require('../app.js');
 const request = require('supertest');
 const should = require('should');
-const config = require('../knexfile')['test'];
-const knex = require('knex')(config);
+const util = require('../util/test_utils');
 
 var req;
 
-function rollback(done) {
-  knex.migrate.rollback().then(() => {
-    knex.migrate.latest().then(() => {
-      return knex.seed.run().then(() => {
-        done();
-      });
-    });
-  });
-}
-
 describe('Map', () => {
-  before(rollback);
+  before(util.rollback);
 
   it('should get map data from /map', (done) => {
     request(app).get('/map').set('Accept', 'text/json')
@@ -33,6 +22,14 @@ describe('Map', () => {
         links.length.should.equal(3);
         done();
       });
+
+    xit('should not allow user that is not logged in to see map data', (done) => {
+
+    });
+
+    xit('should return correct map data for a logged in user', (done) => {
+
+    });
   });
 
 });

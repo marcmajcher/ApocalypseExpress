@@ -2,8 +2,8 @@ var myData;
 
 var mapObj = {};
 var mapLayer = new Layer();
-var texasMap = new Raster('/img/texasbg.png');
-texasMap.position = new Point(840,880);
+// var texasMap = new Raster('/img/texasbg.png');
+// texasMap.position = new Point(840,880);
 
 /* Navigation methods */
 
