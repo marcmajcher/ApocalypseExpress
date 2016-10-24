@@ -189,12 +189,9 @@ describe('Registration', () => {
     });
 
     it('should have a page to allow users to manage their account if logged in', (done) => {
-      req = request(app).get('/').set('Accept', 'text/html');
+      req = request(app).get('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.expect(200).expect('Content-Type', /text/)
-        .end((err, res) => {
-          request(app).get('/user/account').expect(200, done);
-        });
+      req.expect(200).expect('Content-Type', /text/, done);
     });
 
   });

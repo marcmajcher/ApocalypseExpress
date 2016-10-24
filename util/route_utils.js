@@ -9,7 +9,7 @@ module.exports = {
     login: 'ApoX: Login',
     account: 'ApoX: User Account'
   },
-  renderTemplate: function(req, res, page, params) { 
+  renderTemplate: function(req, res, page, params) {
     var obj = Object.assign({session: req.session, user: req.session.user,
                              page: page, title: this.titles[page]},
                             params);
@@ -20,6 +20,7 @@ module.exports = {
       next();
     }
     else {
+      req.flash('Create an account or log in to access this page.');
       res.redirect('/');
     }
   }

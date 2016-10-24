@@ -1,3 +1,8 @@
-<div class="">
+<h1>
   Welcome to Apocalypse Express.
-</div>
+</h1>
+<% if (session.user) { %>
+ <ul>
+   <li><a href="/user/account">Manage account</a></li>
+ </ul>
+ <% } %>
