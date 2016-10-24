@@ -5,7 +5,7 @@ const request = require('supertest');
 const should = require('should');
 const util = require('../util/test_utils');
 
-var cookieJar;
+var testUserCookie;
 var req;
 
 describe('Login', () => {
@@ -27,7 +27,7 @@ describe('Login', () => {
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
-        cookieJar = res.headers['set-cookie'].map((r)=>{
+        testUserCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
         done();
@@ -36,7 +36,7 @@ describe('Login', () => {
 
   it('home page should not have login form if logged in', (done) => {
     req = request(app).get('/').set('Accept', 'text/html');
-    req.cookies = cookieJar;
+    req.cookies = testUserCookie;
     req.expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.not.match(/action="\/login/);
@@ -46,7 +46,7 @@ describe('Login', () => {
 
   it('home page should have logout link if logged in', (done) => {
     req = request(app).get('/').set('Accept', 'text/html');
-    req.cookies = cookieJar;
+    req.cookies = testUserCookie;
     req.expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(/href="\/logout/);
@@ -56,7 +56,7 @@ describe('Login', () => {
 
   it('home page should greet player by first name', (done) => {
     req = request(app).get('/').set('Accept', 'text/html');
-    req.cookies = cookieJar;
+    req.cookies = testUserCookie;
     req.expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(new RegExp(util.users.testUser.firstName));
@@ -66,7 +66,7 @@ describe('Login', () => {
 
   it('registration should redirect a logged in user to the home page', (done) => {
     req = request(app).get('/register').set('Accept', 'text/html');
-    req.cookies = cookieJar;
+    req.cookies = testUserCookie;
     req.expect(302).expect('Content-Type', /text/)
     .end((err, res) => {
       res.headers.location.should.equal('/');
@@ -76,7 +76,7 @@ describe('Login', () => {
 
   it('should log user out', (done) => {
     req = request(app).get('/logout').set('Accept', 'text/html');
-    req.cookies = cookieJar;
+    req.cookies = testUserCookie;
     req.expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
@@ -119,7 +119,6 @@ describe('Registration', () => {
       user.email.should.equal(util.users.newUser.email);
       user.firstname.should.equal(util.users.newUser.firstName);
       user.lastname.should.equal(util.users.newUser.lastName);
-      // user.screenname.should.equal(util.users.newUser.screeName);
       done();
     });
   });
@@ -180,6 +179,24 @@ describe('Registration', () => {
       });
   });
 
+  describe('Account', () => {
+    it('should only allow logged in users to access account management page', (done) => {
+      request(app).get('/user/account').expect(304)
+        .end((err, res) => {
+          res.headers.location.should.equal('/');
+          done();
+        });
+    });
 
+    it('should have a page to allow users to manage their account if logged in', (done) => {
+      req = request(app).get('/').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.expect(200).expect('Content-Type', /text/)
+        .end((err, res) => {
+          request(app).get('/user/account').expect(200, done);
+        });
+    });
+
+  });
 
 });

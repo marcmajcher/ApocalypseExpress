@@ -4,9 +4,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         /* insert locations */
-        knex('locations').insert({name: 'Garnet', latitude: '32.4487364', longitude: '-99.7331439'}),
-        knex('locations').insert({name: 'Amethyst', latitude: '32.5264993', longitude: '-101.71597'}),
-        knex('locations').insert({name: 'Pearl', latitude: '27.7522487', longitude: '-98.0697249'})
+        knex('locations').insert([{name: 'Garnet', latitude: '32.4487364', longitude: '-99.7331439'},
+                                  {name: 'Amethyst', latitude: '32.5264993', longitude: '-101.71597'},
+                                  {name: 'Pearl', latitude: '27.7522487', longitude: '-98.0697249'}])
       ]);
     })
     .then(function() {

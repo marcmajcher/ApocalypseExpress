@@ -8,6 +8,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/js/ng-app.js"></script>
+    <% if (typeof messages !== 'undefined' && messages.length>0) { %>
+      <script>
+        console.log(messages);
+        for (var i=0; i<messages.length; i++) {
+          alert('<%= flash %>');
+        }
+      </script>
+    <% } %>
   </head>
   <body>
     <% include partials/header %>

@@ -10,7 +10,7 @@ const session = require('cookie-session');
 const randomstring = require("randomstring");
 
 const routes = require('./routes/index');
-const users = require('./routes/users');
+const user = require('./routes/user');
 const admin = require('./routes/admin');
 const mapRoutes = require('./routes/map');
 
@@ -36,10 +36,28 @@ for (var i=0; i<numKeys; i++) {
 }
 app.use(session({keys: randomKeys}));
 
+/* flash messages */
+app.use(function(req, res, next) {
+  var session = req.session;
+  var messages = session.messages || (session.messages = []);
+  req.flash = function(type, message) {
+    messages.push([type, message]);
+    console.log("setting MESSAGES", messages)
+
+  }
+  next();
+})
+
+app.use(function(req, res, next) {
+  res.locals.messages = req.session.messages;
+  console.log(("USE messages: ",req.session.messages));
+  next();
+})
 app.use('/', routes);
-app.use('/user', users);
+app.use('/user', user);
 app.use('/admin', admin);
 app.use('/map', mapRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

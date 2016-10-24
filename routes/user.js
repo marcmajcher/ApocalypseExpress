@@ -2,8 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
-const knex = require('knex')(config);
+const util = require('../util/route_utils');
 const bcrypt = require('bcrypt-as-promised');
 
 /* Create new user */
@@ -24,7 +23,7 @@ router.post('/', (req, res, next) => {
     else {
       bcrypt.hash(req.body.password, 12)
         .then((hashed_password) => {
-          return knex('users')
+          return util.knex('users')
             .insert({
               email: req.body.email,
               firstname: req.body.firstname,
@@ -48,6 +47,12 @@ router.post('/', (req, res, next) => {
       err.status = 500;
       next(err);
     }
+});
+
+/* User account pages */
+router.use(util.loginRequired);
+router.get('/account', (req, res, next) => {
+  util.renderTemplate(req, res, 'account')
 });
 
 module.exports = router;
