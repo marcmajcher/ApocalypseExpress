@@ -5,7 +5,7 @@ const request = require('supertest');
 const should = require('should');
 const util = require('../util/test_utils');
 
-var cookieJar;
+var adminCookie, userCookie;
 var req;
 
 describe('Admin', () => {
@@ -26,12 +26,12 @@ describe('Admin', () => {
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
-        cookieJar = res.headers['set-cookie'].map((r)=>{
+        userCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
 
         req = request(app).get('/admin').set('Accept', 'text/html');
-        req.cookies = cookieJar;
+        req.cookies = userCookie;
         req.expect(302).expect('Content-Type', /text/)
           .end((err, res) => {
             res.headers.location.should.equal('/');
@@ -46,18 +46,17 @@ describe('Admin', () => {
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
-        cookieJar = res.headers['set-cookie'].map((r)=>{
+        adminCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
         req = request(app).get('/admin').set('Accept', 'text/html');
-        req.cookies = cookieJar;
+        req.cookies = adminCookie;
         req.expect(200).expect('Content-Type', /text/)
           .end((err, res) => {
             res.text.should.match(/ApoX Admin/);
             done();
           });
-      })
-
+      });
   });
 
 });
