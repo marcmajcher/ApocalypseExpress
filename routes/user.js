@@ -56,10 +56,13 @@ router.get('/account', (req, res, next) => {
 });
 
 router.put('/account', (req, res, next) => {
-  if (req.body.firstname && req.body.lastname) {
+  if (req.body.firstname && req.body.lastname && req.body.screenname) {
     util.knex('users').where('email', req.session.user.email).first()
-      .update('firstname', req.body.firstname)
-      .update('lastname', req.body.lastname)
+      .update({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        screenname: req.body.screenname
+      })
       .then(() => {
         util.knex('users').where('email', req.session.user.email).first().then((user) => {
           req.session.user = user;
