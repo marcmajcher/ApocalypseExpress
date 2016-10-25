@@ -200,13 +200,15 @@ describe('Registration', () => {
       req.cookies = testUserCookie;
       req.send({
         firstname: util.users.newUser.firstName,
-        lastname: util.users.newUser.lastName
+        lastname: util.users.newUser.lastName,
+        screenname: util.users.newUser.screenName
       })
       .expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
         util.knex('users').where('email', util.users.testUser.email).first().then((user) => {
           user.firstname.should.equal(util.users.newUser.firstName);
           user.lastname.should.equal(util.users.newUser.lastName);
+          user.screenname.should.equal(util.users.newUser.screenName);
           done();
         });
       })

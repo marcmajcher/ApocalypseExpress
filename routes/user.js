@@ -56,6 +56,7 @@ router.get('/account', (req, res, next) => {
 });
 
 router.put('/account', (req, res, next) => {
+  console.log("ASFSDFDFSA", req.body)
   if (req.body.firstname && req.body.lastname && req.body.screenname) {
     util.knex('users').where('email', req.session.user.email).first()
       .update({
@@ -66,12 +67,31 @@ router.put('/account', (req, res, next) => {
       .then(() => {
         util.knex('users').where('email', req.session.user.email).first().then((user) => {
           req.session.user = user;
+          req.flash('Name updated.');
           util.renderTemplate(req, res, 'account');
         });
       });
   }
   else if (req.body.cpassword && req.body.password && req.body.vpassword) {
+    // util.knex('users').where('email', req.session.user.email).first().then((user) => {
+    //   bcrypt.compare(req.body.password, user.hashed_password)
+    //     .then(() => {
+    //       bcrypt.hash(req.body.password, 12)
+    //         .then((hashed_password) => {
+    //           util.knex('users').insert({ hashed_password: hashed_password })
+    //           .then(() => {
+    //             util.knex('users').where('email', req.session.user.email).first().then((user) => {
+    //               req.session.user = user;
+    //               util.renderTemplate(req, res, 'account');
+    //             });
+    //           });
+    //         });
+    //     })
+    //     .catch((err) => {
+    //       next(err); // change to redirect
+    //     })
 
+    // });
   }
   else {
     var err = new Error('Missing required fields');
