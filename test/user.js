@@ -4,6 +4,7 @@ const app = require('../app.js');
 const request = require('supertest');
 const should = require('should');
 const util = require('../util/test_utils');
+const bcrypt = require('bcrypt-as-promised');
 
 var testUserCookie;
 var req;
@@ -51,7 +52,7 @@ describe('Login', () => {
       .end((err, res) => {
         res.text.should.match(/href="\/logout/);
         done();
-      })
+      });
   });
 
   it('home page should greet player by first name', (done) => {
@@ -61,7 +62,7 @@ describe('Login', () => {
       .end((err, res) => {
         res.text.should.match(new RegExp(util.users.testUser.firstName));
         done();
-      })
+      });
   });
 
   it('registration should redirect a logged in user to the home page', (done) => {
@@ -192,6 +193,62 @@ describe('Registration', () => {
       req = request(app).get('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req.expect(200).expect('Content-Type', /text/, done);
+    });
+
+    it('should allow a user to change their first and last name', (done) => {
+      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.send([
+        'firstname=' + util.users.newUser.firstName,
+        'lastname=' + util.users.newUser.lastName
+      ])
+      .expect(200).expect('Content-Type', /text/)
+      .end((err, res) => {
+        util.knex('users').where('email', util.users.testUser.email).first().then((user) => {
+          user.firstname.should.equal(util.users.newUser.firstName);
+          user.lastname.should.equal(util.users.newUser.lastName);
+          done();
+        });
+      })
+    });
+
+    it('should allow a user to change their password', (done) => {
+      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.send([
+        'cpassword=' + util.users.testUser.password,
+        'password=' + util.users.newUser.password,
+        'vpassword=' + util.users.newUser.password
+      ])
+      .expect(200).expect('Content-Type', /text/)
+      .end((err, res) => {
+        util.knex('users').where('email', util.users.testUser.email).first().then((user) => {
+          bcrypt.compare(util.users.newUser.password, user.hashed_password)
+            .then(() => {
+              should.ok(util.users.newUser.password);
+              done();
+            })
+            .catch((err) => {
+              should.fail(util.users.newUser.password, util.users.testUser.password, 'Passwords did not match');
+              done();
+            });
+        });
+      });
+    });
+
+    it('should require a user to enter their current password to change it', (done) => {
+      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.send([
+        'cpassword=' + util.users.newUser.password,
+        'password=' + util.users.newUser.password,
+        'vpassword=' + util.users.newUser.password
+      ])
+      .expect(304)
+      .end((err, res) => {
+        res.headers.location.should.equal('/user/account');
+        done();
+      });
     });
 
   });

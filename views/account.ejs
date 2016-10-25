@@ -5,11 +5,11 @@
   <div><%= user.email %></div>
   <div class="form-group">
     <label for="firstname">First Name</label>
-    <input class="form-control" id="firstname" type="text" name="firstname">
+    <input class="form-control" id="firstname" type="text" name="firstname" required>
   </div>
   <div class="form-group">
     <label for="lastname">Last Name</label>
-    <input class="form-control" id="lastname" type="text" name="lastname">
+    <input class="form-control" id="lastname" type="text" name="lastname" required>
   </div>
   <button type="submit" class="btn btn-default">Update Info</button>
 </form>
@@ -17,15 +17,16 @@
   <h2>Change Password</h2>
   <div class="form-group">
     <label for="cpassword">Current Password</label>
-    <input class="form-control" id="cpassword" type="password" name="cpassword">
+    <input class="form-control" id="cpassword" type="password" name="cpassword" required>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input class="form-control" id="password" type="password" name="password">
+    <input class="form-control" id="rpassword" type="password" name="password" required>
   </div>
   <div class="form-group">
     <label for="vpassword">Verify Password</label>
-    <input class="form-control" id="vpassword" type="password" name="vpassword">
+    <input class="form-control" id="vpassword" type="password" name="vpassword" required>
   </div>
   <button type="submit" class="btn btn-default">Change Password</button>
 </form>
+<script src="/js/view/account.js"></script>

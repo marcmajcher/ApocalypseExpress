@@ -40,7 +40,7 @@ module.exports = {
       firstName: 'Test2',
       lastName: 'User2',
       email: 'test2@gmail.com',
-      password: 'test'
+      password: 'test2'
     },
     badPassUser: {
       firstName: 'Test3',
