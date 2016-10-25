@@ -55,6 +55,27 @@ router.get('/account', (req, res, next) => {
   util.renderTemplate(req, res, 'account')
 });
 
+router.put('/account', (req, res, next) => {
+  if (req.body.firstname && req.body.lastname) {
+    util.knex('users').where('email', req.session.user.email).first()
+      .update('firstname', req.body.firstname)
+      .update('lastname', req.body.lastname)
+      .then(() => {
+        util.knex('users').where('email', req.session.user.email).first().then((user) => {
+          req.session.user = user;
+          util.renderTemplate(req, res, 'account');
+        });
+      });
+  }
+  else if (req.body.cpassword && req.body.password && req.body.vpassword) {
+
+  }
+  else {
+    var err = new Error('Missing required fields');
+    err.status = 500;
+    next(err);
+  }
+});
 
 module.exports = router;
 
