@@ -3,27 +3,28 @@
 <form class="" action="/user" method="post">
   <div class="form-group">
     <label for="firstname">First Name</label>
-    <input class="form-control" id="firstname" type="text" name="firstname">
+    <input class="form-control" id="firstname" type="text" name="firstname" required>
   </div>
   <div class="form-group">
     <label for="lastname">Last Name</label>
-    <input class="form-control" id="lastname" type="text" name="lastname">
+    <input class="form-control" id="lastname" type="text" name="lastname" required>
   </div>
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input class="form-control" id="email" type="text" name="email" placeholder="your.email@wherever.com">
+    <input class="form-control" id="remail" type="email" name="email" required placeholder="your.email@wherever.com">
   </div>
   <div class="form-group">
     <label for="vemail">Verify Email Address</label>
-    <input class="form-control" id="vemail" type="text" name="vemail" placeholder="your.email@wherever.com">
+    <input class="form-control" id="vemail" type="email" name="vemail" required placeholder="your.email@wherever.com">
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input class="form-control" id="password" type="password" name="password">
+    <label for="password">Password (must be at least 8 characters long, and contain a number and a special character)</label>
+    <input class="form-control" id="rpassword" type="password" required name="password">
   </div>
   <div class="form-group">
     <label for="vpassword">Verify Password</label>
-    <input class="form-control" id="vpassword" type="password" name="vpassword">
+    <input class="form-control" id="vpassword" type="password" required name="vpassword">
   </div>
-  <button type="submit" class="btn btn-default">Register</button>
+  <button type="submit" id="register-submit" class="btn btn-default">Register</button>
 </form>
+<script src="/js/view/register.js"></script>
