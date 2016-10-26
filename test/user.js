@@ -214,14 +214,14 @@ describe('Registration', () => {
       })
     });
 
-    xit('should allow a user to change their password', (done) => {
+    it('should allow a user to change their password', (done) => {
       req = request(app).put('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.send([
-        'cpassword=' + util.users.testUser.password,
-        'password=' + util.users.newUser.password,
-        'vpassword=' + util.users.newUser.password
-      ])
+      req.send({
+        cpassword: util.users.testUser.password,
+        password: util.users.newUser.password,
+        vpassword: util.users.newUser.password
+      })
       .expect(200).expect('Content-Type', /text/)
       .end((err, res) => {
         util.knex('users').where('email', util.users.testUser.email).first().then((user) => {
