@@ -14,7 +14,13 @@ exports.seed = function(knex, Promise) {
           firstname: 'Test',
           lastname: 'User',
           screenname: 'The User Who Tests',
-          hashed_password: '$2a$12$JgZVSmqm8/DGpi3kV3ODKefDw7ajkvpqlp8Qg1VpDaCUZBgm9E4Gu'}])
+          hashed_password: '$2a$12$JgZVSmqm8/DGpi3kV3ODKefDw7ajkvpqlp8Qg1VpDaCUZBgm9E4Gu'},
+          // {email: 'imjoe@gmail.com',
+          //   firstname: 'Immortan',
+          //   lastname: 'Joe',
+          //   screenname: 'Toecutter',
+          //   hashed_password: '$2a$12$JgZVSmqm8/DGpi3kV3ODKefDw7ajkvpqlp8Qg1VpDaCUZBgm9E4Gu'}
+        ])
       ]);
     });
 };

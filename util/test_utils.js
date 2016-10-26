@@ -12,6 +12,7 @@ module.exports = {
       });
     });
   },
+  defaultLocation: 'Garnet',
   getRegistrationParams: function(obj) {
       return [
         'email=' + obj.email,
@@ -44,6 +45,13 @@ module.exports = {
       email: 'test2@gmail.com',
       screenName: 'The Second User',
       password: 'test2'
+    },
+    driverUser: {
+      firstName: 'Immortan',
+      lastName: 'Joe',
+      email: 'imjoe@gmail.com',
+      screenName: 'Toecutter',
+      password: 'test'
     },
     badPassUser: {
       firstName: 'Test3',

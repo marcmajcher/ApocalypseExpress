@@ -9,6 +9,7 @@ module.exports = {
     login: 'ApoX: Login',
     account: 'ApoX: User Account'
   },
+  defaultLocation: 'Austin',
   renderTemplate: function(req, res, page, params) {
     var obj = Object.assign({session: req.session, user: req.session.user,
                              page: page, title: this.titles[page]},
