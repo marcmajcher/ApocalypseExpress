@@ -1,13 +1,19 @@
+'use strict';
+
+var locations = [ {name: 'Garnet', latitude: '32.4487364', longitude: '-99.7331439'},
+                  {name: 'Amethyst', latitude: '32.5264993', longitude: '-101.71597'},
+                  {name: 'Pearl', latitude: '27.7522487', longitude: '-98.0697249'} ];
 
 exports.seed = function(knex, Promise) {
   return knex('locations').del()
     .then(function () {
-      return Promise.all([
-        /* insert locations */
-        knex('locations').insert([{name: 'Garnet', latitude: '32.4487364', longitude: '-99.7331439'},
-                                  {name: 'Amethyst', latitude: '32.5264993', longitude: '-101.71597'},
-                                  {name: 'Pearl', latitude: '27.7522487', longitude: '-98.0697249'}])
-      ]);
+      return knex('locations').insert(locations);
+    })
+    .then(function() {
+      return knex('locations').where('name', locations[0].name).first().then((location) => {
+        return knex('config').where('config', 'default').first()
+          .update('defaultLocation', location.id);
+      });
     })
     .then(function() {
       return Promise.all([

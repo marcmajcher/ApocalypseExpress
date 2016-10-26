@@ -21,20 +21,30 @@ router.post('/', (req, res, next) => {
       next(err);
     }
     else {
+      let user_password = '';
+      /* All good, let's create a user */
       bcrypt.hash(req.body.password, 12)
         .then((hashed_password) => {
-          return util.knex('users')
-            .insert({
-              email: req.body.email,
-              firstname: req.body.firstname,
-              lastname: req.body.lastname,
-              screenname: generateScreenName(),
-              hashed_password: hashed_password
-            }, '*');
+          user_password = hashed_password;
+          return util.knex('config').where('config', 'default').first();
         })
-        .then((users) => {
-          const user = users[0];
-          delete user.hashed_password;
+        .then((config) => {
+          return util.knex('drivers').insert({
+            name: generateScreenName(),
+            location: config.defaultLocation
+          }, '*');
+        })
+        .then((drivers) => {
+          return util.knex('users').insert({
+            email: req.body.email,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            screenname: generateScreenName(),
+            hashed_password: user_password,
+            driverid: drivers[0].id
+          }, '*');
+        })
+        .then((user) => {
           res.redirect('/');
         })
         .catch((err) => {

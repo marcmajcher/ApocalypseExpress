@@ -15,7 +15,6 @@ router.get('/map', (req, res, next) => {
   renderTemplate(req, res, 'admin/map');
 })
 
-
 module.exports = router;
 
 /////
