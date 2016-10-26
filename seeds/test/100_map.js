@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
             .first()
             .then((thingy) => {
               thingy.distance = 97154;
-              return knex('city_link').insert(thingy);
+              return knex('connections').insert(thingy);
             }),
           knex(knex.raw('locations c1, locations c2'))
             .select('c1.id as city1', 'c2.id as city2')
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
             .first()
             .then((thingy) => {
               thingy.distance = 94887;
-              return knex('city_link').insert(thingy);
+              return knex('connections').insert(thingy);
             }),
           knex(knex.raw('locations c1, locations c2'))
             .select('c1.id as city1', 'c2.id as city2')
@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
             .first()
             .then((thingy) => {
               thingy.distance = 72787;
-              return knex('city_link').insert(thingy);
+              return knex('connections').insert(thingy);
           }),
         ]);
     });

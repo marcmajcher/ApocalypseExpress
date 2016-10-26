@@ -21,9 +21,9 @@ describe('Map', () => {
         var cities = res.body.locations;
         var links = res.body.connections;
         cities[1].name.should.equal('Garnet');
-        // cities[2].name.should.equal('Amethyst'); // should be undefined
-        // cities[3].name.should.equal('Pearl');  // should be undefined
-        links.length.should.equal(1);
+        (typeof cities[2]).should.equal('undefined');
+        (typeof cities[3]).should.equal('undefined');
+        links.length.should.equal(2);
         done();
       });
   });
