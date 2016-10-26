@@ -238,14 +238,14 @@ describe('Registration', () => {
       });
     });
 
-    xit('should require a user to enter their current password to change it', (done) => {
+    it('should require a user to enter their current password to change it', (done) => {
       req = request(app).put('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.send([
-        'cpassword=' + util.users.newUser.password,
-        'password=' + util.users.newUser.password,
-        'vpassword=' + util.users.newUser.password
-      ])
+      req.send({
+        cpassword: util.users.badPassUser.password,
+        password: util.users.newUser.password,
+        vpassword: util.users.newUser.password
+      })
       .expect(304)
       .end((err, res) => {
         res.headers.location.should.equal('/user/account');

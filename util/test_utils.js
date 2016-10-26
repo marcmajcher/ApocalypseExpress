@@ -50,7 +50,7 @@ module.exports = {
       lastName: 'User3',
       email: 'test3@gmail.com',
       screenName: 'baaaad',
-      password: 'test',
+      password: 'testtest1234!',
       vpassword: 'asdf'
     },
     badEmailUser: {

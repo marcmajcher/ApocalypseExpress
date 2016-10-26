@@ -88,7 +88,8 @@ router.put('/account', (req, res, next) => {
             });
         })
         .catch((err) => {
-          next(err); // change to redirect
+          req.flash('Password incorrect.');
+          res.redirect('/user/account');
         })
 
     });
