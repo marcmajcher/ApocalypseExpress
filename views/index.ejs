@@ -1,8 +1,15 @@
 <h1>
   Welcome to Apocalypse Express.
 </h1>
-<% if (session.user) { %>
+<% if (user) { %>
  <ul>
    <li><a href="/user/account">Manage account</a></li>
  </ul>
+
+ <div>
+  Driver: <%= driver.name %>
+ </div>
+ <div>
+   Current Location: <%= location.name %>
+ </div>
  <% } %>

@@ -6,29 +6,10 @@ const should = require('should');
 const util = require('../util/test_utils');
 
 var req;
-var testUserCookie;
+var driverUserCookie;
 
 describe('Driver', () => {
   before(util.rollback);
-  // before(() => {
-  //   request(app)
-  //     .post('/login').set('Accept', 'text/html')
-  //     .send('email='+util.users.driverUser.email+'&password='+util.users.driverUser.password)
-  //     .end((err, res) => {
-  //       res.headers.location.should.equal('/');
-  //       testUserCookie = res.headers['set-cookie'].map((r)=>{
-  //             return r.replace("; path=/; httponly","")
-  //           }).join("; ");
-  //     });
-  // });
-
-  it('should be ok', (done) => {
-    util.knex('users').where('email', util.users.driverUser.email).first().then((user) => {
-      ('ok').should.equal('ok');
-      // console.log("USER:",user);
-      done();
-    });
-  });
 
   it('should register a new user, which has a driver with a default location', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
@@ -39,12 +20,37 @@ describe('Driver', () => {
         util.knex('users').where('email', util.users.driverUser.email).first().then((user) => {
           util.knex('config').where('config', 'default').first().then((config) => {
             util.knex('drivers').where('id', user.driverid).first().then((driver) => {
-              driver.id.should.equal(config.defaultLocation);
+              driver.location.should.equal(config.defaultLocation);
+              driver.health.should.equal(100);
+              driver.money.should.equal(0);
+              driver.name.should.exist;
               done();
             });
           });
         });
       });
+  });
+
+  it('should log in a new user', (done) => {
+    request(app)
+      .post('/login').set('Accept', 'text/html')
+      .send('email='+util.users.driverUser.email+'&password='+util.users.driverUser.password)
+      .end((err, res) => {
+        res.headers.location.should.equal('/');
+        driverUserCookie = res.headers['set-cookie'].map((r)=>{
+              return r.replace("; path=/; httponly","")
+            }).join("; ");
+        done();
+      });
+  });
+
+  it('should display the default location on the home page for a new user', (done) => {
+    req = request(app).get('/').set('Accept', 'text/html');
+    req.cookies = driverUserCookie;
+    req.expect(200).end((err, res) => {
+      res.text.should.match(/Garnet/);
+      done();
+    });
   });
 
 });

@@ -7,7 +7,17 @@ const bcrypt = require('bcrypt-as-promised');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  util.renderTemplate(req, res, 'index');
+  let user = req.session.user;
+  if (user) {
+    util.knex('drivers').where('id', user.driverid).first().then((driver) => {
+      util.knex('locations').where('id', driver.location).first().then((location) => {
+        util.renderTemplate(req, res, 'index', {driver: driver, location: location});
+      })
+    })
+  }
+  else {
+    util.renderTemplate(req, res, 'index');
+  }
 });
 
 router.get('/booyah', (req, res) => {
