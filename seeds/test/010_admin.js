@@ -15,7 +15,6 @@ exports.seed = function(knex, Promise) {
         {email: 'admin@gmail.com',
           firstname: 'Admin',
           lastname: 'User',
-          screenname: 'Adminuser',
           driverid: 1,
           hashed_password: '$2a$12$Qs2FsKTK1tsaXGO/wc0YVOTI/doAPALiFWacy/Uku4NOShVopeGQm',
           role: 'admin'},
@@ -23,7 +22,6 @@ exports.seed = function(knex, Promise) {
           firstname: 'Test',
           lastname: 'User',
           driverid: 1,
-          screenname: 'The User Who Tests',
           hashed_password: '$2a$12$JgZVSmqm8/DGpi3kV3ODKefDw7ajkvpqlp8Qg1VpDaCUZBgm9E4Gu'},
         ])
       ]);

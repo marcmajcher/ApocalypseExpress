@@ -17,7 +17,6 @@ exports.seed = function(knex, Promise) {
           email: 'majcher@gmail.com',
           firstname: 'Marc',
           lastname: 'Majcher',
-          screenname: 'Butts Farter',
           hashed_password: '$2a$12$Qs2FsKTK1tsaXGO/wc0YVOTI/doAPALiFWacy/Uku4NOShVopeGQm',
           role: 'admin',
           driverid: driver.id

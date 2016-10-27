@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
         })
         .then((config) => {
           return util.knex('drivers').insert({
-            name: generateScreenName(),
+            name: generateApocName(),
             location: config.defaultLocation
           }, '*');
         })
@@ -39,7 +39,6 @@ router.post('/', (req, res, next) => {
             email: req.body.email,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
-            screenname: generateScreenName(),
             hashed_password: user_password,
             driverid: drivers[0].id
           }, '*');
@@ -66,12 +65,11 @@ router.get('/account', (req, res, next) => {
 });
 
 router.put('/account', (req, res, next) => {
-  if (req.body.firstname && req.body.lastname && req.body.screenname) {
+  if (req.body.firstname && req.body.lastname) {
     util.knex('users').where('email', req.session.user.email).first()
       .update({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        screenname: req.body.screenname
       })
       .then(() => {
         util.knex('users').where('email', req.session.user.email).first().then((user) => {
@@ -116,6 +114,6 @@ module.exports = router;
 //////
 
 const nameList = require('../data/uniquenames');
-function generateScreenName() {
+function generateApocName() {
   return nameList[Math.floor(Math.random()*nameList.length)] + ' ' + nameList[Math.floor(Math.random()*nameList.length)];
 }
