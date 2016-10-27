@@ -5,16 +5,22 @@ module.exports = {
   development: {
     client: 'pg',
     connection: process.env.DEV_DATABASE_NAME,
-    seeds: { directory: __dirname + '/seeds/dev' }
+    seeds: {
+      directory: __dirname + '/seeds/dev'
+    }
   },
   test: {
     client: 'pg',
     connection: process.env.TEST_DATABASE_NAME,
-    seeds: { directory: __dirname + '/seeds/test' }
+    seeds: {
+      directory: __dirname + '/seeds/test'
+    }
   },
   production: {
     client: 'pg',
     connection: process.env.PRODUCTION_DATABASE_URL,
-    seeds: { directory: __dirname + '/seeds/production' }
+    seeds: {
+      directory: __dirname + '/seeds/production'
+    }
   }
 };

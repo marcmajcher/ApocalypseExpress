@@ -30,16 +30,20 @@ app.use(methodOverride('_method'))
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const numKeys = Math.ceil(Math.random()*10)+10;
+const numKeys = Math.ceil(Math.random() * 10) + 10;
 const randomKeys = [];
-for (var i=0; i<numKeys; i++) {
+for (var i = 0; i < numKeys; i++) {
   randomKeys.push(randomstring.generate());
 }
-app.use(session({keys: randomKeys}));
+app.use(session({
+  keys: randomKeys
+}));
 
 /* flash messages */
 app.use(function(req, res, next) {
@@ -47,7 +51,10 @@ app.use(function(req, res, next) {
   var messages = session.messages || (session.messages = []);
   res.locals.messages = req.session.messages;
   req.flash = function(message, type) {
-    messages.push({message:message, type:type || 'alert'});
+    messages.push({
+      message: message,
+      type: type || 'alert'
+    });
   }
   next();
 });

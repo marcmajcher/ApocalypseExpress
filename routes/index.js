@@ -10,9 +10,13 @@ router.get('/', (req, res, next) => {
   let user = req.session.user;
   if (user) {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {
-      util.knex('locations').where('id', driver.location).first().then((location) => {
-        util.renderTemplate(req, res, 'index', {driver: driver, location: location});
-      })
+      util.knex('locations').where('id', driver.location).first().then(
+        (location) => {
+          util.renderTemplate(req, res, 'index', {
+            driver: driver,
+            location: location
+          });
+        })
     })
   }
   else {
@@ -38,7 +42,9 @@ router.get('/login', (req, res) => {
 
 /* Log user in and redirect them to the game page */
 router.post('/login', (req, res, next) => {
-  util.knex('users').where({email: req.body.email}).first().then((user) => {
+  util.knex('users').where({
+    email: req.body.email
+  }).first().then((user) => {
     if (!user || !req.body.password) {
       /* Fail if the username is bad, or no password is given */
       req.flash('Incorrect email or password.');
@@ -60,14 +66,14 @@ router.post('/login', (req, res, next) => {
         .catch((err) => {
           next(err);
         });
-      }
-    });
+    }
+  });
 });
 
 /* Log player out and return them to the index page */
 router.get('/logout', (req, res) => {
-    req.session = null;
-    res.redirect('/');
+  req.session = null;
+  res.redirect('/');
 });
 
 /* smoke test route */

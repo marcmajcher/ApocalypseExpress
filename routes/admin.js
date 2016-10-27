@@ -20,9 +20,9 @@ module.exports = router;
 /////
 
 /* authorization middleware */
-function adminRequired (req, res, next) {
+function adminRequired(req, res, next) {
   if (process.env.NODE_ENV === 'development' ||
-      req.session.user && req.session.user.role === 'admin') {
+    req.session.user && req.session.user.role === 'admin') {
     next();
   }
   else {
@@ -36,5 +36,10 @@ const titles = {
 }
 
 function renderTemplate(req, res, page, flash) {
-  res.render('_template', {session: req.session, page: page, title: titles[page], flash: flash});
+  res.render('_template', {
+    session: req.session,
+    page: page,
+    title: titles[page],
+    flash: flash
+  });
 }

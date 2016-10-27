@@ -16,14 +16,14 @@ module.exports = {
   },
   defaultLocation: 'Garnet',
   getRegistrationParams: function(obj) {
-      return [
-        'email=' + obj.email,
-        'vemail=' + (obj.vemail || obj.email),
-        'password=' + obj.password,
-        'vpassword=' + (obj.vpassword || obj.password),
-        'firstname=' + obj.firstName,
-        'lastname=' + obj.lastName
-      ].join('&');
+    return [
+      'email=' + obj.email,
+      'vemail=' + (obj.vemail || obj.email),
+      'password=' + obj.password,
+      'vpassword=' + (obj.vpassword || obj.password),
+      'firstname=' + obj.firstName,
+      'lastname=' + obj.lastName
+    ].join('&');
   },
   users: {
     testUser: {

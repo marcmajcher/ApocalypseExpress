@@ -10,9 +10,13 @@ router.get('/', (req, res, next) => {
   let user = req.session.user;
   if (user) {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {
-      util.knex('locations').where('id', driver.location).first().then((location) => {
-        util.renderTemplate(req, res, 'game', {driver: driver, location: location});
-      })
+      util.knex('locations').where('id', driver.location).first().then(
+        (location) => {
+          util.renderTemplate(req, res, 'game', {
+            driver: driver,
+            location: location
+          });
+        })
     })
   }
   else {
