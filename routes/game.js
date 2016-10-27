@@ -16,8 +16,8 @@ router.get('/', (req, res, next) => {
             driver: driver,
             location: location
           });
-        })
-    })
+        });
+    });
   }
   else {
     res.redirect('index');

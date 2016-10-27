@@ -11,14 +11,14 @@ router.post('/', (req, res, next) => {
     req.body.password && req.body.vpassword &&
     req.body.firstname && req.body.lastname) {
     if (req.body.password !== req.body.vpassword) {
-      var err = new Error('Passwords do not match')
-      err.status = 500;
-      next(err);
+      var passwordError = new Error('Passwords do not match');
+      passwordError.status = 500;
+      next(passwordError);
     }
     else if (req.body.email !== req.body.vemail) {
-      var err = new Error('Emails do not match')
-      err.status = 500;
-      next(err);
+      var emailError = new Error('Emails do not match');
+      emailError.status = 500;
+      next(emailError);
     }
     else {
       let user_password = '';
@@ -52,7 +52,7 @@ router.post('/', (req, res, next) => {
     }
   }
   else {
-    var err = new Error('Registration missing required fields')
+    var err = new Error('Registration missing required fields');
     err.status = 500;
     next(err);
   }
@@ -61,7 +61,7 @@ router.post('/', (req, res, next) => {
 /* User account pages */
 router.use(util.loginRequired);
 router.get('/account', (req, res, next) => {
-  util.renderTemplate(req, res, 'account')
+  util.renderTemplate(req, res, 'account');
 });
 
 router.put('/account', (req, res, next) => {
@@ -103,8 +103,7 @@ router.put('/account', (req, res, next) => {
           .catch((err) => {
             req.flash('Password incorrect.');
             res.redirect('/user/account');
-          })
-
+          });
       });
   }
   else {

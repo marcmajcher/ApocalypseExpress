@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
     myData.locations = cities.reduce(function(l, c) {
       l[c.id] = c;
       delete l[c.id].id;
-      return l
+      return l;
     }, {});
     util.knex('connections').then((links) => {
       myData.connections = links;

@@ -13,7 +13,7 @@ router.get('/', adminRequired, (req, res, next) => {
 // router.get('/map', adminRequired, (req, res, next) => {
 router.get('/map', (req, res, next) => {
   renderTemplate(req, res, 'admin/map');
-})
+});
 
 module.exports = router;
 
@@ -28,12 +28,12 @@ function adminRequired(req, res, next) {
   else {
     res.redirect('/');
   }
-};
+}
 
 const titles = {
   'admin/index': 'ApoX Admin',
   'admin/map': 'ApoX Map Admin'
-}
+};
 
 function renderTemplate(req, res, page, flash) {
   res.render('_template', {

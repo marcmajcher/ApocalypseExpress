@@ -16,8 +16,8 @@ router.get('/', (req, res, next) => {
             driver: driver,
             location: location
           });
-        })
-    })
+        });
+    });
   }
   else {
     util.renderTemplate(req, res, 'index');
@@ -38,7 +38,7 @@ router.get('/register', (req, res, next) => {
 /* Login page  */
 router.get('/login', (req, res) => {
   util.renderTemplate(req, res, 'login');
-})
+});
 
 /* Log user in and redirect them to the game page */
 router.post('/login', (req, res, next) => {
