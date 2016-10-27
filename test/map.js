@@ -33,7 +33,7 @@ describe('Map', () => {
       .send('email='+util.users.adminUser.email+'&password='+util.users.adminUser.password)
       .expect(304).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.headers.location.should.equal('/');
+        res.headers.location.should.equal('/game');
         var adminCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");

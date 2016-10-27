@@ -25,7 +25,7 @@ describe('Admin', () => {
       .send('email='+util.users.testUser.email+'&password='+util.users.testUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.headers.location.should.equal('/');
+        res.headers.location.should.equal('/game');
         userCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
@@ -45,7 +45,7 @@ describe('Admin', () => {
       .send('email='+util.users.adminUser.email+'&password='+util.users.adminUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.headers.location.should.equal('/');
+        res.headers.location.should.equal('/game');
         adminCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");

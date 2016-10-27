@@ -27,7 +27,7 @@ describe('Login', () => {
       .send('email='+util.users.testUser.email+'&password='+util.users.testUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
-        res.headers.location.should.equal('/');
+        res.headers.location.should.equal('/game');
         testUserCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
@@ -65,12 +65,12 @@ describe('Login', () => {
       });
   });
 
-  it('registration should redirect a logged in user to the home page', (done) => {
+  it('registration should redirect a logged in user to the game page', (done) => {
     req = request(app).get('/register').set('Accept', 'text/html');
     req.cookies = testUserCookie;
     req.expect(302).expect('Content-Type', /text/)
     .end((err, res) => {
-      res.headers.location.should.equal('/');
+      res.headers.location.should.equal('/game');
       done();
     });
   });

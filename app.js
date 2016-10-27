@@ -14,6 +14,7 @@ const routes = require('./routes/index');
 const user = require('./routes/user');
 const admin = require('./routes/admin');
 const mapRoutes = require('./routes/map');
+const game = require('./routes/game');
 
 const app = express();
 app.disable('x-powered-by');
@@ -55,6 +56,7 @@ app.use('/', routes);
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/map', mapRoutes);
+app.use('/game', game);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -36,7 +36,7 @@ describe('Driver', () => {
       .post('/login').set('Accept', 'text/html')
       .send('email='+util.users.driverUser.email+'&password='+util.users.driverUser.password)
       .end((err, res) => {
-        res.headers.location.should.equal('/');
+        res.headers.location.should.equal('/game');
         driverUserCookie = res.headers['set-cookie'].map((r)=>{
               return r.replace("; path=/; httponly","")
             }).join("; ");
@@ -44,8 +44,8 @@ describe('Driver', () => {
       });
   });
 
-  it('should display the default location on the home page for a new user', (done) => {
-    req = request(app).get('/').set('Accept', 'text/html');
+  it('should display the default location on the game page for a new user', (done) => {
+    req = request(app).get('/game').set('Accept', 'text/html');
     req.cookies = driverUserCookie;
     req.expect(200).end((err, res) => {
       res.text.should.match(/Garnet/);
