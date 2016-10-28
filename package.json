@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./app/www",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test mocha --watch"
   },
   "dependencies": {
     "bcrypt-as-promised": "^1.1.0",

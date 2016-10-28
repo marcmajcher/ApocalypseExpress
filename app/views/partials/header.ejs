@@ -2,37 +2,37 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="logo" href="/" id="logo">
-        <img src="/img/ApocXpressLogo-sm.png" alt="Apocalypse Express Logo" />
-        APOCALYPSE EXPRESS
+        <img src="/img/ApocXpressLogo-sm.png" alt="Apocalypse Express Logo" /> APOCALYPSE EXPRESS
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <% if (session.user) { %>
-      <div class="navbar-right">
-        <div class="greeting">
-          Welcome to the Apocalypse, <%= session.user.firstname %>.
-          <% if (session.user.email === 'majcher@gmail.com') { %>
-            <a href="/admin">⚙</a>
-          <% } %>
+        <div class="navbar-right">
+          <div class="greeting">
+            Welcome to the Apocalypse,
+            <%= session.user.firstname %>.
+              <% if (session.user.email === 'majcher@gmail.com') { %>
+                <a href="/admin">⚙</a>
+                <% } %>
+          </div>
+          <div>
+            <a class="navbar-right" href="/logout">Logout</a>
+          </div>
         </div>
-        <div>
-          <a class="navbar-right" href="/logout">Logout</a>
-        </div>
-      </div>
-      <% } else { %>
-        <div class="header-form navbar-right">
-          <% if (page !== 'login') { %>
-          <form class="form-inline" action="/login" method="post">
-              <input class="form-control" id="email" type="text" name="email" placeholder="Email">
-              <input class="form-control" id="password" type="password" name="password" placeholder="Password">
-              <button class="btn btn-primary" type="submit">Log In</button>
-          </form>
-          <% }
+        <% } else { %>
+          <div class="header-form navbar-right">
+            <% if (page !== 'login') { %>
+              <form class="form-inline" action="/login" method="post">
+                <input class="form-control" id="email" type="text" name="email" placeholder="Email">
+                <input class="form-control" id="password" type="password" name="password" placeholder="Password">
+                <button class="btn btn-primary" type="submit">Log In</button>
+              </form>
+              <% }
           if (page !== 'register') { %>
-          <a class="navbar-right" href="/register">Register</a>
+                <a class="navbar-right" href="/register">Register</a>
+                <% } %>
+          </div>
           <% } %>
-        </div>
-      <% } %>
     </div>
   </div>
 </nav>
