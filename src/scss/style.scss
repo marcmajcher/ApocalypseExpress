@@ -7,14 +7,16 @@ body {
   border-bottom: 20px solid black;
   height: 140px;
   background-color: #bbc;
+
+  a {
+    color: #333;
+  }
 }
 
-.navbar-header a {
-  color: #333;
-}
 .logo {
   font-size: 4em;
 }
+
 .navbar-right {
   padding-right: 40px;
   padding-top: 12px;

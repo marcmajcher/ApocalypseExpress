@@ -1,39 +1,44 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer');
-var concat = require('gulp-concat');
-var del = require('del');
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var nodemon = require('gulp-nodemon');
-var notify = require("gulp-notify");
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+const autoprefixer = require('gulp-autoprefixer');
+// const concat = require('gulp-concat');
+const del = require('del');
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const jshint = require('gulp-jshint');
+const nodemon = require('gulp-nodemon');
+const notify = require("gulp-notify");
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
 
 gulp.task('default', ['clean', 'build', 'jshint', 'watch', 'nodemon']);
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass', 'scripts', 'imagemin']);
 
 gulp.task('clean', function() {
   return del([
-    'app/static/css'
+    'app/static/css/*',
+    'app/static/js/*',
+    'app/static/img/*'
   ]);
 });
 
-gulp.task('concat', function() {
-  return gulp.src('src/js/**/*.js')
-    .pipe(concat('app.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('app/static/js'));
-});
+// gulp.task('concat', function() {
+//   return gulp.src('src/js/**/*.js')
+//     .pipe(concat('app.js'))
+//     .pipe(uglify())
+//     .pipe(gulp.dest('app/static/js'));
+// });
 
-gulp.task('img', function() {
+gulp.task('imagemin', function() {
   return gulp.src('src/img/**/*')
+    .pipe(imagemin())
     .pipe(gulp.dest('app/static/img'));
 });
 
 gulp.task('scripts', function() {
   return gulp.src('src/js/**/*.js')
+    .pipe(uglify())
     .pipe(gulp.dest('app/static/js'));
 });
 
@@ -41,7 +46,7 @@ gulp.task('jshint', function() {
   return gulp
     .src([
       'app/routes/**/*.js',
-      'app/static/js/**/*.js',
+      'src/js/**/*.js',
       'app/data/**/*.js',
       'test/**/*.js',
       'knexfile.js',
