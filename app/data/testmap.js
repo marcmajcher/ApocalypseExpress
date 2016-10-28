@@ -807,7 +807,7 @@ module.exports = {
     ["Plano", "Sherman", "74062"],
     ["Pleasanton", "San Antonio", "58622"],
     ["Pleasanton", "Three Rivers", "67442"],
-    ["Port Lavaca",	"Port O'Connor", "39722"],
+    ["Port Lavaca", "Port O'Connor", "39722"],
     ["Port Lavaca", "Seadrift", "28686"],
     ["Port Lavaca", "Victoria", "44610"],
     ["Port O'Connor", "Seadrift", "30843"],
@@ -847,4 +847,4 @@ module.exports = {
     ["Waco", "Woodway", "8081"],
     ["Wickett", "Wink", "35299"]
   ]
-}
+};

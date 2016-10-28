@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('../knexfile')['test'];
+const config = require('../knexfile').test;
 const knex = require('knex')(config);
 
 module.exports = {
@@ -24,6 +24,11 @@ module.exports = {
       'firstname=' + obj.firstName,
       'lastname=' + obj.lastName
     ].join('&');
+  },
+  getCookie: function(res) {
+    return res.headers['set-cookie'].map((r) => {
+      return r.replace("; path=/; httponly", "");
+    }).join("; ");
   },
   users: {
     testUser: {
@@ -65,4 +70,4 @@ module.exports = {
       password: 'test'
     }
   }
-}
+};

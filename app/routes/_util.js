@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
+const config = require('../../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
 
 module.exports = {
@@ -9,7 +9,9 @@ module.exports = {
     index: 'Apocalypse eXpress',
     register: 'ApoX: Register',
     login: 'ApoX: Login',
-    account: 'ApoX: User Account'
+    account: 'ApoX: User Account',
+    'admin/index': 'ApoX Admin',
+    'admin/map': 'ApoX Map Admin'
   },
   defaultLocation: 'Austin',
   renderTemplate: function(req, res, page, params) {
@@ -30,6 +32,14 @@ module.exports = {
       req.flash('Create an account or log in to access this page.');
       res.redirect('/');
     }
+  },
+  adminRequired: function(req, res, next) {
+    if (process.env.NODE_ENV === 'development' ||
+      req.session.user && req.session.user.role === 'admin') {
+      next();
+    }
+    else {
+      res.redirect('/');
+    }
   }
-
-}
+};

@@ -1,9 +1,9 @@
 'use strict';
 
-const app = require('../app.js');
+var app = require('../app/app.js');
 const request = require('supertest');
 const should = require('should');
-const util = require('../util/test_utils');
+const util = require('./_util');
 
 var req;
 
@@ -30,14 +30,11 @@ describe('Map', () => {
 
   it('should get map data from /map for admin', (done) => {
     request(app).post('/login').set('Accept', 'text/html')
-      .send('email=' + util.users.adminUser.email + '&password=' + util
-        .users.adminUser.password)
+      .send('email=' + util.users.adminUser.email + '&password=' + util.users.adminUser.password)
       .expect(304).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
-        var adminCookie = res.headers['set-cookie'].map((r) => {
-          return r.replace("; path=/; httponly", "")
-        }).join("; ");
+        var adminCookie = util.getCookie(res);
         req = request(app).get('/map').set('Accept', 'text/html');
         req.cookies = adminCookie;
         req.expect(200).expect('Content-Type', /text/)

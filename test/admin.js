@@ -1,9 +1,9 @@
 'use strict';
 
-const app = require('../app.js');
+var app = require('../app/app.js');
 const request = require('supertest');
 const should = require('should');
-const util = require('../util/test_utils');
+const util = require('./_util');
 
 var adminCookie, userCookie;
 var req;
@@ -22,14 +22,11 @@ describe('Admin', () => {
 
   it('should prevent non-admin users from getting into /admin', (done) => {
     request(app).post('/login').set('Accept', 'text/html')
-      .send('email=' + util.users.testUser.email + '&password=' + util.users
-        .testUser.password)
+      .send('email=' + util.users.testUser.email + '&password=' + util.users.testUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
-        userCookie = res.headers['set-cookie'].map((r) => {
-          return r.replace("; path=/; httponly", "")
-        }).join("; ");
+        userCookie = util.getCookie(res);
 
         req = request(app).get('/admin').set('Accept', 'text/html');
         req.cookies = userCookie;
@@ -43,14 +40,11 @@ describe('Admin', () => {
 
   it('should allow admin users to hit the dashboard', (done) => {
     request(app).post('/login').set('Accept', 'text/html')
-      .send('email=' + util.users.adminUser.email + '&password=' + util
-        .users.adminUser.password)
+      .send('email=' + util.users.adminUser.email + '&password=' + util.users.adminUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
-        adminCookie = res.headers['set-cookie'].map((r) => {
-          return r.replace("; path=/; httponly", "")
-        }).join("; ");
+        adminCookie = util.getCookie(res);
         req = request(app).get('/admin').set('Accept', 'text/html');
         req.cookies = adminCookie;
         req.expect(200).expect('Content-Type', /text/)

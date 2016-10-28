@@ -1,9 +1,9 @@
-window.onload = function () {
-  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
-  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
-  document.getElementById('remail').addEventListener('change', validateEmails, false);
-  document.getElementById('vemail').addEventListener('change', validateEmails, false);
-}
+window.onload = function() {
+  document.getElementById('rpassword').addEventListener('change',
+    validatePassword, false);
+  document.getElementById('vpassword').addEventListener('change',
+    validatePassword, false);
+};
 
 function validatePassword() {
   var pass1 = document.getElementById('rpassword');
@@ -27,17 +27,5 @@ function validatePassword() {
   else {
     pass1.setCustomValidity('');
     pass2.setCustomValidity('');
-  }
-}
-
-function validateEmails() {
-  var email1 = document.getElementById('remail');
-  var email2 = document.getElementById('vemail');
-
-  if (email1.value !== email2.value) {
-    email1.setCustomValidity('Email addresses do not match');
-  }
-  else {
-    email1.setCustomValidity('');
   }
 }

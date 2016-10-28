@@ -2,6 +2,8 @@ var myData;
 
 var mapObj = {};
 var mapLayer = new Layer();
+var i;
+
 // var texasMap = new Raster('/img/texasbg.png');
 // texasMap.position = new Point(840,880);
 
@@ -19,35 +21,35 @@ $('#mapCanvas').bind('mousewheel', function(event) {
   else if (event.altKey) {
     var mousePos = new Point(event.offsetX, event.offsetY);
     var z = changeZoom(view.zoom, dy, view.center, mousePos);
-    view.zoom = z;//.newZoom;
+    view.zoom = z; //.newZoom;
     // view.center = view.center.add(z.a);
     event.preventDefault();
   }
-})
+});
 
 /* initial map load */
 $.get('/map', function(data) {
   drawCities(data);
-})
-
+});
 
 function getPoint(city) {
   var scale = 155;
-  return new Point((parseFloat(city.longitude)+107)*scale*0.8,(parseFloat(city.latitude)-37)*-scale);
+  return new Point((parseFloat(city.longitude) + 107) * scale * 0.8, (parseFloat(city.latitude) -
+    37) * -scale);
 }
 
 /* Draw cities */
 
 function drawCities(data) {
   var locations = data.locations;
-  for (var i in locations) {
+  for (i in locations) {
     var city = locations[i];
     city.point = getPoint(city);
     var dot = new Path.Circle({
       center: city.point,
       radius: 5,
       fillColor: 'black'
-    })
+    });
     var text = new PointText(city.point);
     text.justification = 'center';
     text.fillColor = 'red';
@@ -55,7 +57,7 @@ function drawCities(data) {
   }
 
   /* Draw connections */
-  for (var i=0; i<data.connections.length; i++) {
+  for (i = 0; i < data.connections.length; i++) {
     var con = data.connections[i];
     var path = new Path();
     path.strokeColor = 'black';
@@ -82,7 +84,7 @@ function changeZoom(oldZoom, delta, c, p) {
   // return {newZoom: newZoom, a: a};
 }
 
-function changeCenter (oldCenter, deltaX, deltaY, factor) {
+function changeCenter(oldCenter, deltaX, deltaY, factor) {
   var offset;
   offset = new Point(deltaX, -deltaY);
   offset = offset.multiply(factor);

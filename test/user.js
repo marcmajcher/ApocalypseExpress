@@ -1,9 +1,9 @@
 'use strict';
 
-const app = require('../app.js');
+var app = require('../app/app.js');
 const request = require('supertest');
 const should = require('should');
-const util = require('../util/test_utils');
+const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
 
 var testUserCookie;
@@ -24,14 +24,11 @@ describe('Login', () => {
   it('should be able to log in a test user and redirect to index', (done) => {
     request(app)
       .post('/login').set('Accept', 'text/html')
-      .send('email=' + util.users.testUser.email + '&password=' + util.users
-        .testUser.password)
+      .send('email=' + util.users.testUser.email + '&password=' + util.users.testUser.password)
       .expect(302).expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
-        testUserCookie = res.headers['set-cookie'].map((r) => {
-          return r.replace("; path=/; httponly", "")
-        }).join("; ");
+        testUserCookie = util.getCookie(res);
         done();
       });
   });
@@ -66,8 +63,7 @@ describe('Login', () => {
       });
   });
 
-  it('registration should redirect a logged in user to the game page', (
-    done) => {
+  it('registration should redirect a logged in user to the game page', (done) => {
     req = request(app).get('/register').set('Accept', 'text/html');
     req.cookies = testUserCookie;
     req.expect(302).expect('Content-Type', /text/)
@@ -108,8 +104,7 @@ describe('Registration', () => {
   });
 
   it(
-    'should be able to register a new player account and redirect to home page', (
-      done) => {
+    'should be able to register a new player account and redirect to home page', (done) => {
       request(app).post('/user').set('Accept', 'text/html')
         .send(util.getRegistrationParams(util.users.newUser))
         .expect(302).expect('Content-Type', /text/)
@@ -145,8 +140,7 @@ describe('Registration', () => {
   ];
 
   function regParamIt(params) {
-    it('registration should require all params, fail with ' + params.join(
-      ', '), (done) => {
+    it('registration should require all params, fail with ' + params.join(', '), (done) => {
       request(app).post('/user').set('Accept', 'text/html')
         .send(util.getRegistrationParams({
           email: params[0],
@@ -193,28 +187,22 @@ describe('Registration', () => {
   });
 
   describe('Account', () => {
-    it(
-      'should only allow logged in users to access account management page', (
-        done) => {
-        request(app).get('/user/account').expect(304)
-          .end((err, res) => {
-            res.headers.location.should.equal('/');
-            done();
-          });
-      });
+    it('should only allow logged in users to access account management page', (done) => {
+      request(app).get('/user/account').expect(304)
+        .end((err, res) => {
+          res.headers.location.should.equal('/');
+          done();
+        });
+    });
 
-    it(
-      'should have a page to allow users to manage their account if logged in', (
-        done) => {
-        req = request(app).get('/user/account').set('Accept',
-          'text/html');
-        req.cookies = testUserCookie;
-        req.expect(200).expect('Content-Type', /text/, done);
-      });
+    it('should have a page to allow users to manage their account if logged in', (done) => {
+      req = request(app).get('/user/account').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.expect(200).expect('Content-Type', /text/, done);
+    });
 
     it('should allow a user to change their first and last name', (done) => {
-      req = request(app).put('/user/account').set('Accept',
-        'text/html');
+      req = request(app).put('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req.send({
           firstname: util.users.newUser.firstName,
@@ -222,18 +210,17 @@ describe('Registration', () => {
         })
         .expect(200).expect('Content-Type', /text/)
         .end((err, res) => {
-          util.knex('users').where('email', util.users.testUser.email)
-            .first().then((user) => {
-              user.firstname.should.equal(util.users.newUser.firstName);
-              user.lastname.should.equal(util.users.newUser.lastName);
-              done();
-            });
-        })
+          util.knex('users').where('email', util.users.testUser.email).first().then((
+            user) => {
+            user.firstname.should.equal(util.users.newUser.firstName);
+            user.lastname.should.equal(util.users.newUser.lastName);
+            done();
+          });
+        });
     });
 
     it('should allow a user to change their password', (done) => {
-      req = request(app).put('/user/account').set('Accept',
-        'text/html');
+      req = request(app).put('/user/account').set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req.send({
           cpassword: util.users.testUser.password,
@@ -259,23 +246,20 @@ describe('Registration', () => {
         });
     });
 
-    it(
-      'should require a user to enter their current password to change it', (
-        done) => {
-        req = request(app).put('/user/account').set('Accept',
-          'text/html');
-        req.cookies = testUserCookie;
-        req.send({
-            cpassword: util.users.badPassUser.password,
-            password: util.users.newUser.password,
-            vpassword: util.users.newUser.password
-          })
-          .expect(304)
-          .end((err, res) => {
-            res.headers.location.should.equal('/user/account');
-            done();
-          });
-      });
+    it('should require a user to enter their current password to change it', (done) => {
+      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req.cookies = testUserCookie;
+      req.send({
+          cpassword: util.users.badPassUser.password,
+          password: util.users.newUser.password,
+          vpassword: util.users.newUser.password
+        })
+        .expect(304)
+        .end((err, res) => {
+          res.headers.location.should.equal('/user/account');
+          done();
+        });
+    });
 
   });
 

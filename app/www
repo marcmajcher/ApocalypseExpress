@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('apox:server');
 var http = require('http');
 
@@ -75,7 +75,7 @@ function onError(error) {
   }
 }
 
-/** 
+/**
  * Event listener for HTTP server "listening" event.
  */
 

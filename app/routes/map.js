@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const util = require('../util/route_utils');
+const util = require('./_util');
 
 router.use(util.loginRequired);
 

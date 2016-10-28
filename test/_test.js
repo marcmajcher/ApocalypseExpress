@@ -1,4 +1,4 @@
-var app = require('../app.js');
+var app = require('../app/app.js');
 var request = require('supertest');
 
 describe('Smoke Test', () => {
