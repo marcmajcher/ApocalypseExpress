@@ -9,9 +9,9 @@ exports.seed = function(knex, Promise) {
       return knex('drivers').insert({
         name: driverName,
         location: 1
-      })
+      });
     })
-    .then(function () {
+    .then(function() {
       return knex('drivers').where('name', driverName).first().then((driver) => {
         return knex('users').insert({
           email: 'majcher@gmail.com',
@@ -21,6 +21,6 @@ exports.seed = function(knex, Promise) {
           role: 'admin',
           driverid: driver.id
         });
-      })
+      });
     });
 };
