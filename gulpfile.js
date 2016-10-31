@@ -80,6 +80,7 @@ gulp.task('watch', () => {
   gulp.watch('test/**/*.js', ['jshint']);
   gulp.watch('app/views/**/*.ejs');
   gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/js/**/*.js', ['scripts']);
   gulp.watch('migrations/**/*.js', ['jshint']);
   gulp.watch('seeds/**/*.js', ['jshint']);
 });
