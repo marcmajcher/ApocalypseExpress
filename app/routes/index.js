@@ -6,7 +6,7 @@ const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
 
 /* GET home page with user, driver, and location info */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   let user = req.session.user;
   if (user) {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {
@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* User registration page */
-router.get('/register', (req, res, next) => {
+router.get('/register', (req, res) => {
   /* If the user is already logged in, redirect them to game page */
   if (req.session.user) {
     res.redirect('/game');
@@ -58,7 +58,7 @@ router.post('/login', (req, res, next) => {
           delete req.session.hashed_password;
           res.redirect('/game');
         })
-        .catch(bcrypt.MISMATCH_ERROR, (err) => {
+        .catch(bcrypt.MISMATCH_ERROR, () => {
           /* Password is incorrect */
           req.flash('Incorrect email or password.');
           util.renderTemplate(req, res, 'login');

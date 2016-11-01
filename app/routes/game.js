@@ -6,7 +6,7 @@ const util = require('./_util');
 
 router.use(util.loginRequired);
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   let user = req.session.user;
   if (user) {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {

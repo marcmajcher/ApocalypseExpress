@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
             driverid: drivers[0].id
           }, '*');
         })
-        .then((user) => {
+        .then(() => {
           res.redirect('/');
         })
         .catch((err) => {
@@ -60,7 +60,7 @@ router.post('/', (req, res, next) => {
 
 /* User account pages */
 router.use(util.loginRequired);
-router.get('/account', (req, res, next) => {
+router.get('/account', (req, res) => {
   util.renderTemplate(req, res, 'account');
 });
 
@@ -100,7 +100,7 @@ router.put('/account', (req, res, next) => {
                   });
               });
           })
-          .catch((err) => {
+          .catch(() => {
             req.flash('Password incorrect.');
             res.redirect('/user/account');
           });

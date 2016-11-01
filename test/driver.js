@@ -2,7 +2,6 @@
 
 var app = require('../app/app.js');
 const request = require('supertest');
-const should = require('should');
 const util = require('./_util');
 
 var req;

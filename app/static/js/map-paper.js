@@ -1,7 +1,8 @@
 'use strict';
+/* globals view, Point, Layer, Path, PointText, Group */
+/* exported onMouseDrag */
 
-var myData;
-var mapObj = {};
+var locGroups = [];
 var mapLayer = new Layer();
 
 // var texasMap = new Raster('/img/texasbg.png');
@@ -26,6 +27,8 @@ function renderMap(data) {
     text.justification = 'center';
     text.fillColor = '#333399';
     text.content = location.name;
+    text.name = 'locname';
+    locGroups.push(new Group([dot, text]));
   }
 
   /* Draw connections */
@@ -72,11 +75,14 @@ function changeZoom(oldZoom, delta, c, p) {
   if (delta < 0) {
     newZoom /= factor;
   }
-  return newZoom;
-  // var beta = oldZoom / newZoom;
-  // var pc = p.subtract(c);
-  // var a = p.subtract(pc.multiply(beta)).subtract(c);
-  // return {newZoom: newZoom, a: a};
+  // return newZoom;
+  var beta = oldZoom / newZoom;
+  var pc = p.subtract(c);
+  var a = p.subtract(pc.multiply(beta)).subtract(c);
+  return {
+    newZoom: newZoom,
+    a: a
+  };
 }
 
 function changeCenter(oldCenter, deltaX, deltaY, factor) {

@@ -5,13 +5,13 @@ const babel = require('gulp-babel');
 // const concat = require('gulp-concat');
 const del = require('del');
 const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
+// const imagemin = require('gulp-imagemin');
 const jshint = require('gulp-jshint');
 const nodemon = require('gulp-nodemon');
-const notify = require("gulp-notify");
+// const notify = require("gulp-notify");
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
 
 gulp.task('default', ['clean', 'build', 'jshint', 'watch', 'nodemon']);
 gulp.task('build', ['sass', 'imagemin', 'scripts']);
@@ -72,7 +72,7 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('app/static/css'));
 });
 
-gulp.task('nodemon', (callback) => {
+gulp.task('nodemon', () => {
   return nodemon({
     script: 'app/www',
     watch: ['app/app.js']
@@ -87,6 +87,8 @@ gulp.task('watch', () => {
   gulp.watch('src/js/**/*.js', ['scripts']);
   gulp.watch('migrations/**/*.js', ['jshint']);
   gulp.watch('seeds/**/*.js', ['jshint']);
+  gulp.watch('knexfile.js', ['jshint']);
+  gulp.watch('gulpfile.js', ['jshint']);
 });
 
 // https://www.mikestreety.co.uk/blog/advanced-gulp-file

@@ -1,14 +1,21 @@
 {
-  "esversion":6,
-  "node":true,
-  "globals"   : {
-    "describe"   : false,
-    "it"         : false,
-    "before"     : false,
-    "beforeEach" : false,
-    "after"      : false,
-    "afterEach"  : false,
-    "xdescribe"  : false,
-    "xit"        : false
- }
+  "esversion": 6,
+  "node": true,
+  "jquery": true,
+  "mocha": true,
+  "browser": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "funcscope": true,
+  "maxcomplexity": 5,
+  "maxdepth": 3,
+  "maxparams": 4,
+  "maxstatements": 20,
+  "nonbsp": true,
+  "notypeof": true,
+  "shadow": true,
+  "strict": true,
+  "undef": true,
+  "unused": true
 }

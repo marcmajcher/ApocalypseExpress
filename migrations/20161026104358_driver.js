@@ -1,6 +1,6 @@
 'use strict';
 
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
   return knex.schema.createTable('drivers', (table) => {
     table.increments();
     table.timestamps(true, true);
@@ -8,10 +8,9 @@ exports.up = function(knex, Promise) {
     table.integer('location').unsigned().references('locations.id').onDelete('CASCADE');
     table.integer('money').unsigned().notNullable().defaultTo(0);
     table.integer('health').unsigned().notNullable().defaultTo(100);
-    // vehicleid
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
   return knex.schema.dropTable('drivers');
 };

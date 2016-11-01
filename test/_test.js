@@ -1,3 +1,5 @@
+'use strict';
+
 var app = require('../app/app.js');
 var request = require('supertest');
 

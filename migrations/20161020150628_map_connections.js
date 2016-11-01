@@ -1,6 +1,6 @@
 'use strict';
 
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
   return knex.schema.createTable('city_link', (table) => {
     table.integer('city1').unsigned().references('cities.id').onDelete('CASCADE');
     table.integer('city2').unsigned().references('cities.id').onDelete('CASCADE');
@@ -8,6 +8,6 @@ exports.up = function(knex, Promise) {
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
   return knex.schema.dropTable('city_link');
 };

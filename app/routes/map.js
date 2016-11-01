@@ -6,7 +6,7 @@ const util = require('./_util');
 
 router.use(util.loginRequired);
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   var myData = {};
   util.knex('locations').then((cities) => {
     myData.locations = cities.reduce(function(l, c) {

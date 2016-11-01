@@ -1,4 +1,5 @@
 'use strict';
+/* exported onLoadAccount, onLoadRegister */
 
 function onLoadAccount() {
   document.getElementById('rpassword').addEventListener('change', validatePassword, false);

@@ -165,7 +165,7 @@ describe('Registration', () => {
   it('registration should fail if passwords do not match', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
       .send(util.getRegistrationParams(util.users.badPassUser))
-      .expect(500).end((err, res) => {
+      .expect(500).end(() => {
         util.knex('users').where('email', util.users.badPassUser.email)
           .first().then((user) => {
             should.equal(user, undefined);
@@ -177,7 +177,7 @@ describe('Registration', () => {
   it('registration should fail if emails do not match', (done) => {
     request(app).post('/user').set('Accept', 'text/html')
       .send(util.getRegistrationParams(util.users.badEmailUser))
-      .expect(500).end((err, res) => {
+      .expect(500).end(() => {
         util.knex('users').where('email', util.users.badEmailUser.email)
           .first().then((user) => {
             should.equal(user, undefined);
@@ -187,6 +187,7 @@ describe('Registration', () => {
   });
 
   describe('Account', () => {
+
     it('should only allow logged in users to access account management page', (done) => {
       request(app).get('/user/account').expect(304)
         .end((err, res) => {
@@ -209,7 +210,7 @@ describe('Registration', () => {
           lastname: util.users.newUser.lastName,
         })
         .expect(200).expect('Content-Type', /text/)
-        .end((err, res) => {
+        .end(() => {
           util.knex('users').where('email', util.users.testUser.email).first().then((
             user) => {
             user.firstname.should.equal(util.users.newUser.firstName);
@@ -228,7 +229,7 @@ describe('Registration', () => {
           vpassword: util.users.newUser.password
         })
         .expect(200).expect('Content-Type', /text/)
-        .end((err, res) => {
+        .end(() => {
           util.knex('users').where('email', util.users.testUser.email)
             .first().then((user) => {
               bcrypt.compare(util.users.newUser.password, user.hashed_password)
@@ -236,7 +237,7 @@ describe('Registration', () => {
                   should.ok(util.users.newUser.password);
                   done();
                 })
-                .catch((err) => {
+                .catch(() => {
                   should.fail(util.users.newUser.password,
                     util.users.testUser.password,
                     'Passwords did not match');
