@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('gulp-autoprefixer');
+const babel = require('gulp-babel');
 // const concat = require('gulp-concat');
 const del = require('del');
 const gulp = require('gulp');
@@ -13,7 +14,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
 gulp.task('default', ['clean', 'build', 'jshint', 'watch', 'nodemon']);
-gulp.task('build', ['sass', 'scripts', 'imagemin']);
+gulp.task('build', ['sass', 'imagemin', 'scripts']);
 
 gulp.task('clean', function() {
   return del([
@@ -38,6 +39,9 @@ gulp.task('imagemin', () => {
 
 gulp.task('scripts', () => {
   return gulp.src('src/js/**/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(gulp.dest('app/static/js'));
 });

@@ -1,8 +1,38 @@
 var myData;
-
 var mapObj = {};
 var mapLayer = new Layer();
 var i;
+
+/* initial map load */
+$.get('/map', function(data) {
+  renderMap(data);
+});
+
+function renderMap(data) {
+  data.locations.forEach((location) => {
+    location.point = getPoint(city);
+    var dot = new Path.Circle({
+      center: location.point,
+      radius: 5,
+      fillColor: 'black'
+    });
+    var text = new PointText(location.point);
+    text.justification = 'center';
+    text.fillColor = 'red';
+    text.content = location.name;
+  });
+
+  /* Draw connections */
+  for (i = 0; i < data.connections.length; i++) {
+    var con = data.connections[i];
+    var path = new Path();
+    path.strokeColor = 'black';
+    path.moveTo(locations[con.city1].point);
+    path.lineTo(locations[con.city2].point);
+  }
+
+  mapLayer.position = new Point(240, 150);
+}
 
 // var texasMap = new Raster('/img/texasbg.png');
 // texasMap.position = new Point(840,880);
@@ -10,7 +40,6 @@ var i;
 /* Navigation methods */
 
 $('#mapCanvas').bind('mousewheel', function(event) {
-  // console.log(event);
   var dx = event.originalEvent.wheelDeltaX;
   var dy = event.originalEvent.wheelDeltaY;
 
@@ -27,46 +56,12 @@ $('#mapCanvas').bind('mousewheel', function(event) {
   }
 });
 
-/* initial map load */
-$.get('/map', function(data) {
-  drawCities(data);
-});
-
 function getPoint(city) {
   var scale = 155;
   return new Point((parseFloat(city.longitude) + 107) * scale * 0.8, (parseFloat(city.latitude) -
     37) * -scale);
 }
 
-/* Draw cities */
-
-function drawCities(data) {
-  var locations = data.locations;
-  for (i in locations) {
-    var city = locations[i];
-    city.point = getPoint(city);
-    var dot = new Path.Circle({
-      center: city.point,
-      radius: 5,
-      fillColor: 'black'
-    });
-    var text = new PointText(city.point);
-    text.justification = 'center';
-    text.fillColor = 'red';
-    text.content = city.name;
-  }
-
-  /* Draw connections */
-  for (i = 0; i < data.connections.length; i++) {
-    var con = data.connections[i];
-    var path = new Path();
-    path.strokeColor = 'black';
-    path.moveTo(locations[con.city1].point);
-    path.lineTo(locations[con.city2].point);
-  }
-
-  mapLayer.position = new Point(240, 150);
-}
 
 function changeZoom(oldZoom, delta, c, p) {
   var factor = 1.05;
