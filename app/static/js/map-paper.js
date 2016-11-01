@@ -1,1 +1,91 @@
-"use strict";function renderMap(e){for(e.locations.forEach(function(e){e.point=getPoint(city);var n=(new Path.Circle({center:e.point,radius:5,fillColor:"black"}),new PointText(e.point));n.justification="center",n.fillColor="red",n.content=e.name}),i=0;i<e.connections.length;i++){var n=e.connections[i],t=new Path;t.strokeColor="black",t.moveTo(locations[n.city1].point),t.lineTo(locations[n.city2].point)}mapLayer.position=new Point(240,150)}function getPoint(e){var n=155;return new Point((parseFloat(e.longitude)+107)*n*.8,(parseFloat(e.latitude)-37)*-n)}function changeZoom(e,n,t,o){var i=1.05,a=e;return n>0&&(a*=i),n<0&&(a/=i),a}function changeCenter(e,n,t,o){var i;return i=new Point(n,(-t)),i=i.multiply(o),e.add(i)}function onMouseDrag(e){mapLayer.position+=e.delta}var myData,mapObj={},mapLayer=new Layer,i;$.get("/map",function(e){renderMap(e)}),$("#mapCanvas").bind("mousewheel",function(e){var n=e.originalEvent.wheelDeltaX,t=e.originalEvent.wheelDeltaY;if(e.shiftKey)view.center=changeCenter(view.center,n,t,1),e.preventDefault();else if(e.altKey){var o=new Point(e.offsetX,e.offsetY),i=changeZoom(view.zoom,t,view.center,o);view.zoom=i,e.preventDefault()}});
+'use strict';
+
+var myData;
+var mapObj = {};
+var mapLayer = new Layer();
+
+// var texasMap = new Raster('/img/texasbg.png');
+// texasMap.position = new Point(840,880);
+
+/* initial map load */
+$.getJSON('/map', function (data) {
+  renderMap(data);
+});
+
+function renderMap(data) {
+  var textOffset = new Point(0, -10);
+  for (var id in data.locations) {
+    var location = data.locations[id];
+    location.point = getPoint(data.locations[id]);
+    var dot = new Path.Circle({
+      center: location.point,
+      radius: 5,
+      fillColor: 'black'
+    });
+    var text = new PointText(location.point + textOffset);
+    text.justification = 'center';
+    text.fillColor = '#333399';
+    text.content = location.name;
+  }
+
+  /* Draw connections */
+  for (var i = 0; i < data.connections.length; i++) {
+    var con = data.connections[i];
+    var path = new Path();
+    path.strokeColor = 'black';
+    path.moveTo(data.locations[con.city1].point);
+    path.lineTo(data.locations[con.city2].point);
+  }
+
+  mapLayer.position = new Point(240, 150);
+}
+
+/* Navigation methods */
+
+$('#mapCanvas').bind('mousewheel', function (event) {
+  var dx = event.originalEvent.wheelDeltaX;
+  var dy = event.originalEvent.wheelDeltaY;
+
+  if (event.shiftKey) {
+    view.center = changeCenter(view.center, dx, dy, 1);
+    event.preventDefault();
+  } else if (event.altKey) {
+    var mousePos = new Point(event.offsetX, event.offsetY);
+    var z = changeZoom(view.zoom, dy, view.center, mousePos);
+    view.zoom = z; //.newZoom;
+    // view.center = view.center.add(z.a);
+    event.preventDefault();
+  }
+});
+
+function getPoint(city) {
+  var scale = 155;
+  return new Point((parseFloat(city.longitude) + 107) * scale * 0.8, (parseFloat(city.latitude) - 37) * -scale);
+}
+
+function changeZoom(oldZoom, delta, c, p) {
+  var factor = 1.05;
+  var newZoom = oldZoom;
+  if (delta > 0) {
+    newZoom *= factor;
+  }
+  if (delta < 0) {
+    newZoom /= factor;
+  }
+  return newZoom;
+  // var beta = oldZoom / newZoom;
+  // var pc = p.subtract(c);
+  // var a = p.subtract(pc.multiply(beta)).subtract(c);
+  // return {newZoom: newZoom, a: a};
+}
+
+function changeCenter(oldCenter, deltaX, deltaY, factor) {
+  var offset;
+  offset = new Point(deltaX, -deltaY);
+  offset = offset.multiply(factor);
+  return oldCenter.add(offset);
+}
+
+function onMouseDrag(event) {
+  mapLayer.position += event.delta;
+}

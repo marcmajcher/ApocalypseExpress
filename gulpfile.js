@@ -33,7 +33,7 @@ gulp.task('clean', function() {
 
 gulp.task('imagemin', () => {
   return gulp.src('src/img/**/*')
-    .pipe(imagemin())
+    // .pipe(imagemin())  // only imagemin on prod
     .pipe(gulp.dest('app/static/img'));
 });
 
@@ -42,7 +42,7 @@ gulp.task('scripts', () => {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(uglify())
+    // .pipe(uglify()) // only uglify/min on prod
     .pipe(gulp.dest('app/static/js'));
 });
 

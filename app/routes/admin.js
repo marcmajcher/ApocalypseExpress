@@ -9,8 +9,7 @@ router.get('/', util.adminRequired, (req, res, next) => {
   util.renderTemplate(req, res, 'admin/index');
 });
 
-// router.get('/map', util.adminRequired, (req, res, next) => {
-router.get('/map', (req, res, next) => {
+router.get('/map', util.adminRequired, (req, res, next) => {
   util.renderTemplate(req, res, 'admin/map');
 });
 

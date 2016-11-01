@@ -1,41 +1,42 @@
 var myData;
 var mapObj = {};
 var mapLayer = new Layer();
-var i;
+
+// var texasMap = new Raster('/img/texasbg.png');
+// texasMap.position = new Point(840,880);
 
 /* initial map load */
-$.get('/map', function(data) {
+$.getJSON('/map', function(data) {
   renderMap(data);
 });
 
 function renderMap(data) {
-  data.locations.forEach((location) => {
-    location.point = getPoint(city);
+  var textOffset = new Point(0, -10);
+  for (var id in data.locations) {
+    var location = data.locations[id];
+    location.point = getPoint(data.locations[id]);
     var dot = new Path.Circle({
       center: location.point,
       radius: 5,
       fillColor: 'black'
     });
-    var text = new PointText(location.point);
+    var text = new PointText(location.point + textOffset);
     text.justification = 'center';
-    text.fillColor = 'red';
+    text.fillColor = '#333399';
     text.content = location.name;
-  });
+  }
 
   /* Draw connections */
-  for (i = 0; i < data.connections.length; i++) {
+  for (var i = 0; i < data.connections.length; i++) {
     var con = data.connections[i];
     var path = new Path();
     path.strokeColor = 'black';
-    path.moveTo(locations[con.city1].point);
-    path.lineTo(locations[con.city2].point);
+    path.moveTo(data.locations[con.city1].point);
+    path.lineTo(data.locations[con.city2].point);
   }
 
   mapLayer.position = new Point(240, 150);
 }
-
-// var texasMap = new Raster('/img/texasbg.png');
-// texasMap.position = new Point(840,880);
 
 /* Navigation methods */
 

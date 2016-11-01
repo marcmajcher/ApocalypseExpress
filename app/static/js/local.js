@@ -1,1 +1,45 @@
-"use strict";function onLoadAccount(){document.getElementById("rpassword").addEventListener("change",validatePassword,!1),document.getElementById("vpassword").addEventListener("change",validatePassword,!1)}function onLoadRegister(){document.getElementById("rpassword").addEventListener("change",validatePassword,!1),document.getElementById("vpassword").addEventListener("change",validatePassword,!1),document.getElementById("remail").addEventListener("change",validateEmails,!1),document.getElementById("vemail").addEventListener("change",validateEmails,!1)}function validatePassword(){var e=document.getElementById("rpassword"),t=document.getElementById("vpassword"),a=/\d+/,d=/.{8}/,s=/[!@#$%\^&*()|\{}\[\]\/\.,<>]/;e.value.match(a)?e.value.match(d)?e.value.match(s)?e.value!==t.value?e.setCustomValidity("Passwords do not match"):(e.setCustomValidity(""),t.setCustomValidity("")):e.setCustomValidity("Password must contain a special character"):e.setCustomValidity("Password must be at least 8 characters long"):e.setCustomValidity("Password must contain a number")}function validateEmails(){var e=document.getElementById("remail"),t=document.getElementById("vemail");e.value!==t.value?e.setCustomValidity("Email addresses do not match"):e.setCustomValidity("")}
+'use strict';
+
+function onLoadAccount() {
+  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
+}
+
+function onLoadRegister() {
+  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('remail').addEventListener('change', validateEmails, false);
+  document.getElementById('vemail').addEventListener('change', validateEmails, false);
+}
+
+function validatePassword() {
+  var pass1 = document.getElementById('rpassword');
+  var pass2 = document.getElementById('vpassword');
+  var numRegex = /\d+/;
+  var sizeRegex = /.{8}/;
+  var specialRegex = /[!@#$%\^&*()|\{}\[\]\/\.,<>]/;
+
+  if (!pass1.value.match(numRegex)) {
+    pass1.setCustomValidity('Password must contain a number');
+  } else if (!pass1.value.match(sizeRegex)) {
+    pass1.setCustomValidity('Password must be at least 8 characters long');
+  } else if (!pass1.value.match(specialRegex)) {
+    pass1.setCustomValidity('Password must contain a special character');
+  } else if (pass1.value !== pass2.value) {
+    pass1.setCustomValidity('Passwords do not match');
+  } else {
+    pass1.setCustomValidity('');
+    pass2.setCustomValidity('');
+  }
+}
+
+function validateEmails() {
+  var email1 = document.getElementById('remail');
+  var email2 = document.getElementById('vemail');
+
+  if (email1.value !== email2.value) {
+    email1.setCustomValidity('Email addresses do not match');
+  } else {
+    email1.setCustomValidity('');
+  }
+}
