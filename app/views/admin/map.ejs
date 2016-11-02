@@ -1,9 +1,71 @@
 <script src="/bower_components/paper/dist/paper-full.min.js"></script>
 <script type="text/paperscript" src="/js/map-paper.js" canvas="mapCanvas"></script>
 <canvas id="mapCanvas" class="map-canvas" resize="true"></canvas>
+<style>
+  body {
+    padding: 0
+  }
+  div#detailPanel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #333399;
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    display: none;
+  }
+</style>
+
+<div id="detailPanel">
+
+  <form action="">
+    <div>
+      ID: <span id="locID">000</span>
+    </div>
+    <div class="form-group">
+      <label for="locname">Name</label>
+      <input class="form-control" id="locname" type="text" name="locname">
+    </div>
+    <div class="form-group">
+      <label for="locx">X</label>
+      <input class="form-control" id="locx" type="number" name="locx">
+    </div>
+    <div class="form-group">
+      <label for="locy">Y</label>
+      <input class="form-control" id="locy" type="number" name="locy">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input class="form-control" id="description" type="text" name="description">
+    </div>
+    <div class="form-group">
+      <label for="population">Population</label>
+      <input class="form-control" id="population" type="number" min="10" name="population">
+    </div>
+    <div class="form-group">
+      <label for="tech">Tech Level</label>
+      <input class="form-control" id="tech" type="number" min="0" max="10" name="tech">
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select name="type" id="type">
+        <option value="hold">hold</option>
+        <option value="freehold">freehold</option>
+        <option value="camp">camp</option>
+        <option value="fort">fort</option>
+        <option value="compound">compound</option>
+        <option value="hardhold">hardhold</option>
+        <option value="enclave">enclave</option>
+      </select>
+    </div>
+    <button>Update</button>
+    <button id="closeDetails" type="button">Close</button>
+  </form>
+
+</div>
+
 <script>
   $('nav').hide();
+  $('#closeDetails').click(function() {$('#detailPanel').hide()});
 </script>
-<style>
-body {padding: 0}
-</style>

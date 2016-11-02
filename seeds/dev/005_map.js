@@ -5,7 +5,9 @@
 const locations = [{
   name: 'Austin',
   latitude: '30.267153',
-  longitude: '-97.7430608'
+  longitude: '-97.7430608',
+  population: 10000,
+  type: 'freehold'
 }, {
   name: 'Abeline',
   latitude: '32.4487364',
