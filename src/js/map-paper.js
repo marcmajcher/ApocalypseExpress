@@ -1,77 +1,65 @@
 'use strict';
-/* globals view, Point, Layer, Path, PointText, Group */
+
+/* globals view, Point, Layer, Path, PointText, Group, Raster */
+/* eslint-env jquery, browser */
 /* exported onMouseDrag */
 
-var locGroups = [];
-var mapLayer = new Layer();
+const locGroups = [];
+const mapLayer = new Layer();
 
-// var texasMap = new Raster('/img/texasbg.png');
-// texasMap.position = new Point(840,880);
+const texasMap = new Raster('/img/texasbg.png');
+texasMap.position = new Point(840, 880); // eslint-disable-line no-magic-numbers
 
-/* initial map load */
-$.getJSON('/map', function(data) {
-  renderMap(data);
-});
+function getPoint(city) {
+  const longScale = 124;
+  const latScale = -155;
+  const longOffset = 107;
+  const latOffset = -37;
+
+  return new Point(
+    (city.longitude + longOffset) * longScale, (city.latitude + latOffset) * latScale);
+}
 
 function renderMap(data) {
-  var textOffset = new Point(0, -10);
-  for (var id in data.locations) {
-    var location = data.locations[id];
-    location.point = getPoint(data.locations[id]);
-    var dot = new Path.Circle({
+  const textOffset = new Point(0, -10); // eslint-disable-line no-magic-numbers
+  Object.keys(data.locations).forEach((id) => {
+    const location = data.locations[id];
+    location.point = getPoint(location);
+    const dot = new Path.Circle({
       center: location.point,
       radius: 5,
       fillColor: 'black'
     });
-    var text = new PointText(location.point + textOffset);
+    const text = new PointText(location.point + textOffset);
     text.justification = 'center';
     text.fillColor = '#333399';
     text.content = location.name;
     text.name = 'locname';
     locGroups.push(new Group([dot, text]));
-  }
+  });
 
   /* Draw connections */
-  for (var i = 0; i < data.connections.length; i++) {
-    var con = data.connections[i];
-    var path = new Path();
+  for (let i = 0; i < data.connections.length; i++) {
+    const connection = data.connections[i];
+    const path = new Path();
     path.strokeColor = 'black';
-    path.moveTo(data.locations[con.city1].point);
-    path.lineTo(data.locations[con.city2].point);
+    path.moveTo(data.locations[connection.city1].point);
+    path.lineTo(data.locations[connection.city2].point);
   }
 
-  mapLayer.position = new Point(240, 150);
+  mapLayer.position = new Point(240, 150); // eslint-disable-line no-magic-numbers
 }
+
+/* initial map load */
+$.getJSON('/map', (data) => {
+  renderMap(data);
+});
 
 /* Navigation methods */
 
-$('#mapCanvas').bind('mousewheel', function(event) {
-  var dx = event.originalEvent.wheelDeltaX;
-  var dy = event.originalEvent.wheelDeltaY;
-
-  if (event.shiftKey) {
-    view.center = changeCenter(view.center, dx, dy, 1);
-    event.preventDefault();
-  }
-  else if (event.altKey) {
-    var mousePos = new Point(event.offsetX, event.offsetY);
-    var z = changeZoom(view.zoom, dy, view.center, mousePos);
-    view.zoom = z; //.newZoom;
-    // view.center = view.center.add(z.a);
-    event.preventDefault();
-  }
-});
-
-function getPoint(city) {
-  var scale = 155;
-  return new Point((parseFloat(city.longitude) + 107) * scale * 0.8, (parseFloat(city.latitude) -
-    37) * -scale);
-}
-
-
 function changeZoom(oldZoom, delta, c, p) {
-  var factor = 1.05;
-  var newZoom = oldZoom;
+  const factor = 1.05;
+  let newZoom = oldZoom;
   if (delta > 0) {
     newZoom *= factor;
   }
@@ -79,21 +67,37 @@ function changeZoom(oldZoom, delta, c, p) {
     newZoom /= factor;
   }
   // return newZoom;
-  var beta = oldZoom / newZoom;
-  var pc = p.subtract(c);
-  var a = p.subtract(pc.multiply(beta)).subtract(c);
+  const beta = oldZoom / newZoom;
+  const pc = p.subtract(c);
+  const a = p.subtract(pc.multiply(beta)).subtract(c);
   return {
-    newZoom: newZoom,
-    a: a
+    newZoom,
+    a
   };
 }
 
 function changeCenter(oldCenter, deltaX, deltaY, factor) {
-  var offset;
-  offset = new Point(deltaX, -deltaY);
+  let offset = new Point(deltaX, -deltaY);
   offset = offset.multiply(factor);
   return oldCenter.add(offset);
 }
+
+$('#mapCanvas').bind('mousewheel', (event) => {
+  const dx = event.originalEvent.wheelDeltaX;
+  const dy = event.originalEvent.wheelDeltaY;
+
+  if (event.shiftKey) {
+    view.center = changeCenter(view.center, dx, dy, 1);
+    event.preventDefault();
+  }
+  else if (event.altKey) {
+    const mousePos = new Point(event.offsetX, event.offsetY);
+    const z = changeZoom(view.zoom, dy, view.center, mousePos);
+    view.zoom = z; // .newZoom;
+    // view.center = view.center.add(z.a);
+    event.preventDefault();
+  }
+});
 
 function onMouseDrag(event) {
   mapLayer.position += event.delta;

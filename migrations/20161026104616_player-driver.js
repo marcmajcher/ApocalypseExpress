@@ -1,13 +1,11 @@
 'use strict';
 
-exports.up = function(knex) {
-  return knex.schema.table('users', (table) => {
-    table.integer('driverid').unsigned().references('drivers.id').onDelete('CASCADE');
-  });
-};
+/* eslint-env node */
 
-exports.down = function(knex) {
-  return knex.schema.table('users', (table) => {
-    table.dropColumn('driverid');
-  });
-};
+exports.up = knex => knex.schema.table('users', (table) => {
+  table.integer('driverid').unsigned().references('drivers.id').onDelete('CASCADE');
+});
+
+exports.down = knex => knex.schema.table('users', (table) => {
+  table.dropColumn('driverid');
+});

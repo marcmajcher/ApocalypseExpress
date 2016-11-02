@@ -1,14 +1,11 @@
 'use strict';
 
-exports.up = function(knex) {
-  return knex.schema.table('users', (table) => {
-    table.dropColumn('screenname');
-  });
-};
+/* eslint-env node */
 
-exports.down = function(knex) {
-  return knex.schema.table('users', (table) => {
-    table.string('screenname').notNullable().defaultTo('');
-  });
+exports.up = knex => knex.schema.table('users', (table) => {
+  table.dropColumn('screenname');
+});
 
-};
+exports.down = knex => knex.schema.table('users', (table) => {
+  table.string('screenname').notNullable().defaultTo('');
+});

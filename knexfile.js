@@ -1,4 +1,8 @@
 'use strict';
+
+/* eslint-env node */
+
+const path = require('path');
 require('dotenv').load();
 
 module.exports = {
@@ -6,21 +10,21 @@ module.exports = {
     client: 'pg',
     connection: process.env.DEV_DATABASE_NAME,
     seeds: {
-      directory: __dirname + '/seeds/dev'
+      directory: path.join(__dirname, '/seeds/dev')
     }
   },
   test: {
     client: 'pg',
     connection: process.env.TEST_DATABASE_NAME,
     seeds: {
-      directory: __dirname + '/seeds/test'
+      directory: path.join(__dirname, '/seeds/test')
     }
   },
   production: {
     client: 'pg',
     connection: process.env.PRODUCTION_DATABASE_URL,
     seeds: {
-      directory: __dirname + '/seeds/production'
+      directory: path.join(__dirname, '/seeds/production')
     }
   }
 };

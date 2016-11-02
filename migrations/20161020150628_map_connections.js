@@ -1,13 +1,11 @@
 'use strict';
 
-exports.up = function(knex) {
-  return knex.schema.createTable('city_link', (table) => {
-    table.integer('city1').unsigned().references('cities.id').onDelete('CASCADE');
-    table.integer('city2').unsigned().references('cities.id').onDelete('CASCADE');
-    table.integer('distance').unsigned();
-  });
-};
+/* eslint-env node */
 
-exports.down = function(knex) {
-  return knex.schema.dropTable('city_link');
-};
+exports.up = knex => knex.schema.createTable('city_link', (table) => {
+  table.integer('city1').unsigned().references('cities.id').onDelete('CASCADE');
+  table.integer('city2').unsigned().references('cities.id').onDelete('CASCADE');
+  table.integer('distance').unsigned();
+});
+
+exports.down = knex => knex.schema.dropTable('city_link');

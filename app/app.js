@@ -1,13 +1,15 @@
 'use strict';
 
+/* eslint-env node */
+
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('cookie-session');
-const randomstring = require("randomstring");
+const randomstring = require('randomstring');
 const methodOverride = require('method-override');
 
 const routes = require('./routes/index');
@@ -24,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(methodOverride('_method'));
 
@@ -36,9 +38,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 
-const numKeys = Math.ceil(Math.random() * 10) + 10;
+const numKeys = Math.ceil(Math.random() * 10) + 10; // eslint-disable-line no-magic-numbers
 const randomKeys = [];
-for (var i = 0; i < numKeys; i++) {
+for (let i = 0; i < numKeys; i++) {
   randomKeys.push(randomstring.generate());
 }
 app.use(session({
@@ -46,13 +48,13 @@ app.use(session({
 }));
 
 /* flash messages */
-app.use(function(req, res, next) {
-  var session = req.session;
-  var messages = session.messages || (session.messages = []);
+/* eslint-disable no-param-reassign */
+app.use((req, res, next) => {
+  const messages = req.session.messages || (req.session.messages = []);
   res.locals.messages = req.session.messages;
-  req.flash = function(message, type) {
+  req.flash = (message, type) => {
     messages.push({
-      message: message,
+      message,
       type: type || 'alert'
     });
   };
@@ -66,8 +68,8 @@ app.use('/map', mapRoutes);
 app.use('/game', game);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -77,7 +79,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -88,7 +90,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use((err, req, res) => {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

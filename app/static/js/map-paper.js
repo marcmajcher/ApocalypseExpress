@@ -1,23 +1,29 @@
 'use strict';
-/* globals view, Point, Layer, Path, PointText, Group */
+
+/* globals view, Point, Layer, Path, PointText, Group, Raster */
+/* eslint-env jquery, browser */
 /* exported onMouseDrag */
 
 var locGroups = [];
 var mapLayer = new Layer();
 
-// var texasMap = new Raster('/img/texasbg.png');
-// texasMap.position = new Point(840,880);
+var texasMap = new Raster('/img/texasbg.png');
+texasMap.position = new Point(840, 880); // eslint-disable-line no-magic-numbers
 
-/* initial map load */
-$.getJSON('/map', function (data) {
-  renderMap(data);
-});
+function getPoint(city) {
+  var longScale = 124;
+  var latScale = -155;
+  var longOffset = 107;
+  var latOffset = -37;
+
+  return new Point((city.longitude + longOffset) * longScale, (city.latitude + latOffset) * latScale);
+}
 
 function renderMap(data) {
-  var textOffset = new Point(0, -10);
-  for (var id in data.locations) {
+  var textOffset = new Point(0, -10); // eslint-disable-line no-magic-numbers
+  Object.keys(data.locations).forEach(function (id) {
     var location = data.locations[id];
-    location.point = getPoint(data.locations[id]);
+    location.point = getPoint(location);
     var dot = new Path.Circle({
       center: location.point,
       radius: 5,
@@ -29,42 +35,26 @@ function renderMap(data) {
     text.content = location.name;
     text.name = 'locname';
     locGroups.push(new Group([dot, text]));
-  }
+  });
 
   /* Draw connections */
   for (var i = 0; i < data.connections.length; i++) {
-    var con = data.connections[i];
+    var connection = data.connections[i];
     var path = new Path();
     path.strokeColor = 'black';
-    path.moveTo(data.locations[con.city1].point);
-    path.lineTo(data.locations[con.city2].point);
+    path.moveTo(data.locations[connection.city1].point);
+    path.lineTo(data.locations[connection.city2].point);
   }
 
-  mapLayer.position = new Point(240, 150);
+  mapLayer.position = new Point(240, 150); // eslint-disable-line no-magic-numbers
 }
 
-/* Navigation methods */
-
-$('#mapCanvas').bind('mousewheel', function (event) {
-  var dx = event.originalEvent.wheelDeltaX;
-  var dy = event.originalEvent.wheelDeltaY;
-
-  if (event.shiftKey) {
-    view.center = changeCenter(view.center, dx, dy, 1);
-    event.preventDefault();
-  } else if (event.altKey) {
-    var mousePos = new Point(event.offsetX, event.offsetY);
-    var z = changeZoom(view.zoom, dy, view.center, mousePos);
-    view.zoom = z; //.newZoom;
-    // view.center = view.center.add(z.a);
-    event.preventDefault();
-  }
+/* initial map load */
+$.getJSON('/map', function (data) {
+  renderMap(data);
 });
 
-function getPoint(city) {
-  var scale = 155;
-  return new Point((parseFloat(city.longitude) + 107) * scale * 0.8, (parseFloat(city.latitude) - 37) * -scale);
-}
+/* Navigation methods */
 
 function changeZoom(oldZoom, delta, c, p) {
   var factor = 1.05;
@@ -86,11 +76,26 @@ function changeZoom(oldZoom, delta, c, p) {
 }
 
 function changeCenter(oldCenter, deltaX, deltaY, factor) {
-  var offset;
-  offset = new Point(deltaX, -deltaY);
+  var offset = new Point(deltaX, -deltaY);
   offset = offset.multiply(factor);
   return oldCenter.add(offset);
 }
+
+$('#mapCanvas').bind('mousewheel', function (event) {
+  var dx = event.originalEvent.wheelDeltaX;
+  var dy = event.originalEvent.wheelDeltaY;
+
+  if (event.shiftKey) {
+    view.center = changeCenter(view.center, dx, dy, 1);
+    event.preventDefault();
+  } else if (event.altKey) {
+    var mousePos = new Point(event.offsetX, event.offsetY);
+    var z = changeZoom(view.zoom, dy, view.center, mousePos);
+    view.zoom = z; // .newZoom;
+    // view.center = view.center.add(z.a);
+    event.preventDefault();
+  }
+});
 
 function onMouseDrag(event) {
   mapLayer.position += event.delta;

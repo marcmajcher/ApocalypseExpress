@@ -1,24 +1,14 @@
 'use strict';
+
+/* eslint-env jquery, browser */
 /* exported onLoadAccount, onLoadRegister */
-
-function onLoadAccount() {
-  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
-  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
-}
-
-function onLoadRegister() {
-  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
-  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
-  document.getElementById('remail').addEventListener('change', validateEmails, false);
-  document.getElementById('vemail').addEventListener('change', validateEmails, false);
-}
 
 function validatePassword() {
   var pass1 = document.getElementById('rpassword');
   var pass2 = document.getElementById('vpassword');
   var numRegex = /\d+/;
   var sizeRegex = /.{8}/;
-  var specialRegex = /[!@#$%\^&*()|\{}\[\]\/\.,<>]/;
+  var specialRegex = /[!@#$%^&*()|{}[\]/.,<>]/;
 
   if (!pass1.value.match(numRegex)) {
     pass1.setCustomValidity('Password must contain a number');
@@ -43,4 +33,16 @@ function validateEmails() {
   } else {
     email1.setCustomValidity('');
   }
+}
+
+function onLoadAccount() {
+  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
+}
+
+function onLoadRegister() {
+  document.getElementById('rpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('vpassword').addEventListener('change', validatePassword, false);
+  document.getElementById('remail').addEventListener('change', validateEmails, false);
+  document.getElementById('vemail').addEventListener('change', validateEmails, false);
 }

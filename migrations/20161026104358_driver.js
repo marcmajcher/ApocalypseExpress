@@ -1,16 +1,17 @@
 'use strict';
 
-exports.up = function(knex) {
-  return knex.schema.createTable('drivers', (table) => {
-    table.increments();
-    table.timestamps(true, true);
-    table.string('name').notNullable();
-    table.integer('location').unsigned().references('locations.id').onDelete('CASCADE');
-    table.integer('money').unsigned().notNullable().defaultTo(0);
-    table.integer('health').unsigned().notNullable().defaultTo(100);
-  });
-};
+/* eslint-env node */
 
-exports.down = function(knex) {
-  return knex.schema.dropTable('drivers');
-};
+const defaultMoney = 0;
+const defaultHealth = 100;
+
+exports.up = knex => knex.schema.createTable('drivers', (table) => {
+  table.increments();
+  table.timestamps(true, true);
+  table.string('name').notNullable();
+  table.integer('location').unsigned().references('locations.id').onDelete('CASCADE');
+  table.integer('money').unsigned().notNullable().defaultTo(defaultMoney);
+  table.integer('health').unsigned().notNullable().defaultTo(defaultHealth);
+});
+
+exports.down = knex => knex.schema.dropTable('drivers');

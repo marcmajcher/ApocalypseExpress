@@ -1,20 +1,25 @@
 'use strict';
 
-var app = require('../app/app.js');
+/* eslint-env mocha, node */
+
+const app = require('../app/app.js');
 const request = require('supertest');
 const should = require('should');
 const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
 
-var testUserCookie;
-var req;
+let testUserCookie;
+let req;
 
 describe('Login', () => {
   before(util.rollback);
 
   it('home page should have login form if not logged in', (done) => {
-    request(app).get('/').set('Accept', 'text/html')
-      .expect(200).expect('Content-Type', /text/)
+    request(app)
+      .get('/')
+      .set('Accept', 'text/html')
+      .expect(200)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(/action="\/login/);
         done();
@@ -23,9 +28,11 @@ describe('Login', () => {
 
   it('should be able to log in a test user and redirect to index', (done) => {
     request(app)
-      .post('/login').set('Accept', 'text/html')
-      .send('email=' + util.users.testUser.email + '&password=' + util.users.testUser.password)
-      .expect(302).expect('Content-Type', /text/)
+      .post('/login')
+      .set('Accept', 'text/html')
+      .send(`email=${util.users.testUer.email}&password=${util.users.testUser.password}`)
+      .expect(302)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
         testUserCookie = util.getCookie(res);
@@ -34,9 +41,13 @@ describe('Login', () => {
   });
 
   it('home page should not have login form if logged in', (done) => {
-    req = request(app).get('/').set('Accept', 'text/html');
+    req = request(app)
+      .get('/')
+      .set('Accept', 'text/html');
     req.cookies = testUserCookie;
-    req.expect(200).expect('Content-Type', /text/)
+    req
+      .expect(200)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.not.match(/action="\/login/);
         done();
@@ -44,9 +55,13 @@ describe('Login', () => {
   });
 
   it('home page should have logout link if logged in', (done) => {
-    req = request(app).get('/').set('Accept', 'text/html');
+    req = request(app)
+      .get('/')
+      .set('Accept', 'text/html');
     req.cookies = testUserCookie;
-    req.expect(200).expect('Content-Type', /text/)
+    req
+      .expect(200)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(/href="\/logout/);
         done();
@@ -54,9 +69,13 @@ describe('Login', () => {
   });
 
   it('home page should greet player by first name', (done) => {
-    req = request(app).get('/').set('Accept', 'text/html');
+    req = request(app)
+      .get('/')
+      .set('Accept', 'text/html');
     req.cookies = testUserCookie;
-    req.expect(200).expect('Content-Type', /text/)
+    req
+      .expect(200)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(new RegExp(util.users.testUser.firstName));
         done();
@@ -64,9 +83,13 @@ describe('Login', () => {
   });
 
   it('registration should redirect a logged in user to the game page', (done) => {
-    req = request(app).get('/register').set('Accept', 'text/html');
+    req = request(app)
+      .get('/register')
+      .set('Accept', 'text/html');
     req.cookies = testUserCookie;
-    req.expect(302).expect('Content-Type', /text/)
+    req
+      .expect(302)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/game');
         done();
@@ -74,20 +97,25 @@ describe('Login', () => {
   });
 
   it('should log user out', (done) => {
-    req = request(app).get('/logout').set('Accept', 'text/html');
+    req = request(app)
+      .get('/logout')
+      .set('Accept', 'text/html');
     req.cookies = testUserCookie;
-    req.expect(302).expect('Content-Type', /text/)
+    req
+      .expect(302)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.headers.location.should.equal('/');
         res.headers['set-cookie'][0].should.match(/session=;/);
 
-        request(app).get('/').expect(200)
-          .end((err, res) => {
-            res.text.should.match(/action="\/login/);
+        request(app)
+          .get('/')
+          .expect(200)
+          .end((err2, res2) => {
+            res2.text.should.match(/action="\/login/);
             done();
           });
       });
-
   });
 });
 
@@ -95,8 +123,11 @@ describe('Registration', () => {
   before(util.rollback);
 
   it('home page should have a registration link if not logged in', (done) => {
-    request(app).get('/').set('Accept', 'text/html')
-      .expect(200).expect('Content-Type', /text/)
+    request(app)
+      .get('/')
+      .set('Accept', 'text/html')
+      .expect(200)
+      .expect('Content-Type', /text/)
       .end((err, res) => {
         res.text.should.match(/href="\/register/);
         done();
@@ -105,9 +136,12 @@ describe('Registration', () => {
 
   it(
     'should be able to register a new player account and redirect to home page', (done) => {
-      request(app).post('/user').set('Accept', 'text/html')
+      request(app)
+        .post('/user')
+        .set('Accept', 'text/html')
         .send(util.getRegistrationParams(util.users.newUser))
-        .expect(302).expect('Content-Type', /text/)
+        .expect(302)
+        .expect('Content-Type', /text/)
         .end((err, res) => {
           res.headers.location.should.equal('/');
           done();
@@ -140,8 +174,10 @@ describe('Registration', () => {
   ];
 
   function regParamIt(params) {
-    it('registration should require all params, fail with ' + params.join(', '), (done) => {
-      request(app).post('/user').set('Accept', 'text/html')
+    it(`registration should require all params, fail with ${params.join(', ')}`, (done) => {
+      request(app)
+        .post('/user')
+        .set('Accept', 'text/html')
         .send(util.getRegistrationParams({
           email: params[0],
           password: params[1],
@@ -152,20 +188,25 @@ describe('Registration', () => {
     });
   }
 
-  for (var i = 0; i < regParams.length; i++) {
+  for (let i = 0; i < regParams.length; i++) {
     regParamIt(regParams[i]);
   }
 
   it('registration should reject an existing email address', (done) => {
-    request(app).post('/user').set('Accept', 'text/html')
+    request(app)
+      .post('/user')
+      .set('Accept', 'text/html')
       .send(util.getRegistrationParams(util.users.newUser))
       .expect(500, done);
   });
 
   it('registration should fail if passwords do not match', (done) => {
-    request(app).post('/user').set('Accept', 'text/html')
+    request(app)
+      .post('/user')
+      .set('Accept', 'text/html')
       .send(util.getRegistrationParams(util.users.badPassUser))
-      .expect(500).end(() => {
+      .expect(500)
+      .end(() => {
         util.knex('users').where('email', util.users.badPassUser.email)
           .first().then((user) => {
             should.equal(user, undefined);
@@ -175,9 +216,12 @@ describe('Registration', () => {
   });
 
   it('registration should fail if emails do not match', (done) => {
-    request(app).post('/user').set('Accept', 'text/html')
+    request(app)
+      .post('/user')
+      .set('Accept', 'text/html')
       .send(util.getRegistrationParams(util.users.badEmailUser))
-      .expect(500).end(() => {
+      .expect(500)
+      .end(() => {
         util.knex('users').where('email', util.users.badEmailUser.email)
           .first().then((user) => {
             should.equal(user, undefined);
@@ -187,9 +231,10 @@ describe('Registration', () => {
   });
 
   describe('Account', () => {
-
     it('should only allow logged in users to access account management page', (done) => {
-      request(app).get('/user/account').expect(304)
+      request(app)
+        .get('/user/account')
+        .expect(304)
         .end((err, res) => {
           res.headers.location.should.equal('/');
           done();
@@ -197,19 +242,27 @@ describe('Registration', () => {
     });
 
     it('should have a page to allow users to manage their account if logged in', (done) => {
-      req = request(app).get('/user/account').set('Accept', 'text/html');
+      req = request(app)
+        .get('/user/account')
+        .set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.expect(200).expect('Content-Type', /text/, done);
+      req
+        .expect(200)
+        .expect('Content-Type', /text/, done);
     });
 
     it('should allow a user to change their first and last name', (done) => {
-      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req = request(app)
+        .put('/user/account')
+        .set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.send({
+      req
+        .send({
           firstname: util.users.newUser.firstName,
           lastname: util.users.newUser.lastName,
         })
-        .expect(200).expect('Content-Type', /text/)
+        .expect(200)
+        .expect('Content-Type', /text/)
         .end(() => {
           util.knex('users').where('email', util.users.testUser.email).first().then((
             user) => {
@@ -221,18 +274,22 @@ describe('Registration', () => {
     });
 
     it('should allow a user to change their password', (done) => {
-      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req = request(app)
+        .put('/user/account')
+        .set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.send({
+      req
+        .send({
           cpassword: util.users.testUser.password,
           password: util.users.newUser.password,
           vpassword: util.users.newUser.password
         })
-        .expect(200).expect('Content-Type', /text/)
+        .expect(200)
+        .expect('Content-Type', /text/)
         .end(() => {
           util.knex('users').where('email', util.users.testUser.email)
             .first().then((user) => {
-              bcrypt.compare(util.users.newUser.password, user.hashed_password)
+              bcrypt.compare(util.users.newUser.password, user.hashedPassword)
                 .then(() => {
                   should.ok(util.users.newUser.password);
                   done();
@@ -248,9 +305,12 @@ describe('Registration', () => {
     });
 
     it('should require a user to enter their current password to change it', (done) => {
-      req = request(app).put('/user/account').set('Accept', 'text/html');
+      req = request(app)
+        .put('/user/account')
+        .set('Accept', 'text/html');
       req.cookies = testUserCookie;
-      req.send({
+      req
+        .send({
           cpassword: util.users.badPassUser.password,
           password: util.users.newUser.password,
           vpassword: util.users.newUser.password
@@ -261,7 +321,5 @@ describe('Registration', () => {
           done();
         });
     });
-
   });
-
 });

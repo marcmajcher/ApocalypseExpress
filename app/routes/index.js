@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-env node */
+
 const express = require('express');
 const router = express.Router();
 const util = require('./_util');
@@ -7,14 +9,14 @@ const bcrypt = require('bcrypt-as-promised');
 
 /* GET home page with user, driver, and location info */
 router.get('/', (req, res) => {
-  let user = req.session.user;
+  const user = req.session.user;
   if (user) {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {
       util.knex('locations').where('id', driver.location).first().then(
         (location) => {
           util.renderTemplate(req, res, 'index', {
-            driver: driver,
-            location: location
+            driver,
+            location
           });
         });
     });
@@ -40,6 +42,7 @@ router.get('/login', (req, res) => {
   util.renderTemplate(req, res, 'login');
 });
 
+/* eslint-disable no-param-reassign */
 /* Log user in and redirect them to the game page */
 router.post('/login', (req, res, next) => {
   util.knex('users').where({
@@ -51,11 +54,11 @@ router.post('/login', (req, res, next) => {
       util.renderTemplate(req, res, 'login');
     }
     else {
-      bcrypt.compare(req.body.password, user.hashed_password)
+      bcrypt.compare(req.body.password, user.hashedPassword)
         .then(() => {
           /* Login successful, redirect to game page */
           req.session.user = user;
-          delete req.session.hashed_password;
+          delete req.session.hashedPassword;
           res.redirect('/game');
         })
         .catch(bcrypt.MISMATCH_ERROR, () => {

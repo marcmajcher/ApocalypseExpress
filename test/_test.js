@@ -1,7 +1,9 @@
 'use strict';
 
-var app = require('../app/app.js');
-var request = require('supertest');
+/* eslint-env mocha, node */
+
+const app = require('../app/app.js');
+const request = require('supertest');
 
 describe('Smoke Test', () => {
   it('should respond with booyah', (done) => {

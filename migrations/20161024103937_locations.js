@@ -1,9 +1,6 @@
 'use strict';
 
-exports.up = function(knex) {
-  return knex.schema.renameTable('cities', 'locations');
-};
+/* eslint-env node */
 
-exports.down = function(knex) {
-  return knex.schema.renameTable('locations', 'cities');
-};
+exports.up = knex => knex.schema.renameTable('cities', 'locations');
+exports.down = knex => knex.schema.renameTable('locations', 'cities');

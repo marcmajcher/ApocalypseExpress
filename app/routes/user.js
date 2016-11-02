@@ -1,9 +1,12 @@
 'use strict';
 
+/* eslint-env node */
+
 const express = require('express');
 const router = express.Router();
 const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
+const bcRounds = 12;
 
 /* Create new user */
 router.post('/', (req, res, next) => {
@@ -11,38 +14,34 @@ router.post('/', (req, res, next) => {
     req.body.password && req.body.vpassword &&
     req.body.firstname && req.body.lastname) {
     if (req.body.password !== req.body.vpassword) {
-      var passwordError = new Error('Passwords do not match');
+      const passwordError = new Error('Passwords do not match');
       passwordError.status = 500;
       next(passwordError);
     }
     else if (req.body.email !== req.body.vemail) {
-      var emailError = new Error('Emails do not match');
+      const emailError = new Error('Emails do not match');
       emailError.status = 500;
       next(emailError);
     }
     else {
-      let user_password = '';
+      let user = '';
       /* All good, let's create a user */
-      bcrypt.hash(req.body.password, 12)
-        .then((hashed_password) => {
-          user_password = hashed_password;
+      bcrypt.hash(req.body.password, bcRounds)
+        .then((hashedPassword) => {
+          user = hashedPassword;
           return util.knex('config').where('config', 'default').first();
         })
-        .then((config) => {
-          return util.knex('drivers').insert({
-            name: generateApocName(),
-            location: config.defaultLocation
-          }, '*');
-        })
-        .then((drivers) => {
-          return util.knex('users').insert({
-            email: req.body.email,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            hashed_password: user_password,
-            driverid: drivers[0].id
-          }, '*');
-        })
+        .then(config => util.knex('drivers').insert({
+          name: util.generateApocName(),
+          location: config.defaultLocation
+        }, '*'))
+        .then(drivers => util.knex('users').insert({
+          email: req.body.email,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          hashedPassword: user,
+          driverid: drivers[0].id
+        }, '*'))
         .then(() => {
           res.redirect('/');
         })
@@ -52,7 +51,7 @@ router.post('/', (req, res, next) => {
     }
   }
   else {
-    var err = new Error('Registration missing required fields');
+    const err = new Error('Registration missing required fields');
     err.status = 500;
     next(err);
   }
@@ -64,6 +63,7 @@ router.get('/account', (req, res) => {
   util.renderTemplate(req, res, 'account');
 });
 
+/* Update user account information */
 router.put('/account', (req, res, next) => {
   if (req.body.firstname && req.body.lastname) {
     util.knex('users').where('email', req.session.user.email).first()
@@ -83,20 +83,22 @@ router.put('/account', (req, res, next) => {
   else if (req.body.cpassword && req.body.password && req.body.vpassword) {
     util.knex('users').where('email', req.session.user.email).first().then(
       (user) => {
-        bcrypt.compare(req.body.cpassword, user.hashed_password)
+        bcrypt.compare(req.body.cpassword, user.hashedPassword)
           .then(() => {
-            bcrypt.hash(req.body.password, 12)
-              .then((hashed_password) => {
+            bcrypt.hash(req.body.password, bcRounds)
+              .then((hashedPassword) => {
                 util.knex('users').where('email', req.session.user.email)
                   .update({
-                    hashed_password: hashed_password
+                    hashedPassword
                   })
                   .then(() => {
-                    util.knex('users').where('email', req.session.user
-                      .email).first().then((user) => {
-                      req.session.user = user;
-                      util.renderTemplate(req, res, 'account');
-                    });
+                    req.session.user = user;
+                    util.renderTemplate(req, res, 'account');
+                    // util.knex('users').where('email', req.session.user.email).first()
+                    //   .then((user) => {
+                    //     req.session.user = user;
+                    //     util.renderTemplate(req, res, 'account');
+                    //   });
                   });
               });
           })
@@ -107,19 +109,10 @@ router.put('/account', (req, res, next) => {
       });
   }
   else {
-    var err = new Error('Missing required fields');
+    const err = new Error('Missing required fields');
     err.status = 500;
     next(err);
   }
 });
 
 module.exports = router;
-
-//////
-
-const nameList = require('../data/uniquenames');
-
-function generateApocName() {
-  return nameList[Math.floor(Math.random() * nameList.length)] + ' ' + nameList[
-    Math.floor(Math.random() * nameList.length)];
-}

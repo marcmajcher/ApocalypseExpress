@@ -1,9 +1,12 @@
 'use strict';
 
+/* eslint-env node */
+
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 // const concat = require('gulp-concat');
 const del = require('del');
+const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 // const imagemin = require('gulp-imagemin');
 const jshint = require('gulp-jshint');
@@ -13,16 +16,28 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 // const uglify = require('gulp-uglify');
 
-gulp.task('default', ['clean', 'build', 'jshint', 'watch', 'nodemon']);
+const lintable = [
+  'app/**/*.js',
+  'gulpfile.js',
+  'knexfile.js',
+  'migrations/**/*.js',
+  'seeds/**/*.js',
+  'src/js/**/*.js',
+  'test/**/*.js',
+  '!node_modules/**',
+  '!app/static/**'
+];
+
+gulp.task('default', ['clean', 'build', 'eslint', 'jshint', 'watch', 'nodemon']);
 gulp.task('build', ['sass', 'imagemin', 'scripts']);
 
-gulp.task('clean', function() {
-  return del([
+gulp.task('clean', () =>
+  del([
     'app/static/css/*',
     'app/static/js/*',
     'app/static/img/*'
-  ]);
-});
+  ])
+);
 
 // gulp.task('concat', function() {
 //   return gulp.src('src/js/**/*.js')
@@ -31,64 +46,62 @@ gulp.task('clean', function() {
 //     .pipe(gulp.dest('app/static/js'));
 // });
 
-gulp.task('imagemin', () => {
-  return gulp.src('src/img/**/*')
-    // .pipe(imagemin())  // only imagemin on prod
-    .pipe(gulp.dest('app/static/img'));
-});
+gulp.task('imagemin', () =>
+  gulp
+  .src('src/img/**/*')
+  // .pipe(imagemin())  // only imagemin on prod
+  .pipe(gulp.dest('app/static/img'))
+);
 
-gulp.task('scripts', () => {
-  return gulp.src('src/js/**/*.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    // .pipe(uglify()) // only uglify/min on prod
-    .pipe(gulp.dest('app/static/js'));
-});
+gulp.task('scripts', () =>
+  gulp
+  .src('src/js/**/*.js')
+  .pipe(babel({
+    presets: ['es2015']
+  }))
+  // .pipe(uglify()) // only uglify/min on prod
+  .pipe(gulp.dest('app/static/js'))
+);
 
-gulp.task('jshint', () => {
-  return gulp
-    .src([
-      'app/routes/**/*.js',
-      'src/js/**/*.js',
-      'app/data/**/*.js',
-      'test/**/*.js',
-      'migrations/**/*.js',
-      'seeds/**/*.js',
-      'knexfile.js',
-      'gulpfile.js'
-    ])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
+gulp.task('eslint', () =>
+  gulp
+  .src(lintable)
+  .pipe(eslint())
+  .pipe(eslint.format())
+);
 
-gulp.task('sass', () => {
-  return gulp
-    .src('src/scss/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(autoprefixer())
-    .pipe(gulp.dest('app/static/css'));
-});
+gulp.task('jshint', () => gulp
+  .src(lintable)
+  .pipe(jshint())
+  .pipe(jshint.reporter('jshint-stylish'))
+);
 
-gulp.task('nodemon', () => {
-  return nodemon({
-    script: 'app/www',
-    watch: ['app/app.js']
-  });
-});
+gulp.task('sass', () =>
+  gulp
+  .src('src/scss/**/*.scss')
+  .pipe(sourcemaps.init())
+  .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.write())
+  .pipe(autoprefixer())
+  .pipe(gulp.dest('app/static/css'))
+);
+
+gulp.task('nodemon', () => nodemon({
+  script: 'app/www',
+  watch: ['app/app.js']
+}));
 
 gulp.task('watch', () => {
-  gulp.watch('app/**/*.js', ['jshint']);
-  gulp.watch('test/**/*.js', ['jshint']);
-  gulp.watch('app/views/**/*.ejs');
-  gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch([
+    'app/**/*.js',
+    'gulpfile.js',
+    'knexfile.js',
+    'migrations/**/*.js',
+    'seeds/**/*.js',
+    'test/**/*.js'
+  ], ['jshint', 'eslint']);
   gulp.watch('src/js/**/*.js', ['scripts']);
-  gulp.watch('migrations/**/*.js', ['jshint']);
-  gulp.watch('seeds/**/*.js', ['jshint']);
-  gulp.watch('knexfile.js', ['jshint']);
-  gulp.watch('gulpfile.js', ['jshint']);
+  gulp.watch('src/scss/**/*.scss', ['sass']);
 });
 
 // https://www.mikestreety.co.uk/blog/advanced-gulp-file
