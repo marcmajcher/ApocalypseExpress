@@ -51,10 +51,14 @@ function dragLocation(event) {
   event.target.children.dot.fillColor.alpha = 0.5;
   event.target.position += event.delta;
   const location = pointToLatLong(event.target.position);
-  event.target.longitude = location.longitude;
-  event.target.latitude = location.latitude;
-  $('#detailPanel #locx').val(event.target.latitude);
-  $('#detailPanel #locy').val(event.target.longitude);
+  event.target.location.longitude = location.longitude;
+  event.target.location.latitude = location.latitude;
+  $('#detailPanel #locx').val(event.target.location.latitude);
+  $('#detailPanel #locy').val(event.target.location.longitude);
+  for (let i = 0; i < event.target.location.paths.length; i++) {
+    event.target.location.paths[i].x = event.target.children.dot.position.x;
+    event.target.location.paths[i].y = event.target.children.dot.position.y;
+  }
   event.stopPropagation();
 }
 
@@ -65,6 +69,7 @@ function mouseupLocation(event) {
 function calculateLocationPoints(data) {
   Object.keys(data.locations).forEach((id) => {
     data.locations[id].point = locToPoint(data.locations[id]);
+    data.locations[id].paths = [];
   });
 }
 
@@ -102,11 +107,15 @@ function renderConnections(data) {
   /* Draw connections */
   for (let i = 0; i < data.connections.length; i++) {
     const connection = data.connections[i];
-    const path = new Path();
+    const loc1 = data.locations[connection.city1];
+    const loc2 = data.locations[connection.city2];
+
+    const path = new Path.Line(loc1.point, loc2.point);
     path.strokeColor = 'black';
     path.strokeWidth = baseConWidth;
-    path.moveTo(data.locations[connection.city1].point);
-    path.lineTo(data.locations[connection.city2].point);
+
+    loc1.paths.push(path.segments[0].point);
+    loc2.paths.push(path.segments[1].point);
   }
 }
 
