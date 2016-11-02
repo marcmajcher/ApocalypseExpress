@@ -11,14 +11,20 @@ view.center = new Point(1100, 500); // eslint-disable-line no-magic-numbers
 
 const baseDotSize = 3;
 const baseConWidth = 3;
+const xScale = 435.30;
+const yScale = -506.5;
+const xOffset = 43647;
+const yOffset = 15855;
 
-function getPoint(loc) {
-  const xScale = 435.30;
-  const yScale = -506.5;
-  const xOffset = 43647;
-  const yOffset = 15855;
-
+function locToPoint(loc) {
   return new Point((loc.longitude * xScale) + xOffset, (loc.latitude * yScale) + yOffset);
+}
+
+function pointToLatLong(point) {
+  return {
+    longitude: (point.x - xOffset) / xScale,
+    latitude: (point.y - yOffset) / yScale
+  };
 }
 
 function rolloverLocation(event) {
@@ -41,9 +47,24 @@ function clickLocation(event) {
   $('#detailPanel #type').val(event.target.location.type);
 }
 
+function dragLocation(event) {
+  event.target.children.dot.fillColor.alpha = 0.5;
+  event.target.position += event.delta;
+  const location = pointToLatLong(event.target.position);
+  event.target.longitude = location.longitude;
+  event.target.latitude = location.latitude;
+  $('#detailPanel #locx').val(event.target.latitude);
+  $('#detailPanel #locy').val(event.target.longitude);
+  event.stopPropagation();
+}
+
+function mouseupLocation(event) {
+  event.target.children.dot.fillColor.alpha = 1;
+}
+
 function calculateLocationPoints(data) {
   Object.keys(data.locations).forEach((id) => {
-    data.locations[id].point = getPoint(data.locations[id]);
+    data.locations[id].point = locToPoint(data.locations[id]);
   });
 }
 
@@ -54,8 +75,10 @@ function renderLocations(data) {
     const dot = new Path.Circle({
       center: location.point,
       radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-      fillColor: 'black' // set color/halo according to faction
+      fillColor: 'black', // set color/halo according to faction
+      name: 'dot'
     });
+
     const text = new PointText(location.point + textOffset);
     text.justification = 'center';
     text.fillColor = '#3333ff';
@@ -69,7 +92,9 @@ function renderLocations(data) {
     locGroup.location = location;
     locGroup.onMouseEnter = rolloverLocation;
     locGroup.onMouseLeave = rolloutLocation;
+    locGroup.onMouseDrag = dragLocation;
     locGroup.onClick = clickLocation;
+    locGroup.onMouseUp = mouseupLocation;
   });
 }
 
@@ -135,9 +160,11 @@ $('#mapCanvas').bind('mousewheel', (event) => {
   }
 });
 
-function onMouseDrag(event) {
-  mapLayer.position += event.delta;
-}
+/* Global interaction handlers */
+
+mapLayer.onMouseDrag = (event) => {
+  event.target.position += event.delta;
+};
 
 function onKeyUp(event) {
   if (event.key === 'escape') {
