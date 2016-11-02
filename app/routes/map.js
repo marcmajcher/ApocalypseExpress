@@ -10,14 +10,13 @@ router.use(util.loginRequired);
 
 router.get('/', (req, res) => {
   const myData = {};
-  util.knex('locations').then((cities) => {
-    myData.locations = cities.reduce((l, c) => {
-      l[c.id] = c;
-      delete l[c.id].id;
-      return l;
+  util.knex('locations').then((locations) => {
+    myData.locations = locations.reduce((last, cur) => {
+      last[cur.id] = cur;
+      return last;
     }, {});
-    util.knex('connections').then((links) => {
-      myData.connections = links;
+    util.knex('connections').then((connections) => {
+      myData.connections = connections;
       res.send(myData);
     });
   });

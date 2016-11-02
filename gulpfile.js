@@ -68,6 +68,10 @@ gulp.task('eslint', () =>
   .src(lintable)
   .pipe(eslint())
   .pipe(eslint.format())
+  .on('error', (error) => {
+    console.error(error.toString()); // eslint-disable-line no-console
+    this.emit('end');
+  })
 );
 
 gulp.task('jshint', () => gulp

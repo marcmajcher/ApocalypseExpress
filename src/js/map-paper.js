@@ -2,38 +2,74 @@
 
 /* globals view, Point, Layer, Path, PointText, Group, Raster */
 /* eslint-env jquery, browser */
-/* exported onMouseDrag */
+/* exported onMouseDrag, onKeyUp */
 
-const locGroups = [];
 const mapLayer = new Layer();
+
 mapLayer.texasMap = new Raster('/img/texasmap.jpg');
 view.center = new Point(1100, 500); // eslint-disable-line no-magic-numbers
+
+const baseDotSize = 3;
+const baseConWidth = 3;
 
 function getPoint(loc) {
   const xScale = 435.30;
   const yScale = -506.5;
-  const xOffset = 43650;
-  const yOffset = 15850;
+  const xOffset = 43647;
+  const yOffset = 15855;
 
   return new Point((loc.longitude * xScale) + xOffset, (loc.latitude * yScale) + yOffset);
 }
 
+function rolloverLocation(event) {
+  event.target.children.locname.visible = true;
+}
+
+function rolloutLocation(event) {
+  event.target.children.locname.visible = false;
+}
+
+function clickLocation(event) {
+  $('#detailPanel').show();
+  $('#detailPanel #locID').text(event.target.location.id);
+  $('#detailPanel #locname').val(event.target.location.name);
+  $('#detailPanel #locx').val(event.target.location.latitude);
+  $('#detailPanel #locy').val(event.target.location.longitude);
+  $('#detailPanel #description').val(event.target.location.description);
+  $('#detailPanel #population').val(event.target.location.population);
+  $('#detailPanel #tech').val(event.target.location.tech);
+  $('#detailPanel #type').val(event.target.location.type);
+}
+
+function calculateLocationPoints(data) {
+  Object.keys(data.locations).forEach((id) => {
+    data.locations[id].point = getPoint(data.locations[id]);
+  });
+}
+
 function renderLocations(data) {
-  const textOffset = new Point(0, -10); // eslint-disable-line no-magic-numbers
+  const textOffset = new Point(0, -15); // eslint-disable-line no-magic-numbers
   Object.keys(data.locations).forEach((id) => {
     const location = data.locations[id];
-    location.point = getPoint(location);
     const dot = new Path.Circle({
       center: location.point,
-      radius: 5,
-      fillColor: 'black'
+      radius: baseDotSize * Math.ceil(Math.log10(location.population)),
+      fillColor: 'black' // set color/halo according to faction
     });
     const text = new PointText(location.point + textOffset);
     text.justification = 'center';
-    text.fillColor = '#333399';
+    text.fillColor = '#3333ff';
+    text.strokeColor = '#9999cc';
     text.content = location.name;
     text.name = 'locname';
-    locGroups.push(new Group([dot, text]));
+    text.visible = false;
+    text.fontSize = 24;
+
+    const locGroup = new Group([dot, text]);
+    locGroup.location = location;
+    locGroup.onMouseEnter = rolloverLocation;
+    locGroup.onMouseLeave = rolloutLocation;
+    locGroup.onClick = clickLocation;
   });
 }
 
@@ -43,6 +79,7 @@ function renderConnections(data) {
     const connection = data.connections[i];
     const path = new Path();
     path.strokeColor = 'black';
+    path.strokeWidth = baseConWidth;
     path.moveTo(data.locations[connection.city1].point);
     path.lineTo(data.locations[connection.city2].point);
   }
@@ -50,8 +87,9 @@ function renderConnections(data) {
 
 /* initial map load */
 $.getJSON('/map', (data) => {
-  renderLocations(data);
+  calculateLocationPoints(data);
   renderConnections(data);
+  renderLocations(data);
 });
 
 /* Navigation methods */
@@ -99,4 +137,10 @@ $('#mapCanvas').bind('mousewheel', (event) => {
 
 function onMouseDrag(event) {
   mapLayer.position += event.delta;
+}
+
+function onKeyUp(event) {
+  if (event.key === 'escape') {
+    $('#detailPanel').hide();
+  }
 }
