@@ -18,9 +18,9 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 * GET /map : Map editor
 
 ### /map
-* GET / : Get json map data
+* GET / : Get json map data for user (visited locations)
 
 ### /users
 * POST / : Create new user : email, vemail, password, vpassword, firstname, lastname
 * GET /account : User account management page
-* PUT /account : Update user info: firstname, lastname, cpassword, password, vpassword
+* PATCH /account : Update user info: firstname, lastname, cpassword, password, vpassword
