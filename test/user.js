@@ -27,10 +27,12 @@ describe('Login', () => {
   });
 
   it('should be able to log in a test user and redirect to index', (done) => {
+    var userLogin =
+      `email=${util.users.testUser.email}&password=${util.users.testUser.password}`;
     request(app)
       .post('/login')
       .set('Accept', 'text/html')
-      .send(`email=${util.users.testUer.email}&password=${util.users.testUser.password}`)
+      .send(userLogin)
       .expect(302)
       .expect('Content-Type', /text/)
       .end((err, res) => {
@@ -253,7 +255,7 @@ describe('Registration', () => {
 
     it('should allow a user to change their first and last name', (done) => {
       req = request(app)
-        .put('/user/account')
+        .patch('/user/account')
         .set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req
@@ -264,18 +266,18 @@ describe('Registration', () => {
         .expect(200)
         .expect('Content-Type', /text/)
         .end(() => {
-          util.knex('users').where('email', util.users.testUser.email).first().then((
-            user) => {
-            user.firstname.should.equal(util.users.newUser.firstName);
-            user.lastname.should.equal(util.users.newUser.lastName);
-            done();
-          });
+          util.knex('users').where('email', util.users.testUser.email).first()
+            .then((user) => {
+              user.firstname.should.equal(util.users.newUser.firstName);
+              user.lastname.should.equal(util.users.newUser.lastName);
+              done();
+            });
         });
     });
 
     it('should allow a user to change their password', (done) => {
       req = request(app)
-        .put('/user/account')
+        .patch('/user/account')
         .set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req
@@ -306,7 +308,7 @@ describe('Registration', () => {
 
     it('should require a user to enter their current password to change it', (done) => {
       req = request(app)
-        .put('/user/account')
+        .patch('/user/account')
         .set('Accept', 'text/html');
       req.cookies = testUserCookie;
       req

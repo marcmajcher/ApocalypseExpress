@@ -38,7 +38,8 @@ describe('Map', () => {
     request(app)
       .post('/login')
       .set('Accept', 'text/html')
-      .send(`email=${util.users.adminUser.email}&password${util.users.adminUser.password}`)
+      .send(
+        `email=${util.users.adminUser.email}&password=${util.users.adminUser.password}`)
       .expect(304)
       .expect('Content-Type', /text/)
       .end((err, res) => {

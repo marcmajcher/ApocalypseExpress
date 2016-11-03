@@ -64,7 +64,7 @@ router.get('/account', (req, res) => {
 });
 
 /* Update user account information */
-router.put('/account', (req, res, next) => {
+router.patch('/account', (req, res, next) => {
   if (req.body.firstname && req.body.lastname) {
     util.knex('users').where('email', req.session.user.email).first()
       .update({
