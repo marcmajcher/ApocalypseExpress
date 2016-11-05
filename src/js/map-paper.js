@@ -36,28 +36,31 @@ function rolloutLocation(event) {
 }
 
 function clickLocation(event) {
+  const loc = event.target.location;
   $('#detailPanel').show();
-  $('#detailPanel #locID').text(event.target.location.id);
-  $('#detailPanel #locname').val(event.target.location.name);
-  $('#detailPanel #locx').val(event.target.location.latitude);
-  $('#detailPanel #locy').val(event.target.location.longitude);
-  $('#detailPanel #description').val(event.target.location.description);
-  $('#detailPanel #population').val(event.target.location.population);
-  $('#detailPanel #tech').val(event.target.location.tech);
-  $('#detailPanel #type').val(event.target.location.type);
+  $('#mapsubmit').attr('action', `/admin/map/${loc.id}?_method=patch`);
+  $('#detailPanel #locID').text(loc.id);
+  $('#detailPanel #locname').val(loc.name);
+  $('#detailPanel #locx').val(loc.latitude);
+  $('#detailPanel #locy').val(loc.longitude);
+  $('#detailPanel #description').val(loc.description);
+  $('#detailPanel #population').val(loc.population);
+  $('#detailPanel #tech').val(loc.tech);
+  $('#detailPanel #type').val(loc.type);
 }
 
 function dragLocation(event) {
-  event.target.children.dot.fillColor.alpha = 0.5;
-  event.target.position += event.delta;
-  const location = pointToLatLong(event.target.position);
-  event.target.location.longitude = location.longitude;
-  event.target.location.latitude = location.latitude;
-  $('#detailPanel #locx').val(event.target.location.latitude);
-  $('#detailPanel #locy').val(event.target.location.longitude);
-  for (let i = 0; i < event.target.location.paths.length; i++) {
-    event.target.location.paths[i].x = event.target.children.dot.position.x;
-    event.target.location.paths[i].y = event.target.children.dot.position.y;
+  const target = event.target;
+  target.children.dot.fillColor.alpha = 0.5;
+  target.position += event.delta;
+  const location = pointToLatLong(target.position);
+  target.location.longitude = location.longitude;
+  target.location.latitude = location.latitude;
+  $('#detailPanel #locx').val(target.location.latitude);
+  $('#detailPanel #locy').val(target.location.longitude);
+  for (let i = 0; i < target.location.paths.length; i++) {
+    target.location.paths[i].x = target.children.dot.position.x;
+    target.location.paths[i].y = target.children.dot.position.y;
   }
   event.stopPropagation();
 }
