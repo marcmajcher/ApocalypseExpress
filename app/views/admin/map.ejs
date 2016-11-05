@@ -19,7 +19,7 @@
 
 <div id="detailPanel">
 
-  <form action="">
+  <form id="mapsubmit" method="post">
     <div>
       ID: <span id="locID">000</span>
     </div>
@@ -29,11 +29,11 @@
     </div>
     <div class="form-group">
       <label for="locx">X</label>
-      <input class="form-control" id="locx" type="number" name="locx">
+      <input class="form-control" id="locx" type="number" step="any" name="locx">
     </div>
     <div class="form-group">
       <label for="locy">Y</label>
-      <input class="form-control" id="locy" type="number" name="locy">
+      <input class="form-control" id="locy" type="number" step="any" name="locy">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
@@ -59,7 +59,7 @@
         <option value="enclave">enclave</option>
       </select>
     </div>
-    <button>Update</button>
+    <input type="submit" value="Update">
     <button id="closeDetails" type="button">Close</button>
   </form>
 
