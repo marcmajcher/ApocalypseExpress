@@ -27,7 +27,7 @@ describe('Login', () => {
   });
 
   it('should be able to log in a test user and redirect to index', (done) => {
-    var userLogin =
+    const userLogin =
       `email=${util.users.testUser.email}&password=${util.users.testUser.password}`;
     request(app)
       .post('/login')
