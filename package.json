@@ -23,6 +23,7 @@
     "morgan": "~1.6.1",
     "paper": "^0.10.2",
     "pg": "^6.1.0",
+    "random-seed": "^0.3.0",
     "randomstring": "^1.1.5",
     "serve-favicon": "~2.3.0",
     "should": "^11.1.1",
