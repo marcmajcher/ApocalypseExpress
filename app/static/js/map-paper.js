@@ -192,7 +192,7 @@ $('#mapCanvas').bind('mousewheel', function (event) {
 
 /* Global interaction handlers */
 
-mapLayer.onClick = function (event) {
+mapLayer.onClick = function () {
   closeDetailWindow();
 };
 
@@ -211,15 +211,21 @@ $('#closeDetails').click(function () {
 });
 
 $('#updateDetails').click(function () {
-  var a = $.ajax({
-    // url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
-    // method: 'PATCH',
-    method: 'GET',
-    url: '/map'
-  }).success(function (msg) {
-    console.log('OK', msg);
-  }).fail(function (err) {
-    console.log('booooo', err);
+  $.ajax({
+    url: '/admin/map/location/' + $('#detailPanel #locid').val(),
+    method: 'PATCH',
+    data: {
+      name: $('#detailPanel #name').val(),
+      longitude: $('#detailPanel #longitude').val(),
+      latitude: $('#detailPanel #latitude').val(),
+      description: $('#detailPanel #description').val(),
+      population: $('#detailPanel #population').val(),
+      tech: $('#detailPanel #tech').val(),
+      type: $('#detailPanel #type').val()
+    }
+  }).success(function () {
+    // console.log('OK', msg);
+  }).fail(function () {
+    // console.log('booooo', err);
   });
-  console.log(a);
 });

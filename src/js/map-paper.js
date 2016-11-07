@@ -193,9 +193,9 @@ $('#mapCanvas').bind('mousewheel', (event) => {
 
 /* Global interaction handlers */
 
-mapLayer.onClick = (event) => {
+mapLayer.onClick = () => {
     closeDetailWindow();
-}
+};
 
 mapLayer.onMouseDrag = (event) => {
   event.target.position += event.delta;
@@ -212,17 +212,23 @@ $('#closeDetails').click(() => {
 });
 
 $('#updateDetails').click(() => {
-  var a = $.ajax({
-    // url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
-    // method: 'PATCH',
-method: 'GET',
-url: '/map'
+  $.ajax({
+    url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
+    method: 'PATCH',
+    data: {
+      name: $('#detailPanel #name').val(),
+      longitude: $('#detailPanel #longitude').val(),
+      latitude: $('#detailPanel #latitude').val(),
+      description: $('#detailPanel #description').val(),
+      population: $('#detailPanel #population').val(),
+      tech: $('#detailPanel #tech').val(),
+      type: $('#detailPanel #type').val()
+    }
   })
-  .success((msg) => {
-    console.log('OK', msg);
+  .success(() => {
+    // console.log('OK', msg);
   })
-  .fail((err) => {
-    console.log('booooo', err);
+  .fail(() => {
+    // console.log('booooo', err);
   });
-  console.log(a);
 });

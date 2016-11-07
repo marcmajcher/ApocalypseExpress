@@ -31,7 +31,11 @@ router.patch('/map/location/:locid', (req, res) => {
         status: 'ok'
       });
     })
-    .catch(() => {
+    .catch((err) => {
+      res.send({
+        status: 'NOPE',
+        error: err
+      });
     });
 });
 
