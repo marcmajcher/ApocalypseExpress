@@ -4,6 +4,8 @@
 /* eslint-env jquery, browser */
 /* exported onMouseDrag, onKeyUp */
 
+// TODO: add "loading" thinger
+
 const mapLayer = new Layer();
 
 mapLayer.texasMap = new Raster('/img/texasmap.jpg');
@@ -35,23 +37,28 @@ function rolloutLocation(event) {
   event.target.children.locname.visible = false;
 }
 
-function clickLocation(event) {
+function updatePositionDetail(loc) {
+  $('#detailPanel #longitude').val(loc.longitude);
+  $('#detailPanel #latitude').val(loc.latitude);
+}
+
+function mousedownLocation(event) {
+  // add close/notification
+  event.target.children.dot.fillColor.alpha = 0.5;
   const loc = event.target.location;
   $('#detailPanel').show();
-  $('#mapsubmit').attr('action', `/admin/map/${loc.id}?_method=patch`);
-  $('#detailPanel #locID').text(loc.id);
-  $('#detailPanel #locname').val(loc.name);
-  $('#detailPanel #locx').val(loc.latitude);
-  $('#detailPanel #locy').val(loc.longitude);
+  $('#mapsubmit').attr('action', `/admin/map/location/${loc.id}?_method=PATCH`);
+  $('#detailPanel #locid').val(loc.id);
+  $('#detailPanel #name').val(loc.name);
   $('#detailPanel #description').val(loc.description);
   $('#detailPanel #population').val(loc.population);
   $('#detailPanel #tech').val(loc.tech);
   $('#detailPanel #type').val(loc.type);
+  updatePositionDetail(loc);
 }
 
 function dragLocation(event) {
   const target = event.target;
-  target.children.dot.fillColor.alpha = 0.5;
   target.position += event.delta;
   const location = pointToLatLong(target.position);
   target.location.longitude = location.longitude;
@@ -62,6 +69,7 @@ function dragLocation(event) {
     target.location.paths[i].x = target.children.dot.position.x;
     target.location.paths[i].y = target.children.dot.position.y;
   }
+  updatePositionDetail(location);
   event.stopPropagation();
 }
 
@@ -101,7 +109,7 @@ function renderLocations(data) {
     locGroup.onMouseEnter = rolloverLocation;
     locGroup.onMouseLeave = rolloutLocation;
     locGroup.onMouseDrag = dragLocation;
-    locGroup.onClick = clickLocation;
+    locGroup.onMouseDown = mousedownLocation;
     locGroup.onMouseUp = mouseupLocation;
   });
 }

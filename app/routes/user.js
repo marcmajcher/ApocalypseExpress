@@ -81,32 +81,26 @@ router.patch('/account', (req, res, next) => {
       });
   }
   else if (req.body.cpassword && req.body.password && req.body.vpassword) {
-    util.knex('users').where('email', req.session.user.email).first().then(
-      (user) => {
-        bcrypt.compare(req.body.cpassword, user.hashedPassword)
-          .then(() => {
-            bcrypt.hash(req.body.password, bcRounds)
-              .then((hashedPassword) => {
-                util.knex('users').where('email', req.session.user.email)
-                  .update({
-                    hashedPassword
-                  })
-                  .then(() => {
-                    req.session.user = user;
-                    util.renderTemplate(req, res, 'account');
-                    // util.knex('users').where('email', req.session.user.email).first()
-                    //   .then((user) => {
-                    //     req.session.user = user;
-                    //     util.renderTemplate(req, res, 'account');
-                    //   });
-                  });
-              });
-          })
-          .catch(() => {
-            req.flash('Password incorrect.');
-            res.redirect('/user/account');
-          });
-      });
+    util.knex('users').where('email', req.session.user.email).first().then((user) => {
+      bcrypt.compare(req.body.cpassword, user.hashedPassword)
+        .then(() => {
+          bcrypt.hash(req.body.password, bcRounds)
+            .then((hashedPassword) => {
+              util.knex('users').where('email', req.session.user.email)
+                .update({
+                  hashedPassword
+                })
+                .then(() => {
+                  req.session.user = user;
+                  util.renderTemplate(req, res, 'account');
+                });
+            });
+        })
+        .catch(() => {
+          req.flash('Password incorrect.');
+          res.redirect('/user/account');
+        });
+    });
   }
   else {
     const err = new Error('Missing required fields');

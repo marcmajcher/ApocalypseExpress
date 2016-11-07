@@ -5,6 +5,7 @@
   body {
     padding: 0
   }
+
   div#detailPanel {
     position: absolute;
     left: 0;
@@ -19,21 +20,19 @@
 
 <div id="detailPanel">
 
-  <form id="mapsubmit" method="post">
-    <div>
-      ID: <span id="locID">000</span>
+  <form id="mapsubmit" method="post" action="">
+    <input class="form-control" id="locid" type="hidden" name="locid">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" id="name" type="text" name="name">
     </div>
     <div class="form-group">
-      <label for="locname">Name</label>
-      <input class="form-control" id="locname" type="text" name="locname">
+      <label for="latitude">Latitude</label>
+      <input class="form-control" id="latitude" type="number" step="any" name="latitude">
     </div>
     <div class="form-group">
-      <label for="locx">X</label>
-      <input class="form-control" id="locx" type="number" step="any" name="locx">
-    </div>
-    <div class="form-group">
-      <label for="locy">Y</label>
-      <input class="form-control" id="locy" type="number" step="any" name="locy">
+      <label for="longitude">Longitude</label>
+      <input class="form-control" id="longitude" type="number" step="any" name="longitude">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
@@ -67,5 +66,7 @@
 
 <script>
   $('nav').hide();
-  $('#closeDetails').click(function() {$('#detailPanel').hide()});
+  $('#closeDetails').click(function() {
+    $('#detailPanel').hide()
+  });
 </script>
