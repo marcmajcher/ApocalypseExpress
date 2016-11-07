@@ -7,6 +7,7 @@
 // TODO: add "loading" thinger
 
 const mapLayer = new Layer();
+let originalLocation;
 
 mapLayer.texasMap = new Raster('/img/texasmap.jpg');
 view.center = new Point(1100, 500); // eslint-disable-line no-magic-numbers
@@ -29,6 +30,8 @@ function pointToLatLong(point) {
   };
 }
 
+/* Location dot mouse event handlers */
+
 function rolloverLocation(event) {
   event.target.children.locname.visible = true;
 }
@@ -46,14 +49,20 @@ function mousedownLocation(event) {
   // add close/notification
   event.target.children.dot.fillColor.alpha = 0.5;
   const loc = event.target.location;
+  originalLocation = loc;
   $('#detailPanel').show();
-  $('#mapsubmit').attr('action', `/admin/map/location/${loc.id}?_method=PATCH`);
+  $('#detailPanel #locid').val(loc.id);
   $('#detailPanel #name').val(loc.name);
   $('#detailPanel #description').val(loc.description);
   $('#detailPanel #population').val(loc.population);
   $('#detailPanel #tech').val(loc.tech);
   $('#detailPanel #type').val(loc.type);
   updatePositionDetail(loc);
+}
+
+function mouseupLocation(event) {
+  event.target.children.dot.fillColor.alpha = 1;
+  event.preventDefault();
 }
 
 function dragLocation(event) {
@@ -72,9 +81,11 @@ function dragLocation(event) {
   event.stopPropagation();
 }
 
-function mouseupLocation(event) {
-  event.target.children.dot.fillColor.alpha = 1;
+function closeDetailWindow() {
+  $('#detailPanel').hide();
 }
+
+/* Draw locations and connections on map */
 
 function calculateLocationPoints(data) {
   Object.keys(data.locations).forEach((id) => {
@@ -130,6 +141,7 @@ function renderConnections(data) {
 }
 
 /* initial map load */
+
 $.getJSON('/map', (data) => {
   calculateLocationPoints(data);
   renderConnections(data);
@@ -181,12 +193,36 @@ $('#mapCanvas').bind('mousewheel', (event) => {
 
 /* Global interaction handlers */
 
+mapLayer.onClick = (event) => {
+    closeDetailWindow();
+}
+
 mapLayer.onMouseDrag = (event) => {
   event.target.position += event.delta;
 };
 
 function onKeyUp(event) {
   if (event.key === 'escape') {
-    $('#detailPanel').hide();
+    closeDetailWindow();
   }
 }
+
+$('#closeDetails').click(() => {
+  closeDetailWindow();
+});
+
+$('#updateDetails').click(() => {
+  var a = $.ajax({
+    // url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
+    // method: 'PATCH',
+method: 'GET',
+url: '/map'
+  })
+  .success((msg) => {
+    console.log('OK', msg);
+  })
+  .fail((err) => {
+    console.log('booooo', err);
+  });
+  console.log(a);
+});
