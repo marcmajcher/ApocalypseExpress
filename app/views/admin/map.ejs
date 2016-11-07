@@ -20,7 +20,8 @@
 
 <div id="detailPanel">
 
-  <form id="mapsubmit" method="post" action="">
+  <form id="mapsubmit">
+    <input type="hidden" id="locid" name="locid">
     <div class="form-group">
       <label for="name">Name</label>
       <input class="form-control" id="name" type="text" name="name">
@@ -57,7 +58,7 @@
         <option value="enclave">enclave</option>
       </select>
     </div>
-    <input type="submit" value="Update">
+    <button id="updateDetails" type="button">Update</button>
     <button id="closeDetails" type="button">Close</button>
   </form>
 
@@ -65,7 +66,4 @@
 
 <script>
   $('nav').hide();
-  $('#closeDetails').click(function() {
-    $('#detailPanel').hide()
-  });
 </script>
