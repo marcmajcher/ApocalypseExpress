@@ -64,13 +64,44 @@ describe('Admin', () => {
           .get('/admin')
           .set('Accept', 'text/html');
         req.cookies = adminCookie;
-        req
-          .expect(200)
+        req.expect(200)
           .expect('Content-Type', /text/)
           .end((err2, res2) => {
             res2.text.should.match(/ApoX Admin/);
             done();
           });
+      });
+  });
+
+  it('should return full map data for a logged in admin', (done) => {
+    req = request(app)
+      .get('/map')
+      .set('Accept', 'text/json');
+    req.cookies = adminCookie;
+    req.expect(200)
+      .expect('Content-Type', /text/)
+      .end((err, res) => {
+        const cities = res.body.locations;
+        const links = res.body.connections;
+        cities[1].name.should.equal('Garnet');
+        cities[2].name.should.equal('Amethyst');
+        cities[3].name.should.equal('Pearl');
+        links.length.should.equal(3); // eslint-disable-line no-magic-numbers
+        done();
+      });
+  });
+
+  it('should allow an admin to edit a map location', (done) => {
+    req = request(app)
+      .patch('/admin/map/location/2')
+      .set('Accept', 'text/json');
+    req.cookies = adminCookie;
+    req.send(util.locations.editLocation)
+      .expect(200)
+      .expect('Content-Type', /text/)
+      .end((err, res) => {
+        res.body.status.should.equal('ok');
+        done();
       });
   });
 });

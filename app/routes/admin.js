@@ -17,7 +17,7 @@ router.get('/map', util.adminRequired, (req, res) => {
 
 router.patch('/map/location/:locid', (req, res) => {
   const data = req.body;
-  util.knex('locations').where('id', data.locid).first().update({
+  util.knex('locations').where('id', req.params.locid).first().update({
       name: data.name,
       longitude: data.longitude,
       latitude: data.latitude,
@@ -36,11 +36,3 @@ router.patch('/map/location/:locid', (req, res) => {
 });
 
 module.exports = router;
-
-// { locname: 'Austin',
-//      locx: '30.417841658440274',
-//      locy: '-97.40769912703882',
-//      description: 'This is a location.',
-//      population: '10000',
-//      tech: '5',
-//      type: 'freehold' },}

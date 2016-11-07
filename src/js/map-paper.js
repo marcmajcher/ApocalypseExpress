@@ -48,7 +48,6 @@ function mousedownLocation(event) {
   const loc = event.target.location;
   $('#detailPanel').show();
   $('#mapsubmit').attr('action', `/admin/map/location/${loc.id}?_method=PATCH`);
-  $('#detailPanel #locid').val(loc.id);
   $('#detailPanel #name').val(loc.name);
   $('#detailPanel #description').val(loc.description);
   $('#detailPanel #population').val(loc.population);

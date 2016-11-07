@@ -68,5 +68,16 @@ module.exports = {
         vemail: 'fasdf@gmail.com',
         password: 'test'
       }
+    },
+    locations: {
+      editLocation: {
+        locid: 2,
+        locname: 'Steven',
+        latitude: 30,
+        longitude: -100,
+        description: 'Just a city named Steven',
+        population: 500,
+        tech: 3
+      }
     }
 };
