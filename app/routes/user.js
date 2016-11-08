@@ -24,11 +24,11 @@ router.post('/', (req, res, next) => {
       next(emailError);
     }
     else {
-      let user = '';
+      let userPass = '';
       /* All good, let's create a user */
       bcrypt.hash(req.body.password, bcRounds)
         .then((hashedPassword) => {
-          user = hashedPassword;
+          userPass = hashedPassword;
           return util.knex('config').where('config', 'default').first();
         })
         .then(config => util.knex('drivers').insert({
@@ -39,7 +39,7 @@ router.post('/', (req, res, next) => {
           email: req.body.email,
           firstname: req.body.firstname,
           lastname: req.body.lastname,
-          hashedPassword: user,
+          hashedPassword: userPass,
           driverid: drivers[0].id
         }, '*'))
         .then(() => {

@@ -5,5 +5,5 @@
 exports.seed = knex => knex('config').del()
   .then(() => knex('config').insert({
     config: 'default',
-    defaultLocation: 0
+    defaultLocation: 1
   }));
