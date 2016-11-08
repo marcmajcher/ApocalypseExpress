@@ -70,6 +70,17 @@ module.exports = {
       }
     },
     locations: {
+      firstLocation: {
+        id: 1,
+        name: 'Garnet',
+        latitude: 32.4487,
+        longitude: -99.7331,
+        description: 'This is a location.',
+        population: 1000,
+        tech: 5,
+        factionid: 0,
+        type: 'hold'
+      },
       editLocation: {
         locid: 2,
         locname: 'Steven',

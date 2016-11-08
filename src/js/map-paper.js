@@ -19,6 +19,8 @@ const yScale = -506.5;
 const xOffset = 43647;
 const yOffset = 15855;
 
+/* TODO: take zoom into account for point conversion */
+
 function locToPoint(loc) {
   return new Point((loc.longitude * xScale) + xOffset, (loc.latitude * yScale) + yOffset);
 }
@@ -83,6 +85,33 @@ function dragLocation(event) {
 
 function closeDetailWindow() {
   $('#detailPanel').hide();
+}
+
+function updateDetails() {
+  $.ajax({
+      url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
+      method: 'PATCH',
+      data: {
+        name: $('#detailPanel #name').val(),
+        longitude: $('#detailPanel #longitude').val(),
+        latitude: $('#detailPanel #latitude').val(),
+        description: $('#detailPanel #description').val(),
+        population: $('#detailPanel #population').val(),
+        tech: $('#detailPanel #tech').val(),
+        type: $('#detailPanel #type').val()
+      }
+    })
+    .success(() => {
+      originalLocation = {
+          longitude: $('#detailPanel #longitude').val(),
+          latitude: $('#detailPanel #latitude').val()
+        };
+        // console.log('OK', msg);
+    })
+    .fail(() => {
+      // console.log('booooo', err);
+    });
+  closeDetailWindow();
 }
 
 /* Draw locations and connections on map */
@@ -178,15 +207,16 @@ $('#mapCanvas').bind('mousewheel', (event) => {
   const dx = event.originalEvent.wheelDeltaX;
   const dy = event.originalEvent.wheelDeltaY;
 
-  if (event.shiftKey) {
-    view.center = changeCenter(view.center, dx, dy, 1);
-    event.preventDefault();
-  }
-  else if (event.altKey) {
+
+  if (event.altKey) {
     const mousePos = new Point(event.offsetX, event.offsetY);
     const z = changeZoom(view.zoom, dy, view.center, mousePos);
     view.zoom = z.newZoom;
     // view.center = view.center.add(z.a);
+    event.preventDefault();
+  }
+  else {
+    view.center = changeCenter(view.center, dx, dy, 1);
     event.preventDefault();
   }
 });
@@ -194,7 +224,7 @@ $('#mapCanvas').bind('mousewheel', (event) => {
 /* Global interaction handlers */
 
 mapLayer.onClick = () => {
-    closeDetailWindow();
+  closeDetailWindow();
 };
 
 mapLayer.onMouseDrag = (event) => {
@@ -205,6 +235,9 @@ function onKeyUp(event) {
   if (event.key === 'escape') {
     closeDetailWindow();
   }
+  else if (event.key === 'return') {
+    updateDetails();
+  }
 }
 
 $('#closeDetails').click(() => {
@@ -212,23 +245,5 @@ $('#closeDetails').click(() => {
 });
 
 $('#updateDetails').click(() => {
-  $.ajax({
-    url: `/admin/map/location/${$('#detailPanel #locid').val()}`,
-    method: 'PATCH',
-    data: {
-      name: $('#detailPanel #name').val(),
-      longitude: $('#detailPanel #longitude').val(),
-      latitude: $('#detailPanel #latitude').val(),
-      description: $('#detailPanel #description').val(),
-      population: $('#detailPanel #population').val(),
-      tech: $('#detailPanel #tech').val(),
-      type: $('#detailPanel #type').val()
-    }
-  })
-  .success(() => {
-    // console.log('OK', msg);
-  })
-  .fail(() => {
-    // console.log('booooo', err);
-  });
+  updateDetails();
 });
