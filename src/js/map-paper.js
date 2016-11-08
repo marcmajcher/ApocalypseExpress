@@ -157,8 +157,8 @@ function renderConnections(data) {
   /* Draw connections */
   for (let i = 0; i < data.connections.length; i++) {
     const connection = data.connections[i];
-    const loc1 = data.locations[connection.city1];
-    const loc2 = data.locations[connection.city2];
+    const loc1 = data.locations[connection.loc1];
+    const loc2 = data.locations[connection.loc2];
 
     const path = new Path.Line(loc1.point, loc2.point);
     path.strokeColor = 'black';
