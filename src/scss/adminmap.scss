@@ -1,0 +1,28 @@
+body.adminmap-page {
+  padding: 0;
+
+  nav {
+    display: none;
+  }
+
+  div#main-cont {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  div#detailPanel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #333399;
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    display: none;
+  }
+
+  canvas#mapCanvas {
+    width: 100%;
+  }
+}
