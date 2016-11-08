@@ -52,7 +52,7 @@ function mousedownLocation(event) {
   event.target.children.dot.fillColor.alpha = 0.5;
   var loc = event.target.location;
   originalLocation = loc;
-  $('#detailPanel').show();
+  $('#detailPanel').addClass('out');
   $('#detailPanel #locid').val(loc.id);
   $('#detailPanel #name').val(loc.name);
   $('#detailPanel #description').val(loc.description);
@@ -84,7 +84,8 @@ function dragLocation(event) {
 }
 
 function closeDetailWindow() {
-  $('#detailPanel').hide();
+  // $('#detailPanel').hide();
+  $('#detailPanel').removeClass('out');
 }
 
 function updateDetails() {

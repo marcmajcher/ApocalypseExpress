@@ -4,1235 +4,2768 @@
 
 module.exports = {
   locations: [{
-    name: 'Austin',
-    latitude: '30.267153',
-    longitude: '-97.7430608',
-    population: 10000,
-    type: 'freehold'
+    name: 'Aus-Town',
+    latitude: 30.2672,
+    longitude: -97.7431,
+    description: 'The freehold of Aus-Town is the center of the universe.',
+    population: 50000,
+    type: 'freehold',
+    tech: 6,
+    factionid: 0
   }, {
     name: 'Abeline',
-    latitude: '32.4487364',
-    longitude: '-99.7331439'
+    latitude: 32.4487,
+    longitude: -99.7331,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Ackerly',
-    latitude: '32.5264993',
-    longitude: '-101.71597'
+    latitude: 32.5265,
+    longitude: -101.716,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Alice',
-    latitude: '27.7522487',
-    longitude: '-98.0697249'
+    latitude: 27.7522,
+    longitude: -98.0697,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Allamoore',
-    latitude: '31.078056',
-    longitude: '-105.003056'
+    latitude: 31.0781,
+    longitude: -105.003,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Alpine',
-    latitude: '30.3584919',
-    longitude: '-103.6610115'
+    latitude: 30.3585,
+    longitude: -103.661,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Altuda',
-    latitude: '30.301944',
-    longitude: '-103.4575'
+    latitude: 30.3019,
+    longitude: -103.457,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Amarillo',
-    latitude: '35.2219971',
-    longitude: '-101.8312969'
+    latitude: 35.222,
+    longitude: -101.831,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Andrews',
-    latitude: '32.3187158',
-    longitude: '-102.5457155'
+    latitude: 32.3187,
+    longitude: -102.546,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Angeles',
-    latitude: '31.9015146',
-    longitude: '-103.9624216'
+    latitude: 31.9015,
+    longitude: -103.962,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Aransas Pass',
-    latitude: '27.9094677',
-    longitude: '-97.1499898'
+    latitude: 27.9095,
+    longitude: -97.15,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Arlington',
-    latitude: '32.735687',
-    longitude: '-97.1080656'
+    latitude: 32.7357,
+    longitude: -97.1081,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Asherton',
-    latitude: '28.4435988',
-    longitude: '-99.7589404'
+    latitude: 28.4436,
+    longitude: -99.7589,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Aspermont',
-    latitude: '33.1334307',
-    longitude: '-100.2273276'
+    latitude: 33.1334,
+    longitude: -100.227,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Athens',
-    latitude: '32.2048735',
-    longitude: '-95.8555207'
+    latitude: 32.2049,
+    longitude: -95.8555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Atlanta',
-    latitude: '33.1137419',
-    longitude: '-94.1643537'
+    latitude: 33.1137,
+    longitude: -94.1644,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Ballinger',
-    latitude: '31.7382062',
-    longitude: '-99.9473077'
+    latitude: 31.7382,
+    longitude: -99.9473,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Balmorhea',
-    latitude: '30.9843123',
-    longitude: '-103.7446257'
+    latitude: 30.9843,
+    longitude: -103.745,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Bamhart',
-    latitude: '31.1279389',
-    longitude: '-101.170668'
+    latitude: 31.1279,
+    longitude: -101.171,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Bastrop',
-    latitude: '30.1104947',
-    longitude: '-97.3152701'
+    latitude: 30.1105,
+    longitude: -97.3153,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Bay City',
-    latitude: '28.9827565',
-    longitude: '-95.969402'
+    latitude: 28.9828,
+    longitude: -95.9694,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Baytown',
-    latitude: '29.7355047',
-    longitude: '-94.9774274'
+    latitude: 29.7355,
+    longitude: -94.9774,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Beaumont',
-    latitude: '30.080174',
-    longitude: '-94.1265562'
+    latitude: 30.0802,
+    longitude: -94.1266,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Beeville',
-    latitude: '28.4008319',
-    longitude: '-97.7483312'
+    latitude: 28.4008,
+    longitude: -97.7483,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Belton',
-    latitude: '31.0560132',
-    longitude: '-97.464453'
+    latitude: 31.056,
+    longitude: -97.4645,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Big Lake',
-    latitude: '31.1915437',
-    longitude: '-101.4603945'
+    latitude: 31.1915,
+    longitude: -101.46,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Big Spring',
-    latitude: '32.2503979',
-    longitude: '-101.4787355'
+    latitude: 32.2504,
+    longitude: -101.479,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Boerne',
-    latitude: '29.7946641',
-    longitude: '-98.7319703'
+    latitude: 29.7947,
+    longitude: -98.732,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Booker',
-    latitude: '36.4533648',
-    longitude: '-100.5373673'
+    latitude: 36.4534,
+    longitude: -100.537,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Borger',
-    latitude: '35.6678203',
-    longitude: '-101.3973876'
+    latitude: 35.6678,
+    longitude: -101.397,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Bowie',
-    latitude: '33.5589953',
-    longitude: '-97.8486457'
+    latitude: 33.559,
+    longitude: -97.8486,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Bracketville',
-    latitude: '29.3105125',
-    longitude: '-100.4178563'
+    latitude: 29.3105,
+    longitude: -100.418,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Brady',
-    latitude: '31.1351682',
-    longitude: '-99.3350552'
+    latitude: 31.1352,
+    longitude: -99.3351,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Breckenridge',
-    latitude: '32.7556768',
-    longitude: '-98.9022898'
+    latitude: 32.7557,
+    longitude: -98.9023,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Brenham',
-    latitude: '30.1668828',
-    longitude: '-96.3977442'
+    latitude: 30.1669,
+    longitude: -96.3977,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Brownfield',
-    latitude: '33.1812035',
-    longitude: '-102.2743489'
+    latitude: 33.1812,
+    longitude: -102.274,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
-    name: 'Brownsville',
-    latitude: '25.9017472',
-    longitude: '-97.4974838'
+    name: 'Brown Hole',
+    latitude: 26.0533,
+    longitude: -97.4952,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'enclave',
+    tech: 3,
+    factionid: 0
   }, {
     name: 'Brownwood',
-    latitude: '31.7093197',
-    longitude: '-98.9911611'
+    latitude: 31.7093,
+    longitude: -98.9912,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Burkburnett',
-    latitude: '34.0978711',
-    longitude: '-98.5706134'
+    latitude: 34.0979,
+    longitude: -98.5706,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Burnet',
-    latitude: '30.7582376',
-    longitude: '-98.2283585'
+    latitude: 30.7582,
+    longitude: -98.2284,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Cactus',
-    latitude: '36.0522574',
-    longitude: '-102.0023992'
+    latitude: 36.0523,
+    longitude: -102.002,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Canadian',
-    latitude: '35.91282',
-    longitude: '-100.3820772'
+    latitude: 35.9128,
+    longitude: -100.382,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Canton',
-    latitude: '32.5565244',
-    longitude: '-95.8632996'
+    latitude: 32.5565,
+    longitude: -95.8633,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Canyon',
-    latitude: '34.9803342',
-    longitude: '-101.9188024'
+    latitude: 34.9803,
+    longitude: -101.919,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Carlsbad',
-    latitude: '32.4206736',
-    longitude: '-104.2288375'
+    latitude: 32.4207,
+    longitude: -104.229,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Carrizo Springs',
-    latitude: '28.5219292',
-    longitude: '-99.8606107'
+    latitude: 28.5219,
+    longitude: -99.8606,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Carta Valley',
-    latitude: '29.79001',
-    longitude: '-100.671501'
+    latitude: 29.79,
+    longitude: -100.672,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Carthage',
-    latitude: '32.1573841',
-    longitude: '-94.3374199'
+    latitude: 32.1574,
+    longitude: -94.3374,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Catarina',
-    latitude: '28.3455475',
-    longitude: '-99.6133788'
+    latitude: 28.3455,
+    longitude: -99.6134,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Center',
-    latitude: '31.7954512',
-    longitude: '-94.1790862'
+    latitude: 31.7955,
+    longitude: -94.1791,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Childress',
-    latitude: '34.4264529',
-    longitude: '-100.2040019'
+    latitude: 34.4265,
+    longitude: -100.204,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Chilicothe',
-    latitude: '34.2564708',
-    longitude: '-99.5167558'
+    latitude: 34.2565,
+    longitude: -99.5168,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Cisco',
-    latitude: '32.3881861',
-    longitude: '-98.9792336'
+    latitude: 32.3882,
+    longitude: -98.9792,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Clarendon',
-    latitude: '34.9378289',
-    longitude: '-100.8881993'
+    latitude: 34.9378,
+    longitude: -100.888,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Clarksville',
-    latitude: '33.6106648',
-    longitude: '-95.052722'
+    latitude: 33.6107,
+    longitude: -95.0527,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Claude',
-    latitude: '35.1117176',
-    longitude: '-101.3632223'
+    latitude: 35.1117,
+    longitude: -101.363,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Coleman',
-    latitude: '31.8273679',
-    longitude: '-99.4264532'
+    latitude: 31.8274,
+    longitude: -99.4265,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'College Station',
-    latitude: '30.627977',
-    longitude: '-96.3344068'
+    latitude: 30.628,
+    longitude: -96.3344,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Colorado City',
-    latitude: '32.3881745',
-    longitude: '-100.8645576'
+    latitude: 32.3882,
+    longitude: -100.865,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Columbus',
-    latitude: '29.7066232',
-    longitude: '-96.5396933'
+    latitude: 29.7066,
+    longitude: -96.5397,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Comanche',
-    latitude: '31.8973693',
-    longitude: '-98.6036581'
+    latitude: 31.8974,
+    longitude: -98.6037,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Comfort',
-    latitude: '29.967715',
-    longitude: '-98.9050337'
+    latitude: 29.9677,
+    longitude: -98.905,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Commerce',
-    latitude: '33.2470567',
-    longitude: '-95.8999656'
+    latitude: 33.2471,
+    longitude: -95.9,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Concan',
-    latitude: '29.5014937',
-    longitude: '-99.7214883'
+    latitude: 29.5015,
+    longitude: -99.7215,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Conroe',
-    latitude: '30.3118769',
-    longitude: '-95.4560512'
+    latitude: 30.3119,
+    longitude: -95.4561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Copperas Cove',
-    latitude: '31.124062',
-    longitude: '-97.9030785'
+    latitude: 31.1241,
+    longitude: -97.9031,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Cornudas',
-    latitude: '31.77944',
-    longitude: '-105.465103'
+    latitude: 31.7794,
+    longitude: -105.465,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Corpus Christi',
-    latitude: '27.8005828',
-    longitude: '-97.396381'
+    latitude: 27.8006,
+    longitude: -97.3964,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Corsicana',
-    latitude: '32.0954304',
-    longitude: '-96.4688727'
+    latitude: 32.0954,
+    longitude: -96.4689,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Cotulla',
-    latitude: '28.436934',
-    longitude: '-99.2350322'
+    latitude: 28.4369,
+    longitude: -99.235,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Crane',
-    latitude: '31.3973624',
-    longitude: '-102.3501419'
+    latitude: 31.3974,
+    longitude: -102.35,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Crockett',
-    latitude: '31.3182359',
-    longitude: '-95.4566136'
+    latitude: 31.3182,
+    longitude: -95.4566,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Crosbyton',
-    latitude: '33.6600847',
-    longitude: '-101.2379276'
+    latitude: 33.6601,
+    longitude: -101.238,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Crowell',
-    latitude: '33.983973',
-    longitude: '-99.7248158'
+    latitude: 33.984,
+    longitude: -99.7248,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Crystal City',
-    latitude: '28.6774795',
-    longitude: '-99.8281104'
+    latitude: 28.6775,
+    longitude: -99.8281,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Cuero',
-    latitude: '29.0938652',
-    longitude: '-97.2891568'
+    latitude: 29.0939,
+    longitude: -97.2892,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dalhart',
-    latitude: '36.0594772',
-    longitude: '-102.5132497'
+    latitude: 36.0595,
+    longitude: -102.513,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dallas',
-    latitude: '32.7766642',
-    longitude: '-96.7969879'
+    latitude: 32.7767,
+    longitude: -96.797,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Decatur',
-    latitude: '33.2342834',
-    longitude: '-97.5861393'
+    latitude: 33.2343,
+    longitude: -97.5861,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Del Rio',
-    latitude: '29.3708857',
-    longitude: '-100.8958674'
+    latitude: 29.3709,
+    longitude: -100.896,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Denison',
-    latitude: '33.7556593',
-    longitude: '-96.536658'
+    latitude: 33.7557,
+    longitude: -96.5367,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Denver City',
-    latitude: '32.9645475',
-    longitude: '-102.8290963'
+    latitude: 32.9645,
+    longitude: -102.829,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Diboll',
-    latitude: '31.1871319',
-    longitude: '-94.7810412'
+    latitude: 31.1871,
+    longitude: -94.781,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dilley',
-    latitude: '28.6674802',
-    longitude: '-99.1705887'
+    latitude: 28.6675,
+    longitude: -99.1706,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dimmitt',
-    latitude: '34.5509028',
-    longitude: '-102.3118607'
+    latitude: 34.5509,
+    longitude: -102.312,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dryden',
-    latitude: '30.0446889',
-    longitude: '-102.1143845'
+    latitude: 30.0447,
+    longitude: -102.114,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Dumas',
-    latitude: '35.8653789',
-    longitude: '-101.9732236'
+    latitude: 35.8654,
+    longitude: -101.973,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Eastland',
-    latitude: '32.4015198',
-    longitude: '-98.8175623'
+    latitude: 32.4015,
+    longitude: -98.8176,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Edinburg',
-    latitude: '26.3017374',
-    longitude: '-98.1633432'
+    latitude: 26.4257,
+    longitude: -98.1541,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Eden',
-    latitude: '31.216276',
-    longitude: '-99.8456277'
+    latitude: 31.2163,
+    longitude: -99.8456,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Edna',
-    latitude: '28.9785947',
-    longitude: '-96.6460877'
+    latitude: 28.9786,
+    longitude: -96.6461,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'El Campo',
-    latitude: '29.1966405',
-    longitude: '-96.2696867'
+    latitude: 29.1966,
+    longitude: -96.2697,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'El Paso',
-    latitude: '31.7618778',
-    longitude: '-106.4850217'
+    latitude: 31.7619,
+    longitude: -106.485,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Eldorado',
-    latitude: '30.8601745',
-    longitude: '-100.6009299'
+    latitude: 30.8602,
+    longitude: -100.601,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Enical',
-    latitude: '28.041117',
-    longitude: '-99.3544787'
+    latitude: 28.0411,
+    longitude: -99.3545,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fairfield',
-    latitude: '31.7246128',
-    longitude: '-96.1652481'
+    latitude: 31.7246,
+    longitude: -96.1652,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Falfurrias',
-    latitude: '27.2269872',
-    longitude: '-98.1441714'
+    latitude: 27.227,
+    longitude: -98.1442,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Floresville',
-    latitude: '29.1335781',
-    longitude: '-98.1561192'
+    latitude: 29.1336,
+    longitude: -98.1561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Floydada',
-    latitude: '33.9845232',
-    longitude: '-101.3376574'
+    latitude: 33.9845,
+    longitude: -101.338,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fort Davis',
-    latitude: '30.5882111',
-    longitude: '-103.8946253'
+    latitude: 30.5882,
+    longitude: -103.895,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fort Hancock',
-    latitude: '31.2914585',
-    longitude: '-105.860307'
+    latitude: 31.2915,
+    longitude: -105.86,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fort Stockton',
-    latitude: '30.8940431',
-    longitude: '-102.8793222'
+    latitude: 30.894,
+    longitude: -102.879,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fort Worth',
-    latitude: '32.7554883',
-    longitude: '-97.3307658'
+    latitude: 32.7555,
+    longitude: -97.3308,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fredricksburg',
-    latitude: '30.2752011',
-    longitude: '-98.8719843'
+    latitude: 30.2752,
+    longitude: -98.872,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Freer',
-    latitude: '27.8827965',
-    longitude: '-98.6177929'
+    latitude: 27.8828,
+    longitude: -98.6178,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Friona',
-    latitude: '34.641734',
-    longitude: '-102.7241047'
+    latitude: 34.6417,
+    longitude: -102.724,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Fritch',
-    latitude: '35.6397655',
-    longitude: '-101.603228'
+    latitude: 35.6398,
+    longitude: -101.603,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Gail',
-    latitude: '32.7703457',
-    longitude: '-101.445743'
+    latitude: 32.7703,
+    longitude: -101.446,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Gainesville',
-    latitude: '33.6259414',
-    longitude: '-97.1333453'
+    latitude: 33.6259,
+    longitude: -97.1333,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Gatesville',
-    latitude: '31.4351645',
-    longitude: '-97.743911'
+    latitude: 31.4352,
+    longitude: -97.7439,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Galveston',
-    latitude: '29.3013479',
-    longitude: '-94.7976958'
+    latitude: 29.3013,
+    longitude: -94.7977,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Garden City',
-    latitude: '31.8639016',
-    longitude: '-101.4811969'
+    latitude: 31.8639,
+    longitude: -101.481,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'George West',
-    latitude: '28.3325002',
-    longitude: '-98.1175054'
+    latitude: 28.3325,
+    longitude: -98.1175,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Georgetown',
-    latitude: '30.6332618',
-    longitude: '-97.6779842'
+    latitude: 30.6333,
+    longitude: -97.678,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Giddings',
-    latitude: '30.1827159',
-    longitude: '-96.936371'
+    latitude: 30.1827,
+    longitude: -96.9364,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Gilmer',
-    latitude: '32.7287472',
-    longitude: '-94.9424379'
+    latitude: 32.7287,
+    longitude: -94.9424,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Goliad',
-    latitude: '28.6683252',
-    longitude: '-97.3883265'
+    latitude: 28.6683,
+    longitude: -97.3883,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Gonzales',
-    latitude: '29.5016257',
-    longitude: '-97.4524926'
+    latitude: 29.5016,
+    longitude: -97.4525,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Goodnight',
-    latitude: '35.042488',
-    longitude: '-101.192001'
+    latitude: 35.0425,
+    longitude: -101.192,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Graham',
-    latitude: '33.1070597',
-    longitude: '-98.589502'
+    latitude: 33.1071,
+    longitude: -98.5895,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Granbury',
-    latitude: '32.4420826',
-    longitude: '-97.7941967'
+    latitude: 32.4421,
+    longitude: -97.7942,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Grandfalls',
-    latitude: '31.3393072',
-    longitude: '-102.8518202'
+    latitude: 31.3393,
+    longitude: -102.852,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Grape Creek',
-    latitude: '31.5898783',
-    longitude: '-100.5431534'
+    latitude: 31.5899,
+    longitude: -100.543,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Groom',
-    latitude: '35.2036602',
-    longitude: '-101.1068215'
+    latitude: 35.2037,
+    longitude: -101.107,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Guthrie',
-    latitude: '33.6206613',
-    longitude: '-100.3228034'
+    latitude: 33.6207,
+    longitude: -100.323,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Harker Heights',
-    latitude: '31.0835102',
-    longitude: '-97.6597376'
+    latitude: 31.0835,
+    longitude: -97.6597,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Harlingen',
-    latitude: '26.1906306',
-    longitude: '-97.6961026'
+    latitude: 26.3245,
+    longitude: -97.6846,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Haskell',
-    latitude: '33.1576031',
-    longitude: '-99.7337014'
+    latitude: 33.1576,
+    longitude: -99.7337,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hearne',
-    latitude: '30.8785238',
-    longitude: '-96.5930258'
+    latitude: 30.8785,
+    longitude: -96.593,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hebbronville',
-    latitude: '27.3067057',
-    longitude: '-98.6783516'
+    latitude: 27.3067,
+    longitude: -98.6784,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Henderson',
-    latitude: '32.1532156',
-    longitude: '-94.7993802'
+    latitude: 32.1532,
+    longitude: -94.7994,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hereford',
-    latitude: '34.8150622',
-    longitude: '-102.3977036'
+    latitude: 34.8151,
+    longitude: -102.398,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hermleigh',
-    latitude: '32.6351114',
-    longitude: '-100.7592804'
+    latitude: 32.6351,
+    longitude: -100.759,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hilsboro',
-    latitude: '32.0109886',
-    longitude: '-97.1300061'
+    latitude: 32.011,
+    longitude: -97.13,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Hobbes',
-    latitude: '32.7026116',
-    longitude: '-103.1360403'
+    latitude: 32.7026,
+    longitude: -103.136,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Houston',
-    latitude: '29.7604267',
-    longitude: '-95.3698028'
+    latitude: 29.7604,
+    longitude: -95.3698,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Huntsville',
-    latitude: '30.7235263',
-    longitude: '-95.5507771'
+    latitude: 30.7235,
+    longitude: -95.5508,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Iowa Park',
-    latitude: '33.9514847',
-    longitude: '-98.6686709'
+    latitude: 33.9515,
+    longitude: -98.6687,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Iraan',
-    latitude: '30.9140478',
-    longitude: '-101.8979061'
+    latitude: 30.914,
+    longitude: -101.898,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Jacksonville',
-    latitude: '31.963778',
-    longitude: '-95.2705042'
+    latitude: 31.9638,
+    longitude: -95.2705,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Jasper',
-    latitude: '30.9201995',
-    longitude: '-93.9965759'
+    latitude: 30.9202,
+    longitude: -93.9966,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Jefferson',
-    latitude: '32.7573626',
-    longitude: '-94.3451926'
+    latitude: 32.7574,
+    longitude: -94.3452,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Junction',
-    latitude: '30.4893555',
-    longitude: '-99.7720109'
+    latitude: 30.4894,
+    longitude: -99.772,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Juno',
-    latitude: '30.148689',
-    longitude: '-101.116997'
+    latitude: 30.1487,
+    longitude: -101.117,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kames City',
-    latitude: '28.8849772',
-    longitude: '-97.9008355'
+    latitude: 28.885,
+    longitude: -97.9008,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Katy',
-    latitude: '29.7857853',
-    longitude: '-95.8243956'
+    latitude: 29.7858,
+    longitude: -95.8244,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kenedy',
-    latitude: '28.8191468',
-    longitude: '-97.8486123'
+    latitude: 28.8191,
+    longitude: -97.8486,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kermit',
-    latitude: '31.8576265',
-    longitude: '-103.0926652'
+    latitude: 31.8576,
+    longitude: -103.093,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kerrville',
-    latitude: '30.0474332',
-    longitude: '-99.1403189'
+    latitude: 30.0474,
+    longitude: -99.1403,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kilgore',
-    latitude: '32.3862619',
-    longitude: '-94.8757709'
+    latitude: 32.3863,
+    longitude: -94.8758,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Killeen',
-    latitude: '31.1171194',
-    longitude: '-97.7277959'
+    latitude: 31.1171,
+    longitude: -97.7278,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Kingsville',
-    latitude: '27.5158689',
-    longitude: '-97.856109'
+    latitude: 27.5159,
+    longitude: -97.8561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Knox City',
-    latitude: '33.4181509',
-    longitude: '-99.8189804'
+    latitude: 33.4182,
+    longitude: -99.819,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'La Grange',
-    latitude: '29.9055033',
-    longitude: '-96.876647'
+    latitude: 29.9055,
+    longitude: -96.8766,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lake Jackson',
-    latitude: '29.0338575',
-    longitude: '-95.4343859'
+    latitude: 29.0339,
+    longitude: -95.4344,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lakeview',
-    latitude: '31.6293316',
-    longitude: '-97.1027792'
+    latitude: 34.773,
+    longitude: -100.695,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lamesa',
-    latitude: '32.7376001',
-    longitude: '-101.950992'
+    latitude: 32.7376,
+    longitude: -101.951,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lampasas',
-    latitude: '31.063784',
-    longitude: '-98.1816957'
+    latitude: 31.0638,
+    longitude: -98.1817,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Langtry',
-    latitude: '29.8085582',
-    longitude: '-101.5596817'
+    latitude: 29.8086,
+    longitude: -101.56,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Laredo',
-    latitude: '27.5305671',
-    longitude: '-99.4803241'
+    latitude: 27.5306,
+    longitude: -99.4803,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Laughlin AFB',
-    latitude: '29.3565576',
-    longitude: '-100.7830826'
+    latitude: 29.3566,
+    longitude: -100.783,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Leakey',
-    latitude: '29.7288351',
-    longitude: '-99.761448'
+    latitude: 29.7288,
+    longitude: -99.7615,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Levelland',
-    latitude: '33.5873164',
-    longitude: '-102.37796'
+    latitude: 33.5873,
+    longitude: -102.378,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lindale',
-    latitude: '32.5156971',
-    longitude: '-95.4093998'
+    latitude: 32.5157,
+    longitude: -95.4094,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Littlefield',
-    latitude: '33.9173148',
-    longitude: '-102.3249022'
+    latitude: 33.9173,
+    longitude: -102.325,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Livingston',
-    latitude: '30.711029',
-    longitude: '-94.9329898'
+    latitude: 30.711,
+    longitude: -94.933,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Llano',
-    latitude: '30.7593452',
-    longitude: '-98.6750379'
+    latitude: 30.7593,
+    longitude: -98.675,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Longview',
-    latitude: '32.5007037',
-    longitude: '-94.7404891'
+    latitude: 32.5007,
+    longitude: -94.7405,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Loving',
-    latitude: '32.2862317',
-    longitude: '-104.095773'
+    latitude: 32.2862,
+    longitude: -104.096,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lubbock',
-    latitude: '33.5778631',
-    longitude: '-101.8551665'
+    latitude: 33.5779,
+    longitude: -101.855,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Lufkin',
-    latitude: '31.3382406',
-    longitude: '-94.729097'
+    latitude: 31.3382,
+    longitude: -94.7291,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Madisonville',
-    latitude: '30.9499111',
-    longitude: '-95.9116188'
+    latitude: 30.9499,
+    longitude: -95.9116,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Marathon',
-    latitude: '30.2051688',
-    longitude: '-103.2446205'
+    latitude: 30.2052,
+    longitude: -103.245,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Marble Falls',
-    latitude: '30.5782446',
-    longitude: '-98.2728003'
+    latitude: 30.5782,
+    longitude: -98.2728,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Marfa',
-    latitude: '30.3094622',
-    longitude: '-104.020623'
+    latitude: 30.3095,
+    longitude: -104.021,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Marshall',
-    latitude: '32.5448714',
-    longitude: '-94.3674184'
+    latitude: 32.5449,
+    longitude: -94.3674,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mason',
-    latitude: '30.7487884',
-    longitude: '-99.230611'
+    latitude: 30.7488,
+    longitude: -99.2306,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Matador',
-    latitude: '34.0120211',
-    longitude: '-100.8220785'
+    latitude: 34.012,
+    longitude: -100.822,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mathis',
-    latitude: '28.0944558',
-    longitude: '-97.8280543'
+    latitude: 28.0945,
+    longitude: -97.8281,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'McAllen',
-    latitude: '26.2034071',
-    longitude: '-98.2300124'
+    latitude: 26.308,
+    longitude: -98.2162,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'McCarney',
-    latitude: '31.1322516',
-    longitude: '-102.2222058'
+    latitude: 31.1323,
+    longitude: -102.222,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'McLean',
-    latitude: '35.2325495',
-    longitude: '-100.5998558'
+    latitude: 35.2325,
+    longitude: -100.6,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Melvin',
-    latitude: '31.1951678',
-    longitude: '-99.5797854'
+    latitude: 31.1952,
+    longitude: -99.5798,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Memphis',
-    latitude: '34.7247758',
-    longitude: '-100.5340144'
+    latitude: 34.7248,
+    longitude: -100.534,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Menard',
-    latitude: '30.9176736',
-    longitude: '-99.7864587'
+    latitude: 30.9177,
+    longitude: -99.7865,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mentone',
-    latitude: '31.7051291',
-    longitude: '-103.5993477'
+    latitude: 31.7051,
+    longitude: -103.599,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mertzon',
-    latitude: '31.2618316',
-    longitude: '-100.8173263'
+    latitude: 31.2618,
+    longitude: -100.817,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Midland',
-    latitude: '31.9973456',
-    longitude: '-102.0779146'
+    latitude: 31.9973,
+    longitude: -102.078,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mineola',
-    latitude: '32.6631884',
-    longitude: '-95.4882896'
+    latitude: 32.6632,
+    longitude: -95.4883,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Monahans',
-    latitude: '31.5942991',
-    longitude: '-102.8926536'
+    latitude: 31.5943,
+    longitude: -102.893,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Morton',
-    latitude: '33.7250974',
-    longitude: '-102.7593763'
+    latitude: 33.7251,
+    longitude: -102.759,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mt Pleasant',
-    latitude: '33.1567863',
-    longitude: '-94.968269'
+    latitude: 33.1568,
+    longitude: -94.9683,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Mt Vernon',
-    latitude: '33.1887271',
-    longitude: '-95.2213321'
+    latitude: 33.1887,
+    longitude: -95.2213,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Muleshoe',
-    latitude: '34.2264676',
-    longitude: '-102.7238263'
+    latitude: 34.2265,
+    longitude: -102.724,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Munday',
-    latitude: '33.4492628',
-    longitude: '-99.6228637'
+    latitude: 33.4493,
+    longitude: -99.6229,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Nacogdoches',
-    latitude: '31.6035129',
-    longitude: '-94.6554874'
+    latitude: 31.6035,
+    longitude: -94.6555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Navasota',
-    latitude: '30.3879845',
-    longitude: '-96.0877349'
+    latitude: 30.388,
+    longitude: -96.0877,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Nederland',
-    latitude: '29.9743803',
-    longitude: '-93.9923965'
+    latitude: 29.9744,
+    longitude: -93.9924,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'New Boston',
-    latitude: '33.4598415',
-    longitude: '-94.4154787'
+    latitude: 33.4598,
+    longitude: -94.4155,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'New Braunfels',
-    latitude: '29.7030024',
-    longitude: '-98.1244531'
+    latitude: 29.703,
+    longitude: -98.1245,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Odessa',
-    latitude: '31.8456816',
-    longitude: '-102.3676431'
+    latitude: 31.8457,
+    longitude: -102.368,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Orange',
-    latitude: '30.0929879',
-    longitude: '-93.7365549'
+    latitude: 30.093,
+    longitude: -93.7366,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Orla',
-    latitude: '31.8234585',
-    longitude: '-103.9089837'
+    latitude: 31.8235,
+    longitude: -103.909,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Ozona',
-    latitude: '30.7022249',
-    longitude: '-101.2013819'
+    latitude: 30.7022,
+    longitude: -101.201,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Paducah',
-    latitude: '34.0123005',
-    longitude: '-100.3020588'
+    latitude: 34.0123,
+    longitude: -100.302,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Palestine',
-    latitude: '31.7621153',
-    longitude: '-95.6307891'
+    latitude: 31.7621,
+    longitude: -95.6308,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pampa',
-    latitude: '35.5361559',
-    longitude: '-100.9598709'
+    latitude: 35.5362,
+    longitude: -100.96,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pandale',
-    latitude: '30.18067',
-    longitude: '-101.5492019'
+    latitude: 30.1807,
+    longitude: -101.549,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Panhandle',
-    latitude: '35.3456038',
-    longitude: '-101.3804447'
+    latitude: 35.3456,
+    longitude: -101.38,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Paris',
-    latitude: '33.6609389',
-    longitude: '-95.555513'
+    latitude: 33.6609,
+    longitude: -95.5555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pasadena',
-    latitude: '29.6910625',
-    longitude: '-95.2091006'
+    latitude: 29.6911,
+    longitude: -95.2091,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pearland',
-    latitude: '29.5635666',
-    longitude: '-95.2860474'
+    latitude: 29.5636,
+    longitude: -95.286,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pearsall',
-    latitude: '28.8921939',
-    longitude: '-99.095033'
+    latitude: 28.8922,
+    longitude: -99.095,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pecos',
-    latitude: '31.4229124',
-    longitude: '-103.4932293'
+    latitude: 31.4229,
+    longitude: -103.493,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Perico',
-    latitude: '36.270031',
-    longitude: '-102.867104'
+    latitude: 36.27,
+    longitude: -102.867,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Perryton',
-    latitude: '36.4000313',
-    longitude: '-100.8026505'
+    latitude: 36.4,
+    longitude: -100.803,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pflugerville',
-    latitude: '30.4393696',
-    longitude: '-97.6200043'
+    latitude: 30.4394,
+    longitude: -97.62,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pine Springs',
-    latitude: '31.89378',
-    longitude: '-104.797997'
+    latitude: 31.8938,
+    longitude: -104.798,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pittsburg',
-    latitude: '32.9954021',
-    longitude: '-94.9657688'
+    latitude: 32.9954,
+    longitude: -94.9658,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Plains',
-    latitude: '33.1887135',
-    longitude: '-102.8279888'
+    latitude: 33.1887,
+    longitude: -102.828,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Plainview',
-    latitude: '34.1847936',
-    longitude: '-101.7068417'
+    latitude: 34.1848,
+    longitude: -101.707,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Plano',
-    latitude: '33.0198431',
-    longitude: '-96.6988856'
+    latitude: 33.0198,
+    longitude: -96.6989,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Pleasanton',
-    latitude: '28.967194',
-    longitude: '-98.4786269'
+    latitude: 28.9672,
+    longitude: -98.4786,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Port Aransas',
-    latitude: '27.8339158',
-    longitude: '-97.0610994'
+    latitude: 27.8339,
+    longitude: -97.0611,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Port Arthur',
-    latitude: '29.8849504',
-    longitude: '-93.939947'
+    latitude: 29.885,
+    longitude: -93.9399,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Port Lavaca',
-    latitude: '28.6149968',
-    longitude: '-96.6260892'
+    latitude: 28.615,
+    longitude: -96.6261,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
-    name: 'Port O\'Connor',
-    latitude: '28.4475898',
-    longitude: '-96.4053596'
+    name: 'Port O&amp;amp;#39;Connor',
+    latitude: 28.4476,
+    longitude: -96.4054,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Portland',
-    latitude: '27.8772463',
-    longitude: '-97.3238805'
+    latitude: 27.8772,
+    longitude: -97.3239,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Post',
-    latitude: '33.1909283',
-    longitude: '-101.3781941'
+    latitude: 33.1909,
+    longitude: -101.378,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Quanah',
-    latitude: '34.297855',
-    longitude: '-99.7403718'
+    latitude: 34.2979,
+    longitude: -99.7404,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Quebec',
-    latitude: '30.5107032',
-    longitude: '-104.399643'
+    latitude: 30.5107,
+    longitude: -104.4,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Ranger',
-    latitude: '32.4698522',
-    longitude: '-98.6789477'
+    latitude: 32.4699,
+    longitude: -98.6789,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rankin',
-    latitude: '31.2226477',
-    longitude: '-101.9379085'
+    latitude: 31.2226,
+    longitude: -101.938,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rio Bravo',
-    latitude: '27.3641887',
-    longitude: '-99.4800415'
+    latitude: 27.3642,
+    longitude: -99.48,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Riviera',
-    latitude: '27.2986493',
-    longitude: '-97.8148885'
+    latitude: 27.2986,
+    longitude: -97.8149,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rockport',
-    latitude: '28.0205733',
-    longitude: '-97.0544341'
+    latitude: 28.0206,
+    longitude: -97.0544,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'RockSprings',
-    latitude: '30.0157647',
-    longitude: '-100.2053582'
+    latitude: 30.0158,
+    longitude: -100.205,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rosenburg',
-    latitude: '29.5571825',
-    longitude: '-95.8085623'
+    latitude: 29.5572,
+    longitude: -95.8086,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rosenfeld',
-    latitude: '30.103333',
-    longitude: '-102.751667'
+    latitude: 30.1033,
+    longitude: -102.752,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Round Rock',
-    latitude: '30.5082551',
-    longitude: '-97.678896'
+    latitude: 30.5083,
+    longitude: -97.6789,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Rusk',
-    latitude: '31.7960064',
-    longitude: '-95.1502214'
+    latitude: 31.796,
+    longitude: -95.1502,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Ryan',
-    latitude: '30.43',
-    longitude: '-104.298333'
+    latitude: 30.43,
+    longitude: -104.298,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Angelo',
-    latitude: '31.4637723',
-    longitude: '-100.4370375'
+    latitude: 31.4638,
+    longitude: -100.437,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Antonio',
-    latitude: '29.4241219',
-    longitude: '-98.4936282'
+    latitude: 29.4241,
+    longitude: -98.4936,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Augustine',
-    latitude: '31.5299029',
-    longitude: '-94.1060282'
+    latitude: 31.5299,
+    longitude: -94.106,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Diego',
-    latitude: '27.7639145',
-    longitude: '-98.2388953'
+    latitude: 27.7639,
+    longitude: -98.2389,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Marcos',
-    latitude: '29.8832749',
-    longitude: '-97.9413941'
+    latitude: 29.8833,
+    longitude: -97.9414,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'San Saba',
-    latitude: '31.1957234',
-    longitude: '-98.718098'
+    latitude: 31.1957,
+    longitude: -98.7181,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sanderson',
-    latitude: '30.1424083',
-    longitude: '-102.3940324'
+    latitude: 30.1424,
+    longitude: -102.394,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Santa Anna',
-    latitude: '31.7420932',
-    longitude: '-99.3217254'
+    latitude: 31.7421,
+    longitude: -99.3217,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Saragosa',
-    latitude: '31.0245647',
-    longitude: '-103.6556709'
+    latitude: 31.0246,
+    longitude: -103.656,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Seadrift',
-    latitude: '28.4152807',
-    longitude: '-96.7135933'
+    latitude: 28.4153,
+    longitude: -96.7136,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Seagraves',
-    latitude: '32.9442651',
-    longitude: '-102.564915'
+    latitude: 32.9443,
+    longitude: -102.565,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Seguin',
-    latitude: '29.5688411',
-    longitude: '-97.9647269'
+    latitude: 29.5688,
+    longitude: -97.9647,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Seminole',
-    latitude: '32.7189926',
-    longitude: '-102.6449101'
+    latitude: 32.719,
+    longitude: -102.645,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Seymour',
-    latitude: '33.5942608',
-    longitude: '-99.2603531'
+    latitude: 33.5943,
+    longitude: -99.2604,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Shafter',
-    latitude: '29.8201733',
-    longitude: '-104.3032532'
+    latitude: 29.8202,
+    longitude: -104.303,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Shamrock',
-    latitude: '35.2142167',
-    longitude: '-100.2490075'
+    latitude: 35.2142,
+    longitude: -100.249,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sheffield',
-    latitude: '30.6904452',
-    longitude: '-101.8226258'
+    latitude: 30.6904,
+    longitude: -101.823,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sherman',
-    latitude: '33.6356618',
-    longitude: '-96.6088805'
+    latitude: 33.6357,
+    longitude: -96.6089,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sierra Blanca',
-    latitude: '31.1745732',
-    longitude: '-105.3571764'
+    latitude: 31.1746,
+    longitude: -105.357,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Silverton',
-    latitude: '34.4742306',
-    longitude: '-101.3046051'
+    latitude: 34.4742,
+    longitude: -101.305,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Slaton',
-    latitude: '33.4373113',
-    longitude: '-101.6434915'
+    latitude: 33.4373,
+    longitude: -101.643,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Snyder',
-    latitude: '32.7178862',
-    longitude: '-100.9176184'
+    latitude: 32.7179,
+    longitude: -100.918,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Socorro',
-    latitude: '31.654557',
-    longitude: '-106.3033145'
+    latitude: 31.6546,
+    longitude: -106.303,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sonora',
-    latitude: '30.5668484',
-    longitude: '-100.6434273'
+    latitude: 30.5668,
+    longitude: -100.643,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Spearman',
-    latitude: '36.1983665',
-    longitude: '-101.1923795'
+    latitude: 36.1984,
+    longitude: -101.192,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Spring',
-    latitude: '30.0799405',
-    longitude: '-95.4171601'
+    latitude: 30.0799,
+    longitude: -95.4172,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Spur',
-    latitude: '33.4764767',
-    longitude: '-100.8556857'
+    latitude: 33.4765,
+    longitude: -100.856,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Stamford',
-    latitude: '32.9453874',
-    longitude: '-99.8028709'
+    latitude: 32.9454,
+    longitude: -99.8029,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Stanton',
-    latitude: '32.1292891',
-    longitude: '-101.7884642'
+    latitude: 32.1293,
+    longitude: -101.788,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Stephenville',
-    latitude: '32.2206958',
-    longitude: '-98.2022633'
+    latitude: 32.2207,
+    longitude: -98.2023,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sterling City',
-    latitude: '31.8362502',
-    longitude: '-100.9848324'
+    latitude: 31.8363,
+    longitude: -100.985,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Stratford',
-    latitude: '36.3361402',
-    longitude: '-102.0721191'
+    latitude: 36.3361,
+    longitude: -102.072,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sudan',
-    latitude: '34.0678644',
-    longitude: '-102.5243624'
+    latitude: 34.0679,
+    longitude: -102.524,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sugar Land',
-    latitude: '29.6196787',
-    longitude: '-95.6349463'
+    latitude: 29.6197,
+    longitude: -95.6349,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sulphur Springs',
-    latitude: '33.1384479',
-    longitude: '-95.6010668'
+    latitude: 33.1384,
+    longitude: -95.6011,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sunray',
-    latitude: '36.0167027',
-    longitude: '-101.824616'
+    latitude: 36.0167,
+    longitude: -101.825,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Sweetwater',
-    latitude: '32.4709519',
-    longitude: '-100.4059384'
+    latitude: 32.471,
+    longitude: -100.406,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Temple',
-    latitude: '31.0982344',
-    longitude: '-97.342782'
+    latitude: 31.0982,
+    longitude: -97.3428,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Texarkana',
-    latitude: '33.425125',
-    longitude: '-94.0476882'
+    latitude: 33.4251,
+    longitude: -94.0477,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Texline',
-    latitude: '36.3778066',
-    longitude: '-103.0240968'
+    latitude: 36.3778,
+    longitude: -103.024,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Texon',
-    latitude: '31.224874',
-    longitude: '-101.6895665'
+    latitude: 31.2249,
+    longitude: -101.69,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'The Woodlands',
-    latitude: '30.1658207',
-    longitude: '-95.4612625'
+    latitude: 30.1658,
+    longitude: -95.4613,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Three Rivers',
-    latitude: '28.4602717',
-    longitude: '-98.1825071'
+    latitude: 28.4603,
+    longitude: -98.1825,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Tulia',
-    latitude: '34.5358942',
-    longitude: '-101.7585159'
+    latitude: 34.5359,
+    longitude: -101.759,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Turkey',
-    latitude: '34.3925639',
-    longitude: '-100.8976408'
+    latitude: 34.3926,
+    longitude: -100.898,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Tyler',
-    latitude: '32.3512601',
-    longitude: '-95.3010624'
+    latitude: 32.3513,
+    longitude: -95.3011,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Uvalde',
-    latitude: '29.2096836',
-    longitude: '-99.7861679'
+    latitude: 29.2097,
+    longitude: -99.7862,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Valentine',
-    latitude: '30.5873662',
-    longitude: '-104.4965912'
+    latitude: 30.5874,
+    longitude: -104.497,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Van Horn',
-    latitude: '31.0398558',
-    longitude: '-104.8307698'
+    latitude: 31.0399,
+    longitude: -104.831,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Vega',
-    latitude: '35.2428319',
-    longitude: '-102.4282607'
+    latitude: 35.2428,
+    longitude: -102.428,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Vernon',
-    latitude: '34.1545306',
-    longitude: '-99.2650804'
+    latitude: 34.1545,
+    longitude: -99.2651,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Victoria',
-    latitude: '28.8052674',
-    longitude: '-97.0035982'
+    latitude: 28.8053,
+    longitude: -97.0036,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wall',
-    latitude: '31.3740447',
-    longitude: '-100.3075293'
+    latitude: 31.374,
+    longitude: -100.308,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Waco',
-    latitude: '31.549333',
-    longitude: '-97.1466695'
+    latitude: 31.5493,
+    longitude: -97.1467,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Waka',
-    latitude: '36.2815527',
-    longitude: '-101.0482521'
+    latitude: 36.2816,
+    longitude: -101.048,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wellington',
-    latitude: '34.856166',
-    longitude: '-100.2137263'
+    latitude: 34.8562,
+    longitude: -100.214,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wheeler',
-    latitude: '35.4453257',
-    longitude: '-100.2709552'
+    latitude: 35.4453,
+    longitude: -100.271,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Whites City',
-    latitude: '32.1756724',
-    longitude: '-104.3766136'
+    latitude: 32.1757,
+    longitude: -104.377,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wichita Falls',
-    latitude: '33.9137085',
-    longitude: '-98.4933873'
+    latitude: 33.9137,
+    longitude: -98.4934,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wickett',
-    latitude: '31.5701328',
-    longitude: '-103.0009898'
+    latitude: 31.5701,
+    longitude: -103.001,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Wink',
-    latitude: '31.7512396',
-    longitude: '-103.1598876'
+    latitude: 31.7512,
+    longitude: -103.16,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Winters',
-    latitude: '31.9565343',
-    longitude: '-99.962313'
+    latitude: 31.9565,
+    longitude: -99.9623,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Woodville',
-    latitude: '30.7752011',
-    longitude: '-94.4154758'
+    latitude: 30.7752,
+    longitude: -94.4155,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Woodway',
-    latitude: '31.5059998',
-    longitude: '-97.2050055'
+    latitude: 31.506,
+    longitude: -97.205,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }, {
     name: 'Zapata',
-    latitude: '26.9072605',
-    longitude: '-99.2714255'
+    latitude: 26.9073,
+    longitude: -99.2714,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 0
   }],
   connections: [{
     loc1: 2,
