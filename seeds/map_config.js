@@ -32,8 +32,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Alice',
-    latitude: 27.7522,
-    longitude: -98.0697,
+    latitude: 27.8229,
+    longitude: -98.0582,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -68,8 +68,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Amarillo',
-    latitude: 35.222,
-    longitude: -101.831,
+    latitude: 35.3539,
+    longitude: -101.813,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -95,8 +95,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Aransas Pass',
-    latitude: 27.9095,
-    longitude: -97.15,
+    latitude: 27.9778,
+    longitude: -97.1408,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -104,7 +104,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Arlington',
-    latitude: 32.7357,
+    latitude: 32.7764,
     longitude: -97.1081,
     description: 'This is a location.',
     population: 1000,
@@ -113,8 +113,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Asherton',
-    latitude: 28.4436,
-    longitude: -99.7589,
+    latitude: 28.5001,
+    longitude: -99.7543,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -122,7 +122,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Aspermont',
-    latitude: 33.1334,
+    latitude: 33.1883,
     longitude: -100.227,
     description: 'This is a location.',
     population: 1000,
@@ -212,8 +212,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Beeville',
-    latitude: 28.4008,
-    longitude: -97.7483,
+    latitude: 28.4774,
+    longitude: -97.7253,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -257,8 +257,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Booker',
-    latitude: 36.4534,
-    longitude: -100.537,
+    latitude: 36.656,
+    longitude: -100.525,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -266,8 +266,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Borger',
-    latitude: 35.6678,
-    longitude: -101.397,
+    latitude: 35.8194,
+    longitude: -101.383,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -275,7 +275,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Bowie',
-    latitude: 33.559,
+    latitude: 33.6277,
     longitude: -97.8486,
     description: 'This is a location.',
     population: 1000,
@@ -347,8 +347,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Burkburnett',
-    latitude: 34.0979,
-    longitude: -98.5706,
+    latitude: 34.1935,
+    longitude: -98.5614,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -365,8 +365,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Cactus',
-    latitude: 36.0523,
-    longitude: -102.002,
+    latitude: 36.2335,
+    longitude: -101.995,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -374,8 +374,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Canadian',
-    latitude: 35.9128,
-    longitude: -100.382,
+    latitude: 36.0783,
+    longitude: -100.371,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -392,8 +392,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Canyon',
-    latitude: 34.9803,
-    longitude: -101.919,
+    latitude: 35.1023,
+    longitude: -101.901,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -437,8 +437,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Catarina',
-    latitude: 28.3455,
-    longitude: -99.6134,
+    latitude: 28.4063,
+    longitude: -99.6088,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -455,8 +455,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Childress',
-    latitude: 34.4265,
-    longitude: -100.204,
+    latitude: 34.5307,
+    longitude: -100.197,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -464,8 +464,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Chilicothe',
-    latitude: 34.2565,
-    longitude: -99.5168,
+    latitude: 34.3469,
+    longitude: -99.5099,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -482,8 +482,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Clarendon',
-    latitude: 34.9378,
-    longitude: -100.888,
+    latitude: 35.0598,
+    longitude: -100.879,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -491,7 +491,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Clarksville',
-    latitude: 33.6107,
+    latitude: 33.6735,
     longitude: -95.0527,
     description: 'This is a location.',
     population: 1000,
@@ -500,8 +500,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Claude',
-    latitude: 35.1117,
-    longitude: -101.363,
+    latitude: 35.2317,
+    longitude: -101.358,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -563,7 +563,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Commerce',
-    latitude: 33.2471,
+    latitude: 33.2941,
     longitude: -95.9,
     description: 'This is a location.',
     population: 1000,
@@ -608,7 +608,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Corpus Christi',
-    latitude: 27.8006,
+    latitude: 27.8752,
     longitude: -97.3964,
     description: 'This is a location.',
     population: 1000,
@@ -653,8 +653,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Crosbyton',
-    latitude: 33.6601,
-    longitude: -101.238,
+    latitude: 33.7249,
+    longitude: -101.231,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -662,8 +662,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Crowell',
-    latitude: 33.984,
-    longitude: -99.7248,
+    latitude: 34.0646,
+    longitude: -99.7179,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -689,8 +689,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Dalhart',
-    latitude: 36.0595,
-    longitude: -102.513,
+    latitude: 36.2368,
+    longitude: -102.506,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -698,7 +698,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Dallas',
-    latitude: 32.7767,
+    latitude: 32.8138,
     longitude: -96.797,
     description: 'This is a location.',
     population: 1000,
@@ -707,7 +707,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Decatur',
-    latitude: 33.2343,
+    latitude: 33.301,
     longitude: -97.5861,
     description: 'This is a location.',
     population: 1000,
@@ -725,8 +725,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Denison',
-    latitude: 33.7557,
-    longitude: -96.5367,
+    latitude: 33.8303,
+    longitude: -96.5298,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -761,8 +761,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Dimmitt',
-    latitude: 34.5509,
-    longitude: -102.312,
+    latitude: 34.6512,
+    longitude: -102.303,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -779,8 +779,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Dumas',
-    latitude: 35.8654,
-    longitude: -101.973,
+    latitude: 36.0308,
+    longitude: -101.966,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -851,8 +851,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Enical',
-    latitude: 28.0411,
-    longitude: -99.3545,
+    latitude: 28.1039,
+    longitude: -99.3384,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -869,8 +869,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Falfurrias',
-    latitude: 27.227,
-    longitude: -98.1442,
+    latitude: 27.3194,
+    longitude: -98.135,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -887,8 +887,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Floydada',
-    latitude: 33.9845,
-    longitude: -101.338,
+    latitude: 34.0611,
+    longitude: -101.329,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -923,8 +923,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Fort Worth',
-    latitude: 32.7555,
-    longitude: -97.3308,
+    latitude: 32.7946,
+    longitude: -97.3239,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -941,8 +941,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Freer',
-    latitude: 27.8828,
-    longitude: -98.6178,
+    latitude: 27.9634,
+    longitude: -98.6086,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -950,8 +950,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Friona',
-    latitude: 34.6417,
-    longitude: -102.724,
+    latitude: 34.7459,
+    longitude: -102.71,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -968,8 +968,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Gail',
-    latitude: 32.7703,
-    longitude: -101.446,
+    latitude: 32.8074,
+    longitude: -101.441,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -977,7 +977,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Gainesville',
-    latitude: 33.6259,
+    latitude: 33.6986,
     longitude: -97.1333,
     description: 'This is a location.',
     population: 1000,
@@ -1013,8 +1013,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'George West',
-    latitude: 28.3325,
-    longitude: -98.1175,
+    latitude: 28.3913,
+    longitude: -98.1152,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1067,8 +1067,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Goodnight',
-    latitude: 35.0425,
-    longitude: -101.192,
+    latitude: 35.17,
+    longitude: -101.18,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1076,7 +1076,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Graham',
-    latitude: 33.1071,
+    latitude: 33.1521,
     longitude: -98.5895,
     description: 'This is a location.',
     population: 1000,
@@ -1112,8 +1112,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Groom',
-    latitude: 35.2037,
-    longitude: -101.107,
+    latitude: 35.3431,
+    longitude: -101.097,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1139,7 +1139,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Harlingen',
-    latitude: 26.3245,
+    latitude: 26.3261,
     longitude: -97.6846,
     description: 'This is a location.',
     population: 1000,
@@ -1166,8 +1166,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Hebbronville',
-    latitude: 27.3067,
-    longitude: -98.6784,
+    latitude: 27.3987,
+    longitude: -98.6669,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1184,8 +1184,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Hereford',
-    latitude: 34.8151,
-    longitude: -102.398,
+    latitude: 34.9332,
+    longitude: -102.389,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1238,8 +1238,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Iowa Park',
-    latitude: 33.9515,
-    longitude: -98.6687,
+    latitude: 34.0281,
+    longitude: -98.6664,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1364,7 +1364,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Kingsville',
-    latitude: 27.5159,
+    latitude: 27.6142,
     longitude: -97.8561,
     description: 'This is a location.',
     population: 1000,
@@ -1400,8 +1400,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Lakeview',
-    latitude: 34.773,
-    longitude: -100.695,
+    latitude: 34.7801,
+    longitude: -100.681,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1436,8 +1436,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Laredo',
-    latitude: 27.5306,
-    longitude: -99.4803,
+    latitude: 27.6128,
+    longitude: -99.478,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1481,8 +1481,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Littlefield',
-    latitude: 33.9173,
-    longitude: -102.325,
+    latitude: 34.0117,
+    longitude: -102.314,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1526,8 +1526,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Lubbock',
-    latitude: 33.5779,
-    longitude: -101.855,
+    latitude: 33.6545,
+    longitude: -101.85,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1598,8 +1598,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Matador',
-    latitude: 34.012,
-    longitude: -100.822,
+    latitude: 34.0985,
+    longitude: -100.817,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1634,8 +1634,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'McLean',
-    latitude: 35.2325,
-    longitude: -100.6,
+    latitude: 35.3624,
+    longitude: -100.589,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1652,8 +1652,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Memphis',
-    latitude: 34.7248,
-    longitude: -100.534,
+    latitude: 34.8287,
+    longitude: -100.523,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1742,8 +1742,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Muleshoe',
-    latitude: 34.2265,
-    longitude: -102.724,
+    latitude: 34.311,
+    longitude: -102.719,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1787,8 +1787,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'New Boston',
-    latitude: 33.4598,
-    longitude: -94.4155,
+    latitude: 33.5344,
+    longitude: -94.4109,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1841,8 +1841,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Paducah',
-    latitude: 34.0123,
-    longitude: -100.302,
+    latitude: 34.0948,
+    longitude: -100.3,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1859,8 +1859,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Pampa',
-    latitude: 35.5362,
-    longitude: -100.96,
+    latitude: 35.6878,
+    longitude: -100.939,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1877,8 +1877,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Panhandle',
-    latitude: 35.3456,
-    longitude: -101.38,
+    latitude: 35.4752,
+    longitude: -101.362,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1886,7 +1886,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Paris',
-    latitude: 33.6609,
+    latitude: 33.7415,
     longitude: -95.5555,
     description: 'This is a location.',
     population: 1000,
@@ -1931,8 +1931,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Perico',
-    latitude: 36.27,
-    longitude: -102.867,
+    latitude: 36.4647,
+    longitude: -102.851,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1940,8 +1940,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Perryton',
-    latitude: 36.4,
-    longitude: -100.803,
+    latitude: 36.6045,
+    longitude: -100.792,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1985,8 +1985,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Plainview',
-    latitude: 34.1848,
-    longitude: -101.707,
+    latitude: 34.2693,
+    longitude: -101.691,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -1994,8 +1994,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Plano',
-    latitude: 33.0198,
-    longitude: -96.6989,
+    latitude: 33.0589,
+    longitude: -96.692,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2012,8 +2012,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Port Aransas',
-    latitude: 27.8339,
-    longitude: -97.0611,
+    latitude: 27.9006,
+    longitude: -97.0565,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2038,7 +2038,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Port O&amp;amp;#39;Connor',
+    name: 'Port O&amp;amp;amp;amp;#39;Connor',
     latitude: 28.4476,
     longitude: -96.4054,
     description: 'This is a location.',
@@ -2048,8 +2048,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Portland',
-    latitude: 27.8772,
-    longitude: -97.3239,
+    latitude: 27.942,
+    longitude: -97.3101,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2066,7 +2066,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Quanah',
-    latitude: 34.2979,
+    latitude: 34.3982,
     longitude: -99.7404,
     description: 'This is a location.',
     population: 1000,
@@ -2102,8 +2102,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Rio Bravo',
-    latitude: 27.3642,
-    longitude: -99.48,
+    latitude: 27.4487,
+    longitude: -99.4777,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2111,8 +2111,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Riviera',
-    latitude: 27.2986,
-    longitude: -97.8149,
+    latitude: 27.3792,
+    longitude: -97.8126,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2120,8 +2120,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Rockport',
-    latitude: 28.0206,
-    longitude: -97.0544,
+    latitude: 28.0909,
+    longitude: -97.0475,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2210,8 +2210,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'San Diego',
-    latitude: 27.7639,
-    longitude: -98.2389,
+    latitude: 27.8346,
+    longitude: -98.2274,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2255,7 +2255,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Saragosa',
-    latitude: 31.0246,
+    latitude: 31.0617,
     longitude: -103.656,
     description: 'This is a location.',
     population: 1000,
@@ -2318,8 +2318,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Shamrock',
-    latitude: 35.2142,
-    longitude: -100.249,
+    latitude: 35.35,
+    longitude: -100.244,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2336,8 +2336,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Sherman',
-    latitude: 33.6357,
-    longitude: -96.6089,
+    latitude: 33.7123,
+    longitude: -96.6181,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2354,7 +2354,7 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Silverton',
-    latitude: 34.4742,
+    latitude: 34.563,
     longitude: -101.305,
     description: 'This is a location.',
     population: 1000,
@@ -2399,8 +2399,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Spearman',
-    latitude: 36.1984,
-    longitude: -101.192,
+    latitude: 36.3796,
+    longitude: -101.183,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2462,8 +2462,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Stratford',
-    latitude: 36.3361,
-    longitude: -102.072,
+    latitude: 36.5019,
+    longitude: -102.065,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2498,8 +2498,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Sunray',
-    latitude: 36.0167,
-    longitude: -101.825,
+    latitude: 36.1861,
+    longitude: -101.811,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2525,8 +2525,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Texarkana',
-    latitude: 33.4251,
-    longitude: -94.0477,
+    latitude: 33.4918,
+    longitude: -94.0385,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2534,8 +2534,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Texline',
-    latitude: 36.3778,
-    longitude: -103.024,
+    latitude: 36.5804,
+    longitude: -103.006,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2561,8 +2561,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Three Rivers',
-    latitude: 28.4603,
-    longitude: -98.1825,
+    latitude: 28.5093,
+    longitude: -98.1687,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2570,8 +2570,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Tulia',
-    latitude: 34.5359,
-    longitude: -101.759,
+    latitude: 34.6362,
+    longitude: -101.748,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2579,8 +2579,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Turkey',
-    latitude: 34.3926,
-    longitude: -100.898,
+    latitude: 34.4905,
+    longitude: -100.878,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2624,8 +2624,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Vega',
-    latitude: 35.2428,
-    longitude: -102.428,
+    latitude: 35.3747,
+    longitude: -102.412,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2633,8 +2633,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Vernon',
-    latitude: 34.1545,
-    longitude: -99.2651,
+    latitude: 34.239,
+    longitude: -99.2559,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2669,8 +2669,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Waka',
-    latitude: 36.2816,
-    longitude: -101.048,
+    latitude: 36.4802,
+    longitude: -101.034,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2678,8 +2678,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Wellington',
-    latitude: 34.8562,
-    longitude: -100.214,
+    latitude: 34.9664,
+    longitude: -100.189,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2687,8 +2687,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Wheeler',
-    latitude: 35.4453,
-    longitude: -100.271,
+    latitude: 35.591,
+    longitude: -100.26,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2705,8 +2705,8 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Wichita Falls',
-    latitude: 33.9137,
-    longitude: -98.4934,
+    latitude: 33.9923,
+    longitude: -98.4865,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
@@ -2759,26 +2759,18 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Zapata',
-    latitude: 26.9073,
-    longitude: -99.2714,
+    latitude: 26.9997,
+    longitude: -99.2553,
     description: 'This is a location.',
     population: 1000,
     type: 'hold',
     tech: 5,
     factionid: 0
-  }],
+  }, ],
   connections: [{
     loc1: 2,
     loc2: 53,
     distance: 72787
-  }, {
-    loc1: 2,
-    loc2: 14,
-    distance: 97154
-  }, {
-    loc1: 2,
-    loc2: 34,
-    distance: 94887
   }, {
     loc1: 2,
     loc2: 57,
@@ -3588,10 +3580,6 @@ module.exports = {
     loc2: 288,
     distance: 44163
   }, {
-    loc1: 150,
-    loc2: 164,
-    distance: 57476
-  }, {
     loc1: 148,
     loc2: 303,
     distance: 14222
@@ -3780,10 +3768,6 @@ module.exports = {
     loc2: 199,
     distance: 65493
   }, {
-    loc1: 194,
-    loc2: 221,
-    distance: 95874
-  }, {
     loc1: 207,
     loc2: 216,
     distance: 100860
@@ -3807,10 +3791,6 @@ module.exports = {
     loc1: 258,
     loc2: 298,
     distance: 41802
-  }, {
-    loc1: 270,
-    loc2: 279,
-    distance: 89955
   }, {
     loc1: 56,
     loc2: 119,
@@ -4915,5 +4895,5 @@ module.exports = {
     loc1: 268,
     loc2: 284,
     distance: 14011
-  }]
+  }, ]
 };
