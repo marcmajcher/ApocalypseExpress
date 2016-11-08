@@ -1,0 +1,27 @@
+'use strict';
+
+/* eslint-env node */
+<%
+  var locations = data.locations.sort(function(a,b){return parseInt(a.id) - parseInt(b.id)});
+%>
+module.exports = {
+  locations: [<% for (var i=0; i<locations.length; i++) { %>
+    {
+      name: '<%=locations[i].name%>',
+      latitude: <%=locations[i].latitude%>,
+      longitude: <%=locations[i].longitude%>,
+      description: '<%=locations[i].description%>',
+      population: <%=locations[i].population%>,
+      type: '<%=locations[i].type%>',
+      tech: <%=locations[i].tech%>,
+      factionid: <%=locations[i].factionid%>
+    },<% } %>
+  ],
+  connections: [<% for (var i=0; i<data.connections.length; i++) { %>
+    {
+      loc1: <%=data.connections[i].loc1%>,
+      loc2: <%=data.connections[i].loc2%>,
+      distance: <%=data.connections[i].distance%>
+    },<% } %>
+  ]
+};

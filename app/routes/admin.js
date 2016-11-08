@@ -6,13 +6,30 @@ const express = require('express');
 const router = express.Router();
 const util = require('./_util');
 
+router.use(util.adminRequired);
+
 /* GET home page. */
-router.get('/', util.adminRequired, (req, res) => {
+router.get('/', (req, res) => {
   util.renderTemplate(req, res, 'admin/index');
 });
 
-router.get('/map', util.adminRequired, (req, res) => {
+router.get('/map', (req, res) => {
   util.renderTemplate(req, res, 'admin/map');
+});
+
+router.get('/mapseed', (req, res) => {
+  util.knex('locations').then((locations) => {
+    util.knex('connections').then((connections) => {
+      res.setHeader('Content-type', 'text/plain');
+      res.charset = 'UTF-8';
+      res.render('admin/mapseed.ejs', {
+        data: {
+          locations,
+          connections
+        }
+      });
+    });
+  });
 });
 
 router.patch('/map/location/:locid', (req, res) => {
@@ -40,3 +57,16 @@ router.patch('/map/location/:locid', (req, res) => {
 });
 
 module.exports = router;
+
+// const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
+// const knex = require('knex')(config);
+//
+// var arr = [];
+// knex('connections').then((connections) => {
+//   console.log('const connections = [');
+//   connections.forEach((con) => {
+//     arr.push(`{loc1: ${con.city1}, loc2: ${con.city2}, distance: ${con.distance}}`);
+//   });
+//   console.log(arr.join(','));
+//   console.log('];');
+// });
