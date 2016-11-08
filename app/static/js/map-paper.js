@@ -19,6 +19,8 @@ var yScale = -506.5;
 var xOffset = 43647;
 var yOffset = 15855;
 
+/* TODO: take zoom into account for point conversion */
+
 function locToPoint(loc) {
   return new Point(loc.longitude * xScale + xOffset, loc.latitude * yScale + yOffset);
 }
@@ -83,6 +85,31 @@ function dragLocation(event) {
 
 function closeDetailWindow() {
   $('#detailPanel').hide();
+}
+
+function updateDetails() {
+  $.ajax({
+    url: '/admin/map/location/' + $('#detailPanel #locid').val(),
+    method: 'PATCH',
+    data: {
+      name: $('#detailPanel #name').val(),
+      longitude: $('#detailPanel #longitude').val(),
+      latitude: $('#detailPanel #latitude').val(),
+      description: $('#detailPanel #description').val(),
+      population: $('#detailPanel #population').val(),
+      tech: $('#detailPanel #tech').val(),
+      type: $('#detailPanel #type').val()
+    }
+  }).success(function () {
+    originalLocation = {
+      longitude: $('#detailPanel #longitude').val(),
+      latitude: $('#detailPanel #latitude').val()
+    };
+    // console.log('OK', msg);
+  }).fail(function () {
+    // console.log('booooo', err);
+  });
+  closeDetailWindow();
 }
 
 /* Draw locations and connections on map */
@@ -178,14 +205,14 @@ $('#mapCanvas').bind('mousewheel', function (event) {
   var dx = event.originalEvent.wheelDeltaX;
   var dy = event.originalEvent.wheelDeltaY;
 
-  if (event.shiftKey) {
-    view.center = changeCenter(view.center, dx, dy, 1);
-    event.preventDefault();
-  } else if (event.altKey) {
+  if (event.altKey) {
     var mousePos = new Point(event.offsetX, event.offsetY);
     var z = changeZoom(view.zoom, dy, view.center, mousePos);
     view.zoom = z.newZoom;
     // view.center = view.center.add(z.a);
+    event.preventDefault();
+  } else {
+    view.center = changeCenter(view.center, dx, dy, 1);
     event.preventDefault();
   }
 });
@@ -203,6 +230,8 @@ mapLayer.onMouseDrag = function (event) {
 function onKeyUp(event) {
   if (event.key === 'escape') {
     closeDetailWindow();
+  } else if (event.key === 'return') {
+    updateDetails();
   }
 }
 
@@ -211,21 +240,5 @@ $('#closeDetails').click(function () {
 });
 
 $('#updateDetails').click(function () {
-  $.ajax({
-    url: '/admin/map/location/' + $('#detailPanel #locid').val(),
-    method: 'PATCH',
-    data: {
-      name: $('#detailPanel #name').val(),
-      longitude: $('#detailPanel #longitude').val(),
-      latitude: $('#detailPanel #latitude').val(),
-      description: $('#detailPanel #description').val(),
-      population: $('#detailPanel #population').val(),
-      tech: $('#detailPanel #tech').val(),
-      type: $('#detailPanel #type').val()
-    }
-  }).success(function () {
-    // console.log('OK', msg);
-  }).fail(function () {
-    // console.log('booooo', err);
-  });
+  updateDetails();
 });
