@@ -3,3 +3,4 @@ npm-debug.log
 node_modules
 bower_components
 .gulp-scss-cache
+.DS_Store

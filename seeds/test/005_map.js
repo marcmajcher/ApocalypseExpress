@@ -16,36 +16,21 @@ const locations = [{
   longitude: '-98.0697249'
 }];
 
-exports.seed = (knex, Promise) =>
+const connections = [{
+  loc1: 2,
+  loc2: 1,
+  distance: 97154
+}, {
+  loc1: 1,
+  loc2: 3,
+  distance: 94887
+}, {
+  loc1: 3,
+  loc2: 2,
+  distance: 97154
+}];
+
+exports.seed = knex =>
   knex('locations').del()
   .then(() => knex('locations').insert(locations))
-  .then(() => knex('locations').where('name', locations[0].name).first()
-    .then(location => knex('config')
-      .where('config', 'default').first()
-      .update('defaultLocation', location.id)))
-  .then(() => Promise.all([
-    knex(knex.raw('locations c1, locations c2'))
-    .select('c1.id as city1', 'c2.id as city2')
-    .whereRaw("?? = 'Amethyst' and ?? = 'Garnet'", ['c1.name', 'c2.name'])
-    .first()
-    .then((thingy) => {
-      thingy.distance = 97154;
-      return knex('connections').insert(thingy);
-    }),
-    knex(knex.raw('locations c1, locations c2'))
-    .select('c1.id as city1', 'c2.id as city2')
-    .whereRaw("?? = 'Garnet' and ?? = 'Pearl'", ['c1.name', 'c2.name'])
-    .first()
-    .then((thingy) => {
-      thingy.distance = 94887;
-      return knex('connections').insert(thingy);
-    }),
-    knex(knex.raw('locations c1, locations c2'))
-    .select('c1.id as city1', 'c2.id as city2')
-    .whereRaw("?? = 'Pearl' and ?? = 'Amethyst'", ['c1.name', 'c2.name'])
-    .first()
-    .then((thingy) => {
-      thingy.distance = 72787;
-      return knex('connections').insert(thingy);
-    }),
-  ]));
+  .then(() => knex('connections').insert(connections));
