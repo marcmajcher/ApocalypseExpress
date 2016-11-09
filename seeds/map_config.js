@@ -2766,7 +2766,7 @@ module.exports = {
     type: 'hold',
     tech: 5,
     factionid: 0
-  }, ],
+  }],
   connections: [{
     loc1: 2,
     loc2: 53,
@@ -4895,5 +4895,5 @@ module.exports = {
     loc1: 268,
     loc2: 284,
     distance: 14011
-  }, ]
+  }]
 };
