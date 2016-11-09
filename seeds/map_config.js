@@ -4,7 +4,7 @@
 
 module.exports = {
   locations: [{
-    name: 'Aus-Town',
+    name: 'Oz',
     latitude: 30.2672,
     longitude: -97.7431,
     description: 'The freehold of Aus-Town is the center of the universe.',
@@ -175,7 +175,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Bastrop',
+    name: 'Bastard',
     latitude: 30.1105,
     longitude: -97.3153,
     description: 'This is a location.',
@@ -355,7 +355,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Burnet',
+    name: 'BurnIt',
     latitude: 30.7582,
     longitude: -98.2284,
     description: 'This is a location.',
@@ -607,12 +607,12 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Corpus Christi',
+    name: 'Corpseville',
     latitude: 27.8752,
     longitude: -97.3964,
     description: 'This is a location.',
     population: 1000,
-    type: 'hold',
+    type: 'camp',
     tech: 5,
     factionid: 0
   }, {
@@ -931,12 +931,12 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Fredricksburg',
+    name: 'Fred&#39;s',
     latitude: 30.2752,
     longitude: -98.872,
     description: 'This is a location.',
     population: 1000,
-    type: 'hold',
+    type: 'hardhold',
     tech: 5,
     factionid: 0
   }, {
@@ -1021,7 +1021,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Georgetown',
+    name: 'Washington',
     latitude: 30.6333,
     longitude: -97.678,
     description: 'This is a location.',
@@ -1030,7 +1030,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Giddings',
+    name: 'Giggles',
     latitude: 30.1827,
     longitude: -96.9364,
     description: 'This is a location.',
@@ -1561,7 +1561,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Marble Falls',
+    name: 'Agate',
     latitude: 30.5782,
     longitude: -98.2728,
     description: 'This is a location.',
@@ -1948,7 +1948,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Pflugerville',
+    name: 'Ploughman',
     latitude: 30.4394,
     longitude: -97.62,
     description: 'This is a location.',
@@ -2038,7 +2038,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Port O&amp;amp;amp;amp;#39;Connor',
+    name: 'Port O&amp;amp;amp;amp;amp;#39;Connor',
     latitude: 28.4476,
     longitude: -96.4054,
     description: 'This is a location.',
@@ -2155,7 +2155,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Round Rock',
+    name: 'Cannonball',
     latitude: 30.5083,
     longitude: -97.6789,
     description: 'This is a location.',
@@ -2218,7 +2218,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'San Marcos',
+    name: 'Saint Marc&#39;s',
     latitude: 29.8833,
     longitude: -97.9414,
     description: 'This is a location.',
