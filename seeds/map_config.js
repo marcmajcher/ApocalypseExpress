@@ -2227,13 +2227,13 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'San Saba',
+    name: 'Saba Saba',
     latitude: 31.1957,
     longitude: -98.7181,
     description: 'This is a location.',
-    population: 1000,
-    type: 'hold',
-    tech: 5,
+    population: 2500,
+    type: 'compound',
+    tech: 3,
     factionid: 0
   }, {
     name: 'Sanderson',
