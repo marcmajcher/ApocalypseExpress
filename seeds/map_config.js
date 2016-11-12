@@ -166,7 +166,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Bamhart',
+    name: 'Bahamut',
     latitude: 31.1279,
     longitude: -101.171,
     description: 'This is a location.',
@@ -1678,13 +1678,13 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Mertzon',
+    name: 'Fred&#39;s Hat',
     latitude: 31.2618,
     longitude: -100.817,
     description: 'This is a location.',
-    population: 1000,
-    type: 'hold',
-    tech: 5,
+    population: 500,
+    type: 'camp',
+    tech: 2,
     factionid: 0
   }, {
     name: 'Midland',
