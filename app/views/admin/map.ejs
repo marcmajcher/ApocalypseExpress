@@ -2,13 +2,17 @@
 <script type="text/paperscript" src="/js/map-paper.js" canvas="mapCanvas"></script>
 <canvas id="mapCanvas" class="map-canvas" resize="true"></canvas>
 
-<div id="detailPanel">
-
+<div id="detailPanel" class="out">
   <form id="mapsubmit">
     <input type="hidden" id="locid" name="locid">
     <div class="form-group">
       <label for="name">Name</label>
       <input class="form-control" id="name" type="text" name="name">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" type="text" name="description">
+      </textarea>
     </div>
     <div class="form-group">
       <label for="latitude">Latitude</label>
@@ -17,10 +21,6 @@
     <div class="form-group">
       <label for="longitude">Longitude</label>
       <input class="form-control" id="longitude" type="number" step="any" name="longitude">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input class="form-control" id="description" type="text" name="description">
     </div>
     <div class="form-group">
       <label for="population">Population</label>
@@ -43,7 +43,7 @@
       </select>
     </div>
     <button id="updateDetails" type="button">Update</button>
-    <button id="closeDetails" type="button">Close</button>
+    <button id="closeDetails" class="push-right" type="button">Close</button>
   </form>
 
 <hr>
