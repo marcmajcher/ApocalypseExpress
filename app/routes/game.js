@@ -14,10 +14,14 @@ router.get('/', (req, res) => {
     util.knex('drivers').where('id', user.driverid).first().then((driver) => {
       util.knex('locations').where('id', driver.location).first().then(
         (location) => {
-          util.renderTemplate(req, res, 'game', {
-            driver,
-            location
-          });
+          util.knex('connections')
+            .where('loc1', driver.location).orWhere('loc2', driver.location).then((locs) => {
+              location.connections = locs;
+              util.renderTemplate(req, res, 'game', {
+                driver,
+                location
+              });
+            });
         });
     });
   }
