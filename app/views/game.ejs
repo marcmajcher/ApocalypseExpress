@@ -1,8 +1,4 @@
 <% if (user) { %>
-  <ul>
-    <li><a href="/user/account">Manage account</a></li>
-  </ul>
-
   <div>
     Driver:
     <%= driver.name %>
@@ -11,4 +7,17 @@
     Current Location:
     <%= location.name %>
   </div>
+
+  <div>
+    Possible destinations:
+    <ul>
+      <%  for (var loc in location.connections) { %>
+        <li>
+          <%= loc %>
+        </li>
+        <% } %>
+    </ul>
+  </div>
+
+
   <% } %>
