@@ -84,33 +84,34 @@ function dragLocation(event) {
 }
 
 function closeDetailWindow() {
-  // $('#detailPanel').hide();
   $('#detailPanel').removeClass('out');
 }
 
 function updateDetails() {
-  $.ajax({
-    url: '/admin/map/location/' + $('#detailPanel #locid').val(),
-    method: 'PATCH',
-    data: {
-      name: $('#detailPanel #name').val(),
-      longitude: $('#detailPanel #longitude').val(),
-      latitude: $('#detailPanel #latitude').val(),
-      description: $('#detailPanel #description').val(),
-      population: $('#detailPanel #population').val(),
-      tech: $('#detailPanel #tech').val(),
-      type: $('#detailPanel #type').val()
-    }
-  }).success(function () {
-    originalLocation = {
-      longitude: $('#detailPanel #longitude').val(),
-      latitude: $('#detailPanel #latitude').val()
-    };
-    // console.log('OK', msg);
-  }).fail(function () {
-    // console.log('booooo', err);
-  });
-  closeDetailWindow();
+  if ($('#detailPanel #locid').val() > 1) {
+    // TODO: add waiting spinner
+    $.ajax({
+      url: '/admin/map/location/' + $('#detailPanel #locid').val(),
+      method: 'PATCH',
+      data: {
+        name: $('#detailPanel #name').val(),
+        longitude: $('#detailPanel #longitude').val(),
+        latitude: $('#detailPanel #latitude').val(),
+        description: $('#detailPanel #description').val(),
+        population: $('#detailPanel #population').val(),
+        tech: $('#detailPanel #tech').val(),
+        type: $('#detailPanel #type').val()
+      }
+    }).success(function () {
+      originalLocation = {
+        longitude: $('#detailPanel #longitude').val(),
+        latitude: $('#detailPanel #latitude').val()
+      };
+    }).fail(function () {
+      // fail properly
+    });
+    // closeDetailWindow();
+  }
 }
 
 /* Draw locations and connections on map */
