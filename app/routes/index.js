@@ -11,15 +11,16 @@ const bcrypt = require('bcrypt-as-promised');
 router.get('/', (req, res) => {
   const user = req.session.user;
   if (user) {
-    util.knex('drivers').where('id', user.driverid).first().then((driver) => {
-      util.knex('locations').where('id', driver.location).first().then(
-        (location) => {
-          util.renderTemplate(req, res, 'index', {
-            driver,
-            location
-          });
-        });
-    });
+    res.redirect('/game');
+    // util.knex('drivers').where('id', user.driverid).first().then((driver) => {
+    //   util.knex('locations').where('id', driver.location).first().then(
+    //     (location) => {
+    //       util.renderTemplate(req, res, 'index', {
+    //         driver,
+    //         location
+    //       });
+    //     });
+    // });
   }
   else {
     util.renderTemplate(req, res, 'index');

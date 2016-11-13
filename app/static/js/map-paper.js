@@ -222,7 +222,7 @@ $('#mapCanvas').bind('mousewheel', function (event) {
 /* Global interaction handlers */
 
 mapLayer.onClick = function () {
-  closeDetailWindow();
+  // closeDetailWindow();
 };
 
 mapLayer.onMouseDrag = function (event) {

@@ -26,7 +26,7 @@ describe('Login', () => {
       });
   });
 
-  it('should be able to log in a test user and redirect to index', (done) => {
+  it('should be able to log in a test user and redirect to game', (done) => {
     const userLogin =
       `email=${util.users.testUser.email}&password=${util.users.testUser.password}`;
     request(app)
@@ -56,9 +56,21 @@ describe('Login', () => {
       });
   });
 
-  it('home page should have logout link if logged in', (done) => {
+  it('should redirect logged in user to game page from home', (done) => {
     req = request(app)
       .get('/')
+      .set('Accept', 'text/html');
+    req.cookies = testUserCookie;
+    req.expect(302)
+      .end((err, res) => {
+        res.headers.location.should.equal('/game');
+        done();
+      });
+  });
+
+  it('game page should have logout link if logged in', (done) => {
+    req = request(app)
+      .get('/game')
       .set('Accept', 'text/html');
     req.cookies = testUserCookie;
     req
@@ -70,9 +82,9 @@ describe('Login', () => {
       });
   });
 
-  it('home page should greet player by first name', (done) => {
+  it('game page should greet player by first name', (done) => {
     req = request(app)
-      .get('/')
+      .get('/game')
       .set('Accept', 'text/html');
     req.cookies = testUserCookie;
     req
