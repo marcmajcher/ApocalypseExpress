@@ -1,0 +1,1 @@
+"use strict";!function(){var o=angular.module("apox",[]);o.controller("HelloController",function(){var o=this;o.greeting="Welcome to the Apocalypse, "})}();

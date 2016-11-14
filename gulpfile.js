@@ -4,7 +4,7 @@
 
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
-// const concat = require('gulp-concat');
+const concat = require('gulp-concat');
 const del = require('del');
 const eslint = require('gulp-eslint');
 const gulp = require('gulp');
@@ -14,7 +14,7 @@ const nodemon = require('gulp-nodemon');
 // const notify = require("gulp-notify");
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-// const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
 
 const lintable = [
   'app/**/*.js',
@@ -39,12 +39,6 @@ gulp.task('clean', () =>
   ])
 );
 
-// gulp.task('concat', function() {
-//   return gulp.src('src/js/**/*.js')
-//     .pipe(concat('app.js'))
-//     .pipe(uglify())
-//     .pipe(gulp.dest('app/static/js'));
-// });
 
 gulp.task('imagemin', () =>
   gulp
@@ -53,18 +47,26 @@ gulp.task('imagemin', () =>
   .pipe(gulp.dest('app/static/img'))
 );
 
-gulp.task('scripts', () =>
+gulp.task('scripts', () => {
   gulp
-  .src('src/js/**/*.js')
-  .pipe(babel({
-    presets: ['es2015']
-  }))
-  // .on('error', (error) => {
-  //   console.error(error.toString()); // eslint-disable-line no-console
-  // })
-  // .pipe(uglify()) // only uglify/min on prod
-  .pipe(gulp.dest('app/static/js'))
-);
+    .src('src/js/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    // .on('error', (error) => {
+    //   console.error(error.toString()); // eslint-disable-line no-console
+    // })
+    // .pipe(uglify()) // only uglify/min on prod
+    .pipe(gulp.dest('app/static/js'));
+  gulp
+    .src('src/js/ng/**/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(concat('ng-app.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('app/static/js'));
+});
 
 gulp.task('eslint', () =>
   gulp
