@@ -225,10 +225,6 @@ $('#mapCanvas').bind('mousewheel', (event) => {
 
 /* Global interaction handlers */
 
-mapLayer.onClick = () => {
-  // closeDetailWindow();
-};
-
 mapLayer.onMouseDrag = (event) => {
   event.target.position += event.delta;
 };
