@@ -15,8 +15,9 @@ router.get('/', (req, res) => {
       util.knex('locations').where('id', driver.location).first().then(
         (location) => {
           util.knex('connections')
-            .where('loc1', driver.location).orWhere('loc2', driver.location).then((locs) => {
-              location.connections = locs;
+            .where('loc1', driver.location).orWhere('loc2', driver.location)
+            .then((connections) => {
+              location.connections = connections;
               util.renderTemplate(req, res, 'game', {
                 driver,
                 location
