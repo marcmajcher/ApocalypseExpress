@@ -1,13 +1,13 @@
+// (() => {
+
 'use strict';
 
 /* globals view, Point, Layer, Path, PointText, Group, Raster */
 /* eslint-env jquery, browser */
 /* exported onMouseDrag, onKeyUp */
-
 // TODO: add "loading" thinger
 
 var mapLayer = new Layer();
-var originalLocation = void 0;
 
 mapLayer.texasMap = new Raster('/img/texasmap.jpg');
 view.center = new Point(1100, 500); // eslint-disable-line no-magic-numbers
@@ -51,7 +51,6 @@ function mousedownLocation(event) {
   // add close/notification
   event.target.children.dot.fillColor.alpha = 0.5;
   var loc = event.target.location;
-  originalLocation = loc;
   $('#detailPanel').addClass('out');
   $('#detailPanel #locid').val(loc.id);
   $('#detailPanel #name').val(loc.name);
@@ -81,37 +80,6 @@ function dragLocation(event) {
   }
   updatePositionDetail(location);
   event.stopPropagation();
-}
-
-function closeDetailWindow() {
-  $('#detailPanel').removeClass('out');
-}
-
-function updateDetails() {
-  if ($('#detailPanel #locid').val() > 1) {
-    // TODO: add waiting spinner
-    $.ajax({
-      url: '/admin/map/location/' + $('#detailPanel #locid').val(),
-      method: 'PATCH',
-      data: {
-        name: $('#detailPanel #name').val(),
-        longitude: $('#detailPanel #longitude').val(),
-        latitude: $('#detailPanel #latitude').val(),
-        description: $('#detailPanel #description').val(),
-        population: $('#detailPanel #population').val(),
-        tech: $('#detailPanel #tech').val(),
-        type: $('#detailPanel #type').val()
-      }
-    }).success(function () {
-      originalLocation = {
-        longitude: $('#detailPanel #longitude').val(),
-        latitude: $('#detailPanel #latitude').val()
-      };
-    }).fail(function () {
-      // fail properly
-    });
-    // closeDetailWindow();
-  }
 }
 
 /* Draw locations and connections on map */
@@ -224,19 +192,4 @@ $('#mapCanvas').bind('mousewheel', function (event) {
 mapLayer.onMouseDrag = function (event) {
   event.target.position += event.delta;
 };
-
-function onKeyUp(event) {
-  if (event.key === 'escape') {
-    closeDetailWindow();
-  } else if (event.key === 'return') {
-    updateDetails();
-  }
-}
-
-$('#closeDetails').click(function () {
-  closeDetailWindow();
-});
-
-$('#updateDetails').click(function () {
-  updateDetails();
-});
+// })();
