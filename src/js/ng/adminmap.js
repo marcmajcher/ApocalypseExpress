@@ -116,17 +116,18 @@
 
     function dragLocation(event) {
       const target = event.target;
-      target.position += event.delta;
+      target.position = target.position.add([event.delta.x, event.delta.y]);
       const location = pointToLatLong(target.position);
       target.location.longitude = location.longitude;
       target.location.latitude = location.latitude;
-      $('#detailPanel #locx').val(target.location.latitude);
-      $('#detailPanel #locy').val(target.location.longitude);
+      target.scope.$apply(() => {
+        target.scope.admin.location.longitude = location.longitude;
+        target.scope.admin.location.latitude = location.latitude;
+      });
       for (let i = 0; i < target.location.paths.length; i++) {
         target.location.paths[i].x = target.children.dot.position.x;
         target.location.paths[i].y = target.children.dot.position.y;
       }
-      // updatePositionDetail(location);
       event.stopPropagation();
     }
 
@@ -135,7 +136,7 @@
       controller: 'AdminMapController',
       controllerAs: 'admin',
       link: (scope, element) => {
-        paper.setup(element.get(0));
+        paper.setup(element.context);
         const mapLayer = new paper.Layer();
         mapLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
 
@@ -194,10 +195,10 @@
           }
         });
 
-        mapLayer.onMouseDrag = (event) => {
-          event.target.position += event.delta;
-          // paper.project._needsUpdate = true;
-          paper.project.view.update();
+        const tool = new paper.Tool();
+
+        tool.onMouseDrag = (event) => {
+          mapLayer.position = mapLayer.position.add([event.delta.x, event.delta.y]);
         };
         paper.view.center = new paper.Point(1100, 500); // eslint-disable-line no-magic-numbers
       }
