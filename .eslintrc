@@ -3,7 +3,8 @@
     es6: true
   },
   globals: {
-    angular: 1
+    angular: 1,
+    paper: 1
   },
   parserOptions: {
     ecmaVersion: 6,
