@@ -125,6 +125,32 @@
       event.target.children.locname.visible = false;
     }
 
+    /* Mousewheel navigation methods */
+
+    function changeZoom(oldZoom, delta, c, p) {
+      const factor = 1.05;
+      let newZoom = oldZoom;
+      if (delta > 0) {
+        newZoom *= factor;
+      }
+      if (delta < 0) {
+        newZoom /= factor;
+      }
+      // return newZoom;
+      const beta = oldZoom / newZoom;
+      const pc = p.subtract(c);
+      const a = p.subtract(pc.multiply(beta)).subtract(c);
+      return {
+        newZoom,
+        a
+      };
+    }
+
+    function changeCenter(oldCenter, deltaX, deltaY, factor) {
+      const offset = new paper.Point(deltaX, deltaY).multiply(factor);
+      return oldCenter.subtract(offset);
+    }
+
     /* Main directive declaration */
 
     return {
@@ -201,6 +227,23 @@
         };
 
         paper.view.center = new paper.Point(1100, 500); // eslint-disable-line no-magic-numbers
+
+        element.bind('mousewheel', (event) => {
+            const dx = event.originalEvent.wheelDeltaX;
+            const dy = event.originalEvent.wheelDeltaY;
+
+            if (event.altKey) {
+              const mousePos = new paper.Point(event.offsetX, event.offsetY);
+              const z = changeZoom(paper.view.zoom, dy, paper.view.center, mousePos);
+              paper.view.zoom = z.newZoom;
+              // view.center = view.center.add(z.a);
+              event.preventDefault();
+            }
+            else {
+              paper.view.center = changeCenter(paper.view.center, dx, dy, 1);
+              event.preventDefault();
+            }
+        });
       }
     };
   });
@@ -229,46 +272,3 @@
 //   }
 //
 //
-
-/* Navigation methods */
-
-// function changeZoom(oldZoom, delta, c, p) {
-//   const factor = 1.05;
-//   let newZoom = oldZoom;
-//   if (delta > 0) {
-//     newZoom *= factor;
-//   }
-//   if (delta < 0) {
-//     newZoom /= factor;
-//   }
-//   // return newZoom;
-//   const beta = oldZoom / newZoom;
-//   const pc = p.subtract(c);
-//   const a = p.subtract(pc.multiply(beta)).subtract(c);
-//   return {
-//     newZoom,
-//     a
-//   };
-// }
-//
-// function changeCenter(oldCenter, deltaX, deltaY, factor) {
-//   const offset = new paper.Point(deltaX, deltaY).multiply(factor);
-//   return oldCenter.subtract(offset);
-// }
-
-// $('#mapCanvas').bind('mousewheel', (event) => {
-//   const dx = event.originalEvent.wheelDeltaX;
-//   const dy = event.originalEvent.wheelDeltaY;
-//
-//   if (event.altKey) {
-//     const mousePos = new Point(event.offsetX, event.offsetY);
-//     const z = changeZoom(view.zoom, dy, view.center, mousePos);
-//     view.zoom = z.newZoom;
-//     // view.center = view.center.add(z.a);
-//     event.preventDefault();
-//   }
-//   else {
-//     view.center = changeCenter(view.center, dx, dy, 1);
-//     event.preventDefault();
-//   }
-// });
