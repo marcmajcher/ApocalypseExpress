@@ -76,32 +76,6 @@
       event.target.children.locname.visible = false;
     }
 
-    /* Navigation methods */
-
-    // function changeZoom(oldZoom, delta, c, p) {
-    //   const factor = 1.05;
-    //   let newZoom = oldZoom;
-    //   if (delta > 0) {
-    //     newZoom *= factor;
-    //   }
-    //   if (delta < 0) {
-    //     newZoom /= factor;
-    //   }
-    //   // return newZoom;
-    //   const beta = oldZoom / newZoom;
-    //   const pc = p.subtract(c);
-    //   const a = p.subtract(pc.multiply(beta)).subtract(c);
-    //   return {
-    //     newZoom,
-    //     a
-    //   };
-    // }
-    //
-    // function changeCenter(oldCenter, deltaX, deltaY, factor) {
-    //   const offset = new paper.Point(deltaX, deltaY).multiply(factor);
-    //   return oldCenter.subtract(offset);
-    // }
-
     function mousedownLocation(event) {
       event.target.children.dot.fillColor.alpha = 0.5;
       event.target.scope.$apply(() => {
@@ -228,6 +202,33 @@
 //   }
 //
 //
+
+/* Navigation methods */
+
+// function changeZoom(oldZoom, delta, c, p) {
+//   const factor = 1.05;
+//   let newZoom = oldZoom;
+//   if (delta > 0) {
+//     newZoom *= factor;
+//   }
+//   if (delta < 0) {
+//     newZoom /= factor;
+//   }
+//   // return newZoom;
+//   const beta = oldZoom / newZoom;
+//   const pc = p.subtract(c);
+//   const a = p.subtract(pc.multiply(beta)).subtract(c);
+//   return {
+//     newZoom,
+//     a
+//   };
+// }
+//
+// function changeCenter(oldCenter, deltaX, deltaY, factor) {
+//   const offset = new paper.Point(deltaX, deltaY).multiply(factor);
+//   return oldCenter.subtract(offset);
+// }
+
 // $('#mapCanvas').bind('mousewheel', (event) => {
 //   const dx = event.originalEvent.wheelDeltaX;
 //   const dy = event.originalEvent.wheelDeltaY;
