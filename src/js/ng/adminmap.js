@@ -110,8 +110,8 @@
 
       /* update controller model */
       target.scope.$apply(() => {
-        target.scope.admin.location.longitude = location.longitude;
-        target.scope.admin.location.latitude = location.latitude;
+        target.scope.admin.location.longitude = newLocation.longitude;
+        target.scope.admin.location.latitude = newLocation.latitude;
       });
 
       event.stopPropagation();
