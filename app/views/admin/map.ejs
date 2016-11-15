@@ -1,38 +1,37 @@
 <div id="map-container" ng-controller="AdminMapController as admin">
-  <script type="text/paperscript" src="/js/map-paper.js" canvas="mapCanvas"></script>
-  <canvas id="mapCanvas" class="map-canvas" resize="true"></canvas>
+  <canvas class="map-canvas" resize="true" adminmap></canvas>
 
-  <div id="detailPanel" class="detail-panel out">
-    <form id="mapsubmit">
-      <input type="hidden" id="locid" name="locid">
+  <div id="detailPanel" class="detail-panel" ng-class="{'out': admin.showDetailPanel}">
+    <form>
+      <input type="hidden" ng-model="admin.location.locid" name="locid">
       <div class="form-group">
         <label for="name">Name</label>
-        <input class="form-control" id="name" type="text" name="name">
+        <input class="form-control" ng-model="admin.location.name" type="text" name="name">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" id="description" type="text" name="description">
+        <textarea class="form-control" ng-model="admin.location.description" type="text" name="description">
       </textarea>
       </div>
       <div class="form-group">
         <label for="latitude">Latitude</label>
-        <input class="form-control" id="latitude" type="number" step="any" name="latitude">
+        <input class="form-control" ng-model="admin.location.latitude" type="number" step="any" name="latitude">
       </div>
       <div class="form-group">
         <label for="longitude">Longitude</label>
-        <input class="form-control" id="longitude" type="number" step="any" name="longitude">
+        <input class="form-control" ng-model="admin.location.longitude" type="number" step="any" name="longitude">
       </div>
       <div class="form-group">
         <label for="population">Population</label>
-        <input class="form-control" id="population" type="number" min="10" name="population">
+        <input class="form-control" ng-model="admin.location.population" type="number" min="10" name="population">
       </div>
       <div class="form-group">
         <label for="tech">Tech Level</label>
-        <input class="form-control" id="tech" type="number" min="0" max="10" name="tech">
+        <input class="form-control" ng-model="admin.location.tech" type="number" min="0" max="10" name="tech">
       </div>
       <div class="form-group">
         <label for="type">Type</label>
-        <select name="type" id="type">
+        <select name="type" ng-model="admin.location.type">
         <option value="hold">hold</option>
         <option value="freehold">freehold</option>
         <option value="camp">camp</option>
@@ -42,12 +41,12 @@
         <option value="enclave">enclave</option>
       </select>
       </div>
-      <button ng-click="admin.updateDetails()" type="button">Update</button>
-      <i ng-click="admin.closeDetails()" class="fa fa-window-close-o close-button"></i>
+      <button ng-click="admin.updateLocationDetails()" type="button">Update</button>
+      <i ng-click="admin.closeDetailPanel()" class="fa fa-window-close-o close-button"></i>
     </form>
 
     <hr>
-    <a href="/admin/mapseed" target="_new"><button id="exportMap" type="button">Export</button></a>
+    <a href="/admin/mapseed" target="_new"><button type="button">Export</button></a>
     <a href="/"><img class="homelink" src="/img/ApocXpressLogo-sm.png"></a>
   </div>
 
