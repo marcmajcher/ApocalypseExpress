@@ -4,11 +4,11 @@
 
 module.exports = {
   locations: [{
-    name: 'Oz',
+    name: 'Ozz',
     latitude: 30.2672,
     longitude: -97.7431,
-    description: 'The freehold of Aus-Town is the center of the universe.',
-    population: 50000,
+    description: 'The freehold of Ozz is the center of the universe.',
+    population: 50001,
     type: 'freehold',
     tech: 6,
     factionid: 0
@@ -1952,7 +1952,7 @@ module.exports = {
     latitude: 30.4394,
     longitude: -97.62,
     description: 'This is a location.',
-    population: 1000,
+    population: 1001,
     type: 'hold',
     tech: 5,
     factionid: 0

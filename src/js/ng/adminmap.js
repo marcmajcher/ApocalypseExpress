@@ -120,14 +120,14 @@
       const location = pointToLatLong(target.position);
       target.location.longitude = location.longitude;
       target.location.latitude = location.latitude;
-      target.scope.$apply(() => {
-        target.scope.admin.location.longitude = location.longitude;
-        target.scope.admin.location.latitude = location.latitude;
-      });
       for (let i = 0; i < target.location.paths.length; i++) {
         target.location.paths[i].x = target.children.dot.position.x;
         target.location.paths[i].y = target.children.dot.position.y;
       }
+      target.scope.$apply(() => {
+        target.scope.admin.location.longitude = location.longitude;
+        target.scope.admin.location.latitude = location.latitude;
+      });
       event.stopPropagation();
     }
 
@@ -195,17 +195,39 @@
           }
         });
 
-        const tool = new paper.Tool();
-
-        tool.onMouseDrag = (event) => {
+        mapLayer.onMouseDrag = (event) => {
           mapLayer.position = mapLayer.position.add([event.delta.x, event.delta.y]);
         };
+
         paper.view.center = new paper.Point(1100, 500); // eslint-disable-line no-magic-numbers
       }
     };
   });
 })();
 
+//
+// function calcCrow(lat1, lon1, lat2, lon2)
+//   {
+//     var R = 6371; // km
+//     var dLat = toRad(lat2-lat1);
+//     var dLon = toRad(lon2-lon1);
+//     var lat1 = toRad(lat1);
+//     var lat2 = toRad(lat2);
+//
+//     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+//       Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+//     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+//     var d = R * c;
+//     return d;
+//   }
+//
+//   // Converts numeric degrees to radians
+//   function toRad(Value)
+//   {
+//       return Value * Math.PI / 180;
+//   }
+//
+//
 // $('#mapCanvas').bind('mousewheel', (event) => {
 //   const dx = event.originalEvent.wheelDeltaX;
 //   const dy = event.originalEvent.wheelDeltaY;
