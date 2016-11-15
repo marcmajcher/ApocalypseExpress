@@ -90,9 +90,6 @@
 
     function dragLocation(event) {
       const target = event.target;
-      console.log(target);
-      console.log(target.position);
-      console.log('POS ',target.position.x,target.position.y);
       target.position = target.position.add([event.delta.x, event.delta.y]);
 
       const location = pointToLatLong(target.position);
