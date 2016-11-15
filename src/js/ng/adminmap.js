@@ -90,18 +90,25 @@
 
     function dragLocation(event) {
       const target = event.target;
+      console.log(target);
+      console.log(target.position);
+      console.log('POS ',target.position.x,target.position.y);
       target.position = target.position.add([event.delta.x, event.delta.y]);
+
       const location = pointToLatLong(target.position);
       target.location.longitude = location.longitude;
       target.location.latitude = location.latitude;
+
       for (let i = 0; i < target.location.paths.length; i++) {
         target.location.paths[i].x = target.children.dot.position.x;
         target.location.paths[i].y = target.children.dot.position.y;
       }
+
       target.scope.$apply(() => {
         target.scope.admin.location.longitude = location.longitude;
         target.scope.admin.location.latitude = location.latitude;
       });
+
       event.stopPropagation();
     }
 
@@ -138,7 +145,7 @@
             }
 
             /* render locations */
-            const textOffset = new paper.Point(0, -15); // eslint-disable-line no-magic-numbers
+            const textOffset = [0, -20]; // eslint-disable-line no-magic-numbers
             Object.keys(data.locations).forEach((id) => {
               const location = data.locations[id];
               const dot = new paper.Path.Circle({
@@ -148,7 +155,7 @@
                 name: 'dot'
               });
 
-              const text = new paper.PointText(location.point + textOffset);
+              const text = new paper.PointText(location.point.add(textOffset));
               text.justification = 'center';
               text.fillColor = '#3333ff';
               text.strokeColor = '#9999cc';
