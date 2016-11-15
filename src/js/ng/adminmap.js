@@ -54,6 +54,7 @@
     const yScale = -506.5;
     const xOffset = 43647;
     const yOffset = 15855;
+    const alphaBlack = new paper.Color(0, 0, 0, 0.5); // eslint-disable-line no-magic-numbers
 
     function locToPoint(loc) {
       return new paper.Point((loc.longitude * xScale) + xOffset, (loc.latitude * yScale) + yOffset);
@@ -68,6 +69,54 @@
 
     /* Location dot mouse event handlers */
 
+    function mousedownLocation(event) {
+      /* pop target dot to the top of the z-index */
+      const parent = event.target.parent;
+      event.target.remove();
+      parent.addChild(event.target);
+
+      event.target.children.dot.fillColor.alpha = 0.5;
+      for (let i = 0; i < event.target.location.paths.length; i++) {
+        event.target.location.paths[i].strokeColor = alphaBlack;
+      }
+
+      event.target.scope.$apply(() => {
+        event.target.scope.admin.location = event.target.location;
+      });
+    }
+
+    function mouseupLocation(event) {
+      event.target.children.dot.fillColor.alpha = 1;
+      for (let i = 0; i < event.target.location.paths.length; i++) {
+        event.target.location.paths[i].strokeColor = 'black';
+      }
+    }
+
+    function dragLocation(event) {
+      /* update the position of the target dot based on mouse move */
+      const target = event.target;
+      target.position = target.position.add([event.delta.x, event.delta.y]);
+
+      /* update all connected paths with new position */
+      for (let i = 0; i < target.location.paths.length; i++) {
+        target.location.ends[i].x = target.children.dot.position.x;
+        target.location.ends[i].y = target.children.dot.position.y;
+      }
+
+      /* set the lat/long for the new position on the target dot */
+      const newLocation = pointToLatLong(target.position);
+      target.location.longitude = newLocation.longitude;
+      target.location.latitude = newLocation.latitude;
+
+      /* update controller model */
+      target.scope.$apply(() => {
+        target.scope.admin.location.longitude = location.longitude;
+        target.scope.admin.location.latitude = location.latitude;
+      });
+
+      event.stopPropagation();
+    }
+
     function rolloverLocation(event) {
       event.target.children.locname.visible = true;
     }
@@ -76,38 +125,7 @@
       event.target.children.locname.visible = false;
     }
 
-    function mousedownLocation(event) {
-      event.target.children.dot.fillColor.alpha = 0.5;
-      event.target.scope.$apply(() => {
-        event.target.scope.admin.location = event.target.location;
-      });
-    }
-
-    function mouseupLocation(event) {
-      event.target.children.dot.fillColor.alpha = 1;
-      event.preventDefault();
-    }
-
-    function dragLocation(event) {
-      const target = event.target;
-      target.position = target.position.add([event.delta.x, event.delta.y]);
-
-      const location = pointToLatLong(target.position);
-      target.location.longitude = location.longitude;
-      target.location.latitude = location.latitude;
-
-      for (let i = 0; i < target.location.paths.length; i++) {
-        target.location.paths[i].x = target.children.dot.position.x;
-        target.location.paths[i].y = target.children.dot.position.y;
-      }
-
-      target.scope.$apply(() => {
-        target.scope.admin.location.longitude = location.longitude;
-        target.scope.admin.location.latitude = location.latitude;
-      });
-
-      event.stopPropagation();
-    }
+    /* Main directive declaration */
 
     return {
       restrict: 'A',
@@ -125,6 +143,7 @@
             Object.keys(data.locations).forEach((id) => {
               data.locations[id].point = locToPoint(data.locations[id]);
               data.locations[id].paths = [];
+              data.locations[id].ends = [];
             });
 
             /* Draw connections */
@@ -137,13 +156,17 @@
               path.strokeColor = 'black';
               path.strokeWidth = baseConWidth;
 
-              loc1.paths.push(path.segments[0].point);
-              loc2.paths.push(path.segments[1].point);
+              loc1.ends.push(path.segments[0].point);
+              loc2.ends.push(path.segments[1].point);
+              loc1.paths.push(path);
+              loc2.paths.push(path);
             }
 
             /* render locations */
             const textOffset = [0, -20]; // eslint-disable-line no-magic-numbers
-            Object.keys(data.locations).forEach((id) => {
+            const locationKeys = Object.keys(data.locations);
+
+            locationKeys.forEach((id) => {
               const location = data.locations[id];
               const dot = new paper.Path.Circle({
                 center: location.point,
