@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./app/www",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test mocha",
+    "preprot": "npm run update-webdriver",
+    "prot": "protractor test-e2e/protractor.conf.js",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update"
   },
   "dependencies": {
     "bcrypt-as-promised": "^1.1.0",
@@ -50,8 +54,10 @@
     "gulp-sourcemaps": "^2.2.0",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "jasmine": "^2.5.2",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
+    "protractor": "^4.0.11",
     "sass": "^0.5.0"
   }
 }
