@@ -8,7 +8,12 @@ const util = require('./_util');
 
 router.use(util.loginRequired);
 
-// router.get('/', (req, res) => {
-// });
+router.get('/', (req, res) => {
+  util.knex('locations').where('id',
+      util.knex('drivers').where('id', req.session.user.driverid).select('id')).first()
+    .then((location) => {
+      res.send(location);
+    });
+});
 
 module.exports = router;
