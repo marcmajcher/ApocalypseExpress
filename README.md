@@ -6,6 +6,8 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ## Main
 **Public routes**
+| Method | Route | |
+|---|---|---|
 | GET  | / | Home page
 | GET  | /booyah | Test response
 | GET  | /register | Player registration form
@@ -15,6 +17,8 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Admin
 **\*Admin login required**
+|| Method | Route | |
+|---|---|---|---|
 |  | GET | /admin | Admin dashboard
 | * | GET | /admin/map | Map editor
 | * | GET | /admin/mapseed | knex seed file
@@ -22,23 +26,33 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Driver
 **Player login required**
+| Method | Route | |
+|---|---|---|
 | GET | */driver* | Driver info for current player
 
 ### Game
 **Player login required**
+| Method | Route | |
+|---|---|---|
 | GET | /game | Main game page
 
 ## Location
 **Player login required**
+| Method | Route | |
+|---|---|---|
 | GET | */location* | Info for player's current location
-| GET | */location/:locid* | Brief info for given location 
+| GET | */location/:locid* | Brief info for given location
 
 ### Map
 **Player login required**
-| GET /map : Get json map data for user (visited locations)
+| Method | Route | |
+|---|---|---|
+| GET | /map | Get json map data for user (visited locations)
 
 ### Users
 **\*Player login required**
+| | Method | Route | |
+|---|---|---|---|
 | | POST  | /user | Create new player {email, vemail, password, vpassword, firstname, lastname}
 | * | GET   | /user/account | Player account management page
 | * | PATCH | /user/account | Update player info {firstname, lastname, cpassword, password, vpassword}
