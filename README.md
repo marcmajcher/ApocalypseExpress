@@ -6,24 +6,23 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ## Main
 **Public routes**
+| Method | Route     |                                  |
+| ------ | --------- | -------------------------------- |
+| GET    | /         | Home page                        |
+| GET    | /booyah   | Test response                    |
+| GET    | /register | Player registration form         |
+| GET    | /login    | Player login form                |
+| POST   | /login    | Log in player { email, password} |
+| GET    | /logout   | Log out player                   |
 
-| Method | Route     |                                 |
-| ------ | --------- | ------------------------------- |
-| GET    | /         | Home page                       |
-| GET    | /booyah   | Test response                   |
-| GET    | /register | Player registration form        |
-| GET    | /login    | Player login form               |
-| POST   | /login    | Log in player {email, password} |
-| GET    | /logout   | Log out player                  |
-
-| Method | Route     |                              |
-| ------ | --------- | ---------------------------- |
-| GET    | /         | Home page                    |
-| GET    | /booyah   | Test response                |
-| GET    | /register | Player registration form     |
-| GET    | /login    | Player login form            |
-| POST   | /login    | Log in player                |
-| GET    | /logout   | Log out player               |
+| Method | Route     |                                  |
+| ------ | --------- | -------------------------------- |
+| GET    | /         | Home page                        |
+| GET    | /booyah   | Test response                    |
+| GET    | /register | Player registration form         |
+| GET    | /login    | Player login form                |
+| POST   | /login    | Log in player { email, password} |
+| GET    | /logout   | Log out player                   |
 
 
 ### Admin
