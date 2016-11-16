@@ -3,17 +3,18 @@
 
   /* eslint-env jquery, browser */
 
-  const gamePageController = function gamePageController() {
+  const gamePageController = function gamePageController(DriverService) {
     const vm = this;
 
-    vm.driver = {
-      name: 'Barney'
-    };
+    DriverService.getDriver()
+      .then((driver) => {
+        vm.driver = driver.data;
+      });
     vm.currentLocation = {
       name: 'Buttsville'
     };
   };
 
   angular.module('apox')
-    .controller('GamePageController', ['$http', gamePageController]);
+    .controller('GamePageController', ['DriverService', gamePageController]);
 })();

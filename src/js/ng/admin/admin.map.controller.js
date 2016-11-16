@@ -38,7 +38,7 @@
           type: loc.type
         });
         // .then(() => {
-        //   console.log('cool.');
+        //   remove spinner
         // });
       }
     };
