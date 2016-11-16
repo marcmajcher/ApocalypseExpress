@@ -3,7 +3,7 @@
 
   /* eslint-env jquery, browser */
 
-  const adminMapController = function adminMapController($http) {
+  const adminMapController = function adminMapController(MapService) {
     const vm = this;
 
     vm.location = {};
@@ -16,7 +16,7 @@
     };
 
     vm.loadMapData = function load() {
-      $http.get('/map')
+      MapService.getMap()
         .then((res) => {
           vm.mapData.locations = res.data.locations;
           vm.mapData.connections = res.data.connections;
@@ -28,18 +28,18 @@
       const loc = vm.location;
       if (loc.id > 0) {
         // TODO: add waiting spinner
-        $http.patch(`/admin/map/location/${loc.id}`, {
-            name: loc.name,
-            longitude: loc.longitude,
-            latitude: loc.latitude,
-            description: loc.description,
-            population: loc.population,
-            tech: loc.tech,
-            type: loc.type
-          })
-          .then(() => {
-            // console.log('cool.'); res
-          });
+        MapService.updateLocation(loc.id, {
+          name: loc.name,
+          longitude: loc.longitude,
+          latitude: loc.latitude,
+          description: loc.description,
+          population: loc.population,
+          tech: loc.tech,
+          type: loc.type
+        });
+        // .then(() => {
+        //   console.log('cool.');
+        // });
       }
     };
 
@@ -47,5 +47,5 @@
   };
 
   angular.module('apox')
-    .controller('AdminMapController', ['$http', adminMapController]);
+    .controller('AdminMapController', ['MapService', adminMapController]);
 })();
