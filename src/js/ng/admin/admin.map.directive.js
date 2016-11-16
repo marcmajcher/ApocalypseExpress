@@ -3,7 +3,7 @@
 
   /* eslint-env jquery, browser */
 
-  angular.module('apox').directive('adminmap', () => {
+  angular.module('apox').directive('apoxAdminMap', () => {
     const baseDotSize = 3;
     const baseConWidth = 3;
     const xScale = 435.30;
@@ -111,11 +111,10 @@
     /* Main directive declaration */
 
     return {
-      restrict: 'A',
-      controller: 'AdminMapController',
-      controllerAs: 'admin',
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
       link: (scope, element) => {
-        paper.setup(element.context);
+        paper.setup(element.context.firstChild);
         const mapLayer = new paper.Layer();
         mapLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
 

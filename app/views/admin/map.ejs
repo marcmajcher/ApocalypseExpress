@@ -1,6 +1,5 @@
 <div id="map-container" ng-controller="AdminMapController as admin">
-  <canvas class="map-canvas" resize="true" adminmap></canvas>
-
+  <apox-admin-map></apox-admin-map>
   <div id="detailPanel" class="detail-panel" ng-class="{'out': admin.showDetailPanel}">
     <form>
       <input type="hidden" ng-model="admin.location.locid" name="locid">
