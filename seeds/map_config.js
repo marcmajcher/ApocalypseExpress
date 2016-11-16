@@ -931,7 +931,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Fred\'s',
+    name: 'Fred&#39;s',
     latitude: 30.2752,
     longitude: -98.872,
     description: 'This is a location.',
@@ -1354,7 +1354,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Killeen',
+    name: 'Kitten',
     latitude: 31.1171,
     longitude: -97.7278,
     description: 'This is a location.',
@@ -1678,7 +1678,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Fred\'s Hat',
+    name: 'Fred&#39;s Hat',
     latitude: 31.2618,
     longitude: -100.817,
     description: 'This is a location.',
@@ -2038,7 +2038,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Port O\'Connor',
+    name: 'Port O&#39;Connor',
     latitude: 28.4476,
     longitude: -96.4054,
     description: 'This is a location.',
@@ -2218,7 +2218,7 @@ module.exports = {
     tech: 5,
     factionid: 0
   }, {
-    name: 'Saint Marc\'s',
+    name: 'Saint Marc&#39;s',
     latitude: 29.8833,
     longitude: -97.9414,
     description: 'This is a location.',

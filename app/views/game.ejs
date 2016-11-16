@@ -1,12 +1,10 @@
 <% if (user) { %>
   <div ng-controller="GamePageController as game">
     <div>
-      <strong>Driver:</strong>
-      {{game.driver.name}}
+      <strong>Driver:</strong> {{game.driver.name}}
     </div>
     <div>
-      <strong>Current Location:</strong>
-      {{game.currentLocation.name}}
+      <strong>Current Location:</strong> {{game.currentLocation.name}}
     </div>
 
     <!-- <div>
@@ -20,4 +18,4 @@
       </ul>
     </div> -->
   </div>
-<% } %>
+  <% } %>
