@@ -1,21 +1,23 @@
 <% if (user) { %>
-  <div>
-    <strong>Driver:</strong>
-    <%= driver.name %>
-  </div>
-  <div>
-    <strong>Current Location:</strong>
-    <%= location.name %>
-  </div>
+  <div ng-controller="GamePageController as game">
+    <div>
+      <strong>Driver:</strong>
+      {{game.driver.name}}
+    </div>
+    <div>
+      <strong>Current Location:</strong>
+      {{game.currentLocation.name}}
+    </div>
 
-  <div>
-    <strong>Destinations:</strong>
-    <ul>
-      <%  for (var loc in location.connections) { %>
-        <li>
-          <%= JSON.stringify(location.connections[loc]) %>
-        </li>
-        <% } %>
-    </ul>
+    <!-- <div>
+      <strong>Destinations:</strong>
+      <ul>
+        <%  for (var loc in location.connections) { %>
+          <li>
+            <%= JSON.stringify(location.connections[loc]) %>
+          </li>
+          <% } %>
+      </ul>
+    </div> -->
   </div>
-  <% } %>
+<% } %>
