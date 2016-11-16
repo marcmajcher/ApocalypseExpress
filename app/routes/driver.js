@@ -8,7 +8,11 @@ const util = require('./_util');
 
 router.use(util.loginRequired);
 
-// router.get('/', (req, res) => {
-// });
+router.get('/', (req, res) => {
+  util.knex('drivers').where('id', req.session.user.driverid).first()
+    .then((driver) => {
+      res.send(driver);
+    });
+});
 
 module.exports = router;

@@ -55,10 +55,12 @@ app.use((req, res, next) => {
 });
 
 app.use('/', require('./routes/index'));
-app.use('/user', require('./routes/user'));
 app.use('/admin', require('./routes/admin'));
-app.use('/map', require('./routes/map'));
+app.use('/driver', require('./routes/driver'));
 app.use('/game', require('./routes/game'));
+app.use('/location', require('./routes/location'));
+app.use('/map', require('./routes/map'));
+app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
