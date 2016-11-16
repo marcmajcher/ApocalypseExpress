@@ -12,12 +12,6 @@ const session = require('cookie-session');
 const randomstring = require('randomstring');
 const methodOverride = require('method-override');
 
-const routes = require('./routes/index');
-const user = require('./routes/user');
-const admin = require('./routes/admin');
-const mapRoutes = require('./routes/map');
-const game = require('./routes/game');
-
 const app = express();
 app.disable('x-powered-by');
 
@@ -60,11 +54,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', routes);
-app.use('/user', user);
-app.use('/admin', admin);
-app.use('/map', mapRoutes);
-app.use('/game', game);
+app.use('/', require('./routes/index'));
+app.use('/user', require('./routes/user'));
+app.use('/admin', require('./routes/admin'));
+app.use('/map', require('./routes/map'));
+app.use('/game', require('./routes/game'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
