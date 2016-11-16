@@ -7,19 +7,20 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 ## Main
 **Public routes**
 
-| Method | Route     |                                  |
-| ------ | --------- | -------------------------------- |
-| GET    | /         | Home page                        |
-
-| Method | Route     |                                  |
-| ------ | --------- | -------------------------------- |
-| GET    | /         | Home page                        |
+| Method | Route     |                                 
+| ------ | --------- | ---
+| GET    | /         | Home page
+| GET    | /booyah   | Test response
+| GET    | /register | Player registration form
+| GET    | /login    | Player login form
+| POST   | /login    | Log in player {email, password}
+| GET    | /logout   | Log out player
 
 
 ### Admin
 **\*Admin login required**
 
-|| Method | Route | Description |
+| | Method | Route 
 |---|---|---|---|
 |  | GET | /admin | Admin dashboard
 | * | GET | /admin/map | Map editor
@@ -28,18 +29,21 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Driver
 **Player login required**
+
 | Method | Route | Description |
 |---|---|---|
 | GET | */driver* | Driver info for current player
 
 ### Game
 **Player login required**
+
 | Method | Route | |
 |---|---|---|
 | GET | /game | Main game page
 
 ## Location
 **Player login required**
+
 | Method | Route | |
 |---|---|---|
 | GET | */location* | Info for player's current location
@@ -47,12 +51,14 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Map
 **Player login required**
+
 | Method | Route | |
 |---|---|---|
 | GET | /map | Get json map data for user (visited locations)
 
 ### Users
 **\*Player login required**
+
 | | Method | Route | |
 |---|---|---|---|
 | | POST  | /user | Create new player {email, vemail, password, vpassword, firstname, lastname}
