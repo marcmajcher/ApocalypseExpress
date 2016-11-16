@@ -1562,12 +1562,12 @@ module.exports = {
     factionid: 0
   }, {
     name: 'Agate',
-    latitude: 30.5782,
-    longitude: -98.2728,
+    latitude: 30.5433,
+    longitude: -98.2958,
     description: 'This is a location.',
-    population: 1000,
+    population: 6128,
     type: 'hold',
-    tech: 5,
+    tech: 4,
     factionid: 0
   }, {
     name: 'Marfa',
@@ -4068,10 +4068,6 @@ module.exports = {
     loc2: 285,
     distance: 53610
   }, {
-    loc1: 155,
-    loc2: 212,
-    distance: 5000
-  }, {
     loc1: 163,
     loc2: 165,
     distance: 38601
@@ -4895,5 +4891,9 @@ module.exports = {
     loc1: 268,
     loc2: 284,
     distance: 14011
+  }, {
+    loc1: 155,
+    loc2: 212,
+    distance: 66900
   }]
 };

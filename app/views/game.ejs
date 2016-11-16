@@ -1,19 +1,19 @@
 <% if (user) { %>
   <div>
-    Driver:
+    <strong>Driver:</strong>
     <%= driver.name %>
   </div>
   <div>
-    Current Location:
+    <strong>Current Location:</strong>
     <%= location.name %>
   </div>
 
   <div>
-    Possible destinations:
+    <strong>Destinations:</strong>
     <ul>
       <%  for (var loc in location.connections) { %>
         <li>
-          <%= loc %>
+          <%= JSON.stringify(location.connections[loc]) %>
         </li>
         <% } %>
     </ul>

@@ -60,6 +60,7 @@ router.post('/', (req, res, next) => {
 
 /* User account pages */
 router.use(util.loginRequired);
+
 router.get('/account', (req, res) => {
   util.renderTemplate(req, res, 'account');
 });

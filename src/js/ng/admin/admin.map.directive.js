@@ -3,50 +3,6 @@
 
   /* eslint-env jquery, browser */
 
-  angular.module('apox')
-    .controller('AdminMapController', ['$http', function map($http) {
-      const vm = this;
-
-      vm.location = {};
-      vm.mapData = {};
-      vm.showDetailPanel = true;
-      vm.dataLoaded = false;
-
-      vm.closeDetailPanel = function close() {
-        vm.showDetailPanel = false;
-      };
-
-      vm.loadMapData = function load() {
-        $http.get('/map')
-          .then((res) => {
-            vm.mapData.locations = res.data.locations;
-            vm.mapData.connections = res.data.connections;
-            vm.dataLoaded = true;
-          });
-      };
-
-      vm.updateLocationDetails = function update() {
-        const loc = vm.location;
-        if (loc.id > 0) {
-          // TODO: add waiting spinner
-          $http.patch(`/admin/map/location/${loc.id}`, {
-              name: loc.name,
-              longitude: loc.longitude,
-              latitude: loc.latitude,
-              description: loc.description,
-              population: loc.population,
-              tech: loc.tech,
-              type: loc.type
-            })
-            .then(() => {
-              // console.log('cool.'); res
-            });
-        }
-      };
-
-      vm.loadMapData();
-    }]);
-
   angular.module('apox').directive('adminmap', () => {
     const baseDotSize = 3;
     const baseConWidth = 3;
@@ -81,6 +37,7 @@
       }
 
       event.target.scope.$apply(() => {
+        event.target.scope.admin.showDetailPanel = true;
         event.target.scope.admin.location = event.target.location;
       });
     }
@@ -197,7 +154,7 @@
               const dot = new paper.Path.Circle({
                 center: location.point,
                 radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-                fillColor: 'black', // set color/halo according to faction
+                fillColor: 'black', // TODO: set color/halo according to faction
                 name: 'dot'
               });
 
@@ -248,27 +205,3 @@
     };
   });
 })();
-
-//
-// function calcCrow(lat1, lon1, lat2, lon2)
-//   {
-//     var R = 6371; // km
-//     var dLat = toRad(lat2-lat1);
-//     var dLon = toRad(lon2-lon1);
-//     var lat1 = toRad(lat1);
-//     var lat2 = toRad(lat2);
-//
-//     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-//       Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
-//     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-//     var d = R * c;
-//     return d;
-//   }
-//
-//   // Converts numeric degrees to radians
-//   function toRad(Value)
-//   {
-//       return Value * Math.PI / 180;
-//   }
-//
-//
