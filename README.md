@@ -3,21 +3,26 @@
 Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault, Escape Velocity, and any number of drive/fly and deliver type games. Players travel from hold to hold, trading goods, making deliveries, and probably shooting some folks along the way.
 
 ## API
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ## Main
 **Public routes**
-| Method | Route | |
-|---|---|---|
-| GET  | / | Home page
-| GET  | /booyah | Test response
-| GET  | /register | Player registration form
-| GET  | /login | Player login form
-| POST | /login | Log in player { email, password}
-| GET  | /logout | Log out player
+| Method | Route     | Description |
+| ------ | --------- | ----------- |
+| GET    | /         | Home page   |
+| GET    | /booyah   | Test response |
+| GET    | /register | Player registration form         |
+| GET    | /login    | Player login form                |
+| POST   | /login    | Log in player { email, password} |
+| GET    | /logout   | Log out player |
 
 ### Admin
 **\*Admin login required**
-|| Method | Route | |
+|| Method | Route | Description |
 |---|---|---|---|
 |  | GET | /admin | Admin dashboard
 | * | GET | /admin/map | Map editor
@@ -26,7 +31,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Driver
 **Player login required**
-| Method | Route | |
+| Method | Route | Description |
 |---|---|---|
 | GET | */driver* | Driver info for current player
 
