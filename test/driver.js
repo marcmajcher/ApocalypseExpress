@@ -16,6 +16,7 @@ describe('Driver', () => {
   before(util.rollback);
 
   it('should register a new user, which has a driver with a default location', (done) => {
+    // move to protractor - test route instead
     request(app)
       .post('/user')
       .set('Accept', 'text/html')
@@ -41,30 +42,11 @@ describe('Driver', () => {
       });
   });
 
-  it('should log in a new user', (done) => {
-    request(app)
-      .post('/login')
-      .set('Accept', 'text/html')
-      .send(
-        `email=${util.users.driverUser.email}&password=${util.users.driverUser.password}`)
-      .end((err, res) => {
-        res.headers.location.should.equal('/game');
-        driverUserCookie = util.getCookie(res);
-        done();
-      });
+  xit('should log in a new user', (done) => {
+    // moved to protractor - test route instead
   });
 
   xit('should display the default location on the game page for a new user', (done) => {
-    // need to use protractor for this one
-    req = request(app)
-      .get('/game')
-      .set('Accept', 'text/html');
-    req.cookies = driverUserCookie;
-    req
-      .expect(200)
-      .end((err, res) => {
-        res.text.should.match(/Garnet/);
-        done();
-      });
+    // moved to protractor - test route instead
   });
 });

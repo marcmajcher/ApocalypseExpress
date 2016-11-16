@@ -73,13 +73,13 @@ module.exports = {
       firstLocation: {
         id: 1,
         name: 'Garnet',
-        latitude: 32.4487,
-        longitude: -99.7331,
+        latitude: 30.2971,
+        longitude: -97.7391,
         description: 'This is a location.',
         population: 1000,
+        type: 'hold',
         tech: 5,
-        factionid: 0,
-        type: 'hold'
+        factionid: 0
       },
       editLocation: {
         locid: 2,

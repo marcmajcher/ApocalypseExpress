@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node ./app/www",
     "test": "NODE_ENV=test mocha",
-    "preprot": "npm run update-webdriver",
     "prot": "protractor test-e2e/protractor.conf.js",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update"

@@ -14,7 +14,8 @@ module.exports = {
     login: 'ApoX: Login',
     account: 'ApoX: User Account',
     'admin/index': 'ApoX Admin',
-    'admin/map': 'ApoX Map Admin'
+    'admin/map': 'ApoX Map Admin',
+    game: 'Apocalypse eXpress - Main'
   },
   defaultLocation: 'Austin',
   renderTemplate(req, res, page, params) {

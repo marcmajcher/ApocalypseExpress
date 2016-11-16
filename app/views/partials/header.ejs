@@ -26,9 +26,9 @@
           <div class="header-form navbar-right">
             <% if (page !== 'login') { %>
               <form class="form-inline" action="/login" method="post">
-                <input class="form-control" id="email" type="text" name="email" placeholder="Email">
-                <input class="form-control" id="password" type="password" name="password" placeholder="Password">
-                <button class="btn btn-primary" type="submit">Log In</button>
+                <input class="form-control" id="login-email" type="text" name="email" placeholder="Email">
+                <input class="form-control" id="login-password" type="password" name="password" placeholder="Password">
+                <button class="btn btn-primary" id="login-submit" type="submit">Log In</button>
               </form>
               <% }
           if (page !== 'register') { %>

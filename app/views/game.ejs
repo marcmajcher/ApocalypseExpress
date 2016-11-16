@@ -1,10 +1,10 @@
 <% if (user) { %>
   <div ng-controller="GamePageController as game">
     <div>
-      <strong>Driver:</strong> {{game.driver.name}}
+      <strong>Driver:</strong> <span id="driver-name">{{game.driver.name}}</span>
     </div>
     <div>
-      <strong>Current Location:</strong> {{game.currentLocation.name}}
+      <strong>Current Location:</strong> <span id="location-name">{{game.currentLocation.name}}</span>
     </div>
 
     <!-- <div>

@@ -9,6 +9,8 @@ const util = require('./_util');
 let adminCookie;
 let userCookie;
 
+// move to protractor - test routes instead
+
 describe('Admin', () => {
   before(util.rollback);
   before((done) => {
