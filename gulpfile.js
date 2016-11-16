@@ -24,6 +24,7 @@ const lintable = [
   'seeds/**/*.js',
   'src/js/**/*.js',
   'test/**/*.js',
+  'test-e2e/**/*.js',
   '!node_modules/**',
   '!app/static/**'
 ];
@@ -109,7 +110,8 @@ gulp.task('watch', () => {
     'knexfile.js',
     'migrations/**/*.js',
     'seeds/**/*.js',
-    'test/**/*.js'
+    'test/**/*.js',
+    'test-e2e/**/*.js'
   ], ['jshint', 'eslint']);
   gulp.watch('src/js/**/*.js', ['scripts']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
