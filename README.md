@@ -7,7 +7,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 ## Main
 **Public routes**
 
-| Method | Route     |                                 
+| Method | Route     | |
 | ------ | --------- | ---
 | GET    | /         | Home page
 | GET    | /booyah   | Test response
@@ -20,7 +20,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 ### Admin
 **\*Admin login required**
 
-| | Method | Route 
+| | Method | Route | |
 |---|---|---|---|
 |  | GET | /admin | Admin dashboard
 | * | GET | /admin/map | Map editor
@@ -30,7 +30,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 ### Driver
 **Player login required**
 
-| Method | Route | Description |
+| Method | Route | |
 |---|---|---|
 | GET | */driver* | Driver info for current player
 
