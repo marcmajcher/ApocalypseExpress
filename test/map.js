@@ -8,6 +8,8 @@ const util = require('./_util');
 
 let req;
 
+// move to protractor - test routes instead
+
 describe('Map', () => {
   before(util.rollback);
 

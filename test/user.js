@@ -11,6 +11,8 @@ const bcrypt = require('bcrypt-as-promised');
 let testUserCookie;
 let req;
 
+// move to protractor - test routes instead
+
 describe('Login', () => {
   before(util.rollback);
 

@@ -6,7 +6,7 @@ exports.seed = (knex, Promise) =>
   knex('users').del()
   .then(() =>
     knex('drivers').insert({
-      name: 'driverName',
+      name: 'Toecutter',
       location: 1
     })
   )
