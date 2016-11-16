@@ -3,13 +3,23 @@
 
   /* eslint-env jquery, browser */
 
-  const driverService = function driverService($http) {
+  const driverRoute = '/driver';
+
+  const driverService = function driverService($http, $q) {
     return {
       getDriver: function getDriver() {
-        return $http.get('/driver');
+        return $q((resolve, reject) => {
+          $http.get(driverRoute)
+            .then((driver) => {
+                resolve(driver.data);
+              },
+              (err) => {
+                reject(err);
+              });
+        });
       }
     };
   };
 
-  angular.module('apox').factory('DriverService', ['$http', driverService]);
+  angular.module('apox').factory('DriverService', ['$http', '$q', driverService]);
 })();
