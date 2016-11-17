@@ -7,15 +7,13 @@
       <strong>Current Location:</strong> <span id="location-name">{{game.currentLocation.name}}</span>
     </div>
 
-    <!-- <div>
+    <div>
       <strong>Destinations:</strong>
       <ul>
-        <  for (var loc in location.connections) { >
-          <li>
-            < =JSON.stringify(location.connections[loc]) >
-          </li>
-          < } >
+        <li ng-repeat="c in game.currentLocation.connections | orderBy: c.distance">
+          <strong>{{c.name}}</strong>: {{c.distance/1000 | number: 1}}km
+        </li>
       </ul>
-    </div> -->
+    </div>
   </div>
   <% } %>
