@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env node, mocha */
-/* globals browser, expect */
+/* globals browser, expect, element, by */
 
 const util = require('../test/_util');
 
@@ -26,10 +26,9 @@ describe('Driver', () => {
     element(by.id('login-submit')).click();
 
     expect(browser.getTitle()).toEqual(gameTitle);
-    element(by.id('driver-name')).getText().then(function(driver) {
+    element(by.id('driver-name')).getText().then((driver) => {
       expect(driver).toBe(driverName);
     });
     expect(element(by.id('location-name')).getText()).toBe(locationName);
-
   });
 });

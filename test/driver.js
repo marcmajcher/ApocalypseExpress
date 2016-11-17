@@ -9,9 +9,6 @@ const util = require('./_util');
 const defaultMoney = 0;
 const defaultHealth = 100;
 
-let req;
-let driverUserCookie;
-
 describe('Driver', () => {
   before(util.rollback);
 
@@ -42,11 +39,11 @@ describe('Driver', () => {
       });
   });
 
-  xit('should log in a new user', (done) => {
+  xit('should log in a new user', () => {
     // moved to protractor - test route instead
   });
 
-  xit('should display the default location on the game page for a new user', (done) => {
+  xit('should display the default location on the game page for a new user', () => {
     // moved to protractor - test route instead
   });
 });
