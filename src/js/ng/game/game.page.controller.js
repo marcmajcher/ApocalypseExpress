@@ -14,6 +14,17 @@
     // });
 
     LocationService.getCurrentLocation().then((location) => {
+      const filteredConnections = [];
+      for (let i = 0; i < location.connections.length; i++) {
+        const connection = location.connections[i];
+        if (connection.name !== location.name) {
+          connection.id = connection.loc1 === location.id ? connection.loc2 : connection.loc1;
+          delete connection.loc1;
+          delete connection.loc2;
+          filteredConnections.push(connection);
+        }
+      }
+      location.connections = filteredConnections;
       vm.currentLocation = location;
     });
     // TODO: handle error
