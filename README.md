@@ -32,7 +32,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 | Method | Route | |
 |---|---|---|
-| GET | */driver* | Driver info for current player
+| GET | /driver | Driver info for current player
 
 ### Game
 **Player login required**
@@ -46,7 +46,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 | Method | Route | |
 |---|---|---|
-| GET | */location* | Info for player's current location
+| GET | /location | Info for player's current location
 | GET | */location/:locid* | Brief info for given location
 
 ### Map
@@ -54,7 +54,17 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 | Method | Route | |
 |---|---|---|
-| GET | /map | Get json map data for user (visited locations)
+| GET | */map* | Get json map data for user (visited locations)
+
+### Trip
+**Player login required**
+| Method | Route | |
+|---|---|---|
+| GET | */trip* | Get current trip information
+| POST | */trip* | Start trip
+| PUT | */trip* | Create new trip with destination id[s] {id/[ids]}
+| PATCH | */trip* | Add destination id[s] to current trip route {id/[ids]}
+| DELETE | */trip* | Clear current trip 
 
 ### Users
 **\*Player login required**
