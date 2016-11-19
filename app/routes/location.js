@@ -28,4 +28,9 @@ router.get('/', (req, res) => {
     });
 });
 
+// router.get('/:id', (req, res) => {
+//
+// });
+// | GET | */location/:locid* | Brief info for given location
+
 module.exports = router;
