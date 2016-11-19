@@ -91,30 +91,30 @@ module.exports = {
       tech: 3
     },
     fullLocationData: {
-      "id": 1,
-      "name": "Garnet",
-      "latitude": 30.2971,
-      "longitude": -97.7391,
-      "description": "This is a location.",
-      "population": 1000,
-      "tech": 5,
-      "factionid": 0,
-      "type": "hold",
-      "connections": [{
-        "name": "Amethyst",
-        "loc1": 2,
-        "loc2": 1,
-        "distance": 97154
+      id: 1,
+      name: 'Garnet',
+      latitude: 30.2971,
+      longitude: -97.7391,
+      description: 'This is a location.',
+      population: 1000,
+      tech: 5,
+      factionid: 0,
+      type: 'hold',
+      connections: [{
+        name: 'Amethyst',
+        loc1: 2,
+        loc2: 1,
+        distance: 97154
       }, {
-        "name": "Garnet",
-        "loc1": 2,
-        "loc2": 1,
-        "distance": 97154
+        name: 'Garnet',
+        loc1: 2,
+        loc2: 1,
+        distance: 97154
       }, {
-        "name": "Pearl",
-        "loc1": 1,
-        "loc2": 3,
-        "distance": 94887
+        name: 'Pearl',
+        loc1: 1,
+        loc2: 3,
+        distance: 94887
       }]
     }
   }
