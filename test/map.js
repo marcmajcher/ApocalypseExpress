@@ -12,6 +12,7 @@ let req;
 
 describe('Map', () => {
   before(util.rollback);
+  after(util.rollback);
 
   it('should not allow user that is not logged in to see map data', (done) => {
     request(app)

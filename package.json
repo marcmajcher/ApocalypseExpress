@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./app/www",
+    "start-test": "NODE_ENV=test node ./app/www",
     "test": "NODE_ENV=test mocha",
     "prot": "protractor test-e2e/protractor.conf.js",
     "preupdate-webdriver": "npm install",
