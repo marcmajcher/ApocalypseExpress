@@ -26,9 +26,11 @@ describe('Driver', () => {
     element(by.id('login-submit')).click();
 
     expect(browser.getTitle()).toEqual(gameTitle);
-    element(by.id('driver-name')).getText().then((driver) => {
-      expect(driver).toBe(driverName);
-    });
+    // element(by.id('driver-name')).getText().then((driver) => {
+    //   expect(driver).toBe(driverName);
+    // });
+    expect(element(by.id('driver-name')).getText()).toBe(driverName);
     expect(element(by.id('location-name')).getText()).toBe(locationName);
+
   });
 });

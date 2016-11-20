@@ -29,6 +29,7 @@ describe('Admin', () => {
         done();
       });
   });
+  after(util.rollback);
 
   it('should prevent non-logged-in users from getting into /admin', (done) => {
     request(app)

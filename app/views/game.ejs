@@ -9,7 +9,7 @@
 
     <div>
       <strong>Destinations:</strong>
-      <ul>
+      <ul id="destinations-list">
         <li ng-repeat="c in game.currentLocation.connections | orderBy: c.distance">
           <strong>{{c.name}}</strong>: {{c.distance/1000 | number: 1}}km
         </li>

@@ -2,8 +2,6 @@
 
 /* eslint-env mocha, node */
 
-// const app = require('../app/app.js');
-// const request = require('supertest');
 const util = require('./_util');
 const should = require('should');
 const app = require('../app/app.js');
@@ -15,6 +13,7 @@ let testUserCookie;
 
 describe('Location', () => {
   before(util.rollback);
+  after(util.rollback);
 
   it('should have all required properties for a location', (done) => {
     util.knex('locations').where('id', 1).first().then((location) => {

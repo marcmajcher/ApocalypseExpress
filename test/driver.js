@@ -11,6 +11,7 @@ const defaultHealth = 100;
 
 describe('Driver', () => {
   before(util.rollback);
+  after(util.rollback);
 
   it('should register a new user, which has a driver with a default location', (done) => {
     // move to protractor - test route instead
