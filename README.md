@@ -64,7 +64,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 | POST | */trip* | Start trip
 | PUT | */trip* | Create new trip with destination id[s] {id/[ids]}
 | PATCH | */trip* | Add destination id[s] to current trip route {id/[ids]}
-| DELETE | */trip* | Clear current trip 
+| DELETE | */trip* | Clear current trip
 
 ### Users
 **\*Player login required**
@@ -89,25 +89,25 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
    +--------------------------+       +-----------------------+      | type         | string    |
    | Users                    |       | Drivers               |      | cargocap     | integer   |
    +--------------------------+       +-----------------------+      | passengercap | integer   |
-   | id             | integer +------>| id          | integer |      | fuelcap      | integer   |
-   | email          | string  |       | created_at  | time    |      | mpg          | integer   |
-   | hashedPassword | string  |       | updated_at  | time    |      | price        | integer   |
-   | role           | string  |       | name        | string  |      | topspeed     | integer   |
-   | created_at     | time    |  +----+ location    | id      |      | armorf       | integer   |
-   | updated_at     | time    |  |    | money       | integer |      | armorr       | integer   |
-   | firstname      | string  |  |    | health      | integer |      | armorb       | integer   |
-   | lastname       | string  |  |    | destination | integer |      | armorl       | integer   |
-   | driVerid       | id      |  |    +-----------------------+      | tired        | string    |
-   +--------------------------+  |                                   | engine       | string    |
-                                 |                                   +--------------------------+
-                                 |
-   +-----------------------+     |
-   | Locations             |     |
-   +-----------------------+     |
-   | id          | integer +<----+
-   | name        | string  |
-   | latitude    | float   |          +----------------------+
-   | longitude   | float   |          | Connections          |
+   | id             | integer +------>| id          | integer |<--+  | fuelcap      | integer   |
+   | email          | string  |       | created_at  | time    |   |  | mpg          | integer   |
+   | hashedPassword | string  |       | updated_at  | time    |   |  | price        | integer   |
+   | role           | string  |       | name        | string  |   |  | topspeed     | integer   |
+   | created_at     | time    |  +----+ location    | id      |   |  | armorf       | integer   |
+   | updated_at     | time    |  |    | money       | integer |   |  | armorr       | integer   |
+   | firstname      | string  |  |    | health      | integer |   |  | armorb       | integer   |
+   | lastname       | string  |  |    | destination | integer |   |  | armorl       | integer   |
+   | driVerid       | id      |  |    +-----------------------+   |  | tired        | string    |
+   +--------------------------+  |                                |  | engine       | string    |
+                                 |                                |  +--------------------------+
+                                 |                                |
+   +-----------------------+     |                                |  +--------------------+
+   | Locations             |<----+                                |  | Trips              |      
+   +-----------------------+                                      |  +--------------------+
+   | id          | integer +<----------------------------------+  +--+ driverid | id      |
+   | name        | string  |                                   |     | sequence | integer |
+   | latitude    | float   |          +----------------------+ +-----+ location | id      |
+   | longitude   | float   |          | Connections          |       +--------------------+
    | description | string  |          +----------------------+
    | population  | integer +<---------+ loc1       | id      |
    | tech        | integer +<---------+ loc2       | id      |
@@ -195,6 +195,20 @@ TABLE "connections" CONSTRAINT "city_link_city1_foreign" FOREIGN KEY (loc1) REFE
 TABLE "connections" CONSTRAINT "city_link_city2_foreign" FOREIGN KEY (loc2) REFERENCES locations(id) ON DELETE CASCADE
 TABLE "drivers" CONSTRAINT "drivers_destination_foreign" FOREIGN KEY (destination) REFERENCES locations(id)
 TABLE "drivers" CONSTRAINT "drivers_location_foreign" FOREIGN KEY (location) REFERENCES locations(id) ON DELETE CASCADE
+`
+
+**trips**
+
+Column    |  Type   | Modifiers
+---|---|---
+destination | integer | not null
+locationid    | integer | not null
+sequence    | integer | not null
+
+`
+Foreign-key constraints:
+   "trips_destination_foreign" FOREIGN KEY (destination) REFERENCES locations(id)
+   "trips_driverid_foreign" FOREIGN KEY (driverid) REFERENCES drivers(id)
 `
 
 **users**
