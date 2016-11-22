@@ -29,9 +29,6 @@ module.exports = {
     res.headers['set-cookie'].map(r =>
       r.replace('; path=/; httponly', ''))
     .join('; '),
-  getJSON: (path, method) => {
-    return `${method} ${path}`;
-  },
   users: {
     testUser: {
       firstName: 'Test',

@@ -9,7 +9,9 @@ const base = 'http://localhost:3000/';
 const mainTitle = 'Apocalypse eXpress';
 const gameTitle = 'Apocalypse eXpress - Main';
 const driverName = 'Toecutter';
-const locationName = 'Garnet';
+const location1 = 'Garnet';
+const location2 = 'Amethyst';
+const location3 = 'Pearl';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title', () => {
@@ -18,7 +20,7 @@ describe('Apocalypse eXpress', () => {
   });
 });
 
-describe('Driver', () => {
+describe('Game', () => {
   it('should log in a new user and display name and location', () => {
     browser.get(base);
     element(by.id('login-email')).sendKeys(util.users.testUser.email);
@@ -26,11 +28,12 @@ describe('Driver', () => {
     element(by.id('login-submit')).click();
 
     expect(browser.getTitle()).toEqual(gameTitle);
-    // element(by.id('driver-name')).getText().then((driver) => {
-    //   expect(driver).toBe(driverName);
-    // });
     expect(element(by.id('driver-name')).getText()).toBe(driverName);
-    expect(element(by.id('location-name')).getText()).toBe(locationName);
+    expect(element(by.id('location-name')).getText()).toBe(location1);
 
+    let destinations = element.all(by.repeater('c in game.currentLocation.connections'));
+    expect(destinations.count()).toEqual(2);
+    expect(destinations.get(0).getText()).toContain(location2);
+    expect(destinations.get(1).getText()).toContain(location3);
   });
 });
