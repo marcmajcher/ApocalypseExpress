@@ -101,13 +101,13 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
    +--------------------------+  |                                |  | engine       | string    |
                                  |                                |  +--------------------------+
                                  |                                |
-   +-----------------------+     |                                |  +--------------------+
-   | Locations             |<----+                                |  | Trips              |      
-   +-----------------------+                                      |  +--------------------+
-   | id          | integer +<----------------------------------+  +--+ driverid | id      |
-   | name        | string  |                                   |     | sequence | integer |
-   | latitude    | float   |          +----------------------+ +-----+ location | id      |
-   | longitude   | float   |          | Connections          |       +--------------------+
+   +-----------------------+     |                                |  +----------------------+
+   | Locations             |<----+                                |  | Trips                |
+   +-----------------------+                                      |  +----------------------+
+   | id          | integer +<----------------------------------+  +--+ driverid   | id      |
+   | name        | string  |                                   |     | sequence   | integer |
+   | latitude    | float   |          +----------------------+ +-----+ locationid | id      |
+   | longitude   | float   |          | Connections          |       +----------------------+
    | description | string  |          +----------------------+
    | population  | integer +<---------+ loc1       | id      |
    | tech        | integer +<---------+ loc2       | id      |

@@ -12,7 +12,6 @@ router.use(util.loginRequired);
 router.get('/', (req, res) => {
   util.knex('trips').where('driverid', req.session.user.driverid).orderBy('sequence')
     .then((trips) => {
-      console.log('TRIPS:', trips);
       res.send({
         trip: trips
       });
@@ -25,7 +24,8 @@ router.post('/', (req, res) => {
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: check to verify that destination is adjacent to current location
   const destinationQuery = util.knex('trips').where('driverid', req.session.user.driverid)
-    .orderBy('sequence').first().select('destination');
+    .orderBy('sequence').first()
+    .select('destination');
 
   util.knex('drivers').where('driverid', req.session.user.driverid)
     .update('location', destinationQuery)
@@ -38,13 +38,20 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
-
+      const ids = (Array.isArray(req.body.destination)) ?
+        req.body.destination : [req.body.destination];
+      util.knex.insert(ids.map((element, index) => ({
+        driverid: req.session.user.driverid,
+        sequence: index,
+        locationid: element
+      })));
+      res.send('ok');
     });
 });
 
 // | PATCH | */trip* | Add destination id[s] to current trip route {id/[ids]}
 router.patch('/', (req, res) => {
-
+  res.send('ok');
 });
 
 // | DELETE | */trip* | Clear current trip

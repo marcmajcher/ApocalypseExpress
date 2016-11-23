@@ -29,8 +29,9 @@ const lintable = [
   '!app/static/**'
 ];
 
-gulp.task('default', ['clean', 'build', 'eslint', 'jshint', 'watch', 'nodemon']);
+gulp.task('default', ['clean', 'build', 'watch', 'nodemon']);
 gulp.task('build', ['sass', 'imagemin', 'scripts']);
+gulp.task('lint', ['eslint', 'jshint', 'watch']);
 
 gulp.task('clean', () =>
   del([

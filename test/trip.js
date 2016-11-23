@@ -4,7 +4,7 @@
 
 const app = require('../app/app.js');
 const request = require('supertest');
-const should = require('should');
+// const should = require('should');
 const util = require('./_util');
 
 describe('Trip', () => {
@@ -15,7 +15,6 @@ describe('Trip', () => {
   let req;
 
   it('should get an empty trip list', (done) => {
-
     const userLogin =
       `email=${util.users.testUser.email}&password=${util.users.testUser.password}`;
 
@@ -36,7 +35,5 @@ describe('Trip', () => {
             done();
           });
       });
-
-
   });
 });
