@@ -201,9 +201,9 @@ TABLE "drivers" CONSTRAINT "drivers_location_foreign" FOREIGN KEY (location) REF
 
 Column    |  Type   | Modifiers
 ---|---|---
-destination | integer | not null
-locationid    | integer | not null
-sequence    | integer | not null
+driverid | integer | not null
+locationid | integer | not null
+sequence | integer | not null
 
 `
 Foreign-key constraints:

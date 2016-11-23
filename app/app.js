@@ -60,6 +60,7 @@ app.use('/driver', require('./routes/driver'));
 app.use('/game', require('./routes/game'));
 app.use('/location', require('./routes/location'));
 app.use('/map', require('./routes/map'));
+app.use('/trip', require('./routes/trip'));
 app.use('/user', require('./routes/user'));
 
 // catch 404 and forward to error handler
