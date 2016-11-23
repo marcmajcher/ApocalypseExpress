@@ -39,12 +39,4 @@ describe('Driver', () => {
           });
       });
   });
-
-  xit('should log in a new user', () => {
-    // moved to protractor - test route instead
-  });
-
-  xit('should display the default location on the game page for a new user', () => {
-    // moved to protractor - test route instead
-  });
 });
