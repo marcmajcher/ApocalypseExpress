@@ -58,12 +58,13 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 ### Trip
 **Player login required**
+
 | Method | Route | |
 |---|---|---|
 | GET | */trip* | Get current trip information
 | POST | */trip* | Start trip
-| PUT | */trip* | Create new trip with destination id[s] {id/[ids]}
-| PATCH | */trip* | Add destination id[s] to current trip route {id/[ids]}
+| PUT | */trip* | Create new trip with destination id[s] {destination[]}
+| PATCH | */trip* | Add destination id[s] to current trip route {destination[]}
 | DELETE | */trip* | Clear current trip
 
 ### Users
