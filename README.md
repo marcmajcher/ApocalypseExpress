@@ -97,7 +97,7 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
    | created_at     | time    |  +----+ location    | id      |   |  | armorf       | integer   |
    | updated_at     | time    |  |    | money       | integer |   |  | armorr       | integer   |
    | firstname      | string  |  |    | health      | integer |   |  | armorb       | integer   |
-   | lastname       | string  |  |    | destination | integer |   |  | armorl       | integer   |
+   | lastname       | string  |  |----+ destination | id      |   |  | armorl       | integer   |
    | driVerid       | id      |  |    +-----------------------+   |  | tired        | string    |
    +--------------------------+  |                                |  | engine       | string    |
                                  |                                |  +--------------------------+
@@ -105,17 +105,17 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
    +-----------------------+     |                                |  +----------------------+
    | Locations             |<----+                                |  | Trips                |
    +-----------------------+                                      |  +----------------------+
-   | id          | integer +<----------------------------------+  +--+ driverid   | id      |
+   | id          | integer |<----------------------------------+  +--+ driverid   | id      |
    | name        | string  |                                   |     | sequence   | integer |
    | latitude    | float   |          +----------------------+ +-----+ locationid | id      |
    | longitude   | float   |          | Connections          |       +----------------------+
    | description | string  |          +----------------------+
-   | population  | integer +<---------+ loc1       | id      |
-   | tech        | integer +<---------+ loc2       | id      |
-   | factionid   | id      |          | distance   | integer |
-   | type        | string  |          | difficulty | integer |
-   +-----------------------+          +----------------------+
-
+   | population  | integer |<---------+ loc1       | id      |
+   | tech        | integer |<---------+ loc2       | id      |
+   | factionid   | id      +----+     | distance   | integer |
+   | type        | string  |    |     | difficulty | integer |
+   +-----------------------+    |     +----------------------+
+                                v
 ```
 
 **config**
