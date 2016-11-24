@@ -9,9 +9,6 @@
     DriverService.getDriver().then((driver) => {
       vm.driver = driver;
     });
-    // (error) => {
-    //   // console.log('was error!'); // TODO: handle error
-    // });
 
     LocationService.getCurrentLocation().then((location) => {
       const filteredConnections = [];
@@ -27,7 +24,10 @@
       location.connections = filteredConnections;
       vm.currentLocation = location;
     });
-    // TODO: handle error
+
+    vm.setDestination = function(id) {
+      // take the id, set the destination
+    };
   };
 
   angular.module('apox')

@@ -6,14 +6,22 @@
     <div>
       <strong>Current Location:</strong> <span id="location-name">{{game.currentLocation.name}}</span>
     </div>
+    <div>{{game.currentLocation.description}}</div>
 
     <div>
       <strong>Destinations:</strong>
       <ul id="destinations-list">
         <li ng-repeat="c in game.currentLocation.connections | orderBy: c.distance">
           <strong>{{c.name}}</strong>: {{c.distance/1000 | number: 1}}km
+          <a ng-click="">[set destination]</a>
         </li>
       </ul>
     </div>
+
+    <div>
+      <strong>Current Destination:</strong> {{}}</strong>
+      <button ng-click="">GO</button>
+    </div>
+
   </div>
   <% } %>
