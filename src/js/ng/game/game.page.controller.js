@@ -27,7 +27,6 @@
 
     vm.setDestination = function(id) {
       // take the id, set the destination
-      
     };
   };
 
