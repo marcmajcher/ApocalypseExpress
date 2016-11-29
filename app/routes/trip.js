@@ -11,9 +11,9 @@ router.use(util.loginRequired);
 /* Return current trip info */
 router.get('/', (req, res) => {
   util.knex('trips').where('driverid', req.session.user.driverid).orderBy('sequence')
-    .then((trips) => {
+    .then((trip) => {
       res.send({
-        trip: trips
+        trip
       });
     });
 });
@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
   // TODO: use timer to travel
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: check to verify that destination is adjacent to current location
-  const destinationQuery = util.knex('trips').where('driverid', req.session.user.driverid)
+  util.knex('trips').where('driverid', req.session.user.driverid)
     .orderBy('sequence').first()
     .select('locationid')
     .then((destination) => {
