@@ -26,8 +26,15 @@
     });
 
     vm.setDestination = function(id) {
+      vm.currentDestination = id;
       // take the id, set the destination
     };
+
+    vm.clearDestination = function() {
+      vm.currentDestination = undefined;
+    };
+
+    vm.clearDestination();
   };
 
   angular.module('apox')
