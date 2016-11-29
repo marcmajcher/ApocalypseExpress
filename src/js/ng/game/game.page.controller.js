@@ -7,6 +7,8 @@
     function gamePageController(DriverService, LocationService, TripService) {
       const vm = this;
 
+      vm.working = false;
+
       DriverService.getDriver().then((driver) => {
         vm.driver = driver;
       });
@@ -33,10 +35,12 @@
       };
 
       vm.setDestination = function setDestination(id) {
+        vm.working = true;
         TripService.setNextDestination(id).then((data) => {
           // console.log('set destination got:', data);
           if (data === 'ok') {
             vm.currentDestination = id;
+            vm.working = false;
           }
           // TODO: error check
         });
