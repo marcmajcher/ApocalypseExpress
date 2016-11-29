@@ -16,7 +16,7 @@
   <script src="/bower_components/paper/dist/paper-full.min.js"></script>
 </head>
 
-<body class="<%=page.replace(/\W/g,'')%>-page">
+<body class="<%=page.replace(/\W/g,'')%>-page" ng-cloak>
   <% include partials/header %>
     <div class="container main-content">
       <% if (typeof messages !== 'undefined') {

@@ -20,7 +20,8 @@
 
     <div ng-if="game.currentDestination">
       <strong>Current Destination:</strong> {{game.currentDestination}}</strong>
-      <button ng-click="">GO</button><button ng-click="game.clearDestination()">Clear</button>
+      <button ng-click="game.goDestination()">GO</button>
+      <button ng-click="game.clearDestination()">Clear</button>
     </div>
   </div>
   <% } %>
