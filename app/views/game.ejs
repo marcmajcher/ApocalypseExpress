@@ -18,8 +18,8 @@
       </ul>
     </div>
 
-    <div ng-if="game.currentDestination">
-      <strong>Current Destination:</strong> {{game.currentDestination}}</strong>
+    <div ng-if="game.destinationName">
+      <strong>Current Destination:</strong> {{game.destinationName}}</strong>
       <button ng-click="game.goDestination()" ng-disable="game.working">GO</button>
       <button ng-click="game.clearDestination()" ng-disable="game.working">Clear</button>
     </div>

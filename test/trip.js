@@ -2,6 +2,7 @@
 
 /* eslint-env mocha, node */
 /* eslint no-magic-numbers: "off" */
+/* eslint no-unused-expressions: "off" */
 
 const app = require('../app/app.js');
 const request = require('supertest');
@@ -41,7 +42,7 @@ describe('Trip', () => {
     req.cookies = userCookie;
     req.expect(200)
       .end((err, res) => {
-        res.text.should.equal('ok');
+        JSON.parse(res.text).ok.should.be.true;  // jshint ignore:line
         util.knex('trips').first().then((data) => {
           data.sequence.should.equal(1);
           data.locationid.should.equal(2);

@@ -30,7 +30,8 @@
 
       vm.getCurrentDestination = function getCurrentDestination() {
         TripService.getCurrentTrip().then((data) => {
-          vm.currentDestination = data.trip[0].locationid; // TODO: get/display location name/info
+          vm.destinationName = data.trip[0].name;
+          vm.destinationId = data.trip[0].id;
         });
       };
 
@@ -38,13 +39,14 @@
         vm.working = true;
         TripService.setNextDestination(id).then((data) => {
           // console.log('set destination got:', data);
-          if (data === 'ok') {
-            vm.currentDestination = id;
+          if (data.ok) {
+            vm.destinationName = data.name;
+            vm.destinationId = data.id;
             vm.working = false;
           }
           // TODO: error check
+          // TODO: better response from the route - return new id?
         });
-        // take the id, set the destination
       };
 
       vm.goDestination = function goDestination() {
@@ -56,7 +58,8 @@
         // send delete route request
         //  - set undefined
         //  -- enable button
-        vm.currentDestination = undefined;
+        vm.destinationName = undefined;
+        vm.destinationId = undefined;
       };
 
       vm.getCurrentDestination();

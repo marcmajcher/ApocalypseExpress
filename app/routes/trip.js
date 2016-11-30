@@ -10,7 +10,10 @@ router.use(util.loginRequired);
 
 /* Return current trip info */
 router.get('/', (req, res) => {
-  util.knex('trips').where('driverid', req.session.user.driverid).orderBy('sequence')
+  util.knex('trips').where('driverid', req.session.user.driverid)
+    .join('locations', 'trips.locationid', 'locations.id')
+    .select('trips.locationid', 'locations.name', 'trips.sequence')
+    .orderBy('sequence')
     .then((trip) => {
       res.send({
         trip
@@ -22,16 +25,24 @@ router.get('/', (req, res) => {
 router.put('/', (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
-      const ids = (Array.isArray(req.body.destination)) ?
+      const destinationIds = (Array.isArray(req.body.destination)) ?
         req.body.destination : [req.body.destination];
-      const values = ids.map((element, index) => ({
+      const values = destinationIds.map((element, index) => ({
         driverid: req.session.user.driverid,
         sequence: index + 1,
         locationid: element
       }));
-      util.knex('trips').insert(values)
-        .then(() => {
-          res.send('ok');
+      util.knex('trips').insert(values).returning('locationid')
+        .then((ids) => {
+          util.knex('locations').where('id', ids[0]).first() // TODO: handle array of ids
+            .then((location) => {
+              res.send({
+                ok: true,
+                id: location.id,
+                name: location.name
+              });
+              // TODO: better response - include id?
+            });
         })
         .catch((err) => {
           const error = new Error(`Trip DB error: ${err}`);
@@ -54,6 +65,7 @@ router.patch('/', (req, res, next) => {
         })
         .then(() => {
           res.send('ok');
+          // TODO: better response - include id?
         })
         .catch((err) => {
           const error = new Error(`Trip DB error: ${err}`);
@@ -73,10 +85,12 @@ router.post('/', (req, res) => {
     .select('locationid')
     .then((destination) => {
       util.knex('drivers').where('id', req.session.user.driverid)
-      .update('location', destination.locationid)
-      .then(() => {
-        res.send('ok');
-      });
+        .update('location', destination.locationid)
+        .then((x) => {
+          // console.log('xxxxxxx', x);
+          res.send('ok');
+          // TODO: better response - include id of next destination?
+        });
     });
 });
 
