@@ -30,6 +30,15 @@
               reject(err);
             });
         });
+      },
+      clearTrip: function clearTrip() {
+
+      },
+      beginTrip: function beginTrip() {
+
+      },
+      addDestination: function addDestination(id) {
+        
       }
     };
   };

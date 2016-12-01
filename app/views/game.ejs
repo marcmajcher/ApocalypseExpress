@@ -23,5 +23,9 @@
       <button ng-click="game.goDestination()" ng-disable="game.working">GO</button>
       <button ng-click="game.clearDestination()" ng-disable="game.working">Clear</button>
     </div>
+
+    <div nf-if="game.traveling">
+      On the road....
+    </div>
   </div>
   <% } %>
