@@ -54,12 +54,14 @@
       };
 
       vm.clearDestination = function clearDestination() {
-        // disable button
-        // send delete route request
-        //  - set undefined
-        //  -- enable button
-        vm.destinationName = undefined;
-        vm.destinationId = undefined;
+        vm.working = true;
+        TripService.clearTrip().then((data) => {
+          if (data === 'ok') {
+            vm.destinationName = undefined;
+            vm.destinationId = undefined;
+            vm.working = false;
+          }
+        });
       };
 
       vm.getCurrentDestination();
