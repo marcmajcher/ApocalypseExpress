@@ -13,15 +13,15 @@
       <ul id="destinations-list">
         <li ng-repeat="c in game.currentLocation.connections | orderBy: c.distance">
           <strong>{{c.name}}</strong>: {{c.distance/1000 | number: 1}}km
-          <button ng-click="game.setDestination(c.id)" ng-disable="game.working">set destination</button>
+          <button ng-click="game.setDestination(c.id)" ng-disabled="game.working">set destination</button>
         </li>
       </ul>
     </div>
 
     <div ng-if="game.destinationName">
       <strong>Current Destination:</strong> {{game.destinationName}}</strong>
-      <button ng-click="game.goDestination()" ng-disable="game.working">GO</button>
-      <button ng-click="game.clearDestination()" ng-disable="game.working">Clear</button>
+      <button ng-click="game.goDestination()" ng-disabled="game.working">GO</button>
+      <button ng-click="game.clearDestination()" ng-disabled="game.working">Clear</button>
     </div>
 
     <div nf-if="game.traveling">
