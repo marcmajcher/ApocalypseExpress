@@ -35,7 +35,7 @@
         return $q((resolve, reject) => {
           $http.delete(tripRoute)
             .then((res) => {
-                resolve("ok");
+                resolve(res.data);
               },
               (err) => {
                 reject(err);
@@ -43,11 +43,19 @@
         });
       },
       beginTrip: function beginTrip() {
-
-      },
-      addDestination: function addDestination(id) {
-
-      }
+          return $q((resolve, reject) => {
+            $http.post(tripRoute)
+              .then((res) => {
+                  resolve(res.data);
+                },
+                (err) => {
+                  reject(err);
+                });
+          });
+        }
+        // ,
+        // addDestination: function addDestination(id) {
+        // }
     };
   };
 

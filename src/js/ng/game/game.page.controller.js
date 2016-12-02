@@ -8,25 +8,28 @@
       const vm = this;
 
       vm.working = false;
+      vm.traveling = false;
 
       DriverService.getDriver().then((driver) => {
         vm.driver = driver;
       });
 
-      LocationService.getCurrentLocation().then((location) => {
-        const filteredConnections = [];
-        for (let i = 0; i < location.connections.length; i++) {
-          const connection = location.connections[i];
-          if (connection.name !== location.name) {
-            connection.id = connection.loc1 === location.id ? connection.loc2 : connection.loc1;
-            delete connection.loc1;
-            delete connection.loc2;
-            filteredConnections.push(connection);
+      vm.getCurrentConnections = function getCurrentConnections() {
+        LocationService.getCurrentLocation().then((location) => {
+          const filteredConnections = [];
+          for (let i = 0; i < location.connections.length; i++) {
+            const connection = location.connections[i];
+            if (connection.name !== location.name) {
+              connection.id = connection.loc1 === location.id ? connection.loc2 : connection.loc1;
+              delete connection.loc1;
+              delete connection.loc2;
+              filteredConnections.push(connection);
+            }
           }
-        }
-        location.connections = filteredConnections;
-        vm.currentLocation = location;
-      });
+          location.connections = filteredConnections;
+          vm.currentLocation = location;
+        });
+      };
 
       vm.getCurrentDestination = function getCurrentDestination() {
         TripService.getCurrentTrip().then((data) => {
@@ -50,7 +53,13 @@
       };
 
       vm.goDestination = function goDestination() {
-
+        vm.working = true;
+        TripService.beginTrip().then((data) => {
+          if (data === 'ok') {
+            vm.working = false;
+            vm.getCurrentConnections();
+          }
+        });
       };
 
       vm.clearDestination = function clearDestination() {
@@ -64,6 +73,7 @@
         });
       };
 
+      vm.getCurrentConnections();
       vm.getCurrentDestination();
     };
 

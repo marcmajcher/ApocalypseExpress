@@ -86,7 +86,7 @@ router.post('/', (req, res) => {
     .then((destination) => {
       util.knex('drivers').where('id', req.session.user.driverid)
         .update('location', destination.locationid)
-        .then((x) => {
+        .then(() => {
           // console.log('xxxxxxx', x);
           res.send('ok');
           // TODO: better response - include id of next destination?

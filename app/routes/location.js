@@ -10,7 +10,7 @@ router.use(util.loginRequired);
 
 router.get('/', (req, res) => {
   util.knex('locations').where('id',
-      util.knex('drivers').where('id', req.session.user.driverid).select('id')).first()
+      util.knex('drivers').where('id', req.session.user.driverid).select('location')).first()
     .then((location) => {
       util.knex('connections')
         .innerJoin('locations',
