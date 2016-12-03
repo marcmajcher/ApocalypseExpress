@@ -94,5 +94,7 @@ app.use((err, req, res) => {
   });
 });
 
+/* Set up intervals for all the things */
+require('./ticker');
 
 module.exports = app;

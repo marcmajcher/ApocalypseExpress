@@ -8,6 +8,18 @@ const util = require('./_util');
 
 router.use(util.loginRequired);
 
+function isNotTraveling(req, res, next) {
+  util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
+    .then((traveling) => {
+      if (traveling) {
+        res.send('traveling')
+      }
+      else {
+        next();
+      }
+    });
+}
+
 /* Return current trip info */
 router.get('/', (req, res) => {
   util.knex('trips').where('driverid', req.session.user.driverid)
@@ -22,7 +34,7 @@ router.get('/', (req, res) => {
 });
 
 /* Create a new trip with given destination or destinations */
-router.put('/', (req, res, next) => {
+router.put('/', isNotTraveling, (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
       const destinationIds = (Array.isArray(req.body.destination)) ?
@@ -76,7 +88,7 @@ router.patch('/', (req, res, next) => {
 });
 
 /* Begin current trip */
-router.post('/', (req, res) => {
+router.post('/', isNotTraveling, (req, res) => {
   // TODO: use timer to travel
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: check to verify that destination is adjacent to current location
@@ -95,7 +107,7 @@ router.post('/', (req, res) => {
 });
 
 /* Clear current trip */
-router.delete('/', (req, res, next) => {
+router.delete('/', isNotTraveling, (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
       res.send('ok');
