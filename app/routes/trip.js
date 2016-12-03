@@ -12,12 +12,13 @@ function isNotTraveling(req, res, next) {
   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
     .then((traveling) => {
       next();
-      // if (traveling) {
-      //   res.send('traveling');
-      // }
-      // else {
-      //   next();
-      // }
+      if (traveling) {
+        next();
+        // res.send('traveling');
+      }
+      else {
+        next();
+      }
     });
 }
 
@@ -40,12 +41,12 @@ router.put('/', isNotTraveling, (req, res, next) => {
     .then(() => {
       const destinationIds = (Array.isArray(req.body.destination)) ?
         req.body.destination : [req.body.destination];
-      const values = destinationIds.map((element, index) => ({
+      const tripValues = destinationIds.map((element, index) => ({
         driverid: req.session.user.driverid,
         sequence: index + 1,
         locationid: element
       }));
-      util.knex('trips').insert(values).returning('locationid')
+      util.knex('trips').insert(tripValues).returning('locationid')
         .then((ids) => {
           util.knex('locations').where('id', ids[0]).first() // TODO: handle array of ids
             .then((location) => {
@@ -67,6 +68,7 @@ router.put('/', isNotTraveling, (req, res, next) => {
 
 /* Append the given destination to the current trip */
 // TODO: create trip sequence index table?
+// TODO: *** not going to be used until later, but don't remove because tests ***
 router.patch('/', (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).max('sequence').first()
     .then((max) => {
