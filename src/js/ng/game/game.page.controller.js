@@ -33,8 +33,10 @@
 
       vm.getCurrentDestination = function getCurrentDestination() {
         TripService.getCurrentTrip().then((data) => {
-          vm.destinationName = data.trip[0].name;
-          vm.destinationId = data.trip[0].id;
+          if (data.trip[0]) {
+            vm.destinationName = data.trip[0].name;
+            vm.destinationId = data.trip[0].id;
+          }
         });
       };
 
