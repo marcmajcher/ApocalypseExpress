@@ -7,5 +7,5 @@ exports.up = knex => knex.schema.table('drivers', (table) => {
 });
 
 exports.down = knex => knex.schema.table('drivers', (table) => {
-  table.dropColumn('destination');
+  table.dropColumn('traveling');
 });
