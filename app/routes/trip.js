@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
       util.knex('drivers').where('id', req.session.user.driverid)
         .update('location', destination.locationid)
         .then(() => {
-          // console.log('xxxxxxx', x);
+          // TODO: remove current destination when destination is reached
           res.send('ok');
           // TODO: better response - include id of next destination?
         });
