@@ -13,7 +13,7 @@ module.exports = {
     tech: 6,
     factionid: 0
   }, {
-    name: 'Abeline',
+    name: 'Mabel',
     latitude: 32.4487,
     longitude: -99.7331,
     description: 'This is a location.',
