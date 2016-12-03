@@ -11,12 +11,13 @@ router.use(util.loginRequired);
 function isNotTraveling(req, res, next) {
   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
     .then((traveling) => {
-      if (traveling) {
-        res.send('traveling')
-      }
-      else {
-        next();
-      }
+      next();
+      // if (traveling) {
+      //   res.send('traveling');
+      // }
+      // else {
+      //   next();
+      // }
     });
 }
 

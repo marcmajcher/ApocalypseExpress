@@ -9,6 +9,13 @@ const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
 const bcRounds = 12;
 
+let defaultLocation;
+
+util.knex('config').where('config', 'default').first()
+  .then((config) => {
+    defaultLocation = config.defaultLocation;
+  });
+
 /* Create new user */
 router.post('/', (req, res, next) => {
   if (req.body.email && req.body.vemail &&
@@ -30,11 +37,10 @@ router.post('/', (req, res, next) => {
       bcrypt.hash(req.body.password, bcRounds)
         .then((hashedPassword) => {
           userPass = hashedPassword;
-          return util.knex('config').where('config', 'default').first();
         })
-        .then(config => util.knex('drivers').insert({
+        .then(() => util.knex('drivers').insert({
           name: util.generateApocName(),
-          location: config.defaultLocation
+          location: defaultLocation
         }, '*'))
         .then(drivers => util.knex('users').insert({
           email: req.body.email,
@@ -42,6 +48,10 @@ router.post('/', (req, res, next) => {
           lastname: req.body.lastname,
           hashedPassword: userPass,
           driverid: drivers[0].id
+        }, '*'))
+        .then(users => util.knex('driver_visited').insert({
+          locationid: defaultLocation,
+          driverid: users[0].driverid
         }, '*'))
         .then(() => {
           res.redirect('/');
