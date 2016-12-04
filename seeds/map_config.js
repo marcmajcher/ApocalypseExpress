@@ -22,7 +22,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Ackerly',
@@ -32,7 +32,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Alice',
@@ -42,7 +42,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Allamoore',
@@ -52,7 +52,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Alpine',
@@ -62,7 +62,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Altuda',
@@ -72,17 +72,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
-      name: 'Amarillo',
+      name: 'Brown Flats',
       latitude: 35.3539,
       longitude: -101.813,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 178032,
+      type: 'hardhold',
+      tech: 7,
+      factionid: 3
     },
     {
       name: 'Andrews',
@@ -92,7 +92,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Angeles',
@@ -102,7 +102,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Aransas Pass',
@@ -112,17 +112,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
-      name: 'Arlington',
+      name: 'Fable',
       latitude: 32.7764,
       longitude: -97.1081,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 287,
+      type: 'camp',
+      tech: 4,
+      factionid: 5
     },
     {
       name: 'Asherton',
@@ -132,7 +132,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Aspermont',
@@ -142,7 +142,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Athens',
@@ -152,7 +152,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Atlanta',
@@ -162,7 +162,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Ballinger',
@@ -172,7 +172,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Balmorhea',
@@ -182,7 +182,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Bahamut',
@@ -192,7 +192,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Bastard',
@@ -212,17 +212,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
-      name: 'Baytown',
+      name: 'Baton',
       latitude: 29.7355,
       longitude: -94.9774,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 2711,
+      type: 'fort',
+      tech: 6,
+      factionid: 4
     },
     {
       name: 'Beaumont',
@@ -232,7 +232,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Beeville',
@@ -242,7 +242,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Belton',
@@ -252,7 +252,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Big Lake',
@@ -262,7 +262,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Big Spring',
@@ -272,7 +272,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Boerne',
@@ -282,7 +282,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Booker',
@@ -290,9 +290,9 @@ module.exports = {
       longitude: -100.525,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'camp',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Borger',
@@ -302,7 +302,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Bowie',
@@ -312,7 +312,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Bracketville',
@@ -322,7 +322,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Brady',
@@ -332,17 +332,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Breckenridge',
-      latitude: 32.7557,
+      latitude: 32.7949,
       longitude: -98.9023,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Brenham',
@@ -352,7 +352,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Brownfield',
@@ -362,7 +362,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Brown Hole',
@@ -372,7 +372,7 @@ module.exports = {
       population: 1000,
       type: 'enclave',
       tech: 3,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Brownwood',
@@ -382,17 +382,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'Burkburnett',
-      latitude: 34.1935,
+      name: 'Azure',
+      latitude: 34.229,
       longitude: -98.5614,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'enclave',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'BurnIt',
@@ -412,17 +412,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Canadian',
-      latitude: 36.0783,
+      latitude: 36.1178,
       longitude: -100.371,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Canton',
@@ -432,7 +432,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Canyon',
@@ -442,17 +442,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Carlsbad',
+      name: 'Nox',
       latitude: 32.4207,
       longitude: -104.229,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 149,
+      type: 'enclave',
+      tech: 2,
+      factionid: 5
     },
     {
       name: 'Carrizo Springs',
@@ -462,7 +462,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Carta Valley',
@@ -472,7 +472,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Carthage',
@@ -482,7 +482,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Catarina',
@@ -492,7 +492,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Center',
@@ -502,7 +502,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Childress',
@@ -512,7 +512,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Chilicothe',
@@ -522,7 +522,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Cisco',
@@ -532,7 +532,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Clarendon',
@@ -542,7 +542,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Clarksville',
@@ -552,7 +552,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Claude',
@@ -562,17 +562,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Coleman',
+      name: 'Comet',
       latitude: 31.8274,
       longitude: -99.4265,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 341,
+      type: 'enclave',
+      tech: 4,
+      factionid: 5
     },
     {
       name: 'College Station',
@@ -582,7 +582,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Colorado City',
@@ -592,7 +592,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Columbus',
@@ -602,7 +602,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Comanche',
@@ -612,17 +612,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'Comfort',
+      name: 'Coldstone',
       latitude: 29.9677,
       longitude: -98.905,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'compound',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Commerce',
@@ -632,7 +632,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Concan',
@@ -642,7 +642,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Conroe',
@@ -652,7 +652,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Copperas Cove',
@@ -662,7 +662,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Cornudas',
@@ -672,7 +672,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Corpseville',
@@ -682,7 +682,7 @@ module.exports = {
       population: 1000,
       type: 'camp',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Corsicana',
@@ -692,7 +692,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Cotulla',
@@ -702,7 +702,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Crane',
@@ -712,7 +712,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Crockett',
@@ -722,7 +722,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Crosbyton',
@@ -732,7 +732,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Crowell',
@@ -742,7 +742,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Crystal City',
@@ -752,7 +752,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Cuero',
@@ -762,7 +762,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Dalhart',
@@ -772,17 +772,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Dallas',
       latitude: 32.8138,
       longitude: -96.797,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 188294,
+      type: 'freehold',
+      tech: 7,
+      factionid: 2
     },
     {
       name: 'Decatur',
@@ -792,7 +792,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Del Rio',
@@ -802,7 +802,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Denison',
@@ -812,7 +812,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Denver City',
@@ -822,7 +822,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Diboll',
@@ -832,7 +832,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Dilley',
@@ -842,17 +842,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Dimmitt',
-      latitude: 34.6512,
+      latitude: 34.691,
       longitude: -102.303,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Dryden',
@@ -862,7 +862,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Dumas',
@@ -872,7 +872,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Eastland',
@@ -882,7 +882,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Edinburg',
@@ -892,7 +892,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Eden',
@@ -902,7 +902,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Edna',
@@ -912,7 +912,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'El Campo',
@@ -922,17 +922,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
-      name: 'El Paso',
+      name: 'Origin',
       latitude: 31.7619,
       longitude: -106.485,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 82910,
+      type: 'enclave',
+      tech: 8,
+      factionid: 5
     },
     {
       name: 'Eldorado',
@@ -942,7 +942,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Enical',
@@ -952,7 +952,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Fairfield',
@@ -962,7 +962,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Falfurrias',
@@ -972,7 +972,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Floresville',
@@ -982,7 +982,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Floydada',
@@ -992,7 +992,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Fort Davis',
@@ -1002,7 +1002,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Fort Hancock',
@@ -1012,27 +1012,27 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
-      name: 'Fort Stockton',
+      name: 'Angelus',
       latitude: 30.894,
       longitude: -102.879,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
+      population: 2802,
+      type: 'hardhold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
-      name: 'Fort Worth',
+      name: 'Panther',
       latitude: 32.7946,
       longitude: -97.3239,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 37002,
+      type: 'fort',
+      tech: 6,
+      factionid: 2
     },
     {
       name: 'Freddie',
@@ -1052,7 +1052,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Friona',
@@ -1062,17 +1062,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Fritch',
-      latitude: 35.6398,
+      latitude: 35.6796,
       longitude: -101.603,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Gail',
@@ -1082,7 +1082,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Gaineston',
@@ -1092,7 +1092,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Gatesville',
@@ -1102,17 +1102,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'Galveston',
+      name: 'Oleander',
       latitude: 29.3013,
       longitude: -94.7977,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 7102,
+      type: 'hardhold',
+      tech: 7,
+      factionid: 4
     },
     {
       name: 'Garden City',
@@ -1122,7 +1122,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'George West',
@@ -1132,7 +1132,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Washington',
@@ -1162,7 +1162,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Goliad',
@@ -1172,7 +1172,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Gonzales',
@@ -1182,7 +1182,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Goodnight',
@@ -1192,7 +1192,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Graham',
@@ -1202,7 +1202,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Granbury',
@@ -1212,7 +1212,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Grandfalls',
@@ -1222,7 +1222,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Grape Creek',
@@ -1232,7 +1232,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Groom',
@@ -1242,7 +1242,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Guthrie',
@@ -1252,7 +1252,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Harker Heights',
@@ -1262,7 +1262,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Harlingen',
@@ -1272,7 +1272,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Haskell',
@@ -1282,7 +1282,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Hearne',
@@ -1292,7 +1292,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Hebbronville',
@@ -1302,7 +1302,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Henderson',
@@ -1312,7 +1312,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Hereford',
@@ -1322,7 +1322,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Hermleigh',
@@ -1332,7 +1332,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Hilsboro',
@@ -1342,7 +1342,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Hobbes',
@@ -1352,17 +1352,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Houston',
+      name: 'Hustle',
       latitude: 29.7604,
       longitude: -95.3698,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 824970,
+      type: 'hardhold',
+      tech: 9,
+      factionid: 4
     },
     {
       name: 'Huntsville',
@@ -1372,17 +1372,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Iowa Park',
-      latitude: 34.0281,
+      latitude: 34.0676,
       longitude: -98.6664,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Iraan',
@@ -1392,7 +1392,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Jacksonville',
@@ -1402,7 +1402,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Jasper',
@@ -1412,7 +1412,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Jefferson',
@@ -1422,17 +1422,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Junction',
       latitude: 30.4894,
       longitude: -99.772,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
+      population: 8911,
+      type: 'freehold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Juno',
@@ -1442,7 +1442,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Kames City',
@@ -1452,17 +1452,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'Katy',
+      name: 'Din',
       latitude: 29.7858,
       longitude: -95.8244,
       description: 'This is a location.',
-      population: 1000,
+      population: 8291,
       type: 'hold',
-      tech: 5,
-      factionid: 0
+      tech: 6,
+      factionid: 4
     },
     {
       name: 'Kenedy',
@@ -1472,7 +1472,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Kermit',
@@ -1482,7 +1482,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Kerrville',
@@ -1492,7 +1492,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Kilgore',
@@ -1502,7 +1502,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Kitten',
@@ -1512,7 +1512,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Kingsville',
@@ -1522,7 +1522,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Knox City',
@@ -1532,17 +1532,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'La Grange',
-      latitude: 29.9055,
+      latitude: 29.945,
       longitude: -96.8766,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Lake Jackson',
@@ -1552,7 +1552,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Lakeview',
@@ -1562,7 +1562,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Lamesa',
@@ -1572,7 +1572,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Lampasas',
@@ -1582,7 +1582,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Langtry',
@@ -1592,7 +1592,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Laredo',
@@ -1602,7 +1602,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Laughlin AFB',
@@ -1610,19 +1610,19 @@ module.exports = {
       longitude: -100.783,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'fort',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
-      name: 'Leakey',
+      name: 'Lowkey',
       latitude: 29.7288,
       longitude: -99.7615,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 583,
+      type: 'compound',
+      tech: 4,
+      factionid: 3
     },
     {
       name: 'Levelland',
@@ -1632,7 +1632,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Lindale',
@@ -1642,7 +1642,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Littlefield',
@@ -1652,7 +1652,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Livingston',
@@ -1662,7 +1662,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Llano',
@@ -1672,7 +1672,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Longview',
@@ -1682,7 +1682,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Loving',
@@ -1692,7 +1692,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Lubbock',
@@ -1702,7 +1702,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Lufkin',
@@ -1712,7 +1712,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Madisonville',
@@ -1722,7 +1722,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Marathon',
@@ -1730,9 +1730,9 @@ module.exports = {
       longitude: -103.245,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'hardhold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Agate',
@@ -1745,14 +1745,14 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Marfa',
+      name: 'Lux',
       latitude: 30.3095,
       longitude: -104.021,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 382709,
+      type: 'freehold',
+      tech: 7,
+      factionid: 5
     },
     {
       name: 'Marshall',
@@ -1762,7 +1762,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Mason',
@@ -1772,7 +1772,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Matador',
@@ -1782,7 +1782,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Mathis',
@@ -1792,7 +1792,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'McAllen',
@@ -1802,7 +1802,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'McCarney',
@@ -1812,7 +1812,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'McLean',
@@ -1822,17 +1822,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Melvin',
+      name: 'Wedgie',
       latitude: 31.1952,
       longitude: -99.5798,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'fort',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Memphis',
@@ -1842,7 +1842,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Menard',
@@ -1852,7 +1852,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Mentone',
@@ -1862,7 +1862,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Fred\'s Hat',
@@ -1872,7 +1872,7 @@ module.exports = {
       population: 500,
       type: 'camp',
       tech: 2,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Midland',
@@ -1882,7 +1882,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Mineola',
@@ -1892,7 +1892,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Monahans',
@@ -1902,7 +1902,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Morton',
@@ -1912,7 +1912,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Mt Pleasant',
@@ -1922,7 +1922,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Mt Vernon',
@@ -1932,7 +1932,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Muleshoe',
@@ -1942,7 +1942,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Munday',
@@ -1952,7 +1952,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Nacogdoches',
@@ -1962,7 +1962,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Navasota',
@@ -1972,7 +1972,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Nederland',
@@ -1982,7 +1982,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'New Boston',
@@ -1992,7 +1992,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'New Braunfels',
@@ -2002,7 +2002,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Odessa',
@@ -2012,7 +2012,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Orange',
@@ -2022,17 +2022,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Orla',
-      latitude: 31.8235,
+      latitude: 31.863,
       longitude: -103.909,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Ozona',
@@ -2042,7 +2042,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Paducah',
@@ -2052,7 +2052,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Palestine',
@@ -2062,7 +2062,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Pampa',
@@ -2072,17 +2072,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Pandale',
+      name: 'Startower',
       latitude: 30.1807,
       longitude: -101.549,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 93,
+      type: 'enclave',
+      tech: 2,
+      factionid: 5
     },
     {
       name: 'Panhandle',
@@ -2092,7 +2092,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Paris',
@@ -2102,27 +2102,27 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
-      name: 'Pasadena',
+      name: 'Muscat',
       latitude: 29.6911,
       longitude: -95.2091,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
-      tech: 5,
-      factionid: 0
+      tech: 6,
+      factionid: 4
     },
     {
-      name: 'Pearland',
+      name: 'Camelback',
       latitude: 29.5636,
       longitude: -95.286,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 710,
+      type: 'camp',
+      tech: 3,
+      factionid: 4
     },
     {
       name: 'Pearsall',
@@ -2132,7 +2132,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Pecos',
@@ -2142,7 +2142,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Perico',
@@ -2152,7 +2152,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Perryton',
@@ -2162,7 +2162,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Ploughman',
@@ -2182,7 +2182,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Pittsburg',
@@ -2192,7 +2192,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Plains',
@@ -2202,7 +2202,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Plainview',
@@ -2212,7 +2212,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Plano',
@@ -2222,7 +2222,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Pleasanton',
@@ -2232,7 +2232,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Port Aransas',
@@ -2242,7 +2242,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Port Arthur',
@@ -2252,7 +2252,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Port Lavaca',
@@ -2262,17 +2262,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
-      name: 'Port O\'Connor',
+      name: 'Fort Connor',
       latitude: 28.4476,
       longitude: -96.4054,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      type: 'fort',
+      tech: 6,
+      factionid: 4
     },
     {
       name: 'Portland',
@@ -2282,17 +2282,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Post',
-      latitude: 33.1909,
+      latitude: 33.2307,
       longitude: -101.378,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Quanah',
@@ -2302,7 +2302,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Quebec',
@@ -2312,7 +2312,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Ranger',
@@ -2322,17 +2322,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
-      name: 'Rankin',
+      name: 'Bass',
       latitude: 31.2226,
       longitude: -101.938,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Rio Bravo',
@@ -2342,7 +2342,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Riviera',
@@ -2352,7 +2352,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Rockport',
@@ -2362,7 +2362,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'RockSprings',
@@ -2372,7 +2372,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Rosenburg',
@@ -2382,7 +2382,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Rosenfeld',
@@ -2392,7 +2392,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Cannonball',
@@ -2405,14 +2405,14 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Rusk',
+      name: 'Rust',
       latitude: 31.796,
       longitude: -95.1502,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Ryan',
@@ -2422,7 +2422,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'San Angelo',
@@ -2432,17 +2432,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'San Antonio',
+      name: 'Alamo',
       latitude: 29.4241,
       longitude: -98.4936,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 56393,
+      type: 'freehold',
+      tech: 6,
+      factionid: 1
     },
     {
       name: 'San Augustine',
@@ -2452,17 +2452,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
-      name: 'San Diego',
+      name: 'Lotus',
       latitude: 27.8346,
       longitude: -98.2274,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 291,
+      type: 'enclave',
+      tech: 4,
+      factionid: 5
     },
     {
       name: 'Saint Sirius',
@@ -2482,7 +2482,7 @@ module.exports = {
       population: 2500,
       type: 'compound',
       tech: 3,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Sanderson',
@@ -2492,7 +2492,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Santa Anna',
@@ -2502,7 +2502,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Saragosa',
@@ -2512,7 +2512,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Seadrift',
@@ -2522,7 +2522,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Seagraves',
@@ -2532,7 +2532,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Seguin',
@@ -2542,7 +2542,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Seminole',
@@ -2552,7 +2552,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Seymour',
@@ -2562,7 +2562,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Shafter',
@@ -2570,9 +2570,9 @@ module.exports = {
       longitude: -104.303,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'enclave',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Shamrock',
@@ -2582,7 +2582,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Sheffield',
@@ -2592,7 +2592,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Sherman',
@@ -2602,7 +2602,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Sierra Blanca',
@@ -2612,7 +2612,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Silverton',
@@ -2622,7 +2622,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Slaton',
@@ -2632,7 +2632,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Snyder',
@@ -2642,7 +2642,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Socorro',
@@ -2652,7 +2652,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Sonora',
@@ -2662,7 +2662,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Spearman',
@@ -2672,17 +2672,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
-      name: 'Spring',
+      name: 'Bobble',
       latitude: 30.0799,
       longitude: -95.4172,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 171,
+      type: 'camp',
+      tech: 4,
+      factionid: 4
     },
     {
       name: 'Spur',
@@ -2692,7 +2692,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Stamford',
@@ -2702,7 +2702,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Stanton',
@@ -2712,7 +2712,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Stephenville',
@@ -2722,7 +2722,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Sterling City',
@@ -2732,7 +2732,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Stratford',
@@ -2742,7 +2742,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Sudan',
@@ -2752,17 +2752,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
-      name: 'Sugar Land',
+      name: 'Sweeton',
       latitude: 29.6197,
       longitude: -95.6349,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'fort',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Sulphur Springs',
@@ -2772,17 +2772,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
-      name: 'Sunray',
+      name: 'Sage',
       latitude: 36.1861,
       longitude: -101.811,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'enclave',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Sweetwater',
@@ -2792,7 +2792,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Temple',
@@ -2802,7 +2802,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Texarkana',
@@ -2812,7 +2812,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Texline',
@@ -2822,7 +2822,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Texon',
@@ -2832,7 +2832,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'The Woodlands',
@@ -2842,7 +2842,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Three Rivers',
@@ -2852,7 +2852,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Tulia',
@@ -2862,7 +2862,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Turkey',
@@ -2872,7 +2872,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Tyler',
@@ -2882,7 +2882,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Uvalde',
@@ -2892,7 +2892,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Valentine',
@@ -2902,7 +2902,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Van Horn',
@@ -2910,9 +2910,9 @@ module.exports = {
       longitude: -104.831,
       description: 'This is a location.',
       population: 1000,
-      type: 'hold',
+      type: 'fort',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Vega',
@@ -2922,7 +2922,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Vernon',
@@ -2932,7 +2932,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Victoria',
@@ -2942,7 +2942,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     },
     {
       name: 'Wall',
@@ -2952,17 +2952,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
-      name: 'Waco',
+      name: 'Buckle',
       latitude: 31.5493,
       longitude: -97.1467,
       description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 0
+      population: 7839,
+      type: 'fort',
+      tech: 3,
+      factionid: 1
     },
     {
       name: 'Waka',
@@ -2972,7 +2972,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Wellington',
@@ -2982,7 +2982,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Wheeler',
@@ -2992,7 +2992,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 3
     },
     {
       name: 'Whites City',
@@ -3002,7 +3002,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Wichita Falls',
@@ -3012,7 +3012,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
       name: 'Wickett',
@@ -3022,7 +3022,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Wink',
@@ -3032,7 +3032,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Winters',
@@ -3042,7 +3042,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 1
     },
     {
       name: 'Woodville',
@@ -3052,17 +3052,17 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 2
     },
     {
-      name: 'Woodway',
+      name: 'Forest',
       latitude: 31.506,
       longitude: -97.205,
       description: 'This is a location.',
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 5
     },
     {
       name: 'Zapata',
@@ -3072,7 +3072,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 0
+      factionid: 4
     }
   ],
   connections: [

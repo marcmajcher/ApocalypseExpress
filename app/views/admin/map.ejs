@@ -30,8 +30,8 @@
       </div>
       <div class="form-group">
         <label for="factionid">Faction</label>
-        <select name="factionid">
-          <option value="0">None</option>
+        <select name="factionid" ng-model="admin.location.factionid">
+          <option value="0" ng-selected="!admin.location.factionid">None</option>
           <option value="1" ng-selected="admin.location.factionid === 1">Republic of Anatexis</option>
           <option value="2" ng-selected="admin.location.factionid === 2">Hills Confederation</option>
           <option value="3" ng-selected="admin.location.factionid === 3">NO Alliance</option>
