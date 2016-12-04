@@ -9,11 +9,10 @@
     const yScale = -506.5;
     const xOffset = 43647;
     const yOffset = 15855;
-    const alphaBlack = new paper.Color(0, 0, 0, 0.5);
 
     const baseDotSize = 3;
     const baseConWidth = 3;
-    const alphaClear = new paper.Color(255, 255, 255, 0);
+
     const factionColors = [
       new paper.Color(0, 0, 0, 0.95),
       new paper.Color(0, 0, 255, 0.2),
@@ -46,7 +45,7 @@
 
       event.target.children.dot.fillColor.alpha = 0.5;
       for (let i = 0; i < event.target.location.paths.length; i++) {
-        event.target.location.paths[i].strokeColor = alphaBlack;
+        event.target.location.paths[i].strokeColor = new paper.Color(0, 0, 0, 0.5);
       }
 
       event.target.scope.$apply(() => {
@@ -140,9 +139,7 @@
 
     /* Main rendering method */
 
-    function render(scope, factionLayer, mapLayer) {
-      const data = scope.admin.mapData;
-
+    function render(data, scope, factionLayer, mapLayer) {
       if (data.locations && data.connections) {
         /* calculate location points */
         Object.keys(data.locations).forEach((id) => {
@@ -185,7 +182,7 @@
             gradient: {
               stops: [
                 [factionColors[location.factionid], 0.6],
-                [alphaClear, 1]
+                [new paper.Color(255, 255, 255, 0), 1]
               ],
               radial: true
             },
@@ -224,19 +221,11 @@
         });
       }
     }
+
     /* Factory object */
 
     return {
-      locToPoint,
-      pointToLatLong,
-      mousedownLocation,
-      mouseupLocation,
-      dragLocation,
-      rolloverLocation,
-      rolloutLocation,
       onMouseWheel,
-      changeZoom,
-      changeCenter,
       render
     };
   };
