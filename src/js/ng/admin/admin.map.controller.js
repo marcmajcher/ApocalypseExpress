@@ -29,15 +29,18 @@
       if (loc.id > 0) {
         // TODO: add waiting spinner
         MapService.updateLocation(loc.id, {
-          name: loc.name,
-          longitude: loc.longitude,
-          latitude: loc.latitude,
-          description: loc.description,
-          population: loc.population,
-          tech: loc.tech,
-          type: loc.type,
-          factionid: loc.factionid
-        });
+            name: loc.name,
+            longitude: loc.longitude,
+            latitude: loc.latitude,
+            description: loc.description,
+            population: loc.population,
+            tech: loc.tech,
+            type: loc.type,
+            factionid: loc.factionid
+          })
+          .catch(() => {
+            window.alert('PATCH ERROR'); // eslint-disable-line no-alert
+          });
         // .then(() => {
         //   remove spinner
         // });
