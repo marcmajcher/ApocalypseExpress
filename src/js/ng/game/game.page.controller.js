@@ -66,7 +66,6 @@
             vm.getCurrentConnections();
             vm.destinationName = undefined;
             vm.destinationId = undefined;
-
           }
         });
       };

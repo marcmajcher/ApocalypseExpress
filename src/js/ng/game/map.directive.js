@@ -127,5 +127,5 @@
     };
   };
 
-  angular.module('apox').directive('apoxAdminMap', ['RenderMap', renderMap]);
+  angular.module('apox').directive('apoxMap', ['RenderMap', renderMap]);
 })();
