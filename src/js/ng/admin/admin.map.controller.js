@@ -35,7 +35,8 @@
           description: loc.description,
           population: loc.population,
           tech: loc.tech,
-          type: loc.type
+          type: loc.type,
+          factionid: loc.factionid
         });
         // .then(() => {
         //   remove spinner

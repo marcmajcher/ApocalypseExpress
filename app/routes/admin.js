@@ -41,7 +41,8 @@ router.patch('/map/location/:locid', (req, res) => {
       description: data.description,
       population: data.population,
       tech: data.tech,
-      type: data.type
+      type: data.type,
+      factionid: data.factionid
     }, '*')
     .then(() => {
       res.send({
@@ -50,7 +51,7 @@ router.patch('/map/location/:locid', (req, res) => {
     })
     .catch((err) => {
       res.send({
-        status: 'NOPE',
+        status: 'nok',
         error: err
       });
     });
