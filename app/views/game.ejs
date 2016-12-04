@@ -32,7 +32,7 @@
                 <td class="button">
                   <button ng-show="c.name !== game.destinationName"
                           ng-click="game.setDestination(c.id)"
-                          ng-disabled="game.working">Go</button>
+                          ng-disabled="game.working">Set</button>
                 </td>
               </tr>
               <tr>
@@ -47,7 +47,6 @@
         </div>
 
         <div ng-if="game.destinationName" class="go-destination">
-          <span class="destination-name">{{game.destinationName}}:</span>
           <button class="go" ng-click="game.goDestination()" ng-disabled="game.working">
             Hit the road!
           </button>
