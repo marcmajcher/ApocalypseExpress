@@ -12,6 +12,38 @@ body.game-page {
     margin: 16px 0;
   }
 
+  .faction-slug {
+    // background-color: grey;
+    height: 1em;
+    width: 150px;
+    float: right;
+    margin: 8px 0;
+    opacity: 0.5;
+    -moz-border-radius: 0.5em 0 0 0.5em;
+    -webkit-border-radius: 0.5em 0 0 0.5em;
+    border-radius: 0.5em 0 0 0.5em;
+
+    &.light {
+      background-color: yellow;
+    }
+
+    &.republic {
+      background-color: blue;
+    }
+
+    &.confederation {
+      background-color: red;
+    }
+
+    &.alliance {
+      background-color: green;
+    }
+
+    &.petrex {
+      background-color: indigo;
+    }
+  }
+
   .location-name {
     color: #666;
     font-weight: lighter;

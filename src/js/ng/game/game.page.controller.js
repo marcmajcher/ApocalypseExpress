@@ -10,6 +10,10 @@
       vm.working = false;
       vm.traveling = false;
 
+      vm.factionTags = [
+        '', 'republic', 'confederation', 'alliance', 'petrex', 'light'
+      ];
+
       DriverService.getDriver().then((driver) => {
         vm.driver = driver;
       });

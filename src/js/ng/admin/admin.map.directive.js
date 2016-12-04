@@ -15,10 +15,10 @@
     const alphaClear = new paper.Color(255, 255, 255, 0);
     const factionColors = [
       new paper.Color(0, 0, 0, 0.95),
-      new paper.Color(0, 0, 255, 0.1),
-      new paper.Color(255, 0, 0, 0.1),
-      new paper.Color(0, 255, 0, 0.1),
-      new paper.Color(200, 0, 255, 0.1),
+      new paper.Color(0, 0, 255, 0.2),
+      new paper.Color(255, 0, 0, 0.2),
+      new paper.Color(0, 255, 0, 0.2),
+      new paper.Color(75, 0, 130, 0.2),
       new paper.Color(255, 255, 0, 0.2)
     ];
 
@@ -175,7 +175,7 @@
               faction.fillColor = {
                 gradient: {
                   stops: [
-                    [factionColors[location.factionid], 0.5],
+                    [factionColors[location.factionid], 0.6],
                     [alphaClear, 1]
                   ],
                   radial: true
