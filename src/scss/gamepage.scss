@@ -1,0 +1,54 @@
+body.game-page {
+  .driver-name {
+    background-color: #eee;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 16px 0;
+    padding: 8px;
+  }
+
+  .location-header {
+    font-size: 2em;
+    margin: 16px 0;
+  }
+
+  .location-name {
+    color: #666;
+    font-weight: lighter;
+  }
+
+  .location-description {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+  .destinations {
+    background-color: #eee;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 1.5em;
+
+    table {
+      margin: 0;
+      background-color: white;
+
+      tr.current td {
+        background-color: #666;
+        color: white;
+      }
+
+      tr td.button {
+        text-align: right;
+      }
+    }
+  }
+
+  .go-destination {
+    text-align: center;
+    font-size: 1.5em;
+
+    span.destination-name {
+      font-size: 1.8em;
+    }
+  }
+}

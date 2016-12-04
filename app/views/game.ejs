@@ -1,31 +1,62 @@
 <% if (user) { %>
   <div ng-controller="GamePageController as game">
-    <div>
-      <strong>Driver:</strong> <span id="driver-name">{{game.driver.name}}</span>
-    </div>
-    <div>
-      <strong>Current Location:</strong> <span id="location-name">{{game.currentLocation.name}}</span>
-    </div>
-    <div>{{game.currentLocation.description}}</div>
+    <div class="row">
 
-    <div>
-      <strong>Destinations:</strong>
-      <ul id="destinations-list">
-        <li ng-repeat="c in game.currentLocation.connections | orderBy: c.distance">
-          <strong>{{c.name}}</strong>: {{c.distance/1000 | number: 1}}km
-          <button ng-click="game.setDestination(c.id)" ng-disabled="game.working">set destination</button>
-        </li>
-      </ul>
-    </div>
+      <div class="col-md-6">
+        <div class="driver-name text-center">
+          <span id="driver-name">{{game.driver.name}}</span>
+        </div>
+        <div class="location-header">
+          Location:
+          <span class="location-name" id="location-name">{{game.currentLocation.name}}</span>
+        </div>
+        <div class="location-description">{{game.currentLocation.description}}</div>
+      </div>
 
-    <div ng-if="game.destinationName">
-      <strong>Current Destination:</strong> {{game.destinationName}}</strong>
-      <button ng-click="game.goDestination()" ng-disabled="game.working">GO</button>
-      <button ng-click="game.clearDestination()" ng-disabled="game.working">Clear</button>
-    </div>
+      <div class="col-md-6">
+        <div class="destinations">
+          <table class="table" id="destinations-list">
+            <thead>
+              <tr>
+                <th>Destination</th>
+                <th>Distance</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="c in game.currentLocation.connections | orderBy: c.distance"
+                  class="{{c.name === game.destinationName ? 'current' : 'select'}}">
+                <td>{{c.name}}</td>
+                <td>{{c.distance/1000 | number: 1}}</td>
+                <td class="button">
+                  <button ng-show="c.name !== game.destinationName"
+                          ng-click="game.setDestination(c.id)"
+                          ng-disabled="game.working">Go</button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="button">
+                  <button ng-click="game.clearDestination()" ng-disabled="game.working">
+                    Clear Destination
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <div ng-if="game.traveling">
-      On the road....
+        <div ng-if="game.destinationName" class="go-destination">
+          <span class="destination-name">{{game.destinationName}}:</span>
+          <button class="go" ng-click="game.goDestination()" ng-disabled="game.working">
+            Hit the road!
+          </button>
+        </div>
+
+        <div ng-if="game.traveling">
+          On the road....
+        </div>
+      </div>
+
     </div>
   </div>
   <% } %>
