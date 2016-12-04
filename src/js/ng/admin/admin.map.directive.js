@@ -2,6 +2,7 @@
   'use strict';
 
   /* eslint-env jquery, browser */
+  /* eslint no-magic-numbers: "off" */
 
   angular.module('apox').directive('apoxAdminMap', () => {
     const baseDotSize = 3;
@@ -10,7 +11,16 @@
     const yScale = -506.5;
     const xOffset = 43647;
     const yOffset = 15855;
-    const alphaBlack = new paper.Color(0, 0, 0, 0.5); // eslint-disable-line no-magic-numbers
+    const alphaBlack = new paper.Color(0, 0, 0, 0.5);
+    const alphaClear = new paper.Color(255, 255, 255, 0);
+    const factionColors = [
+      new paper.Color(0, 0, 0, 0.95),
+      new paper.Color(0, 0, 255, 0.1),
+      new paper.Color(255, 0, 0, 0.1),
+      new paper.Color(0, 255, 0, 0.1),
+      new paper.Color(200, 0, 255, 0.1),
+      new paper.Color(255, 255, 0, 0.2)
+    ];
 
     function locToPoint(loc) {
       return new paper.Point((loc.longitude * xScale) + xOffset, (loc.latitude * yScale) + yOffset);
@@ -115,8 +125,12 @@
       template: '<canvas class="map-canvas" resize="true"></canvas>',
       link: (scope, element) => {
         paper.setup(element.context.firstChild);
+
+        const bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+
+        const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
-        mapLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
 
         scope.$watch('admin.dataLoaded', () => {
           const data = scope.admin.mapData;
@@ -145,30 +159,54 @@
             }
 
             /* render locations */
-            const textOffset = [0, -20]; // eslint-disable-line no-magic-numbers
-            const locationKeys = Object.keys(data.locations);
+            const textOffset = [0, -20];
+            const locationKeys = Object.keys(data.locations).sort((a, b) =>
+              data.locations[a].latitude > data.locations[b].latitude
+            );
 
             locationKeys.forEach((id) => {
               const location = data.locations[id];
+
+              const faction = new paper.Path.Circle({
+                center: location.point,
+                radius: baseDotSize * Math.ceil(Math.log10(location.population)) * 40,
+                name: 'faction'
+              });
+              faction.fillColor = {
+                gradient: {
+                  stops: [
+                    [factionColors[location.factionid], 0.5],
+                    [alphaClear, 1]
+                  ],
+                  radial: true
+                },
+                origin: faction.position,
+                destination: faction.bounds.rightCenter
+              };
+              factionLayer.addChild(faction);
+
               const dot = new paper.Path.Circle({
                 center: location.point,
                 radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-                fillColor: 'black', // TODO: set color/halo according to faction
+                fillColor: 'black',
                 name: 'dot'
               });
 
-              const text = new paper.PointText(location.point.add(textOffset));
-              text.justification = 'center';
-              text.fillColor = '#3333ff';
-              text.strokeColor = '#9999cc';
-              text.content = location.name;
-              text.name = 'locname';
-              text.visible = false;
-              text.fontSize = 24;
+              const text = new paper.PointText({
+                point: location.point.add(textOffset),
+                justification: 'center',
+                fillColor: 'black',
+                strokeColor: 'white',
+                content: location.name,
+                name: 'locname',
+                visible: false,
+                fontSize: 30
+              });
 
               const locGroup = new paper.Group([dot, text]);
               locGroup.location = location;
               locGroup.scope = scope;
+
               locGroup.onMouseEnter = rolloverLocation;
               locGroup.onMouseLeave = rolloutLocation;
               locGroup.onMouseDrag = dragLocation;
@@ -182,23 +220,23 @@
           mapLayer.position = mapLayer.position.add([event.delta.x, event.delta.y]);
         };
 
-        paper.view.center = new paper.Point(1100, 500); // eslint-disable-line no-magic-numbers
+        paper.view.center = new paper.Point(1100, 500);
 
         element.bind('mousewheel', (event) => {
-            const dx = event.originalEvent.wheelDeltaX;
-            const dy = event.originalEvent.wheelDeltaY;
+          const dx = event.originalEvent.wheelDeltaX;
+          const dy = event.originalEvent.wheelDeltaY;
 
-            if (event.altKey) {
-              const mousePos = new paper.Point(event.offsetX, event.offsetY);
-              const z = changeZoom(paper.view.zoom, dy, paper.view.center, mousePos);
-              paper.view.zoom = z.newZoom;
-              // view.center = view.center.add(z.a);
-              event.preventDefault();
-            }
-            else {
-              paper.view.center = changeCenter(paper.view.center, dx, dy, 1);
-              event.preventDefault();
-            }
+          if (event.altKey) {
+            const mousePos = new paper.Point(event.offsetX, event.offsetY);
+            const z = changeZoom(paper.view.zoom, dy, paper.view.center, mousePos);
+            paper.view.zoom = z.newZoom;
+            // view.center = view.center.add(z.a);
+            event.preventDefault();
+          }
+          else {
+            paper.view.center = changeCenter(paper.view.center, dx, dy, 1);
+            event.preventDefault();
+          }
         });
       }
     };
