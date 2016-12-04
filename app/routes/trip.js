@@ -104,8 +104,12 @@ router.post('/', /* isNotTraveling, */ (req, res) => {
       util.knex('drivers').where('id', req.session.user.driverid)
         .update('location', destination.locationid)
         .then(() => {
+          util.knex('trips').where('driverid', req.session.user.driverid).del()
+            .then(() => {
+              res.send('ok');
+            });
+          // TODO: error handling
           // TODO: remove current destination when destination is reached
-          res.send('ok');
           // TODO: better response - include id of next destination?
         });
     });

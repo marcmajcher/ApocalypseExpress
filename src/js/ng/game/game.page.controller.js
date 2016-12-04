@@ -64,6 +64,9 @@
           if (data === 'ok') {
             vm.working = false;
             vm.getCurrentConnections();
+            vm.destinationName = undefined;
+            vm.destinationId = undefined;
+
           }
         });
       };
