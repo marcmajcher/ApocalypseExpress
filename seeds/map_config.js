@@ -2605,7 +2605,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Sierra Blanca',
+      name: 'White Hills',
       latitude: 31.1746,
       longitude: -105.357,
       description: 'This is a location.',
