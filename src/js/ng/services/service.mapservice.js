@@ -11,7 +11,6 @@
       updateLocation: function updateLocation(id, data) {
         return $http.patch(`/admin/map/location/${id}`, data);
       }
-
     };
   };
 
