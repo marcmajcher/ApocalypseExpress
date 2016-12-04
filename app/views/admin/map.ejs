@@ -29,20 +29,27 @@
         <input class="form-control" ng-model="admin.location.tech" type="number" min="0" max="10" name="tech">
       </div>
       <div class="form-group">
-        <label for="faction">Faction</label>
-        <input class="form-control" ng-model="admin.location.factionid" type="number" min="0" max="5" name="faction">
+        <label for="factionid">Faction</label>
+        <select name="factionid">
+          <option value="0">None</option>
+          <option value="1" ng-selected="admin.location.factionid === 1">Republic of Anatexis</option>
+          <option value="2" ng-selected="admin.location.factionid === 2">Hills Confederation</option>
+          <option value="3" ng-selected="admin.location.factionid === 3">NO Alliance</option>
+          <option value="4" ng-selected="admin.location.factionid === 4">Petrex Enterprises</option>
+          <option value="5" ng-selected="admin.location.factionid === 5">The Light</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="type">Type</label>
         <select name="type" ng-model="admin.location.type">
-        <option value="hold">hold</option>
-        <option value="freehold">freehold</option>
-        <option value="camp">camp</option>
-        <option value="fort">fort</option>
-        <option value="compound">compound</option>
-        <option value="hardhold">hardhold</option>
-        <option value="enclave">enclave</option>
-      </select>
+          <option value="hold">hold</option>
+          <option value="freehold">freehold</option>
+          <option value="camp">camp</option>
+          <option value="fort">fort</option>
+          <option value="compound">compound</option>
+          <option value="hardhold">hardhold</option>
+          <option value="enclave">enclave</option>
+        </select>
       </div>
       <button ng-click="admin.updateLocationDetails()" type="button">Update</button>
       <i ng-click="admin.closeDetailPanel()" class="fa fa-window-close-o close-button"></i>

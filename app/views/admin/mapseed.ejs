@@ -7,10 +7,10 @@
 module.exports = {
   locations: [<% for (var i=0; i<locations.length; i++) { %>
     {
-      name: '<%=locations[i].name%>',
+      name: '<%-locations[i].name.replace(/\'/g, '\\\'')%>',
       latitude: <%=locations[i].latitude%>,
       longitude: <%=locations[i].longitude%>,
-      description: '<%=locations[i].description%>',
+      description: '<%-locations[i].description.replace(/\'/g, '\\\'')%>',
       population: <%=locations[i].population%>,
       type: '<%=locations[i].type%>',
       tech: <%=locations[i].tech%>,
