@@ -105,7 +105,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Aransas Pass',
+      name: 'Pissant',
       latitude: 27.9778,
       longitude: -97.1408,
       description: 'This is a location.',
@@ -125,7 +125,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Asherton',
+      name: 'Cooch',
       latitude: 28.5001,
       longitude: -99.7543,
       description: 'This is a location.',
@@ -145,7 +145,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Athens',
+      name: 'Billy',
       latitude: 32.2049,
       longitude: -95.8555,
       description: 'This is a location.',
@@ -155,7 +155,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Atlanta',
+      name: 'Atlantis',
       latitude: 33.1137,
       longitude: -94.1644,
       description: 'This is a location.',
@@ -205,7 +205,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Bay City',
+      name: 'Roller',
       latitude: 28.9828,
       longitude: -95.9694,
       description: 'This is a location.',
@@ -225,7 +225,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Beaumont',
+      name: 'Prettyboy',
       latitude: 30.0802,
       longitude: -94.1266,
       description: 'This is a location.',
@@ -235,7 +235,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Beeville',
+      name: 'Deano',
       latitude: 28.4774,
       longitude: -97.7253,
       description: 'This is a location.',
@@ -245,7 +245,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Belton',
+      name: 'Beltway',
       latitude: 31.056,
       longitude: -97.4645,
       description: 'This is a location.',
@@ -275,7 +275,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Boerne',
+      name: 'Identity',
       latitude: 29.7947,
       longitude: -98.732,
       description: 'This is a location.',
@@ -345,7 +345,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Brenham',
+      name: 'Brahmin',
       latitude: 30.1669,
       longitude: -96.3977,
       description: 'This is a location.',
@@ -365,7 +365,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Brown Hole',
+      name: 'Starfish',
       latitude: 26.0533,
       longitude: -97.4952,
       description: 'This is a location.',
@@ -375,7 +375,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Brownwood',
+      name: 'Deuce',
       latitude: 31.7093,
       longitude: -98.9912,
       description: 'This is a location.',
@@ -425,7 +425,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Canton',
+      name: 'Jayneston',
       latitude: 32.5565,
       longitude: -95.8633,
       description: 'This is a location.',
@@ -455,7 +455,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Carrizo Springs',
+      name: 'Gonzo',
       latitude: 28.5219,
       longitude: -99.8606,
       description: 'This is a location.',
@@ -475,7 +475,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Carthage',
+      name: 'Carnage',
       latitude: 32.1574,
       longitude: -94.3374,
       description: 'This is a location.',
@@ -495,7 +495,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Center',
+      name: 'Carter',
       latitude: 31.7955,
       longitude: -94.1791,
       description: 'This is a location.',
@@ -525,7 +525,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Cisco',
+      name: 'Kidd',
       latitude: 32.3882,
       longitude: -98.9792,
       description: 'This is a location.',
@@ -545,7 +545,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Clarksville',
+      name: 'Last Train',
       latitude: 33.6735,
       longitude: -95.0527,
       description: 'This is a location.',
@@ -575,8 +575,8 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'College Station',
-      latitude: 30.628,
+      name: 'Castor',
+      latitude: 30.6675,
       longitude: -96.3344,
       description: 'This is a location.',
       population: 1000,
@@ -595,7 +595,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Columbus',
+      name: 'Indigent',
       latitude: 29.7066,
       longitude: -96.5397,
       description: 'This is a location.',
@@ -625,7 +625,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Commerce',
+      name: 'Wall Street',
       latitude: 33.2941,
       longitude: -95.9,
       description: 'This is a location.',
@@ -645,7 +645,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Conroe',
+      name: 'Cornhole',
       latitude: 30.3119,
       longitude: -95.4561,
       description: 'This is a location.',
@@ -655,7 +655,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Copperas Cove',
+      name: 'CU-29',
       latitude: 31.1241,
       longitude: -97.9031,
       description: 'This is a location.',
@@ -675,7 +675,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Corpseville',
+      name: 'Corseton',
       latitude: 27.8752,
       longitude: -97.3964,
       description: 'This is a location.',
@@ -685,7 +685,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Corsicana',
+      name: 'Cheesecake',
       latitude: 32.0954,
       longitude: -96.4689,
       description: 'This is a location.',
@@ -715,7 +715,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Crockett',
+      name: 'Goliath',
       latitude: 31.3182,
       longitude: -95.4566,
       description: 'This is a location.',
@@ -745,7 +745,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Crystal City',
+      name: 'Himalaya',
       latitude: 28.6775,
       longitude: -99.8281,
       description: 'This is a location.',
@@ -755,7 +755,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Cuero',
+      name: 'Queso',
       latitude: 29.0939,
       longitude: -97.2892,
       description: 'This is a location.',
@@ -775,7 +775,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Dallas',
+      name: 'Hater',
       latitude: 32.8138,
       longitude: -96.797,
       description: 'This is a location.',
@@ -825,7 +825,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Diboll',
+      name: 'Devil\'s Hole',
       latitude: 31.1871,
       longitude: -94.781,
       description: 'This is a location.',
@@ -835,7 +835,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Dilley',
+      name: 'Christa',
       latitude: 28.6675,
       longitude: -99.1706,
       description: 'This is a location.',
@@ -875,7 +875,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Eastland',
+      name: 'Easterly',
       latitude: 32.4015,
       longitude: -98.8176,
       description: 'This is a location.',
@@ -885,7 +885,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Edinburg',
+      name: 'Guinness',
       latitude: 26.4257,
       longitude: -98.1541,
       description: 'This is a location.',
@@ -905,7 +905,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Edna',
+      name: 'Mode',
       latitude: 28.9786,
       longitude: -96.6461,
       description: 'This is a location.',
@@ -915,7 +915,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'El Campo',
+      name: 'Beethoven',
       latitude: 29.1966,
       longitude: -96.2697,
       description: 'This is a location.',
@@ -945,7 +945,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Enical',
+      name: 'Eternal',
       latitude: 28.1039,
       longitude: -99.3384,
       description: 'This is a location.',
@@ -955,7 +955,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Fairfield',
+      name: 'Fairport',
       latitude: 31.7246,
       longitude: -96.1652,
       description: 'This is a location.',
@@ -965,7 +965,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Falfurrias',
+      name: 'Furious',
       latitude: 27.3194,
       longitude: -98.135,
       description: 'This is a location.',
@@ -1125,7 +1125,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'George West',
+      name: 'Foreman',
       latitude: 28.3913,
       longitude: -98.1152,
       description: 'This is a location.',
@@ -1155,7 +1155,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Gilmer',
+      name: 'Lorelei',
       latitude: 32.7287,
       longitude: -94.9424,
       description: 'This is a location.',
@@ -1165,7 +1165,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Goliad',
+      name: 'Daddy-O',
       latitude: 28.6683,
       longitude: -97.3883,
       description: 'This is a location.',
@@ -1175,7 +1175,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Gonzales',
+      name: 'Speedy',
       latitude: 29.5016,
       longitude: -97.4525,
       description: 'This is a location.',
@@ -1255,7 +1255,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Harker Heights',
+      name: 'Herkimer',
       latitude: 31.0835,
       longitude: -97.6597,
       description: 'This is a location.',
@@ -1265,7 +1265,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Harlingen',
+      name: 'Quinn',
       latitude: 26.3261,
       longitude: -97.6846,
       description: 'This is a location.',
@@ -1295,7 +1295,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Hebbronville',
+      name: 'Frogtown',
       latitude: 27.3987,
       longitude: -98.6669,
       description: 'This is a location.',
@@ -1305,7 +1305,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Henderson',
+      name: 'Bigfoot',
       latitude: 32.1532,
       longitude: -94.7994,
       description: 'This is a location.',
@@ -1335,7 +1335,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Hilsboro',
+      name: 'Baptist',
       latitude: 32.011,
       longitude: -97.13,
       description: 'This is a location.',
@@ -1365,7 +1365,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Huntsville',
+      name: 'Deerstalker',
       latitude: 30.7235,
       longitude: -95.5508,
       description: 'This is a location.',
@@ -1395,7 +1395,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Jacksonville',
+      name: 'Alexander',
       latitude: 31.9638,
       longitude: -95.2705,
       description: 'This is a location.',
@@ -1405,7 +1405,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Jasper',
+      name: 'Bismuth',
       latitude: 30.9202,
       longitude: -93.9966,
       description: 'This is a location.',
@@ -1415,7 +1415,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Jefferson',
+      name: 'Cleaner',
       latitude: 32.7574,
       longitude: -94.3452,
       description: 'This is a location.',
@@ -1445,7 +1445,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Kames City',
+      name: 'Kimmy',
       latitude: 28.885,
       longitude: -97.9008,
       description: 'This is a location.',
@@ -1465,7 +1465,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Kenedy',
+      name: 'Headshot',
       latitude: 28.8191,
       longitude: -97.8486,
       description: 'This is a location.',
@@ -1495,7 +1495,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Kilgore',
+      name: 'Trout',
       latitude: 32.3863,
       longitude: -94.8758,
       description: 'This is a location.',
@@ -1515,7 +1515,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Kingsville',
+      name: 'Checkers',
       latitude: 27.6142,
       longitude: -97.8561,
       description: 'This is a location.',
@@ -1535,7 +1535,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'La Grange',
+      name: 'Weikel',
       latitude: 29.945,
       longitude: -96.8766,
       description: 'This is a location.',
@@ -1545,7 +1545,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Lake Jackson',
+      name: 'Luscious',
       latitude: 29.0339,
       longitude: -95.4344,
       description: 'This is a location.',
@@ -1575,7 +1575,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Lampasas',
+      name: 'Compass',
       latitude: 31.0638,
       longitude: -98.1817,
       description: 'This is a location.',
@@ -1595,7 +1595,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Laredo',
+      name: 'Seven',
       latitude: 27.6128,
       longitude: -99.478,
       description: 'This is a location.',
@@ -1655,7 +1655,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Livingston',
+      name: 'Presumption',
       latitude: 30.711,
       longitude: -94.933,
       description: 'This is a location.',
@@ -1665,7 +1665,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Llano',
+      name: 'Deerbourne',
       latitude: 30.7593,
       longitude: -98.675,
       description: 'This is a location.',
@@ -1675,7 +1675,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Longview',
+      name: 'Scope',
       latitude: 32.5007,
       longitude: -94.7405,
       description: 'This is a location.',
@@ -1705,7 +1705,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Lufkin',
+      name: 'Spinal',
       latitude: 31.3382,
       longitude: -94.7291,
       description: 'This is a location.',
@@ -1755,7 +1755,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Marshall',
+      name: 'Shady',
       latitude: 32.5449,
       longitude: -94.3674,
       description: 'This is a location.',
@@ -1765,7 +1765,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Mason',
+      name: 'Pitluck',
       latitude: 30.7488,
       longitude: -99.2306,
       description: 'This is a location.',
@@ -1785,7 +1785,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Mathis',
+      name: 'Zoltar',
       latitude: 28.0945,
       longitude: -97.8281,
       description: 'This is a location.',
@@ -1795,7 +1795,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'McAllen',
+      name: 'Funt',
       latitude: 26.308,
       longitude: -98.2162,
       description: 'This is a location.',
@@ -1885,7 +1885,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Mineola',
+      name: 'Birding',
       latitude: 32.6632,
       longitude: -95.4883,
       description: 'This is a location.',
@@ -1915,7 +1915,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Mt Pleasant',
+      name: 'Big Fun',
       latitude: 33.1568,
       longitude: -94.9683,
       description: 'This is a location.',
@@ -1925,7 +1925,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Mt Vernon',
+      name: 'Nickel',
       latitude: 33.1887,
       longitude: -95.2213,
       description: 'This is a location.',
@@ -1955,7 +1955,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Nacogdoches',
+      name: 'Nacho',
       latitude: 31.6035,
       longitude: -94.6555,
       description: 'This is a location.',
@@ -1965,7 +1965,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Navasota',
+      name: 'Faster',
       latitude: 30.388,
       longitude: -96.0877,
       description: 'This is a location.',
@@ -1975,7 +1975,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Nederland',
+      name: 'Hamlet',
       latitude: 29.9744,
       longitude: -93.9924,
       description: 'This is a location.',
@@ -1985,7 +1985,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'New Boston',
+      name: 'Lobster',
       latitude: 33.5344,
       longitude: -94.4109,
       description: 'This is a location.',
@@ -1995,7 +1995,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'New Braunfels',
+      name: 'Pussycake',
       latitude: 29.703,
       longitude: -98.1245,
       description: 'This is a location.',
@@ -2015,7 +2015,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Orange',
+      name: 'Ducky',
       latitude: 30.093,
       longitude: -93.7366,
       description: 'This is a location.',
@@ -2055,7 +2055,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Palestine',
+      name: 'Judas',
       latitude: 31.7621,
       longitude: -95.6308,
       description: 'This is a location.',
@@ -2095,7 +2095,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Paris',
+      name: 'Myrtle',
       latitude: 33.7415,
       longitude: -95.5555,
       description: 'This is a location.',
@@ -2185,7 +2185,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Pittsburg',
+      name: 'Refinery',
       latitude: 32.9954,
       longitude: -94.9658,
       description: 'This is a location.',
@@ -2215,7 +2215,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Plano',
+      name: 'Estella',
       latitude: 33.0589,
       longitude: -96.692,
       description: 'This is a location.',
@@ -2225,7 +2225,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Pleasanton',
+      name: 'Pleasantville',
       latitude: 28.9672,
       longitude: -98.4786,
       description: 'This is a location.',
@@ -2235,7 +2235,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Port Aransas',
+      name: 'Tarpit',
       latitude: 27.9006,
       longitude: -97.0565,
       description: 'This is a location.',
@@ -2245,7 +2245,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Port Arthur',
+      name: 'Dent',
       latitude: 29.885,
       longitude: -93.9399,
       description: 'This is a location.',
@@ -2255,7 +2255,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Port Lavaca',
+      name: 'Cow Hollow',
       latitude: 28.615,
       longitude: -96.6261,
       description: 'This is a location.',
@@ -2275,7 +2275,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Portland',
+      name: 'Oregano',
       latitude: 27.942,
       longitude: -97.3101,
       description: 'This is a location.',
@@ -2315,7 +2315,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Ranger',
+      name: 'Arigorn',
       latitude: 32.4699,
       longitude: -98.6789,
       description: 'This is a location.',
@@ -2335,7 +2335,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Rio Bravo',
+      name: 'Braveheart',
       latitude: 27.4487,
       longitude: -99.4777,
       description: 'This is a location.',
@@ -2345,7 +2345,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Riviera',
+      name: 'Geraldo',
       latitude: 27.3792,
       longitude: -97.8126,
       description: 'This is a location.',
@@ -2355,7 +2355,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Rockport',
+      name: 'Kojak',
       latitude: 28.0909,
       longitude: -97.0475,
       description: 'This is a location.',
@@ -2375,7 +2375,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Rosenburg',
+      name: 'Guilder',
       latitude: 29.5572,
       longitude: -95.8086,
       description: 'This is a location.',
@@ -2445,7 +2445,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'San Augustine',
+      name: 'Christmas',
       latitude: 31.5299,
       longitude: -94.106,
       description: 'This is a location.',
@@ -2475,7 +2475,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Saba Saba',
+      name: 'Ali Baba',
       latitude: 31.1957,
       longitude: -98.7181,
       description: 'This is a location.',
@@ -2495,7 +2495,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Santa Anna',
+      name: 'Pegleg',
       latitude: 31.7421,
       longitude: -99.3217,
       description: 'This is a location.',
@@ -2535,7 +2535,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Seguin',
+      name: 'Sparkle',
       latitude: 29.5688,
       longitude: -97.9647,
       description: 'This is a location.',
@@ -2715,7 +2715,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Stephenville',
+      name: 'Watkins',
       latitude: 32.2207,
       longitude: -98.2023,
       description: 'This is a location.',
@@ -2755,7 +2755,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Sweeton',
+      name: 'Stevia',
       latitude: 29.6197,
       longitude: -95.6349,
       description: 'This is a location.',
@@ -2765,7 +2765,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Sulphur Springs',
+      name: 'Dragonback',
       latitude: 33.1384,
       longitude: -95.6011,
       description: 'This is a location.',
@@ -2795,7 +2795,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Temple',
+      name: 'Wildman',
       latitude: 31.0982,
       longitude: -97.3428,
       description: 'This is a location.',
@@ -2805,7 +2805,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Texarkana',
+      name: 'Double Shot',
       latitude: 33.4918,
       longitude: -94.0385,
       description: 'This is a location.',
@@ -2835,7 +2835,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'The Woodlands',
+      name: 'Woody',
       latitude: 30.1658,
       longitude: -95.4613,
       description: 'This is a location.',
@@ -2845,7 +2845,7 @@ module.exports = {
       factionid: 4
     },
     {
-      name: 'Three Rivers',
+      name: 'The Fork',
       latitude: 28.5093,
       longitude: -98.1687,
       description: 'This is a location.',
@@ -2875,7 +2875,7 @@ module.exports = {
       factionid: 3
     },
     {
-      name: 'Tyler',
+      name: 'Bryce',
       latitude: 32.3513,
       longitude: -95.3011,
       description: 'This is a location.',
@@ -2935,7 +2935,7 @@ module.exports = {
       factionid: 2
     },
     {
-      name: 'Victoria',
+      name: 'Queenie',
       latitude: 28.8053,
       longitude: -97.0036,
       description: 'This is a location.',
@@ -3045,7 +3045,7 @@ module.exports = {
       factionid: 1
     },
     {
-      name: 'Woodville',
+      name: 'Canopy',
       latitude: 30.7752,
       longitude: -94.4155,
       description: 'This is a location.',
@@ -3065,7 +3065,7 @@ module.exports = {
       factionid: 5
     },
     {
-      name: 'Zapata',
+      name: 'Zap',
       latitude: 26.9997,
       longitude: -99.2553,
       description: 'This is a location.',
