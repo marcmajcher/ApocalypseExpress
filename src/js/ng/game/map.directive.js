@@ -16,7 +16,7 @@
         const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
 
-        scope.$watch('admin.dataLoaded', () => {
+        scope.$watch('map.dataLoaded', () => {
           const data = scope.map.mapData;
           RenderMap.render(data, scope, factionLayer, mapLayer);
         });

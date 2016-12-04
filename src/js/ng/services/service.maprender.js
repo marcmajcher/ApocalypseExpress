@@ -218,6 +218,7 @@
           locGroup.onMouseDrag = dragLocation;
           locGroup.onMouseDown = mousedownLocation;
           locGroup.onMouseUp = mouseupLocation;
+          mapLayer.addChild(locGroup);
         });
       }
     }
