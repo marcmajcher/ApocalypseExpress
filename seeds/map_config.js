@@ -522,7 +522,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 2
     },
     {
       name: 'Cisco',
@@ -742,7 +742,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 2
     },
     {
       name: 'Crystal City',
@@ -1382,7 +1382,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 2
     },
     {
       name: 'Iraan',
@@ -2302,7 +2302,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 2
     },
     {
       name: 'Quebec',
@@ -2632,7 +2632,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 1
     },
     {
       name: 'Snyder',
@@ -2932,7 +2932,7 @@ module.exports = {
       population: 1000,
       type: 'hold',
       tech: 5,
-      factionid: 3
+      factionid: 2
     },
     {
       name: 'Victoria',
