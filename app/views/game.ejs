@@ -9,6 +9,7 @@
         <div class="location-header">
           Location:
           <span class="location-name" id="location-name">{{game.currentLocation.name}}</span>
+          <div class="faction-slug {{game.factionTags[game.currentLocation.factionid]}}"></div>
         </div>
         <div class="location-description">{{game.currentLocation.description}}</div>
       </div>
