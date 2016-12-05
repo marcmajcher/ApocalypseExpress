@@ -18,7 +18,13 @@
 
         scope.$watch('map.dataLoaded', () => {
           const data = scope.map.mapData;
-          RenderMap.render(data, scope, factionLayer, mapLayer);
+          RenderMap.render({
+            isAdmin: false,
+            data,
+            scope,
+            factionLayer,
+            mapLayer
+          });
         });
 
         paper.view.center = new paper.Point(1100, 500);
