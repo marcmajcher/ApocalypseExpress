@@ -139,7 +139,15 @@
 
     /* Main rendering method */
 
-    function render(data, scope, factionLayer, mapLayer) {
+    function render(args) {
+      const {
+        isAdmin,
+        data,
+        scope,
+        factionLayer,
+        mapLayer
+      } = args;
+
       if (data.locations && data.connections) {
         /* calculate location points */
         Object.keys(data.locations).forEach((id) => {
@@ -213,11 +221,13 @@
           locGroup.location = location;
           locGroup.scope = scope;
 
-          locGroup.onMouseEnter = rolloverLocation;
-          locGroup.onMouseLeave = rolloutLocation;
-          locGroup.onMouseDrag = dragLocation;
-          locGroup.onMouseDown = mousedownLocation;
-          locGroup.onMouseUp = mouseupLocation;
+          if (isAdmin) {
+            locGroup.onMouseEnter = rolloverLocation;
+            locGroup.onMouseLeave = rolloutLocation;
+            locGroup.onMouseDrag = dragLocation;
+            locGroup.onMouseDown = mousedownLocation;
+            locGroup.onMouseUp = mouseupLocation;
+          }
           mapLayer.addChild(locGroup);
         });
       }
