@@ -144,8 +144,8 @@
         isAdmin,
         data,
         scope,
-        factionLayer,
-        mapLayer
+        mapLayer,
+        factionLayer
       } = args;
 
       if (data.locations && data.connections) {
@@ -163,7 +163,7 @@
           const loc2 = data.locations[connection.loc2];
 
           const path = new paper.Path.Line(loc1.point, loc2.point);
-          path.strokeColor = 'black';
+          path.strokeColor = isAdmin ? 'black' : 'dimgrey';
           path.strokeWidth = baseConWidth;
 
           loc1.ends.push(path.segments[0].point);
@@ -202,7 +202,7 @@
           const dot = new paper.Path.Circle({
             center: location.point,
             radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-            fillColor: 'black',
+            fillColor: isAdmin ? 'black' : 'dimgrey',
             name: 'dot'
           });
 
@@ -210,10 +210,10 @@
             point: location.point.add(textOffset),
             justification: 'center',
             fillColor: 'black',
-            strokeColor: 'white',
+            strokeColor: isAdmin ? 'white' : 'none',
             content: location.name,
             name: 'locname',
-            visible: false,
+            visible: !isAdmin,
             fontSize: 30
           });
 
@@ -230,6 +230,8 @@
           }
           mapLayer.addChild(locGroup);
         });
+
+        factionLayer.visible = isAdmin;
       }
     }
 
