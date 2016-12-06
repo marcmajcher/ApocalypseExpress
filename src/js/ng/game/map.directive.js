@@ -17,19 +17,32 @@
         const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
 
+        element.bind('mousewheel', MapRenderer.onMouseWheel);
+
+        function centerMap() {
+          if (scope.$parent.game.currentLocation) {
+            const loc = scope.map.mapData.locations[scope.$parent.game.currentLocation.id];
+            paper.view.center = new paper.Point(loc.point.x, loc.point.y);
+          }
+        }
+
         scope.$watch('map.dataLoaded', () => {
-          const data = scope.map.mapData;
-          MapRenderer.render({
-            isAdmin: false,
-            data,
-            scope,
-            factionLayer,
-            mapLayer
-          });
+          if (scope.map.dataLoaded) {
+            const data = scope.map.mapData;
+            MapRenderer.render({
+              isAdmin: false,
+              data,
+              scope,
+              factionLayer,
+              mapLayer
+            });
+            centerMap();
+          }
         });
 
-        paper.view.center = new paper.Point(1100, 500);
-        element.bind('mousewheel', MapRenderer.onMouseWheel);
+        scope.$watch('$parent.game.currentLocation', () => {
+          centerMap();
+        });
       }
     };
   };

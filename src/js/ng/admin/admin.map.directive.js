@@ -17,18 +17,19 @@
         const mapLayer = new paper.Layer();
 
         scope.$watch('admin.dataLoaded', () => {
-          const data = scope.admin.mapData;
-          MapRenderer.render({
-            isAdmin: true,
-            data,
-            scope,
-            factionLayer,
-            mapLayer
-          });
+          if (scope.admin.dataLoaded) {
+            const data = scope.admin.mapData;
+            MapRenderer.render({
+              isAdmin: true,
+              data,
+              scope,
+              factionLayer,
+              mapLayer
+            });
+          }
         });
 
         paper.view.center = new paper.Point(1100, 500);
-
         element.bind('mousewheel', MapRenderer.onMouseWheel);
       }
     };
