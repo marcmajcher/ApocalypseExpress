@@ -72,7 +72,7 @@ describe('Admin', () => {
         cities[1].name.should.equal('Garnet');
         cities[2].name.should.equal('Amethyst');
         cities[3].name.should.equal('Pearl');
-        links.length.should.equal(3); // eslint-disable-line no-magic-numbers
+        links.length.should.equal(6); // eslint-disable-line no-magic-numbers
         done();
       });
   });

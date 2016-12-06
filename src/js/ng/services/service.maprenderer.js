@@ -120,10 +120,10 @@
       return oldCenter.subtract(offset);
     }
 
-    const maxZoom = 1;
-    const minZoom = 0.2;
-
     function setupMouseWheel(element, actions) {
+      const maxZoom = 1;
+      const minZoom = 0.2;
+
       if (actions.zoom) {
         element.bind('mousewheel', (event) => {
           if (event.altKey) {

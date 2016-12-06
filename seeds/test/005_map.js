@@ -32,16 +32,28 @@ const config = {
     factionid: 0
   }],
   connections: [{
-    loc1: 2,
-    loc2: 1,
+    start: 1,
+    end: 2,
     distance: 97154
   }, {
-    loc1: 1,
-    loc2: 3,
+    start: 1,
+    end: 3,
     distance: 94887
   }, {
-    loc1: 3,
-    loc2: 2,
+    start: 2,
+    end: 1,
+    distance: 97154
+  }, {
+    start: 2,
+    end: 3,
+    distance: 97154
+  }, {
+    start: 3,
+    end: 1,
+    distance: 97154
+  }, {
+    start: 3,
+    end: 2,
     distance: 97154
   }]
 };

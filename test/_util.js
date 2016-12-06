@@ -101,20 +101,29 @@ module.exports = {
       factionid: 0,
       type: 'hold',
       connections: [{
-        name: 'Amethyst',
-        loc1: 2,
-        loc2: 1,
+        start: 1,
+        end: 2,
         distance: 97154
       }, {
-        name: 'Garnet',
-        loc1: 2,
-        loc2: 1,
-        distance: 97154
-      }, {
-        name: 'Pearl',
-        loc1: 1,
-        loc2: 3,
+        start: 1,
+        end: 3,
         distance: 94887
+      }, {
+        start: 2,
+        end: 1,
+        distance: 97154
+      }, {
+        start: 2,
+        end: 3,
+        distance: 97154
+      }, {
+        start: 3,
+        end: 1,
+        distance: 97154
+      }, {
+        start: 3,
+        end: 2,
+        distance: 97154
       }]
     }
   }

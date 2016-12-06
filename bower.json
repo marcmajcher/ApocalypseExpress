@@ -15,6 +15,12 @@
     "tests"
   ],
   "dependencies": {
-    "paper": "^0.10.2"
+    "paper": "^0.10.2",
+    "font-awesome": "fontawesome#^4.7.0",
+    "angular": "angularjs#^1.5.9",
+    "angular-ui": "^0.4.0",
+    "angular-route": "^1.5.9",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
   }
 }

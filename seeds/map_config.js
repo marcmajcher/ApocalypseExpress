@@ -3,5738 +3,7025 @@
 /* eslint-env node */
 
 module.exports = {
-  locations: [
-    {
-      name: 'Ozz',
-      latitude: 30.2672,
-      longitude: -97.7431,
-      description: 'The Freehold of Ozz is the capitol of the Republic of Anatexis, and the seat of power in the central Hills. The city houses nearly a hundred thousand souls, and provides what little stability there is to the region. The freehold\'s leaders hold close ties with Petrex Enterprises, which allows them to also provide its inhabitants and allies with plentiful fuel and other luxuries. The presiding Chair of the freehold, Preston Federman, has pledged to keep order within the walls of the city, and vows to maintain the Republic\'s presence in the area, pushing back the encroaching Hills Confederacy, and fending off incursions by various renegade motor-gangs.',
-      population: 716512,
-      type: 'freehold',
-      tech: 8,
-      factionid: 1
-    },
-    {
-      name: 'Mabel',
-      latitude: 32.4487,
-      longitude: -99.7331,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Ackerly',
-      latitude: 32.5265,
-      longitude: -101.716,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Alice',
-      latitude: 27.8229,
-      longitude: -98.0582,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Allamoore',
-      latitude: 31.0781,
-      longitude: -105.003,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Alpine',
-      latitude: 30.3585,
-      longitude: -103.661,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Altuda',
-      latitude: 30.3019,
-      longitude: -103.457,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Brown Flats',
-      latitude: 35.3539,
-      longitude: -101.813,
-      description: 'This is a location.',
-      population: 178032,
-      type: 'hardhold',
-      tech: 7,
-      factionid: 3
-    },
-    {
-      name: 'Andrews',
-      latitude: 32.3187,
-      longitude: -102.546,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Angeles',
-      latitude: 31.9015,
-      longitude: -103.962,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Pissant',
-      latitude: 27.9778,
-      longitude: -97.1408,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Fable',
-      latitude: 32.7764,
-      longitude: -97.1081,
-      description: 'This is a location.',
-      population: 287,
-      type: 'camp',
-      tech: 4,
-      factionid: 5
-    },
-    {
-      name: 'Cooch',
-      latitude: 28.5001,
-      longitude: -99.7543,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Aspermont',
-      latitude: 33.1883,
-      longitude: -100.227,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Billy',
-      latitude: 32.2049,
-      longitude: -95.8555,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Atlantis',
-      latitude: 33.1137,
-      longitude: -94.1644,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Ballinger',
-      latitude: 31.7382,
-      longitude: -99.9473,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Balmorhea',
-      latitude: 30.9843,
-      longitude: -103.745,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Bahamut',
-      latitude: 31.1279,
-      longitude: -101.171,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Bastard',
-      latitude: 30.1105,
-      longitude: -97.3153,
-      description: 'While technically within the province of the Republic of Anatexis, Bastard is a loose encampment of runaways and renegades, living by their own means, scraping out what living they can from the scrub and scum that drifts through. They refuse to pledge loyalty to Ozz, and receive little material support in return, but the camp\'s few inhabitants stand by their independence. While not the safest place in the Hills to hang one\'s hat, the people of Bastard are quick to extend their own brand of justice to those who would molest anyone who chooses to stay with them.',
-      population: 937,
-      type: 'camp',
-      tech: 4,
-      factionid: 1
-    },
-    {
-      name: 'Roller',
-      latitude: 28.9828,
-      longitude: -95.9694,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Baton',
-      latitude: 29.7355,
-      longitude: -94.9774,
-      description: 'This is a location.',
-      population: 2711,
-      type: 'fort',
-      tech: 6,
-      factionid: 4
-    },
-    {
-      name: 'Prettyboy',
-      latitude: 30.0802,
-      longitude: -94.1266,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Deano',
-      latitude: 28.4774,
-      longitude: -97.7253,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Beltway',
-      latitude: 31.056,
-      longitude: -97.4645,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Big Lake',
-      latitude: 31.1915,
-      longitude: -101.46,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Big Spring',
-      latitude: 32.2504,
-      longitude: -101.479,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Identity',
-      latitude: 29.7947,
-      longitude: -98.732,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Booker',
-      latitude: 36.656,
-      longitude: -100.525,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'camp',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Borger',
-      latitude: 35.8194,
-      longitude: -101.383,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Bowie',
-      latitude: 33.6277,
-      longitude: -97.8486,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Bracketville',
-      latitude: 29.3105,
-      longitude: -100.418,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Brady',
-      latitude: 31.1352,
-      longitude: -99.3351,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Breckenridge',
-      latitude: 32.7949,
-      longitude: -98.9023,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Brahmin',
-      latitude: 30.1669,
-      longitude: -96.3977,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Brownfield',
-      latitude: 33.1812,
-      longitude: -102.274,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Starfish',
-      latitude: 26.0533,
-      longitude: -97.4952,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'enclave',
-      tech: 3,
-      factionid: 4
-    },
-    {
-      name: 'Deuce',
-      latitude: 31.7093,
-      longitude: -98.9912,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Azure',
-      latitude: 34.229,
-      longitude: -98.5614,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'enclave',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'BurnIt',
-      latitude: 30.7582,
-      longitude: -98.2284,
-      description: 'Anatexian extremists, the few hard men that have holed up in Burnit are loyal to the Republic and its leader, Federman, to the last. If you are not a friend of the Republic, the residents of Fort Burnit are no friends of yours, and they are quite inclined to put holes in any folks that they\'re not friends with that try to open their doors.',
-      population: 482,
-      type: 'compound',
-      tech: 4,
-      factionid: 1
-    },
-    {
-      name: 'Cactus',
-      latitude: 36.2335,
-      longitude: -101.995,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Canadian',
-      latitude: 36.1178,
-      longitude: -100.371,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Jayneston',
-      latitude: 32.5565,
-      longitude: -95.8633,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Canyon',
-      latitude: 35.1023,
-      longitude: -101.901,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Nox',
-      latitude: 32.4207,
-      longitude: -104.229,
-      description: 'This is a location.',
-      population: 149,
-      type: 'enclave',
-      tech: 2,
-      factionid: 5
-    },
-    {
-      name: 'Gonzo',
-      latitude: 28.5219,
-      longitude: -99.8606,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Carta Valley',
-      latitude: 29.79,
-      longitude: -100.672,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Carnage',
-      latitude: 32.1574,
-      longitude: -94.3374,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Catarina',
-      latitude: 28.4063,
-      longitude: -99.6088,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Carter',
-      latitude: 31.7955,
-      longitude: -94.1791,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Childress',
-      latitude: 34.5307,
-      longitude: -100.197,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Chilicothe',
-      latitude: 34.3469,
-      longitude: -99.5099,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Kidd',
-      latitude: 32.3882,
-      longitude: -98.9792,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Clarendon',
-      latitude: 35.0598,
-      longitude: -100.879,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Last Train',
-      latitude: 33.6735,
-      longitude: -95.0527,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Claude',
-      latitude: 35.2317,
-      longitude: -101.358,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Comet',
-      latitude: 31.8274,
-      longitude: -99.4265,
-      description: 'This is a location.',
-      population: 341,
-      type: 'enclave',
-      tech: 4,
-      factionid: 5
-    },
-    {
-      name: 'Castor',
-      latitude: 30.6675,
-      longitude: -96.3344,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Colorado City',
-      latitude: 32.3882,
-      longitude: -100.865,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Indigent',
-      latitude: 29.7066,
-      longitude: -96.5397,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Comanche',
-      latitude: 31.8974,
-      longitude: -98.6037,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Coldstone',
-      latitude: 29.9677,
-      longitude: -98.905,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'compound',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Wall Street',
-      latitude: 33.2941,
-      longitude: -95.9,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Concan',
-      latitude: 29.5015,
-      longitude: -99.7215,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Cornhole',
-      latitude: 30.3119,
-      longitude: -95.4561,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'CU-29',
-      latitude: 31.1241,
-      longitude: -97.9031,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Cornudas',
-      latitude: 31.7794,
-      longitude: -105.465,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Corseton',
-      latitude: 27.8752,
-      longitude: -97.3964,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'camp',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Cheesecake',
-      latitude: 32.0954,
-      longitude: -96.4689,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Cotulla',
-      latitude: 28.4369,
-      longitude: -99.235,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Crane',
-      latitude: 31.3974,
-      longitude: -102.35,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Goliath',
-      latitude: 31.3182,
-      longitude: -95.4566,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Crosbyton',
-      latitude: 33.7249,
-      longitude: -101.231,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Crowell',
-      latitude: 34.0646,
-      longitude: -99.7179,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Himalaya',
-      latitude: 28.6775,
-      longitude: -99.8281,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Queso',
-      latitude: 29.0939,
-      longitude: -97.2892,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Dalhart',
-      latitude: 36.2368,
-      longitude: -102.506,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Hater',
-      latitude: 32.8138,
-      longitude: -96.797,
-      description: 'This is a location.',
-      population: 188294,
-      type: 'freehold',
-      tech: 7,
-      factionid: 2
-    },
-    {
-      name: 'Decatur',
-      latitude: 33.301,
-      longitude: -97.5861,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Del Rio',
-      latitude: 29.3709,
-      longitude: -100.896,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Denison',
-      latitude: 33.8303,
-      longitude: -96.5298,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Denver City',
-      latitude: 32.9645,
-      longitude: -102.829,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Devil\'s Hole',
-      latitude: 31.1871,
-      longitude: -94.781,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Christa',
-      latitude: 28.6675,
-      longitude: -99.1706,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Dimmitt',
-      latitude: 34.691,
-      longitude: -102.303,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Dryden',
-      latitude: 30.0447,
-      longitude: -102.114,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Dumas',
-      latitude: 36.0308,
-      longitude: -101.966,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Easterly',
-      latitude: 32.4015,
-      longitude: -98.8176,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Guinness',
-      latitude: 26.4257,
-      longitude: -98.1541,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Eden',
-      latitude: 31.2163,
-      longitude: -99.8456,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Mode',
-      latitude: 28.9786,
-      longitude: -96.6461,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Beethoven',
-      latitude: 29.1966,
-      longitude: -96.2697,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Origin',
-      latitude: 31.7619,
-      longitude: -106.485,
-      description: 'This is a location.',
-      population: 82910,
-      type: 'enclave',
-      tech: 8,
-      factionid: 5
-    },
-    {
-      name: 'Eldorado',
-      latitude: 30.8602,
-      longitude: -100.601,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Eternal',
-      latitude: 28.1039,
-      longitude: -99.3384,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Fairport',
-      latitude: 31.7246,
-      longitude: -96.1652,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Furious',
-      latitude: 27.3194,
-      longitude: -98.135,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Floresville',
-      latitude: 29.1336,
-      longitude: -98.1561,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Floydada',
-      latitude: 34.0611,
-      longitude: -101.329,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Fort Davis',
-      latitude: 30.5882,
-      longitude: -103.895,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Fort Hancock',
-      latitude: 31.2915,
-      longitude: -105.86,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Angelus',
-      latitude: 30.894,
-      longitude: -102.879,
-      description: 'This is a location.',
-      population: 2802,
-      type: 'hardhold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Panther',
-      latitude: 32.7946,
-      longitude: -97.3239,
-      description: 'This is a location.',
-      population: 37002,
-      type: 'fort',
-      tech: 6,
-      factionid: 2
-    },
-    {
-      name: 'Freddie',
-      latitude: 30.3074,
-      longitude: -98.8743,
-      description: 'It is a marvel to many that the wooden and tin structures of Freddie\'s ramshackle community still stand in the wastes of the Hills. Travelers may find no safety and little comfort here, but it is a place where a driver can pull off the road for a bit, trade what they have for a bit of change, and top off their tank before heading back out into the darkness.',
-      population: 363,
-      type: 'fort',
-      tech: 4,
-      factionid: 1
-    },
-    {
-      name: 'Freer',
-      latitude: 27.9634,
-      longitude: -98.6086,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Friona',
-      latitude: 34.7459,
-      longitude: -102.71,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Fritch',
-      latitude: 35.6796,
-      longitude: -101.603,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Gail',
-      latitude: 32.8074,
-      longitude: -101.441,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Gaineston',
-      latitude: 33.6986,
-      longitude: -97.1333,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Gatesville',
-      latitude: 31.4352,
-      longitude: -97.7439,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Oleander',
-      latitude: 29.3013,
-      longitude: -94.7977,
-      description: 'This is a location.',
-      population: 7102,
-      type: 'hardhold',
-      tech: 7,
-      factionid: 4
-    },
-    {
-      name: 'Garden City',
-      latitude: 31.8639,
-      longitude: -101.481,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Foreman',
-      latitude: 28.3913,
-      longitude: -98.1152,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Washington',
-      latitude: 30.6333,
-      longitude: -97.678,
-      description: 'Old Euro had its Switzerland, and the Hills of the waste have Washington. When not in open conflict, Washington serves as a meeting place where the leaders of the various factions in the area can come to talk and negotiate in relative peace and safety. While not strictly prohibited, open display of weapons are clearly frowned upon within the walls of the city; this, combined with the ever present Wardens (who most absolutely display their arms openly) create a welcome atmosphere where both travelers and residents alike can let down their guards for a moment.',
-      population: 12987,
-      type: 'freehold',
-      tech: 6,
-      factionid: 1
-    },
-    {
-      name: 'Giggles',
-      latitude: 30.1827,
-      longitude: -96.9364,
-      description: 'If you\'ve swallowed a mouthful of booze in the Hills, it\'s more likely than not that you\'ve had yourself a taste of Giggles. If it can be brewed, fermented, or distilled, you can get it here. Gil Diggles runs the joint, and he makes sure that his walls are as fortified as his drinks.',
-      population: 2910,
-      type: 'fort',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Lorelei',
-      latitude: 32.7287,
-      longitude: -94.9424,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Daddy-O',
-      latitude: 28.6683,
-      longitude: -97.3883,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Speedy',
-      latitude: 29.5016,
-      longitude: -97.4525,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Goodnight',
-      latitude: 35.17,
-      longitude: -101.18,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Graham',
-      latitude: 33.1521,
-      longitude: -98.5895,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Granbury',
-      latitude: 32.4421,
-      longitude: -97.7942,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Grandfalls',
-      latitude: 31.3393,
-      longitude: -102.852,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Grape Creek',
-      latitude: 31.5899,
-      longitude: -100.543,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Groom',
-      latitude: 35.3431,
-      longitude: -101.097,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Guthrie',
-      latitude: 33.6207,
-      longitude: -100.323,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Herkimer',
-      latitude: 31.0835,
-      longitude: -97.6597,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Quinn',
-      latitude: 26.3261,
-      longitude: -97.6846,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Haskell',
-      latitude: 33.1576,
-      longitude: -99.7337,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Hearne',
-      latitude: 30.8785,
-      longitude: -96.593,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Frogtown',
-      latitude: 27.3987,
-      longitude: -98.6669,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Bigfoot',
-      latitude: 32.1532,
-      longitude: -94.7994,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Hereford',
-      latitude: 34.9332,
-      longitude: -102.389,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Hermleigh',
-      latitude: 32.6351,
-      longitude: -100.759,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Baptist',
-      latitude: 32.011,
-      longitude: -97.13,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Hobbes',
-      latitude: 32.7026,
-      longitude: -103.136,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Hustle',
-      latitude: 29.7604,
-      longitude: -95.3698,
-      description: 'This is a location.',
-      population: 824970,
-      type: 'hardhold',
-      tech: 9,
-      factionid: 4
-    },
-    {
-      name: 'Deerstalker',
-      latitude: 30.7235,
-      longitude: -95.5508,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Iowa Park',
-      latitude: 34.0676,
-      longitude: -98.6664,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Iraan',
-      latitude: 30.914,
-      longitude: -101.898,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Alexander',
-      latitude: 31.9638,
-      longitude: -95.2705,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Bismuth',
-      latitude: 30.9202,
-      longitude: -93.9966,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Cleaner',
-      latitude: 32.7574,
-      longitude: -94.3452,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Junction',
-      latitude: 30.4894,
-      longitude: -99.772,
-      description: 'This is a location.',
-      population: 8911,
-      type: 'freehold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Juno',
-      latitude: 30.1487,
-      longitude: -101.117,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Kimmy',
-      latitude: 28.885,
-      longitude: -97.9008,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Din',
-      latitude: 29.7858,
-      longitude: -95.8244,
-      description: 'This is a location.',
-      population: 8291,
-      type: 'hold',
-      tech: 6,
-      factionid: 4
-    },
-    {
-      name: 'Headshot',
-      latitude: 28.8191,
-      longitude: -97.8486,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Kermit',
-      latitude: 31.8576,
-      longitude: -103.093,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Kerrville',
-      latitude: 30.0474,
-      longitude: -99.1403,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Trout',
-      latitude: 32.3863,
-      longitude: -94.8758,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Kitten',
-      latitude: 31.1171,
-      longitude: -97.7278,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Checkers',
-      latitude: 27.6142,
-      longitude: -97.8561,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Knox City',
-      latitude: 33.4182,
-      longitude: -99.819,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Weikel',
-      latitude: 29.945,
-      longitude: -96.8766,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Luscious',
-      latitude: 29.0339,
-      longitude: -95.4344,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Lakeview',
-      latitude: 34.7801,
-      longitude: -100.681,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Lamesa',
-      latitude: 32.7376,
-      longitude: -101.951,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Compass',
-      latitude: 31.0638,
-      longitude: -98.1817,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Langtry',
-      latitude: 29.8086,
-      longitude: -101.56,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Seven',
-      latitude: 27.6128,
-      longitude: -99.478,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Laughlin AFB',
-      latitude: 29.3566,
-      longitude: -100.783,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'fort',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Lowkey',
-      latitude: 29.7288,
-      longitude: -99.7615,
-      description: 'This is a location.',
-      population: 583,
-      type: 'compound',
-      tech: 4,
-      factionid: 3
-    },
-    {
-      name: 'Levelland',
-      latitude: 33.5873,
-      longitude: -102.378,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Lindale',
-      latitude: 32.5157,
-      longitude: -95.4094,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Littlefield',
-      latitude: 34.0117,
-      longitude: -102.314,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Presumption',
-      latitude: 30.711,
-      longitude: -94.933,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Deerbourne',
-      latitude: 30.7593,
-      longitude: -98.675,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Scope',
-      latitude: 32.5007,
-      longitude: -94.7405,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Loving',
-      latitude: 32.2862,
-      longitude: -104.096,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Lubbock',
-      latitude: 33.6545,
-      longitude: -101.85,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Spinal',
-      latitude: 31.3382,
-      longitude: -94.7291,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Madisonville',
-      latitude: 30.9499,
-      longitude: -95.9116,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Marathon',
-      latitude: 30.2052,
-      longitude: -103.245,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hardhold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Agate',
-      latitude: 30.5433,
-      longitude: -98.2958,
-      description: 'Primarily a mining community, Agate also generates plentiful hydroelectric power to any settlers who choose to put down stakes nearby, and throw their hand towards scraping what little value there is left from the barren earth. Underground springs and geothermal spouts create the signature steam plumes that can be seen for miles around, letting friend and foe alike know exactly where the goods are.',
-      population: 1897,
-      type: 'camp',
-      tech: 3,
-      factionid: 1
-    },
-    {
-      name: 'Lux',
-      latitude: 30.3095,
-      longitude: -104.021,
-      description: 'This is a location.',
-      population: 382709,
-      type: 'freehold',
-      tech: 7,
-      factionid: 5
-    },
-    {
-      name: 'Shady',
-      latitude: 32.5449,
-      longitude: -94.3674,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Pitluck',
-      latitude: 30.7488,
-      longitude: -99.2306,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Matador',
-      latitude: 34.0985,
-      longitude: -100.817,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Zoltar',
-      latitude: 28.0945,
-      longitude: -97.8281,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Funt',
-      latitude: 26.308,
-      longitude: -98.2162,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'McCarney',
-      latitude: 31.1323,
-      longitude: -102.222,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'McLean',
-      latitude: 35.3624,
-      longitude: -100.589,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Wedgie',
-      latitude: 31.1952,
-      longitude: -99.5798,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'fort',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Memphis',
-      latitude: 34.8287,
-      longitude: -100.523,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Menard',
-      latitude: 30.9177,
-      longitude: -99.7865,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Mentone',
-      latitude: 31.7051,
-      longitude: -103.599,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Fred\'s Hat',
-      latitude: 31.2618,
-      longitude: -100.817,
-      description: 'This is a location.',
-      population: 500,
-      type: 'camp',
-      tech: 2,
-      factionid: 1
-    },
-    {
-      name: 'Midland',
-      latitude: 31.9973,
-      longitude: -102.078,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Birding',
-      latitude: 32.6632,
-      longitude: -95.4883,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Monahans',
-      latitude: 31.5943,
-      longitude: -102.893,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Morton',
-      latitude: 33.7251,
-      longitude: -102.759,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Big Fun',
-      latitude: 33.1568,
-      longitude: -94.9683,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Nickel',
-      latitude: 33.1887,
-      longitude: -95.2213,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Muleshoe',
-      latitude: 34.311,
-      longitude: -102.719,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Munday',
-      latitude: 33.4493,
-      longitude: -99.6229,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Nacho',
-      latitude: 31.6035,
-      longitude: -94.6555,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Faster',
-      latitude: 30.388,
-      longitude: -96.0877,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Hamlet',
-      latitude: 29.9744,
-      longitude: -93.9924,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Lobster',
-      latitude: 33.5344,
-      longitude: -94.4109,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Pussycake',
-      latitude: 29.703,
-      longitude: -98.1245,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Odessa',
-      latitude: 31.8457,
-      longitude: -102.368,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Ducky',
-      latitude: 30.093,
-      longitude: -93.7366,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Orla',
-      latitude: 31.863,
-      longitude: -103.909,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Ozona',
-      latitude: 30.7022,
-      longitude: -101.201,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Paducah',
-      latitude: 34.0948,
-      longitude: -100.3,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Judas',
-      latitude: 31.7621,
-      longitude: -95.6308,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Pampa',
-      latitude: 35.6878,
-      longitude: -100.939,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Startower',
-      latitude: 30.1807,
-      longitude: -101.549,
-      description: 'This is a location.',
-      population: 93,
-      type: 'enclave',
-      tech: 2,
-      factionid: 5
-    },
-    {
-      name: 'Panhandle',
-      latitude: 35.4752,
-      longitude: -101.362,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Myrtle',
-      latitude: 33.7415,
-      longitude: -95.5555,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Muscat',
-      latitude: 29.6911,
-      longitude: -95.2091,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 6,
-      factionid: 4
-    },
-    {
-      name: 'Camelback',
-      latitude: 29.5636,
-      longitude: -95.286,
-      description: 'This is a location.',
-      population: 710,
-      type: 'camp',
-      tech: 3,
-      factionid: 4
-    },
-    {
-      name: 'Pearsall',
-      latitude: 28.8922,
-      longitude: -99.095,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Pecos',
-      latitude: 31.4229,
-      longitude: -103.493,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Perico',
-      latitude: 36.4647,
-      longitude: -102.851,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Perryton',
-      latitude: 36.6045,
-      longitude: -100.792,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Ploughman',
-      latitude: 30.4394,
-      longitude: -97.62,
-      description: 'Ploughman is one of the primary outposts of Ozz, standing as a buffer between the great freehold and the wastes beyond. While partially supported by the city, Ploughman\'s marketplace stands on its own, including a robust black market. Once surrounded by fertile fields, the flat grey plains surrounding the hold now provide not only a reminder of what once was, but also giving their scouts a clear view of any approaching enemies.',
-      population: 8201,
-      type: 'hold',
-      tech: 6,
-      factionid: 1
-    },
-    {
-      name: 'Pine Springs',
-      latitude: 31.8938,
-      longitude: -104.798,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Refinery',
-      latitude: 32.9954,
-      longitude: -94.9658,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Plains',
-      latitude: 33.1887,
-      longitude: -102.828,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Plainview',
-      latitude: 34.2693,
-      longitude: -101.691,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Estella',
-      latitude: 33.0589,
-      longitude: -96.692,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Pleasantville',
-      latitude: 28.9672,
-      longitude: -98.4786,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Tarpit',
-      latitude: 27.9006,
-      longitude: -97.0565,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Dent',
-      latitude: 29.885,
-      longitude: -93.9399,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Cow Hollow',
-      latitude: 28.615,
-      longitude: -96.6261,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Fort Connor',
-      latitude: 28.4476,
-      longitude: -96.4054,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'fort',
-      tech: 6,
-      factionid: 4
-    },
-    {
-      name: 'Oregano',
-      latitude: 27.942,
-      longitude: -97.3101,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Post',
-      latitude: 33.2307,
-      longitude: -101.378,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Quanah',
-      latitude: 34.3982,
-      longitude: -99.7404,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Quebec',
-      latitude: 30.5107,
-      longitude: -104.4,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Arigorn',
-      latitude: 32.4699,
-      longitude: -98.6789,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Bass',
-      latitude: 31.2226,
-      longitude: -101.938,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Braveheart',
-      latitude: 27.4487,
-      longitude: -99.4777,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Geraldo',
-      latitude: 27.3792,
-      longitude: -97.8126,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Kojak',
-      latitude: 28.0909,
-      longitude: -97.0475,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'RockSprings',
-      latitude: 30.0158,
-      longitude: -100.205,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Guilder',
-      latitude: 29.5572,
-      longitude: -95.8086,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Rosenfeld',
-      latitude: 30.1033,
-      longitude: -102.752,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Cannonball',
-      latitude: 30.5083,
-      longitude: -97.6789,
-      description: 'An outpost of Ozz, Cannonball is known throughout the region for its high-quality munitions and manufacturing facilities. Safe not only behind the steel walls of their stronghold, but behind the rows of artillery that keep even the most suicidal wasteland rats far away from their gates. What Cannonball is most notorious for, however, are the thrilling and deadly road races that begin and end there. There are no statues or busts of the victors of these contests of ability and speed, but many wrecked chassis of past contestants adorn its ramparts.',
-      population: 6922,
-      type: 'hardhold',
-      tech: 7,
-      factionid: 1
-    },
-    {
-      name: 'Rust',
-      latitude: 31.796,
-      longitude: -95.1502,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Ryan',
-      latitude: 30.43,
-      longitude: -104.298,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'San Angelo',
-      latitude: 31.4638,
-      longitude: -100.437,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Alamo',
-      latitude: 29.4241,
-      longitude: -98.4936,
-      description: 'This is a location.',
-      population: 56393,
-      type: 'freehold',
-      tech: 6,
-      factionid: 1
-    },
-    {
-      name: 'Christmas',
-      latitude: 31.5299,
-      longitude: -94.106,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Lotus',
-      latitude: 27.8346,
-      longitude: -98.2274,
-      description: 'This is a location.',
-      population: 291,
-      type: 'enclave',
-      tech: 4,
-      factionid: 5
-    },
-    {
-      name: 'Saint Sirius',
-      latitude: 29.8833,
-      longitude: -97.9414,
-      description: 'The Light\'s closest outpost to the central freehold of Ozz, Saint Sirius is a welcoming, safe haven for those who accept their meager offerings. One of the primary Miracles of the Light is the limestone statue of Saint Sirius that stands before the enclave\'s gates, unweathered by the unrelenting storms and corruption of the Hills, and untouched by those who would molest the holy site.',
-      population: 174,
-      type: 'enclave',
-      tech: 4,
-      factionid: 5
-    },
-    {
-      name: 'Ali Baba',
-      latitude: 31.1957,
-      longitude: -98.7181,
-      description: 'This is a location.',
-      population: 2500,
-      type: 'compound',
-      tech: 3,
-      factionid: 1
-    },
-    {
-      name: 'Sanderson',
-      latitude: 30.1424,
-      longitude: -102.394,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Pegleg',
-      latitude: 31.7421,
-      longitude: -99.3217,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Saragosa',
-      latitude: 31.0617,
-      longitude: -103.656,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Seadrift',
-      latitude: 28.4153,
-      longitude: -96.7136,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Seagraves',
-      latitude: 32.9443,
-      longitude: -102.565,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Sparkle',
-      latitude: 29.5688,
-      longitude: -97.9647,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Seminole',
-      latitude: 32.719,
-      longitude: -102.645,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Seymour',
-      latitude: 33.5943,
-      longitude: -99.2604,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Shafter',
-      latitude: 29.8202,
-      longitude: -104.303,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'enclave',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Shamrock',
-      latitude: 35.35,
-      longitude: -100.244,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Sheffield',
-      latitude: 30.6904,
-      longitude: -101.823,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Sherman',
-      latitude: 33.7123,
-      longitude: -96.6181,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'White Hills',
-      latitude: 31.1746,
-      longitude: -105.357,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Silverton',
-      latitude: 34.563,
-      longitude: -101.305,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Slaton',
-      latitude: 33.4373,
-      longitude: -101.643,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Snyder',
-      latitude: 32.7179,
-      longitude: -100.918,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Socorro',
-      latitude: 31.6546,
-      longitude: -106.303,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Sonora',
-      latitude: 30.5668,
-      longitude: -100.643,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Spearman',
-      latitude: 36.3796,
-      longitude: -101.183,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Bobble',
-      latitude: 30.0799,
-      longitude: -95.4172,
-      description: 'This is a location.',
-      population: 171,
-      type: 'camp',
-      tech: 4,
-      factionid: 4
-    },
-    {
-      name: 'Spur',
-      latitude: 33.4765,
-      longitude: -100.856,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Stamford',
-      latitude: 32.9454,
-      longitude: -99.8029,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Stanton',
-      latitude: 32.1293,
-      longitude: -101.788,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Watkins',
-      latitude: 32.2207,
-      longitude: -98.2023,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Sterling City',
-      latitude: 31.8363,
-      longitude: -100.985,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Stratford',
-      latitude: 36.5019,
-      longitude: -102.065,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Sudan',
-      latitude: 34.0679,
-      longitude: -102.524,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Stevia',
-      latitude: 29.6197,
-      longitude: -95.6349,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'fort',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Dragonback',
-      latitude: 33.1384,
-      longitude: -95.6011,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Sage',
-      latitude: 36.1861,
-      longitude: -101.811,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'enclave',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Sweetwater',
-      latitude: 32.471,
-      longitude: -100.406,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Wildman',
-      latitude: 31.0982,
-      longitude: -97.3428,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Double Shot',
-      latitude: 33.4918,
-      longitude: -94.0385,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Texline',
-      latitude: 36.5804,
-      longitude: -103.006,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Texon',
-      latitude: 31.2249,
-      longitude: -101.69,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Woody',
-      latitude: 30.1658,
-      longitude: -95.4613,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'The Fork',
-      latitude: 28.5093,
-      longitude: -98.1687,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Tulia',
-      latitude: 34.6362,
-      longitude: -101.748,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Turkey',
-      latitude: 34.4905,
-      longitude: -100.878,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Bryce',
-      latitude: 32.3513,
-      longitude: -95.3011,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Uvalde',
-      latitude: 29.2097,
-      longitude: -99.7862,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Valentine',
-      latitude: 30.5874,
-      longitude: -104.497,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Van Horn',
-      latitude: 31.0399,
-      longitude: -104.831,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'fort',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Vega',
-      latitude: 35.3747,
-      longitude: -102.412,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Vernon',
-      latitude: 34.239,
-      longitude: -99.2559,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Queenie',
-      latitude: 28.8053,
-      longitude: -97.0036,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    },
-    {
-      name: 'Wall',
-      latitude: 31.374,
-      longitude: -100.308,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Buckle',
-      latitude: 31.5493,
-      longitude: -97.1467,
-      description: 'This is a location.',
-      population: 7839,
-      type: 'fort',
-      tech: 3,
-      factionid: 1
-    },
-    {
-      name: 'Waka',
-      latitude: 36.4802,
-      longitude: -101.034,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Wellington',
-      latitude: 34.9664,
-      longitude: -100.189,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Wheeler',
-      latitude: 35.591,
-      longitude: -100.26,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 3
-    },
-    {
-      name: 'Whites City',
-      latitude: 32.1757,
-      longitude: -104.377,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Wichita Falls',
-      latitude: 33.9923,
-      longitude: -98.4865,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Wickett',
-      latitude: 31.5701,
-      longitude: -103.001,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Wink',
-      latitude: 31.7512,
-      longitude: -103.16,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Winters',
-      latitude: 31.9565,
-      longitude: -99.9623,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 1
-    },
-    {
-      name: 'Canopy',
-      latitude: 30.7752,
-      longitude: -94.4155,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 2
-    },
-    {
-      name: 'Forest',
-      latitude: 31.506,
-      longitude: -97.205,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 5
-    },
-    {
-      name: 'Zap',
-      latitude: 26.9997,
-      longitude: -99.2553,
-      description: 'This is a location.',
-      population: 1000,
-      type: 'hold',
-      tech: 5,
-      factionid: 4
-    }
-  ],
-  connections: [
-    {
-      loc1: 2,
-      loc2: 53,
-      distance: 72787
-    },
-    {
-      loc1: 2,
-      loc2: 57,
-      distance: 84425
-    },
-    {
-      loc1: 2,
-      loc2: 270,
-      distance: 64362
-    },
-    {
-      loc1: 2,
-      loc2: 279,
-      distance: 66652
-    },
-    {
-      loc1: 2,
-      loc2: 304,
-      distance: 64385
-    },
-    {
-      loc1: 3,
-      loc2: 157,
-      distance: 32739
-    },
-    {
-      loc1: 4,
-      loc2: 68,
-      distance: 72593
-    },
-    {
-      loc1: 4,
-      loc2: 246,
-      distance: 17424
-    },
-    {
-      loc1: 5,
-      loc2: 291,
-      distance: 18952
-    },
-    {
-      loc1: 4,
-      loc2: 179,
-      distance: 47744
-    },
-    {
-      loc1: 4,
-      loc2: 97,
-      distance: 59749
-    },
-    {
-      loc1: 4,
-      loc2: 113,
-      distance: 66093
-    },
-    {
-      loc1: 3,
-      loc2: 27,
-      distance: 39845
-    },
-    {
-      loc1: 5,
-      loc2: 261,
-      distance: 36302
-    },
-    {
-      loc1: 6,
-      loc2: 100,
-      distance: 38285
-    },
-    {
-      loc1: 6,
-      loc2: 175,
-      distance: 42133
-    },
-    {
-      loc1: 7,
-      loc2: 102,
-      distance: 105631
-    },
-    {
-      loc1: 6,
-      loc2: 7,
-      distance: 25098
-    },
-    {
-      loc1: 7,
-      loc2: 173,
-      distance: 24150
-    },
-    {
-      loc1: 8,
-      loc2: 44,
-      distance: 30001
-    },
-    {
-      loc1: 8,
-      loc2: 56,
-      distance: 48439
-    },
-    {
-      loc1: 8,
-      loc2: 87,
-      distance: 75675
-    },
-    {
-      loc1: 8,
-      loc2: 107,
-      distance: 60378
-    },
-    {
-      loc1: 8,
-      loc2: 209,
-      distance: 44572
-    },
-    {
-      loc1: 8,
-      loc2: 292,
-      distance: 58453
-    },
-    {
-      loc1: 9,
-      loc2: 27,
-      distance: 102127
-    },
-    {
-      loc1: 9,
-      loc2: 148,
-      distance: 74772
-    },
-    {
-      loc1: 9,
-      loc2: 201,
-      distance: 55522
-    },
-    {
-      loc1: 9,
-      loc2: 255,
-      distance: 45854
-    },
-    {
-      loc1: 10,
-      loc2: 169,
-      distance: 46672
-    },
-    {
-      loc1: 10,
-      loc2: 203,
-      distance: 9976
-    },
-    {
-      loc1: 11,
-      loc2: 224,
-      distance: 13409
-    },
-    {
-      loc1: 11,
-      loc2: 228,
-      distance: 29704
-    },
-    {
-      loc1: 9,
-      loc2: 157,
-      distance: 79742
-    },
-    {
-      loc1: 11,
-      loc2: 236,
-      distance: 16544
-    },
-    {
-      loc1: 12,
-      loc2: 78,
-      distance: 34303
-    },
-    {
-      loc1: 13,
-      loc2: 46,
-      distance: 13968
-    },
-    {
-      loc1: 13,
-      loc2: 49,
-      distance: 18732
-    },
-    {
-      loc1: 14,
-      loc2: 125,
-      distance: 56458
-    },
-    {
-      loc1: 14,
-      loc2: 128,
-      distance: 49460
-    },
-    {
-      loc1: 14,
-      loc2: 153,
-      distance: 61412
-    },
-    {
-      loc1: 14,
-      loc2: 264,
-      distance: 95186
-    },
-    {
-      loc1: 14,
-      loc2: 269,
-      distance: 77375
-    },
-    {
-      loc1: 12,
-      loc2: 103,
-      distance: 24415
-    },
-    {
-      loc1: 15,
-      loc2: 43,
-      distance: 39601
-    },
-    {
-      loc1: 15,
-      loc2: 69,
-      distance: 60059
-    },
-    {
-      loc1: 15,
-      loc2: 140,
-      distance: 63073
-    },
-    {
-      loc1: 15,
-      loc2: 206,
-      distance: 55827
-    },
-    {
-      loc1: 15,
-      loc2: 288,
-      distance: 58199
-    },
-    {
-      loc1: 16,
-      loc2: 142,
-      distance: 51903
-    },
-    {
-      loc1: 16,
-      loc2: 281,
-      distance: 40634
-    },
-    {
-      loc1: 1,
-      loc2: 20,
-      distance: 53666
-    },
-    {
-      loc1: 14,
-      loc2: 279,
-      distance: 87281
-    },
-    {
-      loc1: 14,
-      loc2: 270,
-      distance: 49384
-    },
-    {
-      loc1: 1,
-      loc2: 104,
-      distance: 125786
-    },
-    {
-      loc1: 1,
-      loc2: 115,
-      distance: 89064
-    },
-    {
-      loc1: 1,
-      loc2: 174,
-      distance: 77946
-    },
-    {
-      loc1: 1,
-      loc2: 217,
-      distance: 28366
-    },
-    {
-      loc1: 1,
-      loc2: 240,
-      distance: 30755
-    },
-    {
-      loc1: 1,
-      loc2: 247,
-      distance: 50434
-    },
-    {
-      loc1: 17,
-      loc2: 57,
-      distance: 57818
-    },
-    {
-      loc1: 17,
-      loc2: 90,
-      distance: 59584
-    },
-    {
-      loc1: 17,
-      loc2: 243,
-      distance: 68346
-    },
-    {
-      loc1: 17,
-      loc2: 304,
-      distance: 25422
-    },
-    {
-      loc1: 18,
-      loc2: 100,
-      distance: 59217
-    },
-    {
-      loc1: 18,
-      loc2: 102,
-      distance: 86384
-    },
-    {
-      loc1: 18,
-      loc2: 251,
-      distance: 12353
-    },
-    {
-      loc1: 18,
-      loc2: 291,
-      distance: 110767
-    },
-    {
-      loc1: 19,
-      loc2: 26,
-      distance: 28896
-    },
-    {
-      loc1: 19,
-      loc2: 187,
-      distance: 39568
-    },
-    {
-      loc1: 19,
-      loc2: 204,
-      distance: 48333
-    },
-    {
-      loc1: 19,
-      loc2: 273,
-      distance: 83788
-    },
-    {
-      loc1: 20,
-      loc2: 115,
-      distance: 41641
-    },
-    {
-      loc1: 20,
-      loc2: 247,
-      distance: 70304
-    },
-    {
-      loc1: 21,
-      loc2: 92,
-      distance: 51090
-    },
-    {
-      loc1: 21,
-      loc2: 155,
-      distance: 63693
-    },
-    {
-      loc1: 21,
-      loc2: 226,
-      distance: 81913
-    },
-    {
-      loc1: 22,
-      loc2: 136,
-      distance: 42550
-    },
-    {
-      loc1: 22,
-      loc2: 211,
-      distance: 29433
-    },
-    {
-      loc1: 23,
-      loc2: 136,
-      distance: 136150
-    },
-    {
-      loc1: 23,
-      loc2: 141,
-      distance: 113089
-    },
-    {
-      loc1: 20,
-      loc2: 154,
-      distance: 51411
-    },
-    {
-      loc1: 23,
-      loc2: 202,
-      distance: 46337
-    },
-    {
-      loc1: 23,
-      loc2: 305,
-      distance: 89898
-    },
-    {
-      loc1: 24,
-      loc2: 113,
-      distance: 38730
-    },
-    {
-      loc1: 24,
-      loc2: 117,
-      distance: 47163
-    },
-    {
-      loc1: 24,
-      loc2: 147,
-      distance: 51529
-    },
-    {
-      loc1: 24,
-      loc2: 179,
-      distance: 41319
-    },
-    {
-      loc1: 25,
-      loc2: 114,
-      distance: 53900
-    },
-    {
-      loc1: 25,
-      loc2: 126,
-      distance: 21011
-    },
-    {
-      loc1: 25,
-      loc2: 280,
-      distance: 15438
-    },
-    {
-      loc1: 23,
-      loc2: 198,
-      distance: 19078
-    },
-    {
-      loc1: 26,
-      loc2: 283,
-      distance: 23040
-    },
-    {
-      loc1: 27,
-      loc2: 59,
-      distance: 61168
-    },
-    {
-      loc1: 27,
-      loc2: 271,
-      distance: 32901
-    },
-    {
-      loc1: 27,
-      loc2: 273,
-      distance: 69966
-    },
-    {
-      loc1: 28,
-      loc2: 62,
-      distance: 26384
-    },
-    {
-      loc1: 28,
-      loc2: 244,
-      distance: 50010
-    },
-    {
-      loc1: 29,
-      loc2: 216,
-      distance: 25717
-    },
-    {
-      loc1: 30,
-      loc2: 87,
-      distance: 67299
-    },
-    {
-      loc1: 30,
-      loc2: 209,
-      distance: 36830
-    },
-    {
-      loc1: 30,
-      loc2: 267,
-      distance: 68405
-    },
-    {
-      loc1: 31,
-      loc2: 79,
-      distance: 45054
-    },
-    {
-      loc1: 30,
-      loc2: 107,
-      distance: 20950
-    },
-    {
-      loc1: 30,
-      loc2: 207,
-      distance: 45113
-    },
-    {
-      loc1: 31,
-      loc2: 120,
-      distance: 99196
-    },
-    {
-      loc1: 31,
-      loc2: 301,
-      distance: 77220
-    },
-    {
-      loc1: 32,
-      loc2: 80,
-      distance: 48722
-    },
-    {
-      loc1: 32,
-      loc2: 289,
-      distance: 63934
-    },
-    {
-      loc1: 31,
-      loc2: 109,
-      distance: 76115
-    },
-    {
-      loc1: 33,
-      loc2: 38,
-      distance: 74119
-    },
-    {
-      loc1: 33,
-      loc2: 167,
-      distance: 85165
-    },
-    {
-      loc1: 33,
-      loc2: 177,
-      distance: 46262
-    },
-    {
-      loc1: 33,
-      loc2: 183,
-      distance: 28150
-    },
-    {
-      loc1: 33,
-      loc2: 248,
-      distance: 67349
-    },
-    {
-      loc1: 33,
-      loc2: 250,
-      distance: 72028
-    },
-    {
-      loc1: 34,
-      loc2: 53,
-      distance: 44938
-    },
-    {
-      loc1: 34,
-      loc2: 103,
-      distance: 162671
-    },
-    {
-      loc1: 34,
-      loc2: 120,
-      distance: 53223
-    },
-    {
-      loc1: 33,
-      loc2: 185,
-      distance: 54356
-    },
-    {
-      loc1: 34,
-      loc2: 128,
-      distance: 111434
-    },
-    {
-      loc1: 34,
-      loc2: 256,
-      distance: 108860
-    },
-    {
-      loc1: 34,
-      loc2: 270,
-      distance: 97694
-    },
-    {
-      loc1: 35,
-      loc2: 115,
-      distance: 54697
-    },
-    {
-      loc1: 35,
-      loc2: 146,
-      distance: 108324
-    },
-    {
-      loc1: 35,
-      loc2: 154,
-      distance: 61973
-    },
-    {
-      loc1: 35,
-      loc2: 197,
-      distance: 40246
-    },
-    {
-      loc1: 36,
-      loc2: 157,
-      distance: 61563
-    },
-    {
-      loc1: 36,
-      loc2: 163,
-      distance: 47688
-    },
-    {
-      loc1: 36,
-      loc2: 170,
-      distance: 62954
-    },
-    {
-      loc1: 36,
-      loc2: 220,
-      distance: 51916
-    },
-    {
-      loc1: 36,
-      loc2: 229,
-      distance: 84500
-    },
-    {
-      loc1: 38,
-      loc2: 61,
-      distance: 43921
-    },
-    {
-      loc1: 38,
-      loc2: 53,
-      distance: 79166
-    },
-    {
-      loc1: 36,
-      loc2: 253,
-      distance: 38370
-    },
-    {
-      loc1: 38,
-      loc2: 250,
-      distance: 33235
-    },
-    {
-      loc1: 39,
-      loc2: 301,
-      distance: 24437
-    },
-    {
-      loc1: 40,
-      loc2: 114,
-      distance: 56815
-    },
-    {
-      loc1: 40,
-      loc2: 158,
-      distance: 35523
-    },
-    {
-      loc1: 37,
-      loc2: 127,
-      distance: 42278
-    },
-    {
-      loc1: 40,
-      loc2: 167,
-      distance: 47647
-    },
-    {
-      loc1: 40,
-      loc2: 174,
-      distance: 20827
-    },
-    {
-      loc1: 41,
-      loc2: 87,
-      distance: 21413
-    },
-    {
-      loc1: 41,
-      loc2: 274,
-      distance: 33191
-    },
-    {
-      loc1: 41,
-      loc2: 278,
-      distance: 20030
-    },
-    {
-      loc1: 42,
-      loc2: 207,
-      distance: 74781
-    },
-    {
-      loc1: 42,
-      loc2: 216,
-      distance: 74518
-    },
-    {
-      loc1: 42,
-      loc2: 299,
-      distance: 55463
-    },
-    {
-      loc1: 43,
-      loc2: 78,
-      distance: 95349
-    },
-    {
-      loc1: 43,
-      loc2: 164,
-      distance: 49319
-    },
-    {
-      loc1: 43,
-      loc2: 277,
-      distance: 72083
-    },
-    {
-      loc1: 43,
-      loc2: 288,
-      distance: 64391
-    },
-    {
-      loc1: 44,
-      loc2: 286,
-      distance: 53504
-    },
-    {
-      loc1: 45,
-      loc2: 135,
-      distance: 112101
-    },
-    {
-      loc1: 45,
-      loc2: 169,
-      distance: 20682
-    },
-    {
-      loc1: 45,
-      loc2: 300,
-      distance: 32464
-    },
-    {
-      loc1: 46,
-      loc2: 75,
-      distance: 19147
-    },
-    {
-      loc1: 46,
-      loc2: 84,
-      distance: 72257
-    },
-    {
-      loc1: 47,
-      loc2: 80,
-      distance: 60411
-    },
-    {
-      loc1: 44,
-      loc2: 132,
-      distance: 49685
-    },
-    {
-      loc1: 47,
-      loc2: 237,
-      distance: 63672
-    },
-    {
-      loc1: 48,
-      loc2: 50,
-      distance: 48083
-    },
-    {
-      loc1: 48,
-      loc2: 131,
-      distance: 44569
-    },
-    {
-      loc1: 48,
-      loc2: 176,
-      distance: 45587
-    },
-    {
-      loc1: 49,
-      loc2: 95,
-      distance: 56688
-    },
-    {
-      loc1: 49,
-      loc2: 160,
-      distance: 97698
-    },
-    {
-      loc1: 50,
-      loc2: 196,
-      distance: 53541
-    },
-    {
-      loc1: 50,
-      loc2: 245,
-      distance: 32693
-    },
-    {
-      loc1: 51,
-      loc2: 184,
-      distance: 49180
-    },
-    {
-      loc1: 51,
-      loc2: 205,
-      distance: 51746
-    },
-    {
-      loc1: 51,
-      loc2: 298,
-      distance: 50912
-    },
-    {
-      loc1: 52,
-      loc2: 230,
-      distance: 22470
-    },
-    {
-      loc1: 52,
-      loc2: 293,
-      distance: 27564
-    },
-    {
-      loc1: 53,
-      loc2: 57,
-      distance: 81235
-    },
-    {
-      loc1: 53,
-      loc2: 61,
-      distance: 76016
-    },
-    {
-      loc1: 53,
-      loc2: 88,
-      distance: 15688
-    },
-    {
-      loc1: 53,
-      loc2: 270,
-      distance: 131707
-    },
-    {
-      loc1: 54,
-      loc2: 119,
-      distance: 31134
-    },
-    {
-      loc1: 51,
-      loc2: 287,
-      distance: 75362
-    },
-    {
-      loc1: 51,
-      loc2: 230,
-      distance: 46449
-    },
-    {
-      loc1: 54,
-      loc2: 124,
-      distance: 47335
-    },
-    {
-      loc1: 54,
-      loc2: 184,
-      distance: 42864
-    },
-    {
-      loc1: 54,
-      loc2: 287,
-      distance: 68960
-    },
-    {
-      loc1: 55,
-      loc2: 199,
-      distance: 62810
-    },
-    {
-      loc1: 59,
-      loc2: 279,
-      distance: 45160
-    },
-    {
-      loc1: 65,
-      loc2: 137,
-      distance: 50211
-    },
-    {
-      loc1: 69,
-      loc2: 296,
-      distance: 90320
-    },
-    {
-      loc1: 73,
-      loc2: 170,
-      distance: 61103
-    },
-    {
-      loc1: 77,
-      loc2: 87,
-      distance: 61204
-    },
-    {
-      loc1: 79,
-      loc2: 120,
-      distance: 105815
-    },
-    {
-      loc1: 82,
-      loc2: 253,
-      distance: 26965
-    },
-    {
-      loc1: 93,
-      loc2: 265,
-      distance: 25812
-    },
-    {
-      loc1: 98,
-      loc2: 244,
-      distance: 48772
-    },
-    {
-      loc1: 99,
-      loc2: 262,
-      distance: 57363
-    },
-    {
-      loc1: 108,
-      loc2: 157,
-      distance: 50990
-    },
-    {
-      loc1: 110,
-      loc2: 306,
-      distance: 53247
-    },
-    {
-      loc1: 122,
-      loc2: 190,
-      distance: 29080
-    },
-    {
-      loc1: 128,
-      loc2: 153,
-      distance: 36769
-    },
-    {
-      loc1: 130,
-      loc2: 307,
-      distance: 82854
-    },
-    {
-      loc1: 136,
-      loc2: 146,
-      distance: 47798
-    },
-    {
-      loc1: 137,
-      loc2: 166,
-      distance: 69201
-    },
-    {
-      loc1: 141,
-      loc2: 245,
-      distance: 72711
-    },
-    {
-      loc1: 140,
-      loc2: 288,
-      distance: 44163
-    },
-    {
-      loc1: 148,
-      loc2: 303,
-      distance: 14222
-    },
-    {
-      loc1: 166,
-      loc2: 305,
-      distance: 52306
-    },
-    {
-      loc1: 178,
-      loc2: 269,
-      distance: 62088
-    },
-    {
-      loc1: 188,
-      loc2: 201,
-      distance: 36335
-    },
-    {
-      loc1: 195,
-      loc2: 256,
-      distance: 39824
-    },
-    {
-      loc1: 200,
-      loc2: 254,
-      distance: 24626
-    },
-    {
-      loc1: 202,
-      loc2: 225,
-      distance: 36902
-    },
-    {
-      loc1: 215,
-      loc2: 282,
-      distance: 18953
-    },
-    {
-      loc1: 227,
-      loc2: 252,
-      distance: 30843
-    },
-    {
-      loc1: 233,
-      loc2: 283,
-      distance: 24862
-    },
-    {
-      loc1: 247,
-      loc2: 254,
-      distance: 35369
-    },
-    {
-      loc1: 262,
-      loc2: 287,
-      distance: 42235
-    },
-    {
-      loc1: 290,
-      loc2: 291,
-      distance: 62270
-    },
-    {
-      loc1: 55,
-      loc2: 210,
-      distance: 48749
-    },
-    {
-      loc1: 58,
-      loc2: 172,
-      distance: 66095
-    },
-    {
-      loc1: 60,
-      loc2: 146,
-      distance: 71625
-    },
-    {
-      loc1: 65,
-      loc2: 197,
-      distance: 67195
-    },
-    {
-      loc1: 64,
-      loc2: 289,
-      distance: 37028
-    },
-    {
-      loc1: 72,
-      loc2: 137,
-      distance: 77489
-    },
-    {
-      loc1: 71,
-      loc2: 201,
-      distance: 51522
-    },
-    {
-      loc1: 75,
-      loc2: 289,
-      distance: 62740
-    },
-    {
-      loc1: 77,
-      loc2: 292,
-      distance: 103596
-    },
-    {
-      loc1: 80,
-      loc2: 144,
-      distance: 113761
-    },
-    {
-      loc1: 85,
-      loc2: 106,
-      distance: 51796
-    },
-    {
-      loc1: 88,
-      loc2: 232,
-      distance: 16254
-    },
-    {
-      loc1: 94,
-      loc2: 185,
-      distance: 81457
-    },
-    {
-      loc1: 96,
-      loc2: 206,
-      distance: 57611
-    },
-    {
-      loc1: 101,
-      loc2: 261,
-      distance: 55525
-    },
-    {
-      loc1: 99,
-      loc2: 221,
-      distance: 44095
-    },
-    {
-      loc1: 104,
-      loc2: 149,
-      distance: 39193
-    },
-    {
-      loc1: 104,
-      loc2: 177,
-      distance: 67644
-    },
-    {
-      loc1: 113,
-      loc2: 179,
-      distance: 44689
-    },
-    {
-      loc1: 117,
-      loc2: 294,
-      distance: 41882
-    },
-    {
-      loc1: 124,
-      loc2: 182,
-      distance: 48862
-    },
-    {
-      loc1: 129,
-      loc2: 296,
-      distance: 106028
-    },
-    {
-      loc1: 131,
-      loc2: 176,
-      distance: 64721
-    },
-    {
-      loc1: 136,
-      loc2: 212,
-      distance: 37311
-    },
-    {
-      loc1: 138,
-      loc2: 301,
-      distance: 20730
-    },
-    {
-      loc1: 143,
-      loc2: 149,
-      distance: 84326
-    },
-    {
-      loc1: 146,
-      loc2: 268,
-      distance: 70903
-    },
-    {
-      loc1: 152,
-      loc2: 235,
-      distance: 26599
-    },
-    {
-      loc1: 159,
-      loc2: 208,
-      distance: 129025
-    },
-    {
-      loc1: 167,
-      loc2: 174,
-      distance: 52362
-    },
-    {
-      loc1: 165,
-      loc2: 170,
-      distance: 58999
-    },
-    {
-      loc1: 180,
-      loc2: 307,
-      distance: 153044
-    },
-    {
-      loc1: 182,
-      loc2: 184,
-      distance: 67328
-    },
-    {
-      loc1: 192,
-      loc2: 199,
-      distance: 65493
-    },
-    {
-      loc1: 207,
-      loc2: 216,
-      distance: 100860
-    },
-    {
-      loc1: 214,
-      loc2: 251,
-      distance: 50164
-    },
-    {
-      loc1: 226,
-      loc2: 227,
-      distance: 39722
-    },
-    {
-      loc1: 231,
-      loc2: 242,
-      distance: 16130
-    },
-    {
-      loc1: 243,
-      loc2: 295,
-      distance: 22956
-    },
-    {
-      loc1: 258,
-      loc2: 298,
-      distance: 41802
-    },
-    {
-      loc1: 56,
-      loc2: 119,
-      distance: 19874
-    },
-    {
-      loc1: 58,
-      loc2: 197,
-      distance: 38635
-    },
-    {
-      loc1: 60,
-      loc2: 154,
-      distance: 42536
-    },
-    {
-      loc1: 65,
-      loc2: 284,
-      distance: 17279
-    },
-    {
-      loc1: 68,
-      loc2: 228,
-      distance: 14398
-    },
-    {
-      loc1: 72,
-      loc2: 171,
-      distance: 73629
-    },
-    {
-      loc1: 71,
-      loc2: 181,
-      distance: 34284
-    },
-    {
-      loc1: 76,
-      loc2: 91,
-      distance: 79443
-    },
-    {
-      loc1: 78,
-      loc2: 103,
-      distance: 53388
-    },
-    {
-      loc1: 80,
-      loc2: 159,
-      distance: 96670
-    },
-    {
-      loc1: 85,
-      loc2: 132,
-      distance: 33254
-    },
-    {
-      loc1: 90,
-      loc2: 183,
-      distance: 27989
-    },
-    {
-      loc1: 94,
-      loc2: 243,
-      distance: 71858
-    },
-    {
-      loc1: 96,
-      loc2: 296,
-      distance: 103024
-    },
-    {
-      loc1: 101,
-      loc2: 265,
-      distance: 65218
-    },
-    {
-      loc1: 102,
-      loc2: 251,
-      distance: 81424
-    },
-    {
-      loc1: 105,
-      loc2: 113,
-      distance: 72095
-    },
-    {
-      loc1: 104,
-      loc2: 167,
-      distance: 61869
-    },
-    {
-      loc1: 114,
-      loc2: 240,
-      distance: 15033
-    },
-    {
-      loc1: 114,
-      loc2: 158,
-      distance: 79248
-    },
-    {
-      loc1: 124,
-      loc2: 207,
-      distance: 47093
-    },
-    {
-      loc1: 125,
-      loc2: 205,
-      distance: 45052
-    },
-    {
-      loc1: 131,
-      loc2: 196,
-      distance: 67222
-    },
-    {
-      loc1: 136,
-      loc2: 268,
-      distance: 38470
-    },
-    {
-      loc1: 139,
-      loc2: 233,
-      distance: 43514
-    },
-    {
-      loc1: 143,
-      loc2: 162,
-      distance: 98729
-    },
-    {
-      loc1: 146,
-      loc2: 276,
-      distance: 34544
-    },
-    {
-      loc1: 153,
-      loc2: 195,
-      distance: 19465
-    },
-    {
-      loc1: 160,
-      loc2: 234,
-      distance: 26594
-    },
-    {
-      loc1: 167,
-      loc2: 177,
-      distance: 55642
-    },
-    {
-      loc1: 173,
-      loc2: 239,
-      distance: 69210
-    },
-    {
-      loc1: 182,
-      loc2: 207,
-      distance: 57422
-    },
-    {
-      loc1: 181,
-      loc2: 233,
-      distance: 30845
-    },
-    {
-      loc1: 192,
-      loc2: 219,
-      distance: 18969
-    },
-    {
-      loc1: 196,
-      loc2: 245,
-      distance: 56557
-    },
-    {
-      loc1: 207,
-      loc2: 299,
-      distance: 67682
-    },
-    {
-      loc1: 214,
-      loc2: 291,
-      distance: 145605
-    },
-    {
-      loc1: 226,
-      loc2: 252,
-      distance: 28686
-    },
-    {
-      loc1: 231,
-      loc2: 290,
-      distance: 12850
-    },
-    {
-      loc1: 244,
-      loc2: 254,
-      distance: 58628
-    },
-    {
-      loc1: 258,
-      loc2: 299,
-      distance: 27304
-    },
-    {
-      loc1: 280,
-      loc2: 296,
-      distance: 55814
-    },
-    {
-      loc1: 56,
-      loc2: 124,
-      distance: 34478
-    },
-    {
-      loc1: 59,
-      loc2: 264,
-      distance: 40227
-    },
-    {
-      loc1: 61,
-      loc2: 110,
-      distance: 105248
-    },
-    {
-      loc1: 66,
-      loc2: 151,
-      distance: 16894
-    },
-    {
-      loc1: 69,
-      loc2: 78,
-      distance: 88679
-    },
-    {
-      loc1: 72,
-      loc2: 172,
-      distance: 62472
-    },
-    {
-      loc1: 73,
-      loc2: 229,
-      distance: 60563
-    },
-    {
-      loc1: 76,
-      loc2: 117,
-      distance: 50432
-    },
-    {
-      loc1: 78,
-      loc2: 109,
-      distance: 114502
-    },
-    {
-      loc1: 80,
-      loc2: 161,
-      distance: 11869
-    },
-    {
-      loc1: 85,
-      loc2: 165,
-      distance: 71323
-    },
-    {
-      loc1: 90,
-      loc2: 185,
-      distance: 34677
-    },
-    {
-      loc1: 94,
-      loc2: 266,
-      distance: 34612
-    },
-    {
-      loc1: 97,
-      loc2: 130,
-      distance: 55984
-    },
-    {
-      loc1: 102,
-      loc2: 122,
-      distance: 51965
-    },
-    {
-      loc1: 102,
-      loc2: 259,
-      distance: 114956
-    },
-    {
-      loc1: 105,
-      loc2: 130,
-      distance: 65278
-    },
-    {
-      loc1: 109,
-      loc2: 260,
-      distance: 55491
-    },
-    {
-      loc1: 115,
-      loc2: 154,
-      distance: 32924
-    },
-    {
-      loc1: 113,
-      loc2: 285,
-      distance: 15927
-    },
-    {
-      loc1: 125,
-      loc2: 269,
-      distance: 67571
-    },
-    {
-      loc1: 125,
-      loc2: 153,
-      distance: 55555
-    },
-    {
-      loc1: 131,
-      loc2: 288,
-      distance: 54949
-    },
-    {
-      loc1: 133,
-      loc2: 264,
-      distance: 18908
-    },
-    {
-      loc1: 139,
-      loc2: 259,
-      distance: 29127
-    },
-    {
-      loc1: 143,
-      loc2: 177,
-      distance: 71415
-    },
-    {
-      loc1: 147,
-      loc2: 285,
-      distance: 53610
-    },
-    {
-      loc1: 163,
-      loc2: 165,
-      distance: 38601
-    },
-    {
-      loc1: 167,
-      loc2: 248,
-      distance: 52438
-    },
-    {
-      loc1: 175,
-      loc2: 242,
-      distance: 32069
-    },
-    {
-      loc1: 182,
-      loc2: 258,
-      distance: 33817
-    },
-    {
-      loc1: 190,
-      loc2: 201,
-      distance: 57519
-    },
-    {
-      loc1: 193,
-      loc2: 277,
-      distance: 38870
-    },
-    {
-      loc1: 198,
-      loc2: 225,
-      distance: 14688
-    },
-    {
-      loc1: 210,
-      loc2: 260,
-      distance: 103224
-    },
-    {
-      loc1: 214,
-      loc2: 302,
-      distance: 51202
-    },
-    {
-      loc1: 226,
-      loc2: 294,
-      distance: 44610
-    },
-    {
-      loc1: 232,
-      loc2: 272,
-      distance: 68339
-    },
-    {
-      loc1: 244,
-      loc2: 289,
-      distance: 137262
-    },
-    {
-      loc1: 262,
-      loc2: 286,
-      distance: 43170
-    },
-    {
-      loc1: 280,
-      loc2: 306,
-      distance: 54112
-    },
-    {
-      loc1: 56,
-      loc2: 209,
-      distance: 28006
-    },
-    {
-      loc1: 60,
-      loc2: 118,
-      distance: 100430
-    },
-    {
-      loc1: 67,
-      loc2: 93,
-      distance: 110454
-    },
-    {
-      loc1: 70,
-      loc2: 285,
-      distance: 110312
-    },
-    {
-      loc1: 74,
-      loc2: 205,
-      distance: 58275
-    },
-    {
-      loc1: 77,
-      loc2: 274,
-      distance: 51090
-    },
-    {
-      loc1: 82,
-      loc2: 255,
-      distance: 33992
-    },
-    {
-      loc1: 86,
-      loc2: 259,
-      distance: 94845
-    },
-    {
-      loc1: 91,
-      loc2: 294,
-      distance: 40510
-    },
-    {
-      loc1: 100,
-      loc2: 175,
-      distance: 34023
-    },
-    {
-      loc1: 103,
-      loc2: 232,
-      distance: 137121
-    },
-    {
-      loc1: 108,
-      loc2: 264,
-      distance: 50276
-    },
-    {
-      loc1: 116,
-      loc2: 288,
-      distance: 58136
-    },
-    {
-      loc1: 123,
-      loc2: 273,
-      distance: 55520
-    },
-    {
-      loc1: 130,
-      loc2: 246,
-      distance: 69092
-    },
-    {
-      loc1: 136,
-      loc2: 211,
-      distance: 26473
-    },
-    {
-      loc1: 141,
-      loc2: 171,
-      distance: 89152
-    },
-    {
-      loc1: 145,
-      loc2: 147,
-      distance: 9660
-    },
-    {
-      loc1: 157,
-      loc2: 255,
-      distance: 65884
-    },
-    {
-      loc1: 164,
-      loc2: 288,
-      distance: 22262
-    },
-    {
-      loc1: 178,
-      loc2: 205,
-      distance: 50163
-    },
-    {
-      loc1: 187,
-      loc2: 243,
-      distance: 46430
-    },
-    {
-      loc1: 192,
-      loc2: 193,
-      distance: 25599
-    },
-    {
-      loc1: 206,
-      loc2: 241,
-      distance: 48928
-    },
-    {
-      loc1: 213,
-      loc2: 244,
-      distance: 88680
-    },
-    {
-      loc1: 218,
-      loc2: 300,
-      distance: 56761
-    },
-    {
-      loc1: 239,
-      loc2: 249,
-      distance: 40305
-    },
-    {
-      loc1: 267,
-      loc2: 297,
-      distance: 16408
-    },
-    {
-      loc1: 56,
-      loc2: 262,
-      distance: 84225
-    },
-    {
-      loc1: 60,
-      loc2: 92,
-      distance: 63279
-    },
-    {
-      loc1: 62,
-      loc2: 149,
-      distance: 28987
-    },
-    {
-      loc1: 67,
-      loc2: 218,
-      distance: 81550
-    },
-    {
-      loc1: 70,
-      loc2: 84,
-      distance: 26552
-    },
-    {
-      loc1: 73,
-      loc2: 99,
-      distance: 46124
-    },
-    {
-      loc1: 76,
-      loc2: 294,
-      distance: 44488
-    },
-    {
-      loc1: 79,
-      loc2: 103,
-      distance: 64846
-    },
-    {
-      loc1: 83,
-      loc2: 171,
-      distance: 18139
-    },
-    {
-      loc1: 89,
-      loc2: 97,
-      distance: 106913
-    },
-    {
-      loc1: 95,
-      loc2: 160,
-      distance: 61718
-    },
-    {
-      loc1: 98,
-      loc2: 145,
-      distance: 39482
-    },
-    {
-      loc1: 102,
-      loc2: 181,
-      distance: 75009
-    },
-    {
-      loc1: 103,
-      loc2: 121,
-      distance: 61193
-    },
-    {
-      loc1: 105,
-      loc2: 246,
-      distance: 40206
-    },
-    {
-      loc1: 112,
-      loc2: 188,
-      distance: 59547
-    },
-    {
-      loc1: 116,
-      loc2: 176,
-      distance: 63640
-    },
-    {
-      loc1: 120,
-      loc2: 301,
-      distance: 97807
-    },
-    {
-      loc1: 127,
-      loc2: 180,
-      distance: 56601
-    },
-    {
-      loc1: 131,
-      loc2: 140,
-      distance: 52270
-    },
-    {
-      loc1: 136,
-      loc2: 166,
-      distance: 118919
-    },
-    {
-      loc1: 140,
-      loc2: 241,
-      distance: 22518
-    },
-    {
-      loc1: 144,
-      loc2: 204,
-      distance: 68650
-    },
-    {
-      loc1: 156,
-      loc2: 184,
-      distance: 16500
-    },
-    {
-      loc1: 163,
-      loc2: 170,
-      distance: 49355
-    },
-    {
-      loc1: 168,
-      loc2: 176,
-      distance: 36783
-    },
-    {
-      loc1: 175,
-      loc2: 257,
-      distance: 64265
-    },
-    {
-      loc1: 186,
-      loc2: 203,
-      distance: 42402
-    },
-    {
-      loc1: 190,
-      loc2: 302,
-      distance: 11115
-    },
-    {
-      loc1: 199,
-      loc2: 281,
-      distance: 38675
-    },
-    {
-      loc1: 211,
-      loc2: 212,
-      distance: 33547
-    },
-    {
-      loc1: 223,
-      loc2: 244,
-      distance: 58622
-    },
-    {
-      loc1: 237,
-      loc2: 289,
-      distance: 110436
-    },
-    {
-      loc1: 256,
-      loc2: 301,
-      distance: 83822
-    },
-    {
-      loc1: 57,
-      loc2: 304,
-      distance: 56221
-    },
-    {
-      loc1: 57,
-      loc2: 250,
-      distance: 14721
-    },
-    {
-      loc1: 63,
-      loc2: 277,
-      distance: 31929
-    },
-    {
-      loc1: 68,
-      loc2: 152,
-      distance: 71607
-    },
-    {
-      loc1: 70,
-      loc2: 95,
-      distance: 46761
-    },
-    {
-      loc1: 74,
-      loc2: 153,
-      distance: 65389
-    },
-    {
-      loc1: 77,
-      loc2: 215,
-      distance: 41475
-    },
-    {
-      loc1: 78,
-      loc2: 277,
-      distance: 127023
-    },
-    {
-      loc1: 83,
-      loc2: 166,
-      distance: 56617
-    },
-    {
-      loc1: 86,
-      loc2: 249,
-      distance: 33078
-    },
-    {
-      loc1: 96,
-      loc2: 172,
-      distance: 92335
-    },
-    {
-      loc1: 99,
-      loc2: 178,
-      distance: 50809
-    },
-    {
-      loc1: 103,
-      loc2: 134,
-      distance: 90150
-    },
-    {
-      loc1: 106,
-      loc2: 132,
-      distance: 36132
-    },
-    {
-      loc1: 112,
-      loc2: 273,
-      distance: 51159
-    },
-    {
-      loc1: 116,
-      loc2: 219,
-      distance: 30368
-    },
-    {
-      loc1: 121,
-      loc2: 272,
-      distance: 47611
-    },
-    {
-      loc1: 127,
-      loc2: 235,
-      distance: 128488
-    },
-    {
-      loc1: 131,
-      loc2: 150,
-      distance: 28086
-    },
-    {
-      loc1: 136,
-      loc2: 276,
-      distance: 32688
-    },
-    {
-      loc1: 142,
-      loc2: 176,
-      distance: 27074
-    },
-    {
-      loc1: 148,
-      loc2: 190,
-      distance: 37265
-    },
-    {
-      loc1: 158,
-      loc2: 248,
-      distance: 59080
-    },
-    {
-      loc1: 170,
-      loc2: 263,
-      distance: 27077
-    },
-    {
-      loc1: 178,
-      loc2: 287,
-      distance: 45701
-    },
-    {
-      loc1: 191,
-      loc2: 194,
-      distance: 56465
-    },
-    {
-      loc1: 194,
-      loc2: 275,
-      distance: 25583
-    },
-    {
-      loc1: 212,
-      loc2: 276,
-      distance: 41894
-    },
-    {
-      loc1: 223,
-      loc2: 285,
-      distance: 67442
-    },
-    {
-      loc1: 236,
-      loc2: 252,
-      distance: 79320
-    },
-    {
-      loc1: 238,
-      loc2: 276,
-      distance: 19031
-    },
-    {
-      loc1: 279,
-      loc2: 304,
-      distance: 78274
-    },
-    {
-      loc1: 58,
-      loc2: 129,
-      distance: 42217
-    },
-    {
-      loc1: 61,
-      loc2: 272,
-      distance: 57196
-    },
-    {
-      loc1: 66,
-      loc2: 158,
-      distance: 30563
-    },
-    {
-      loc1: 69,
-      loc2: 96,
-      distance: 54596
-    },
-    {
-      loc1: 72,
-      loc2: 196,
-      distance: 87272
-    },
-    {
-      loc1: 73,
-      loc2: 269,
-      distance: 50325
-    },
-    {
-      loc1: 76,
-      loc2: 147,
-      distance: 66647
-    },
-    {
-      loc1: 78,
-      loc2: 134,
-      distance: 99941
-    },
-    {
-      loc1: 81,
-      loc2: 260,
-      distance: 18663
-    },
-    {
-      loc1: 85,
-      loc2: 286,
-      distance: 51810
-    },
-    {
-      loc1: 90,
-      loc2: 295,
-      distance: 51527
-    },
-    {
-      loc1: 95,
-      loc2: 105,
-      distance: 76780
-    },
-    {
-      loc1: 97,
-      loc2: 235,
-      distance: 36079
-    },
-    {
-      loc1: 102,
-      loc2: 173,
-      distance: 94220
-    },
-    {
-      loc1: 103,
-      loc2: 109,
-      distance: 104906
-    },
-    {
-      loc1: 105,
-      loc2: 160,
-      distance: 95733
-    },
-    {
-      loc1: 111,
-      loc2: 211,
-      distance: 67702
-    },
-    {
-      loc1: 116,
-      loc2: 150,
-      distance: 44470
-    },
-    {
-      loc1: 118,
-      loc2: 254,
-      distance: 53476
-    },
-    {
-      loc1: 126,
-      loc2: 151,
-      distance: 8673
-    },
-    {
-      loc1: 130,
-      loc2: 160,
-      distance: 90782
-    },
-    {
-      loc1: 133,
-      loc2: 279,
-      distance: 43761
-    },
-    {
-      loc1: 132,
-      loc2: 292,
-      distance: 49136
-    },
-    {
-      loc1: 140,
-      loc2: 206,
-      distance: 41991
-    },
-    {
-      loc1: 143,
-      loc2: 185,
-      distance: 50005
-    },
-    {
-      loc1: 148,
-      loc2: 186,
-      distance: 52333
-    },
-    {
-      loc1: 148,
-      loc2: 201,
-      distance: 73486
-    },
-    {
-      loc1: 170,
-      loc2: 221,
-      distance: 76134
-    },
-    {
-      loc1: 177,
-      loc2: 185,
-      distance: 61766
-    },
-    {
-      loc1: 186,
-      loc2: 214,
-      distance: 36633
-    },
-    {
-      loc1: 191,
-      loc2: 220,
-      distance: 62878
-    },
-    {
-      loc1: 204,
-      loc2: 266,
-      distance: 57106
-    },
-    {
-      loc1: 210,
-      loc2: 277,
-      distance: 60885
-    },
-    {
-      loc1: 217,
-      loc2: 240,
-      distance: 12321
-    },
-    {
-      loc1: 221,
-      loc2: 286,
-      distance: 41875
-    },
-    {
-      loc1: 237,
-      loc2: 266,
-      distance: 88498
-    },
-    {
-      loc1: 253,
-      loc2: 255,
-      distance: 27991
-    },
-    {
-      loc1: 267,
-      loc2: 274,
-      distance: 86024
-    },
-    {
-      loc1: 302,
-      loc2: 303,
-      distance: 35299
-    },
-    {
-      loc1: 58,
-      loc2: 137,
-      distance: 83770
-    },
-    {
-      loc1: 62,
-      loc2: 104,
-      distance: 36433
-    },
-    {
-      loc1: 68,
-      loc2: 179,
-      distance: 59073
-    },
-    {
-      loc1: 72,
-      loc2: 241,
-      distance: 73005
-    },
-    {
-      loc1: 74,
-      loc2: 293,
-      distance: 52594
-    },
-    {
-      loc1: 78,
-      loc2: 222,
-      distance: 32290
-    },
-    {
-      loc1: 84,
-      loc2: 213,
-      distance: 26206
-    },
-    {
-      loc1: 89,
-      loc2: 180,
-      distance: 18936
-    },
-    {
-      loc1: 91,
-      loc2: 92,
-      distance: 44814
-    },
-    {
-      loc1: 102,
-      loc2: 214,
-      distance: 85176
-    },
-    {
-      loc1: 104,
-      loc2: 143,
-      distance: 98629
-    },
-    {
-      loc1: 110,
-      loc2: 272,
-      distance: 105454
-    },
-    {
-      loc1: 117,
-      loc2: 147,
-      distance: 51388
-    },
-    {
-      loc1: 128,
-      loc2: 270,
-      distance: 26908
-    },
-    {
-      loc1: 135,
-      loc2: 255,
-      distance: 47608
-    },
-    {
-      loc1: 138,
-      loc2: 293,
-      distance: 62916
-    },
-    {
-      loc1: 143,
-      loc2: 237,
-      distance: 75271
-    },
-    {
-      loc1: 150,
-      loc2: 288,
-      distance: 41649
-    },
-    {
-      loc1: 164,
-      loc2: 189,
-      distance: 19108
-    },
-    {
-      loc1: 165,
-      loc2: 275,
-      distance: 25274
-    },
-    {
-      loc1: 188,
-      loc2: 271,
-      distance: 31147
-    },
-    {
-      loc1: 196,
-      loc2: 241,
-      distance: 57362
-    },
-    {
-      loc1: 200,
-      loc2: 247,
-      distance: 30472
-    },
-    {
-      loc1: 204,
-      loc2: 259,
-      distance: 67936
-    },
-    {
-      loc1: 216,
-      loc2: 297,
-      distance: 26253
-    },
-    {
-      loc1: 229,
-      loc2: 263,
-      distance: 38253
-    },
-    {
-      loc1: 234,
-      loc2: 307,
-      distance: 61892
-    },
-    {
-      loc1: 252,
-      loc2: 294,
-      distance: 52954
-    },
-    {
-      loc1: 264,
-      loc2: 269,
-      distance: 97740
-    },
-    {
-      loc1: 296,
-      loc2: 306,
-      distance: 8081
-    },
-    {
-      loc1: 59,
-      loc2: 273,
-      distance: 71621
-    },
-    {
-      loc1: 64,
-      loc2: 162,
-      distance: 27346
-    },
-    {
-      loc1: 69,
-      loc2: 134,
-      distance: 65815
-    },
-    {
-      loc1: 72,
-      loc2: 206,
-      distance: 56765
-    },
-    {
-      loc1: 74,
-      loc2: 230,
-      distance: 35379
-    },
-    {
-      loc1: 76,
-      loc2: 118,
-      distance: 52209
-    },
-    {
-      loc1: 82,
-      loc2: 220,
-      distance: 26369
-    },
-    {
-      loc1: 86,
-      loc2: 159,
-      distance: 64719
-    },
-    {
-      loc1: 92,
-      loc2: 238,
-      distance: 62763
-    },
-    {
-      loc1: 98,
-      loc2: 223,
-      distance: 38029
-    },
-    {
-      loc1: 102,
-      loc2: 249,
-      distance: 105254
-    },
-    {
-      loc1: 106,
-      loc2: 194,
-      distance: 47005
-    },
-    {
-      loc1: 110,
-      loc2: 280,
-      distance: 57090
-    },
-    {
-      loc1: 123,
-      loc2: 243,
-      distance: 20286
-    },
-    {
-      loc1: 128,
-      loc2: 195,
-      distance: 35174
-    },
-    {
-      loc1: 134,
-      loc2: 296,
-      distance: 54618
-    },
-    {
-      loc1: 137,
-      loc2: 172,
-      distance: 46423
-    },
-    {
-      loc1: 141,
-      loc2: 305,
-      distance: 44817
-    },
-    {
-      loc1: 143,
-      loc2: 266,
-      distance: 92348
-    },
-    {
-      loc1: 150,
-      loc2: 168,
-      distance: 18799
-    },
-    {
-      loc1: 163,
-      loc2: 191,
-      distance: 41979
-    },
-    {
-      loc1: 171,
-      loc2: 196,
-      distance: 32080
-    },
-    {
-      loc1: 189,
-      loc2: 277,
-      distance: 58969
-    },
-    {
-      loc1: 200,
-      loc2: 244,
-      distance: 54540
-    },
-    {
-      loc1: 207,
-      loc2: 209,
-      distance: 44955
-    },
-    {
-      loc1: 222,
-      loc2: 260,
-      distance: 74062
-    },
-    {
-      loc1: 229,
-      loc2: 264,
-      distance: 70997
-    },
-    {
-      loc1: 256,
-      loc2: 293,
-      distance: 73961
-    },
-    {
-      loc1: 268,
-      loc2: 284,
-      distance: 14011
-    },
-    {
-      loc1: 155,
-      loc2: 212,
-      distance: 66900
-    }
-  ]
+  locations: [{
+    name: 'Ozz',
+    latitude: 30.2672,
+    longitude: -97.7431,
+    description: 'The Freehold of Ozz is the capitol of the Republic of Anatexis, and the seat of power in the central Hills. The city houses nearly a hundred thousand souls, and provides what little stability there is to the region. The freehold\'s leaders hold close ties with Petrex Enterprises, which allows them to also provide its inhabitants and allies with plentiful fuel and other luxuries. The presiding Chair of the freehold, Preston Federman, has pledged to keep order within the walls of the city, and vows to maintain the Republic\'s presence in the area, pushing back the encroaching Hills Confederacy, and fending off incursions by various renegade motor-gangs.',
+    population: 716512,
+    type: 'freehold',
+    tech: 8,
+    factionid: 1
+  }, {
+    name: 'Mabel',
+    latitude: 32.4487,
+    longitude: -99.7331,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Ackerly',
+    latitude: 32.5265,
+    longitude: -101.716,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Alice',
+    latitude: 27.8229,
+    longitude: -98.0582,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Allamoore',
+    latitude: 31.0781,
+    longitude: -105.003,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Alpine',
+    latitude: 30.3585,
+    longitude: -103.661,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Altuda',
+    latitude: 30.3019,
+    longitude: -103.457,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Brown Flats',
+    latitude: 35.3539,
+    longitude: -101.813,
+    description: 'This is a location.',
+    population: 178032,
+    type: 'hardhold',
+    tech: 7,
+    factionid: 3
+  }, {
+    name: 'Andrews',
+    latitude: 32.3187,
+    longitude: -102.546,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Angeles',
+    latitude: 31.9015,
+    longitude: -103.962,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Pissant',
+    latitude: 27.9778,
+    longitude: -97.1408,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Fable',
+    latitude: 32.7764,
+    longitude: -97.1081,
+    description: 'This is a location.',
+    population: 287,
+    type: 'camp',
+    tech: 4,
+    factionid: 5
+  }, {
+    name: 'Cooch',
+    latitude: 28.5001,
+    longitude: -99.7543,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Aspermont',
+    latitude: 33.1883,
+    longitude: -100.227,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Billy',
+    latitude: 32.2049,
+    longitude: -95.8555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Atlantis',
+    latitude: 33.1137,
+    longitude: -94.1644,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Ballinger',
+    latitude: 31.7382,
+    longitude: -99.9473,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Balmorhea',
+    latitude: 30.9843,
+    longitude: -103.745,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Bahamut',
+    latitude: 31.1279,
+    longitude: -101.171,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Bastard',
+    latitude: 30.1105,
+    longitude: -97.3153,
+    description: 'While technically within the province of the Republic of Anatexis, Bastard is a loose encampment of runaways and renegades, living by their own means, scraping out what living they can from the scrub and scum that drifts through. They refuse to pledge loyalty to Ozz, and receive little material support in return, but the camp\'s few inhabitants stand by their independence. While not the safest place in the Hills to hang one\'s hat, the people of Bastard are quick to extend their own brand of justice to those who would molest anyone who chooses to stay with them.',
+    population: 937,
+    type: 'camp',
+    tech: 4,
+    factionid: 1
+  }, {
+    name: 'Roller',
+    latitude: 28.9828,
+    longitude: -95.9694,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Baton',
+    latitude: 29.7355,
+    longitude: -94.9774,
+    description: 'This is a location.',
+    population: 2711,
+    type: 'fort',
+    tech: 6,
+    factionid: 4
+  }, {
+    name: 'Prettyboy',
+    latitude: 30.0802,
+    longitude: -94.1266,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Deano',
+    latitude: 28.4774,
+    longitude: -97.7253,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Beltway',
+    latitude: 31.056,
+    longitude: -97.4645,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Big Lake',
+    latitude: 31.1915,
+    longitude: -101.46,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Big Spring',
+    latitude: 32.2504,
+    longitude: -101.479,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Identity',
+    latitude: 29.7947,
+    longitude: -98.732,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Booker',
+    latitude: 36.656,
+    longitude: -100.525,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'camp',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Borger',
+    latitude: 35.8194,
+    longitude: -101.383,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Bowie',
+    latitude: 33.6277,
+    longitude: -97.8486,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Bracketville',
+    latitude: 29.3105,
+    longitude: -100.418,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Brady',
+    latitude: 31.1352,
+    longitude: -99.3351,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Breckenridge',
+    latitude: 32.7949,
+    longitude: -98.9023,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Brahmin',
+    latitude: 30.1669,
+    longitude: -96.3977,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Brownfield',
+    latitude: 33.1812,
+    longitude: -102.274,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Starfish',
+    latitude: 26.0533,
+    longitude: -97.4952,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'enclave',
+    tech: 3,
+    factionid: 4
+  }, {
+    name: 'Deuce',
+    latitude: 31.7093,
+    longitude: -98.9912,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Azure',
+    latitude: 34.229,
+    longitude: -98.5614,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'enclave',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'BurnIt',
+    latitude: 30.7582,
+    longitude: -98.2284,
+    description: 'Anatexian extremists, the few hard men that have holed up in Burnit are loyal to the Republic and its leader, Federman, to the last. If you are not a friend of the Republic, the residents of Fort Burnit are no friends of yours, and they are quite inclined to put holes in any folks that they\'re not friends with that try to open their doors.',
+    population: 482,
+    type: 'compound',
+    tech: 4,
+    factionid: 1
+  }, {
+    name: 'Cactus',
+    latitude: 36.2335,
+    longitude: -101.995,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Canadian',
+    latitude: 36.1178,
+    longitude: -100.371,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Jayneston',
+    latitude: 32.5565,
+    longitude: -95.8633,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Canyon',
+    latitude: 35.1023,
+    longitude: -101.901,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Nox',
+    latitude: 32.4207,
+    longitude: -104.229,
+    description: 'This is a location.',
+    population: 149,
+    type: 'enclave',
+    tech: 2,
+    factionid: 5
+  }, {
+    name: 'Gonzo',
+    latitude: 28.5219,
+    longitude: -99.8606,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Carta Valley',
+    latitude: 29.79,
+    longitude: -100.672,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Carnage',
+    latitude: 32.1574,
+    longitude: -94.3374,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Catarina',
+    latitude: 28.4063,
+    longitude: -99.6088,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Carter',
+    latitude: 31.7955,
+    longitude: -94.1791,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Childress',
+    latitude: 34.5307,
+    longitude: -100.197,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Chilicothe',
+    latitude: 34.3469,
+    longitude: -99.5099,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Kidd',
+    latitude: 32.3882,
+    longitude: -98.9792,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Clarendon',
+    latitude: 35.0598,
+    longitude: -100.879,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Last Train',
+    latitude: 33.6735,
+    longitude: -95.0527,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Claude',
+    latitude: 35.2317,
+    longitude: -101.358,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Comet',
+    latitude: 31.8274,
+    longitude: -99.4265,
+    description: 'This is a location.',
+    population: 341,
+    type: 'enclave',
+    tech: 4,
+    factionid: 5
+  }, {
+    name: 'Castor',
+    latitude: 30.6675,
+    longitude: -96.3344,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Colorado City',
+    latitude: 32.3882,
+    longitude: -100.865,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Indigent',
+    latitude: 29.7066,
+    longitude: -96.5397,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Comanche',
+    latitude: 31.8974,
+    longitude: -98.6037,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Coldstone',
+    latitude: 29.9677,
+    longitude: -98.905,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'compound',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Wall Street',
+    latitude: 33.2941,
+    longitude: -95.9,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Concan',
+    latitude: 29.5015,
+    longitude: -99.7215,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Cornhole',
+    latitude: 30.3119,
+    longitude: -95.4561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'CU-29',
+    latitude: 31.1241,
+    longitude: -97.9031,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Cornudas',
+    latitude: 31.7794,
+    longitude: -105.465,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Corseton',
+    latitude: 27.8752,
+    longitude: -97.3964,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'camp',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Cheesecake',
+    latitude: 32.0954,
+    longitude: -96.4689,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Cotulla',
+    latitude: 28.4369,
+    longitude: -99.235,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Crane',
+    latitude: 31.3974,
+    longitude: -102.35,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Goliath',
+    latitude: 31.3182,
+    longitude: -95.4566,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Crosbyton',
+    latitude: 33.7249,
+    longitude: -101.231,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Crowell',
+    latitude: 34.0646,
+    longitude: -99.7179,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Himalaya',
+    latitude: 28.6775,
+    longitude: -99.8281,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Queso',
+    latitude: 29.0939,
+    longitude: -97.2892,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Dalhart',
+    latitude: 36.2368,
+    longitude: -102.506,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Hater',
+    latitude: 32.8138,
+    longitude: -96.797,
+    description: 'This is a location.',
+    population: 188294,
+    type: 'freehold',
+    tech: 7,
+    factionid: 2
+  }, {
+    name: 'Decatur',
+    latitude: 33.301,
+    longitude: -97.5861,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Del Rio',
+    latitude: 29.3709,
+    longitude: -100.896,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Denison',
+    latitude: 33.8303,
+    longitude: -96.5298,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Denver City',
+    latitude: 32.9645,
+    longitude: -102.829,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Devil\'s Hole',
+    latitude: 31.1871,
+    longitude: -94.781,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Christa',
+    latitude: 28.6675,
+    longitude: -99.1706,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Dimmitt',
+    latitude: 34.691,
+    longitude: -102.303,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Dryden',
+    latitude: 30.0447,
+    longitude: -102.114,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Dumas',
+    latitude: 36.0308,
+    longitude: -101.966,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Easterly',
+    latitude: 32.4015,
+    longitude: -98.8176,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Guinness',
+    latitude: 26.4257,
+    longitude: -98.1541,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Eden',
+    latitude: 31.2163,
+    longitude: -99.8456,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Mode',
+    latitude: 28.9786,
+    longitude: -96.6461,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Beethoven',
+    latitude: 29.1966,
+    longitude: -96.2697,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Origin',
+    latitude: 31.7619,
+    longitude: -106.485,
+    description: 'This is a location.',
+    population: 82910,
+    type: 'enclave',
+    tech: 8,
+    factionid: 5
+  }, {
+    name: 'Eldorado',
+    latitude: 30.8602,
+    longitude: -100.601,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Eternal',
+    latitude: 28.1039,
+    longitude: -99.3384,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Fairport',
+    latitude: 31.7246,
+    longitude: -96.1652,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Furious',
+    latitude: 27.3194,
+    longitude: -98.135,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Floresville',
+    latitude: 29.1336,
+    longitude: -98.1561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Floydada',
+    latitude: 34.0611,
+    longitude: -101.329,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Fort Davis',
+    latitude: 30.5882,
+    longitude: -103.895,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Fort Hancock',
+    latitude: 31.2915,
+    longitude: -105.86,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Angelus',
+    latitude: 30.894,
+    longitude: -102.879,
+    description: 'This is a location.',
+    population: 2802,
+    type: 'hardhold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Panther',
+    latitude: 32.7946,
+    longitude: -97.3239,
+    description: 'This is a location.',
+    population: 37002,
+    type: 'fort',
+    tech: 6,
+    factionid: 2
+  }, {
+    name: 'Freddie',
+    latitude: 30.3074,
+    longitude: -98.8743,
+    description: 'It is a marvel to many that the wooden and tin structures of Freddie\'s ramshackle community still stand in the wastes of the Hills. Travelers may find no safety and little comfort here, but it is a place where a driver can pull off the road for a bit, trade what they have for a bit of change, and top off their tank before heading back out into the darkness.',
+    population: 363,
+    type: 'fort',
+    tech: 4,
+    factionid: 1
+  }, {
+    name: 'Freer',
+    latitude: 27.9634,
+    longitude: -98.6086,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Friona',
+    latitude: 34.7459,
+    longitude: -102.71,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Fritch',
+    latitude: 35.6796,
+    longitude: -101.603,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Gail',
+    latitude: 32.8074,
+    longitude: -101.441,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Gaineston',
+    latitude: 33.6986,
+    longitude: -97.1333,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Gatesville',
+    latitude: 31.4352,
+    longitude: -97.7439,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Oleander',
+    latitude: 29.3013,
+    longitude: -94.7977,
+    description: 'This is a location.',
+    population: 7102,
+    type: 'hardhold',
+    tech: 7,
+    factionid: 4
+  }, {
+    name: 'Garden City',
+    latitude: 31.8639,
+    longitude: -101.481,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Foreman',
+    latitude: 28.3913,
+    longitude: -98.1152,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Washington',
+    latitude: 30.6333,
+    longitude: -97.678,
+    description: 'Old Euro had its Switzerland, and the Hills of the waste have Washington. When not in open conflict, Washington serves as a meeting place where the leaders of the various factions in the area can come to talk and negotiate in relative peace and safety. While not strictly prohibited, open display of weapons are clearly frowned upon within the walls of the city; this, combined with the ever present Wardens (who most absolutely display their arms openly) create a welcome atmosphere where both travelers and residents alike can let down their guards for a moment.',
+    population: 12987,
+    type: 'freehold',
+    tech: 6,
+    factionid: 1
+  }, {
+    name: 'Giggles',
+    latitude: 30.1827,
+    longitude: -96.9364,
+    description: 'If you\'ve swallowed a mouthful of booze in the Hills, it\'s more likely than not that you\'ve had yourself a taste of Giggles. If it can be brewed, fermented, or distilled, you can get it here. Gil Diggles runs the joint, and he makes sure that his walls are as fortified as his drinks.',
+    population: 2910,
+    type: 'fort',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Lorelei',
+    latitude: 32.7287,
+    longitude: -94.9424,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Daddy-O',
+    latitude: 28.6683,
+    longitude: -97.3883,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Speedy',
+    latitude: 29.5016,
+    longitude: -97.4525,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Goodnight',
+    latitude: 35.17,
+    longitude: -101.18,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Graham',
+    latitude: 33.1521,
+    longitude: -98.5895,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Granbury',
+    latitude: 32.4421,
+    longitude: -97.7942,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Grandfalls',
+    latitude: 31.3393,
+    longitude: -102.852,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Grape Creek',
+    latitude: 31.5899,
+    longitude: -100.543,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Groom',
+    latitude: 35.3431,
+    longitude: -101.097,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Guthrie',
+    latitude: 33.6207,
+    longitude: -100.323,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Herkimer',
+    latitude: 31.0835,
+    longitude: -97.6597,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Quinn',
+    latitude: 26.3261,
+    longitude: -97.6846,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Haskell',
+    latitude: 33.1576,
+    longitude: -99.7337,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Hearne',
+    latitude: 30.8785,
+    longitude: -96.593,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Frogtown',
+    latitude: 27.3987,
+    longitude: -98.6669,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Bigfoot',
+    latitude: 32.1532,
+    longitude: -94.7994,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Hereford',
+    latitude: 34.9332,
+    longitude: -102.389,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Hermleigh',
+    latitude: 32.6351,
+    longitude: -100.759,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Baptist',
+    latitude: 32.011,
+    longitude: -97.13,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Hobbes',
+    latitude: 32.7026,
+    longitude: -103.136,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Hustle',
+    latitude: 29.7604,
+    longitude: -95.3698,
+    description: 'This is a location.',
+    population: 824970,
+    type: 'hardhold',
+    tech: 9,
+    factionid: 4
+  }, {
+    name: 'Deerstalker',
+    latitude: 30.7235,
+    longitude: -95.5508,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Iowa Park',
+    latitude: 34.0676,
+    longitude: -98.6664,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Iraan',
+    latitude: 30.914,
+    longitude: -101.898,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Alexander',
+    latitude: 31.9638,
+    longitude: -95.2705,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Bismuth',
+    latitude: 30.9202,
+    longitude: -93.9966,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Cleaner',
+    latitude: 32.7574,
+    longitude: -94.3452,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Junction',
+    latitude: 30.4894,
+    longitude: -99.772,
+    description: 'This is a location.',
+    population: 8911,
+    type: 'freehold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Juno',
+    latitude: 30.1487,
+    longitude: -101.117,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Kimmy',
+    latitude: 28.885,
+    longitude: -97.9008,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Din',
+    latitude: 29.7858,
+    longitude: -95.8244,
+    description: 'This is a location.',
+    population: 8291,
+    type: 'hold',
+    tech: 6,
+    factionid: 4
+  }, {
+    name: 'Headshot',
+    latitude: 28.8191,
+    longitude: -97.8486,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Kermit',
+    latitude: 31.8576,
+    longitude: -103.093,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Kerrville',
+    latitude: 30.0474,
+    longitude: -99.1403,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Trout',
+    latitude: 32.3863,
+    longitude: -94.8758,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Kitten',
+    latitude: 31.1171,
+    longitude: -97.7278,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Checkers',
+    latitude: 27.6142,
+    longitude: -97.8561,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Knox City',
+    latitude: 33.4182,
+    longitude: -99.819,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Weikel',
+    latitude: 29.945,
+    longitude: -96.8766,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Luscious',
+    latitude: 29.0339,
+    longitude: -95.4344,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Lakeview',
+    latitude: 34.7801,
+    longitude: -100.681,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Lamesa',
+    latitude: 32.7376,
+    longitude: -101.951,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Compass',
+    latitude: 31.0638,
+    longitude: -98.1817,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Langtry',
+    latitude: 29.8086,
+    longitude: -101.56,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Seven',
+    latitude: 27.6128,
+    longitude: -99.478,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Laughlin AFB',
+    latitude: 29.3566,
+    longitude: -100.783,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'fort',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Lowkey',
+    latitude: 29.7288,
+    longitude: -99.7615,
+    description: 'This is a location.',
+    population: 583,
+    type: 'compound',
+    tech: 4,
+    factionid: 3
+  }, {
+    name: 'Levelland',
+    latitude: 33.5873,
+    longitude: -102.378,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Lindale',
+    latitude: 32.5157,
+    longitude: -95.4094,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Littlefield',
+    latitude: 34.0117,
+    longitude: -102.314,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Presumption',
+    latitude: 30.711,
+    longitude: -94.933,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Deerbourne',
+    latitude: 30.7593,
+    longitude: -98.675,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Scope',
+    latitude: 32.5007,
+    longitude: -94.7405,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Loving',
+    latitude: 32.2862,
+    longitude: -104.096,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Lubbock',
+    latitude: 33.6545,
+    longitude: -101.85,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Spinal',
+    latitude: 31.3382,
+    longitude: -94.7291,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Madisonville',
+    latitude: 30.9499,
+    longitude: -95.9116,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Marathon',
+    latitude: 30.2052,
+    longitude: -103.245,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hardhold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Agate',
+    latitude: 30.5433,
+    longitude: -98.2958,
+    description: 'Primarily a mining community, Agate also generates plentiful hydroelectric power to any settlers who choose to put down stakes nearby, and throw their hand towards scraping what little value there is left from the barren earth. Underground springs and geothermal spouts create the signature steam plumes that can be seen for miles around, letting friend and foe alike know exactly where the goods are.',
+    population: 1897,
+    type: 'camp',
+    tech: 3,
+    factionid: 1
+  }, {
+    name: 'Lux',
+    latitude: 30.3095,
+    longitude: -104.021,
+    description: 'This is a location.',
+    population: 382709,
+    type: 'freehold',
+    tech: 7,
+    factionid: 5
+  }, {
+    name: 'Shady',
+    latitude: 32.5449,
+    longitude: -94.3674,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Pitluck',
+    latitude: 30.7488,
+    longitude: -99.2306,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Matador',
+    latitude: 34.0985,
+    longitude: -100.817,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Zoltar',
+    latitude: 28.0945,
+    longitude: -97.8281,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Funt',
+    latitude: 26.308,
+    longitude: -98.2162,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'McCarney',
+    latitude: 31.1323,
+    longitude: -102.222,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'McLean',
+    latitude: 35.3624,
+    longitude: -100.589,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Wedgie',
+    latitude: 31.1952,
+    longitude: -99.5798,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'fort',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Memphis',
+    latitude: 34.8287,
+    longitude: -100.523,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Menard',
+    latitude: 30.9177,
+    longitude: -99.7865,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Mentone',
+    latitude: 31.7051,
+    longitude: -103.599,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Fred\'s Hat',
+    latitude: 31.2618,
+    longitude: -100.817,
+    description: 'This is a location.',
+    population: 500,
+    type: 'camp',
+    tech: 2,
+    factionid: 1
+  }, {
+    name: 'Midland',
+    latitude: 31.9973,
+    longitude: -102.078,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Birding',
+    latitude: 32.6632,
+    longitude: -95.4883,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Monahans',
+    latitude: 31.5943,
+    longitude: -102.893,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Morton',
+    latitude: 33.7251,
+    longitude: -102.759,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Big Fun',
+    latitude: 33.1568,
+    longitude: -94.9683,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Nickel',
+    latitude: 33.1887,
+    longitude: -95.2213,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Muleshoe',
+    latitude: 34.311,
+    longitude: -102.719,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Munday',
+    latitude: 33.4493,
+    longitude: -99.6229,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Nacho',
+    latitude: 31.6035,
+    longitude: -94.6555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Faster',
+    latitude: 30.388,
+    longitude: -96.0877,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Hamlet',
+    latitude: 29.9744,
+    longitude: -93.9924,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Lobster',
+    latitude: 33.5344,
+    longitude: -94.4109,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Pussycake',
+    latitude: 29.703,
+    longitude: -98.1245,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Odessa',
+    latitude: 31.8457,
+    longitude: -102.368,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Ducky',
+    latitude: 30.093,
+    longitude: -93.7366,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Orla',
+    latitude: 31.863,
+    longitude: -103.909,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Ozona',
+    latitude: 30.7022,
+    longitude: -101.201,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Paducah',
+    latitude: 34.0948,
+    longitude: -100.3,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Judas',
+    latitude: 31.7621,
+    longitude: -95.6308,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Pampa',
+    latitude: 35.6878,
+    longitude: -100.939,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Startower',
+    latitude: 30.1807,
+    longitude: -101.549,
+    description: 'This is a location.',
+    population: 93,
+    type: 'enclave',
+    tech: 2,
+    factionid: 5
+  }, {
+    name: 'Panhandle',
+    latitude: 35.4752,
+    longitude: -101.362,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Myrtle',
+    latitude: 33.7415,
+    longitude: -95.5555,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Muscat',
+    latitude: 29.6911,
+    longitude: -95.2091,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 6,
+    factionid: 4
+  }, {
+    name: 'Camelback',
+    latitude: 29.5636,
+    longitude: -95.286,
+    description: 'This is a location.',
+    population: 710,
+    type: 'camp',
+    tech: 3,
+    factionid: 4
+  }, {
+    name: 'Pearsall',
+    latitude: 28.8922,
+    longitude: -99.095,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Pecos',
+    latitude: 31.4229,
+    longitude: -103.493,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Perico',
+    latitude: 36.4647,
+    longitude: -102.851,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Perryton',
+    latitude: 36.6045,
+    longitude: -100.792,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Ploughman',
+    latitude: 30.4394,
+    longitude: -97.62,
+    description: 'Ploughman is one of the primary outposts of Ozz, standing as a buffer between the great freehold and the wastes beyond. While partially supported by the city, Ploughman\'s marketplace stands on its own, including a robust black market. Once surrounded by fertile fields, the flat grey plains surrounding the hold now provide not only a reminder of what once was, but also giving their scouts a clear view of any approaching enemies.',
+    population: 8201,
+    type: 'hold',
+    tech: 6,
+    factionid: 1
+  }, {
+    name: 'Pine Springs',
+    latitude: 31.8938,
+    longitude: -104.798,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Refinery',
+    latitude: 32.9954,
+    longitude: -94.9658,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Plains',
+    latitude: 33.1887,
+    longitude: -102.828,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Plainview',
+    latitude: 34.2693,
+    longitude: -101.691,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Estella',
+    latitude: 33.0589,
+    longitude: -96.692,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Pleasantville',
+    latitude: 28.9672,
+    longitude: -98.4786,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Tarpit',
+    latitude: 27.9006,
+    longitude: -97.0565,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Dent',
+    latitude: 29.885,
+    longitude: -93.9399,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Cow Hollow',
+    latitude: 28.615,
+    longitude: -96.6261,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Fort Connor',
+    latitude: 28.4476,
+    longitude: -96.4054,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'fort',
+    tech: 6,
+    factionid: 4
+  }, {
+    name: 'Oregano',
+    latitude: 27.942,
+    longitude: -97.3101,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Post',
+    latitude: 33.2307,
+    longitude: -101.378,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Quanah',
+    latitude: 34.3982,
+    longitude: -99.7404,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Quebec',
+    latitude: 30.5107,
+    longitude: -104.4,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Arigorn',
+    latitude: 32.4699,
+    longitude: -98.6789,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Bass',
+    latitude: 31.2226,
+    longitude: -101.938,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Braveheart',
+    latitude: 27.4487,
+    longitude: -99.4777,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Geraldo',
+    latitude: 27.3792,
+    longitude: -97.8126,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Kojak',
+    latitude: 28.0909,
+    longitude: -97.0475,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'RockSprings',
+    latitude: 30.0158,
+    longitude: -100.205,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Guilder',
+    latitude: 29.5572,
+    longitude: -95.8086,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Rosenfeld',
+    latitude: 30.1033,
+    longitude: -102.752,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Cannonball',
+    latitude: 30.5083,
+    longitude: -97.6789,
+    description: 'An outpost of Ozz, Cannonball is known throughout the region for its high-quality munitions and manufacturing facilities. Safe not only behind the steel walls of their stronghold, but behind the rows of artillery that keep even the most suicidal wasteland rats far away from their gates. What Cannonball is most notorious for, however, are the thrilling and deadly road races that begin and end there. There are no statues or busts of the victors of these contests of ability and speed, but many wrecked chassis of past contestants adorn its ramparts.',
+    population: 6922,
+    type: 'hardhold',
+    tech: 7,
+    factionid: 1
+  }, {
+    name: 'Rust',
+    latitude: 31.796,
+    longitude: -95.1502,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Ryan',
+    latitude: 30.43,
+    longitude: -104.298,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'San Angelo',
+    latitude: 31.4638,
+    longitude: -100.437,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Alamo',
+    latitude: 29.4241,
+    longitude: -98.4936,
+    description: 'This is a location.',
+    population: 56393,
+    type: 'freehold',
+    tech: 6,
+    factionid: 1
+  }, {
+    name: 'Christmas',
+    latitude: 31.5299,
+    longitude: -94.106,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Lotus',
+    latitude: 27.8346,
+    longitude: -98.2274,
+    description: 'This is a location.',
+    population: 291,
+    type: 'enclave',
+    tech: 4,
+    factionid: 5
+  }, {
+    name: 'Saint Sirius',
+    latitude: 29.8833,
+    longitude: -97.9414,
+    description: 'The Light\'s closest outpost to the central freehold of Ozz, Saint Sirius is a welcoming, safe haven for those who accept their meager offerings. One of the primary Miracles of the Light is the limestone statue of Saint Sirius that stands before the enclave\'s gates, unweathered by the unrelenting storms and corruption of the Hills, and untouched by those who would molest the holy site.',
+    population: 174,
+    type: 'enclave',
+    tech: 4,
+    factionid: 5
+  }, {
+    name: 'Ali Baba',
+    latitude: 31.1957,
+    longitude: -98.7181,
+    description: 'This is a location.',
+    population: 2500,
+    type: 'compound',
+    tech: 3,
+    factionid: 1
+  }, {
+    name: 'Sanderson',
+    latitude: 30.1424,
+    longitude: -102.394,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Pegleg',
+    latitude: 31.7421,
+    longitude: -99.3217,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Saragosa',
+    latitude: 31.0617,
+    longitude: -103.656,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Seadrift',
+    latitude: 28.4153,
+    longitude: -96.7136,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Seagraves',
+    latitude: 32.9443,
+    longitude: -102.565,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Sparkle',
+    latitude: 29.5688,
+    longitude: -97.9647,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Seminole',
+    latitude: 32.719,
+    longitude: -102.645,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Seymour',
+    latitude: 33.5943,
+    longitude: -99.2604,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Shafter',
+    latitude: 29.8202,
+    longitude: -104.303,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'enclave',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Shamrock',
+    latitude: 35.35,
+    longitude: -100.244,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Sheffield',
+    latitude: 30.6904,
+    longitude: -101.823,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Sherman',
+    latitude: 33.7123,
+    longitude: -96.6181,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'White Hills',
+    latitude: 31.1746,
+    longitude: -105.357,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Silverton',
+    latitude: 34.563,
+    longitude: -101.305,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Slaton',
+    latitude: 33.4373,
+    longitude: -101.643,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Snyder',
+    latitude: 32.7179,
+    longitude: -100.918,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Socorro',
+    latitude: 31.6546,
+    longitude: -106.303,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Sonora',
+    latitude: 30.5668,
+    longitude: -100.643,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Spearman',
+    latitude: 36.3796,
+    longitude: -101.183,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Bobble',
+    latitude: 30.0799,
+    longitude: -95.4172,
+    description: 'This is a location.',
+    population: 171,
+    type: 'camp',
+    tech: 4,
+    factionid: 4
+  }, {
+    name: 'Spur',
+    latitude: 33.4765,
+    longitude: -100.856,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Stamford',
+    latitude: 32.9454,
+    longitude: -99.8029,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Stanton',
+    latitude: 32.1293,
+    longitude: -101.788,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Watkins',
+    latitude: 32.2207,
+    longitude: -98.2023,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Sterling City',
+    latitude: 31.8363,
+    longitude: -100.985,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Stratford',
+    latitude: 36.5019,
+    longitude: -102.065,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Sudan',
+    latitude: 34.0679,
+    longitude: -102.524,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Stevia',
+    latitude: 29.6197,
+    longitude: -95.6349,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'fort',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Dragonback',
+    latitude: 33.1384,
+    longitude: -95.6011,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Sage',
+    latitude: 36.1861,
+    longitude: -101.811,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'enclave',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Sweetwater',
+    latitude: 32.471,
+    longitude: -100.406,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Wildman',
+    latitude: 31.0982,
+    longitude: -97.3428,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Double Shot',
+    latitude: 33.4918,
+    longitude: -94.0385,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Texline',
+    latitude: 36.5804,
+    longitude: -103.006,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Texon',
+    latitude: 31.2249,
+    longitude: -101.69,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Woody',
+    latitude: 30.1658,
+    longitude: -95.4613,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'The Fork',
+    latitude: 28.5093,
+    longitude: -98.1687,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Tulia',
+    latitude: 34.6362,
+    longitude: -101.748,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Turkey',
+    latitude: 34.4905,
+    longitude: -100.878,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Bryce',
+    latitude: 32.3513,
+    longitude: -95.3011,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Uvalde',
+    latitude: 29.2097,
+    longitude: -99.7862,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Valentine',
+    latitude: 30.5874,
+    longitude: -104.497,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Van Horn',
+    latitude: 31.0399,
+    longitude: -104.831,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'fort',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Vega',
+    latitude: 35.3747,
+    longitude: -102.412,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Vernon',
+    latitude: 34.239,
+    longitude: -99.2559,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Queenie',
+    latitude: 28.8053,
+    longitude: -97.0036,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }, {
+    name: 'Wall',
+    latitude: 31.374,
+    longitude: -100.308,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Buckle',
+    latitude: 31.5493,
+    longitude: -97.1467,
+    description: 'This is a location.',
+    population: 7839,
+    type: 'fort',
+    tech: 3,
+    factionid: 1
+  }, {
+    name: 'Waka',
+    latitude: 36.4802,
+    longitude: -101.034,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Wellington',
+    latitude: 34.9664,
+    longitude: -100.189,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Wheeler',
+    latitude: 35.591,
+    longitude: -100.26,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 3
+  }, {
+    name: 'Whites City',
+    latitude: 32.1757,
+    longitude: -104.377,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Wichita Falls',
+    latitude: 33.9923,
+    longitude: -98.4865,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Wickett',
+    latitude: 31.5701,
+    longitude: -103.001,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Wink',
+    latitude: 31.7512,
+    longitude: -103.16,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Winters',
+    latitude: 31.9565,
+    longitude: -99.9623,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 1
+  }, {
+    name: 'Canopy',
+    latitude: 30.7752,
+    longitude: -94.4155,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 2
+  }, {
+    name: 'Forest',
+    latitude: 31.506,
+    longitude: -97.205,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 5
+  }, {
+    name: 'Zap',
+    latitude: 26.9997,
+    longitude: -99.2553,
+    description: 'This is a location.',
+    population: 1000,
+    type: 'hold',
+    tech: 5,
+    factionid: 4
+  }],
+  connections: [{
+    start: 2,
+    end: 53,
+    distance: 72787
+  }, {
+    start: 53,
+    end: 2,
+    distance: 72787
+  }, {
+    start: 2,
+    end: 57,
+    distance: 84425
+  }, {
+    start: 57,
+    end: 2,
+    distance: 84425
+  }, {
+    start: 2,
+    end: 270,
+    distance: 64362
+  }, {
+    start: 270,
+    end: 2,
+    distance: 64362
+  }, {
+    start: 2,
+    end: 279,
+    distance: 66652
+  }, {
+    start: 279,
+    end: 2,
+    distance: 66652
+  }, {
+    start: 2,
+    end: 304,
+    distance: 64385
+  }, {
+    start: 304,
+    end: 2,
+    distance: 64385
+  }, {
+    start: 3,
+    end: 157,
+    distance: 32739
+  }, {
+    start: 157,
+    end: 3,
+    distance: 32739
+  }, {
+    start: 4,
+    end: 68,
+    distance: 72593
+  }, {
+    start: 68,
+    end: 4,
+    distance: 72593
+  }, {
+    start: 4,
+    end: 246,
+    distance: 17424
+  }, {
+    start: 246,
+    end: 4,
+    distance: 17424
+  }, {
+    start: 5,
+    end: 291,
+    distance: 18952
+  }, {
+    start: 291,
+    end: 5,
+    distance: 18952
+  }, {
+    start: 4,
+    end: 179,
+    distance: 47744
+  }, {
+    start: 179,
+    end: 4,
+    distance: 47744
+  }, {
+    start: 4,
+    end: 97,
+    distance: 59749
+  }, {
+    start: 97,
+    end: 4,
+    distance: 59749
+  }, {
+    start: 4,
+    end: 113,
+    distance: 66093
+  }, {
+    start: 113,
+    end: 4,
+    distance: 66093
+  }, {
+    start: 3,
+    end: 27,
+    distance: 39845
+  }, {
+    start: 27,
+    end: 3,
+    distance: 39845
+  }, {
+    start: 5,
+    end: 261,
+    distance: 36302
+  }, {
+    start: 261,
+    end: 5,
+    distance: 36302
+  }, {
+    start: 6,
+    end: 100,
+    distance: 38285
+  }, {
+    start: 100,
+    end: 6,
+    distance: 38285
+  }, {
+    start: 6,
+    end: 175,
+    distance: 42133
+  }, {
+    start: 175,
+    end: 6,
+    distance: 42133
+  }, {
+    start: 7,
+    end: 102,
+    distance: 105631
+  }, {
+    start: 102,
+    end: 7,
+    distance: 105631
+  }, {
+    start: 6,
+    end: 7,
+    distance: 25098
+  }, {
+    start: 7,
+    end: 6,
+    distance: 25098
+  }, {
+    start: 7,
+    end: 173,
+    distance: 24150
+  }, {
+    start: 173,
+    end: 7,
+    distance: 24150
+  }, {
+    start: 8,
+    end: 44,
+    distance: 30001
+  }, {
+    start: 44,
+    end: 8,
+    distance: 30001
+  }, {
+    start: 8,
+    end: 56,
+    distance: 48439
+  }, {
+    start: 56,
+    end: 8,
+    distance: 48439
+  }, {
+    start: 8,
+    end: 87,
+    distance: 75675
+  }, {
+    start: 87,
+    end: 8,
+    distance: 75675
+  }, {
+    start: 8,
+    end: 107,
+    distance: 60378
+  }, {
+    start: 107,
+    end: 8,
+    distance: 60378
+  }, {
+    start: 8,
+    end: 209,
+    distance: 44572
+  }, {
+    start: 209,
+    end: 8,
+    distance: 44572
+  }, {
+    start: 8,
+    end: 292,
+    distance: 58453
+  }, {
+    start: 292,
+    end: 8,
+    distance: 58453
+  }, {
+    start: 9,
+    end: 27,
+    distance: 102127
+  }, {
+    start: 27,
+    end: 9,
+    distance: 102127
+  }, {
+    start: 9,
+    end: 148,
+    distance: 74772
+  }, {
+    start: 148,
+    end: 9,
+    distance: 74772
+  }, {
+    start: 9,
+    end: 201,
+    distance: 55522
+  }, {
+    start: 201,
+    end: 9,
+    distance: 55522
+  }, {
+    start: 9,
+    end: 255,
+    distance: 45854
+  }, {
+    start: 255,
+    end: 9,
+    distance: 45854
+  }, {
+    start: 10,
+    end: 169,
+    distance: 46672
+  }, {
+    start: 169,
+    end: 10,
+    distance: 46672
+  }, {
+    start: 10,
+    end: 203,
+    distance: 9976
+  }, {
+    start: 203,
+    end: 10,
+    distance: 9976
+  }, {
+    start: 11,
+    end: 224,
+    distance: 13409
+  }, {
+    start: 224,
+    end: 11,
+    distance: 13409
+  }, {
+    start: 11,
+    end: 228,
+    distance: 29704
+  }, {
+    start: 228,
+    end: 11,
+    distance: 29704
+  }, {
+    start: 9,
+    end: 157,
+    distance: 79742
+  }, {
+    start: 157,
+    end: 9,
+    distance: 79742
+  }, {
+    start: 11,
+    end: 236,
+    distance: 16544
+  }, {
+    start: 236,
+    end: 11,
+    distance: 16544
+  }, {
+    start: 12,
+    end: 78,
+    distance: 34303
+  }, {
+    start: 78,
+    end: 12,
+    distance: 34303
+  }, {
+    start: 13,
+    end: 46,
+    distance: 13968
+  }, {
+    start: 46,
+    end: 13,
+    distance: 13968
+  }, {
+    start: 13,
+    end: 49,
+    distance: 18732
+  }, {
+    start: 49,
+    end: 13,
+    distance: 18732
+  }, {
+    start: 14,
+    end: 125,
+    distance: 56458
+  }, {
+    start: 125,
+    end: 14,
+    distance: 56458
+  }, {
+    start: 14,
+    end: 128,
+    distance: 49460
+  }, {
+    start: 128,
+    end: 14,
+    distance: 49460
+  }, {
+    start: 14,
+    end: 153,
+    distance: 61412
+  }, {
+    start: 153,
+    end: 14,
+    distance: 61412
+  }, {
+    start: 14,
+    end: 264,
+    distance: 95186
+  }, {
+    start: 264,
+    end: 14,
+    distance: 95186
+  }, {
+    start: 14,
+    end: 269,
+    distance: 77375
+  }, {
+    start: 269,
+    end: 14,
+    distance: 77375
+  }, {
+    start: 12,
+    end: 103,
+    distance: 24415
+  }, {
+    start: 103,
+    end: 12,
+    distance: 24415
+  }, {
+    start: 15,
+    end: 43,
+    distance: 39601
+  }, {
+    start: 43,
+    end: 15,
+    distance: 39601
+  }, {
+    start: 15,
+    end: 69,
+    distance: 60059
+  }, {
+    start: 69,
+    end: 15,
+    distance: 60059
+  }, {
+    start: 15,
+    end: 140,
+    distance: 63073
+  }, {
+    start: 140,
+    end: 15,
+    distance: 63073
+  }, {
+    start: 15,
+    end: 206,
+    distance: 55827
+  }, {
+    start: 206,
+    end: 15,
+    distance: 55827
+  }, {
+    start: 15,
+    end: 288,
+    distance: 58199
+  }, {
+    start: 288,
+    end: 15,
+    distance: 58199
+  }, {
+    start: 16,
+    end: 142,
+    distance: 51903
+  }, {
+    start: 142,
+    end: 16,
+    distance: 51903
+  }, {
+    start: 16,
+    end: 281,
+    distance: 40634
+  }, {
+    start: 281,
+    end: 16,
+    distance: 40634
+  }, {
+    start: 1,
+    end: 20,
+    distance: 53666
+  }, {
+    start: 20,
+    end: 1,
+    distance: 53666
+  }, {
+    start: 14,
+    end: 279,
+    distance: 87281
+  }, {
+    start: 279,
+    end: 14,
+    distance: 87281
+  }, {
+    start: 14,
+    end: 270,
+    distance: 49384
+  }, {
+    start: 270,
+    end: 14,
+    distance: 49384
+  }, {
+    start: 1,
+    end: 104,
+    distance: 125786
+  }, {
+    start: 104,
+    end: 1,
+    distance: 125786
+  }, {
+    start: 1,
+    end: 115,
+    distance: 89064
+  }, {
+    start: 115,
+    end: 1,
+    distance: 89064
+  }, {
+    start: 1,
+    end: 174,
+    distance: 77946
+  }, {
+    start: 174,
+    end: 1,
+    distance: 77946
+  }, {
+    start: 1,
+    end: 217,
+    distance: 28366
+  }, {
+    start: 217,
+    end: 1,
+    distance: 28366
+  }, {
+    start: 1,
+    end: 240,
+    distance: 30755
+  }, {
+    start: 240,
+    end: 1,
+    distance: 30755
+  }, {
+    start: 1,
+    end: 247,
+    distance: 50434
+  }, {
+    start: 247,
+    end: 1,
+    distance: 50434
+  }, {
+    start: 17,
+    end: 57,
+    distance: 57818
+  }, {
+    start: 57,
+    end: 17,
+    distance: 57818
+  }, {
+    start: 17,
+    end: 90,
+    distance: 59584
+  }, {
+    start: 90,
+    end: 17,
+    distance: 59584
+  }, {
+    start: 17,
+    end: 243,
+    distance: 68346
+  }, {
+    start: 243,
+    end: 17,
+    distance: 68346
+  }, {
+    start: 17,
+    end: 304,
+    distance: 25422
+  }, {
+    start: 304,
+    end: 17,
+    distance: 25422
+  }, {
+    start: 18,
+    end: 100,
+    distance: 59217
+  }, {
+    start: 100,
+    end: 18,
+    distance: 59217
+  }, {
+    start: 18,
+    end: 102,
+    distance: 86384
+  }, {
+    start: 102,
+    end: 18,
+    distance: 86384
+  }, {
+    start: 18,
+    end: 251,
+    distance: 12353
+  }, {
+    start: 251,
+    end: 18,
+    distance: 12353
+  }, {
+    start: 18,
+    end: 291,
+    distance: 110767
+  }, {
+    start: 291,
+    end: 18,
+    distance: 110767
+  }, {
+    start: 19,
+    end: 26,
+    distance: 28896
+  }, {
+    start: 26,
+    end: 19,
+    distance: 28896
+  }, {
+    start: 19,
+    end: 187,
+    distance: 39568
+  }, {
+    start: 187,
+    end: 19,
+    distance: 39568
+  }, {
+    start: 19,
+    end: 204,
+    distance: 48333
+  }, {
+    start: 204,
+    end: 19,
+    distance: 48333
+  }, {
+    start: 19,
+    end: 273,
+    distance: 83788
+  }, {
+    start: 273,
+    end: 19,
+    distance: 83788
+  }, {
+    start: 20,
+    end: 115,
+    distance: 41641
+  }, {
+    start: 115,
+    end: 20,
+    distance: 41641
+  }, {
+    start: 20,
+    end: 247,
+    distance: 70304
+  }, {
+    start: 247,
+    end: 20,
+    distance: 70304
+  }, {
+    start: 21,
+    end: 92,
+    distance: 51090
+  }, {
+    start: 92,
+    end: 21,
+    distance: 51090
+  }, {
+    start: 21,
+    end: 155,
+    distance: 63693
+  }, {
+    start: 155,
+    end: 21,
+    distance: 63693
+  }, {
+    start: 21,
+    end: 226,
+    distance: 81913
+  }, {
+    start: 226,
+    end: 21,
+    distance: 81913
+  }, {
+    start: 22,
+    end: 136,
+    distance: 42550
+  }, {
+    start: 136,
+    end: 22,
+    distance: 42550
+  }, {
+    start: 22,
+    end: 211,
+    distance: 29433
+  }, {
+    start: 211,
+    end: 22,
+    distance: 29433
+  }, {
+    start: 23,
+    end: 136,
+    distance: 136150
+  }, {
+    start: 136,
+    end: 23,
+    distance: 136150
+  }, {
+    start: 23,
+    end: 141,
+    distance: 113089
+  }, {
+    start: 141,
+    end: 23,
+    distance: 113089
+  }, {
+    start: 20,
+    end: 154,
+    distance: 51411
+  }, {
+    start: 154,
+    end: 20,
+    distance: 51411
+  }, {
+    start: 23,
+    end: 202,
+    distance: 46337
+  }, {
+    start: 202,
+    end: 23,
+    distance: 46337
+  }, {
+    start: 23,
+    end: 305,
+    distance: 89898
+  }, {
+    start: 305,
+    end: 23,
+    distance: 89898
+  }, {
+    start: 24,
+    end: 113,
+    distance: 38730
+  }, {
+    start: 113,
+    end: 24,
+    distance: 38730
+  }, {
+    start: 24,
+    end: 117,
+    distance: 47163
+  }, {
+    start: 117,
+    end: 24,
+    distance: 47163
+  }, {
+    start: 24,
+    end: 147,
+    distance: 51529
+  }, {
+    start: 147,
+    end: 24,
+    distance: 51529
+  }, {
+    start: 24,
+    end: 179,
+    distance: 41319
+  }, {
+    start: 179,
+    end: 24,
+    distance: 41319
+  }, {
+    start: 25,
+    end: 114,
+    distance: 53900
+  }, {
+    start: 114,
+    end: 25,
+    distance: 53900
+  }, {
+    start: 25,
+    end: 126,
+    distance: 21011
+  }, {
+    start: 126,
+    end: 25,
+    distance: 21011
+  }, {
+    start: 25,
+    end: 280,
+    distance: 15438
+  }, {
+    start: 280,
+    end: 25,
+    distance: 15438
+  }, {
+    start: 23,
+    end: 198,
+    distance: 19078
+  }, {
+    start: 198,
+    end: 23,
+    distance: 19078
+  }, {
+    start: 26,
+    end: 283,
+    distance: 23040
+  }, {
+    start: 283,
+    end: 26,
+    distance: 23040
+  }, {
+    start: 27,
+    end: 59,
+    distance: 61168
+  }, {
+    start: 59,
+    end: 27,
+    distance: 61168
+  }, {
+    start: 27,
+    end: 271,
+    distance: 32901
+  }, {
+    start: 271,
+    end: 27,
+    distance: 32901
+  }, {
+    start: 27,
+    end: 273,
+    distance: 69966
+  }, {
+    start: 273,
+    end: 27,
+    distance: 69966
+  }, {
+    start: 28,
+    end: 62,
+    distance: 26384
+  }, {
+    start: 62,
+    end: 28,
+    distance: 26384
+  }, {
+    start: 28,
+    end: 244,
+    distance: 50010
+  }, {
+    start: 244,
+    end: 28,
+    distance: 50010
+  }, {
+    start: 29,
+    end: 216,
+    distance: 25717
+  }, {
+    start: 216,
+    end: 29,
+    distance: 25717
+  }, {
+    start: 30,
+    end: 87,
+    distance: 67299
+  }, {
+    start: 87,
+    end: 30,
+    distance: 67299
+  }, {
+    start: 30,
+    end: 209,
+    distance: 36830
+  }, {
+    start: 209,
+    end: 30,
+    distance: 36830
+  }, {
+    start: 30,
+    end: 267,
+    distance: 68405
+  }, {
+    start: 267,
+    end: 30,
+    distance: 68405
+  }, {
+    start: 31,
+    end: 79,
+    distance: 45054
+  }, {
+    start: 79,
+    end: 31,
+    distance: 45054
+  }, {
+    start: 30,
+    end: 107,
+    distance: 20950
+  }, {
+    start: 107,
+    end: 30,
+    distance: 20950
+  }, {
+    start: 30,
+    end: 207,
+    distance: 45113
+  }, {
+    start: 207,
+    end: 30,
+    distance: 45113
+  }, {
+    start: 31,
+    end: 120,
+    distance: 99196
+  }, {
+    start: 120,
+    end: 31,
+    distance: 99196
+  }, {
+    start: 31,
+    end: 301,
+    distance: 77220
+  }, {
+    start: 301,
+    end: 31,
+    distance: 77220
+  }, {
+    start: 32,
+    end: 80,
+    distance: 48722
+  }, {
+    start: 80,
+    end: 32,
+    distance: 48722
+  }, {
+    start: 32,
+    end: 289,
+    distance: 63934
+  }, {
+    start: 289,
+    end: 32,
+    distance: 63934
+  }, {
+    start: 31,
+    end: 109,
+    distance: 76115
+  }, {
+    start: 109,
+    end: 31,
+    distance: 76115
+  }, {
+    start: 33,
+    end: 38,
+    distance: 74119
+  }, {
+    start: 38,
+    end: 33,
+    distance: 74119
+  }, {
+    start: 33,
+    end: 167,
+    distance: 85165
+  }, {
+    start: 167,
+    end: 33,
+    distance: 85165
+  }, {
+    start: 33,
+    end: 177,
+    distance: 46262
+  }, {
+    start: 177,
+    end: 33,
+    distance: 46262
+  }, {
+    start: 33,
+    end: 183,
+    distance: 28150
+  }, {
+    start: 183,
+    end: 33,
+    distance: 28150
+  }, {
+    start: 33,
+    end: 248,
+    distance: 67349
+  }, {
+    start: 248,
+    end: 33,
+    distance: 67349
+  }, {
+    start: 33,
+    end: 250,
+    distance: 72028
+  }, {
+    start: 250,
+    end: 33,
+    distance: 72028
+  }, {
+    start: 34,
+    end: 53,
+    distance: 44938
+  }, {
+    start: 53,
+    end: 34,
+    distance: 44938
+  }, {
+    start: 34,
+    end: 103,
+    distance: 162671
+  }, {
+    start: 103,
+    end: 34,
+    distance: 162671
+  }, {
+    start: 34,
+    end: 120,
+    distance: 53223
+  }, {
+    start: 120,
+    end: 34,
+    distance: 53223
+  }, {
+    start: 33,
+    end: 185,
+    distance: 54356
+  }, {
+    start: 185,
+    end: 33,
+    distance: 54356
+  }, {
+    start: 34,
+    end: 128,
+    distance: 111434
+  }, {
+    start: 128,
+    end: 34,
+    distance: 111434
+  }, {
+    start: 34,
+    end: 256,
+    distance: 108860
+  }, {
+    start: 256,
+    end: 34,
+    distance: 108860
+  }, {
+    start: 34,
+    end: 270,
+    distance: 97694
+  }, {
+    start: 270,
+    end: 34,
+    distance: 97694
+  }, {
+    start: 35,
+    end: 115,
+    distance: 54697
+  }, {
+    start: 115,
+    end: 35,
+    distance: 54697
+  }, {
+    start: 35,
+    end: 146,
+    distance: 108324
+  }, {
+    start: 146,
+    end: 35,
+    distance: 108324
+  }, {
+    start: 35,
+    end: 154,
+    distance: 61973
+  }, {
+    start: 154,
+    end: 35,
+    distance: 61973
+  }, {
+    start: 35,
+    end: 197,
+    distance: 40246
+  }, {
+    start: 197,
+    end: 35,
+    distance: 40246
+  }, {
+    start: 36,
+    end: 157,
+    distance: 61563
+  }, {
+    start: 157,
+    end: 36,
+    distance: 61563
+  }, {
+    start: 36,
+    end: 163,
+    distance: 47688
+  }, {
+    start: 163,
+    end: 36,
+    distance: 47688
+  }, {
+    start: 36,
+    end: 170,
+    distance: 62954
+  }, {
+    start: 170,
+    end: 36,
+    distance: 62954
+  }, {
+    start: 36,
+    end: 220,
+    distance: 51916
+  }, {
+    start: 220,
+    end: 36,
+    distance: 51916
+  }, {
+    start: 36,
+    end: 229,
+    distance: 84500
+  }, {
+    start: 229,
+    end: 36,
+    distance: 84500
+  }, {
+    start: 38,
+    end: 61,
+    distance: 43921
+  }, {
+    start: 61,
+    end: 38,
+    distance: 43921
+  }, {
+    start: 38,
+    end: 53,
+    distance: 79166
+  }, {
+    start: 53,
+    end: 38,
+    distance: 79166
+  }, {
+    start: 36,
+    end: 253,
+    distance: 38370
+  }, {
+    start: 253,
+    end: 36,
+    distance: 38370
+  }, {
+    start: 38,
+    end: 250,
+    distance: 33235
+  }, {
+    start: 250,
+    end: 38,
+    distance: 33235
+  }, {
+    start: 39,
+    end: 301,
+    distance: 24437
+  }, {
+    start: 301,
+    end: 39,
+    distance: 24437
+  }, {
+    start: 40,
+    end: 114,
+    distance: 56815
+  }, {
+    start: 114,
+    end: 40,
+    distance: 56815
+  }, {
+    start: 40,
+    end: 158,
+    distance: 35523
+  }, {
+    start: 158,
+    end: 40,
+    distance: 35523
+  }, {
+    start: 37,
+    end: 127,
+    distance: 42278
+  }, {
+    start: 127,
+    end: 37,
+    distance: 42278
+  }, {
+    start: 40,
+    end: 167,
+    distance: 47647
+  }, {
+    start: 167,
+    end: 40,
+    distance: 47647
+  }, {
+    start: 40,
+    end: 174,
+    distance: 20827
+  }, {
+    start: 174,
+    end: 40,
+    distance: 20827
+  }, {
+    start: 41,
+    end: 87,
+    distance: 21413
+  }, {
+    start: 87,
+    end: 41,
+    distance: 21413
+  }, {
+    start: 41,
+    end: 274,
+    distance: 33191
+  }, {
+    start: 274,
+    end: 41,
+    distance: 33191
+  }, {
+    start: 41,
+    end: 278,
+    distance: 20030
+  }, {
+    start: 278,
+    end: 41,
+    distance: 20030
+  }, {
+    start: 42,
+    end: 207,
+    distance: 74781
+  }, {
+    start: 207,
+    end: 42,
+    distance: 74781
+  }, {
+    start: 42,
+    end: 216,
+    distance: 74518
+  }, {
+    start: 216,
+    end: 42,
+    distance: 74518
+  }, {
+    start: 42,
+    end: 299,
+    distance: 55463
+  }, {
+    start: 299,
+    end: 42,
+    distance: 55463
+  }, {
+    start: 43,
+    end: 78,
+    distance: 95349
+  }, {
+    start: 78,
+    end: 43,
+    distance: 95349
+  }, {
+    start: 43,
+    end: 164,
+    distance: 49319
+  }, {
+    start: 164,
+    end: 43,
+    distance: 49319
+  }, {
+    start: 43,
+    end: 277,
+    distance: 72083
+  }, {
+    start: 277,
+    end: 43,
+    distance: 72083
+  }, {
+    start: 43,
+    end: 288,
+    distance: 64391
+  }, {
+    start: 288,
+    end: 43,
+    distance: 64391
+  }, {
+    start: 44,
+    end: 286,
+    distance: 53504
+  }, {
+    start: 286,
+    end: 44,
+    distance: 53504
+  }, {
+    start: 45,
+    end: 135,
+    distance: 112101
+  }, {
+    start: 135,
+    end: 45,
+    distance: 112101
+  }, {
+    start: 45,
+    end: 169,
+    distance: 20682
+  }, {
+    start: 169,
+    end: 45,
+    distance: 20682
+  }, {
+    start: 45,
+    end: 300,
+    distance: 32464
+  }, {
+    start: 300,
+    end: 45,
+    distance: 32464
+  }, {
+    start: 46,
+    end: 75,
+    distance: 19147
+  }, {
+    start: 75,
+    end: 46,
+    distance: 19147
+  }, {
+    start: 46,
+    end: 84,
+    distance: 72257
+  }, {
+    start: 84,
+    end: 46,
+    distance: 72257
+  }, {
+    start: 47,
+    end: 80,
+    distance: 60411
+  }, {
+    start: 80,
+    end: 47,
+    distance: 60411
+  }, {
+    start: 44,
+    end: 132,
+    distance: 49685
+  }, {
+    start: 132,
+    end: 44,
+    distance: 49685
+  }, {
+    start: 47,
+    end: 237,
+    distance: 63672
+  }, {
+    start: 237,
+    end: 47,
+    distance: 63672
+  }, {
+    start: 48,
+    end: 50,
+    distance: 48083
+  }, {
+    start: 50,
+    end: 48,
+    distance: 48083
+  }, {
+    start: 48,
+    end: 131,
+    distance: 44569
+  }, {
+    start: 131,
+    end: 48,
+    distance: 44569
+  }, {
+    start: 48,
+    end: 176,
+    distance: 45587
+  }, {
+    start: 176,
+    end: 48,
+    distance: 45587
+  }, {
+    start: 49,
+    end: 95,
+    distance: 56688
+  }, {
+    start: 95,
+    end: 49,
+    distance: 56688
+  }, {
+    start: 49,
+    end: 160,
+    distance: 97698
+  }, {
+    start: 160,
+    end: 49,
+    distance: 97698
+  }, {
+    start: 50,
+    end: 196,
+    distance: 53541
+  }, {
+    start: 196,
+    end: 50,
+    distance: 53541
+  }, {
+    start: 50,
+    end: 245,
+    distance: 32693
+  }, {
+    start: 245,
+    end: 50,
+    distance: 32693
+  }, {
+    start: 51,
+    end: 184,
+    distance: 49180
+  }, {
+    start: 184,
+    end: 51,
+    distance: 49180
+  }, {
+    start: 51,
+    end: 205,
+    distance: 51746
+  }, {
+    start: 205,
+    end: 51,
+    distance: 51746
+  }, {
+    start: 51,
+    end: 298,
+    distance: 50912
+  }, {
+    start: 298,
+    end: 51,
+    distance: 50912
+  }, {
+    start: 52,
+    end: 230,
+    distance: 22470
+  }, {
+    start: 230,
+    end: 52,
+    distance: 22470
+  }, {
+    start: 52,
+    end: 293,
+    distance: 27564
+  }, {
+    start: 293,
+    end: 52,
+    distance: 27564
+  }, {
+    start: 53,
+    end: 57,
+    distance: 81235
+  }, {
+    start: 57,
+    end: 53,
+    distance: 81235
+  }, {
+    start: 53,
+    end: 61,
+    distance: 76016
+  }, {
+    start: 61,
+    end: 53,
+    distance: 76016
+  }, {
+    start: 53,
+    end: 88,
+    distance: 15688
+  }, {
+    start: 88,
+    end: 53,
+    distance: 15688
+  }, {
+    start: 53,
+    end: 270,
+    distance: 131707
+  }, {
+    start: 270,
+    end: 53,
+    distance: 131707
+  }, {
+    start: 54,
+    end: 119,
+    distance: 31134
+  }, {
+    start: 119,
+    end: 54,
+    distance: 31134
+  }, {
+    start: 51,
+    end: 287,
+    distance: 75362
+  }, {
+    start: 287,
+    end: 51,
+    distance: 75362
+  }, {
+    start: 51,
+    end: 230,
+    distance: 46449
+  }, {
+    start: 230,
+    end: 51,
+    distance: 46449
+  }, {
+    start: 54,
+    end: 124,
+    distance: 47335
+  }, {
+    start: 124,
+    end: 54,
+    distance: 47335
+  }, {
+    start: 54,
+    end: 184,
+    distance: 42864
+  }, {
+    start: 184,
+    end: 54,
+    distance: 42864
+  }, {
+    start: 54,
+    end: 287,
+    distance: 68960
+  }, {
+    start: 287,
+    end: 54,
+    distance: 68960
+  }, {
+    start: 55,
+    end: 199,
+    distance: 62810
+  }, {
+    start: 199,
+    end: 55,
+    distance: 62810
+  }, {
+    start: 59,
+    end: 279,
+    distance: 45160
+  }, {
+    start: 279,
+    end: 59,
+    distance: 45160
+  }, {
+    start: 65,
+    end: 137,
+    distance: 50211
+  }, {
+    start: 137,
+    end: 65,
+    distance: 50211
+  }, {
+    start: 69,
+    end: 296,
+    distance: 90320
+  }, {
+    start: 296,
+    end: 69,
+    distance: 90320
+  }, {
+    start: 73,
+    end: 170,
+    distance: 61103
+  }, {
+    start: 170,
+    end: 73,
+    distance: 61103
+  }, {
+    start: 77,
+    end: 87,
+    distance: 61204
+  }, {
+    start: 87,
+    end: 77,
+    distance: 61204
+  }, {
+    start: 79,
+    end: 120,
+    distance: 105815
+  }, {
+    start: 120,
+    end: 79,
+    distance: 105815
+  }, {
+    start: 82,
+    end: 253,
+    distance: 26965
+  }, {
+    start: 253,
+    end: 82,
+    distance: 26965
+  }, {
+    start: 93,
+    end: 265,
+    distance: 25812
+  }, {
+    start: 265,
+    end: 93,
+    distance: 25812
+  }, {
+    start: 98,
+    end: 244,
+    distance: 48772
+  }, {
+    start: 244,
+    end: 98,
+    distance: 48772
+  }, {
+    start: 99,
+    end: 262,
+    distance: 57363
+  }, {
+    start: 262,
+    end: 99,
+    distance: 57363
+  }, {
+    start: 108,
+    end: 157,
+    distance: 50990
+  }, {
+    start: 157,
+    end: 108,
+    distance: 50990
+  }, {
+    start: 110,
+    end: 306,
+    distance: 53247
+  }, {
+    start: 306,
+    end: 110,
+    distance: 53247
+  }, {
+    start: 122,
+    end: 190,
+    distance: 29080
+  }, {
+    start: 190,
+    end: 122,
+    distance: 29080
+  }, {
+    start: 128,
+    end: 153,
+    distance: 36769
+  }, {
+    start: 153,
+    end: 128,
+    distance: 36769
+  }, {
+    start: 130,
+    end: 307,
+    distance: 82854
+  }, {
+    start: 307,
+    end: 130,
+    distance: 82854
+  }, {
+    start: 136,
+    end: 146,
+    distance: 47798
+  }, {
+    start: 146,
+    end: 136,
+    distance: 47798
+  }, {
+    start: 137,
+    end: 166,
+    distance: 69201
+  }, {
+    start: 166,
+    end: 137,
+    distance: 69201
+  }, {
+    start: 141,
+    end: 245,
+    distance: 72711
+  }, {
+    start: 245,
+    end: 141,
+    distance: 72711
+  }, {
+    start: 140,
+    end: 288,
+    distance: 44163
+  }, {
+    start: 288,
+    end: 140,
+    distance: 44163
+  }, {
+    start: 148,
+    end: 303,
+    distance: 14222
+  }, {
+    start: 303,
+    end: 148,
+    distance: 14222
+  }, {
+    start: 166,
+    end: 305,
+    distance: 52306
+  }, {
+    start: 305,
+    end: 166,
+    distance: 52306
+  }, {
+    start: 178,
+    end: 269,
+    distance: 62088
+  }, {
+    start: 269,
+    end: 178,
+    distance: 62088
+  }, {
+    start: 188,
+    end: 201,
+    distance: 36335
+  }, {
+    start: 201,
+    end: 188,
+    distance: 36335
+  }, {
+    start: 195,
+    end: 256,
+    distance: 39824
+  }, {
+    start: 256,
+    end: 195,
+    distance: 39824
+  }, {
+    start: 200,
+    end: 254,
+    distance: 24626
+  }, {
+    start: 254,
+    end: 200,
+    distance: 24626
+  }, {
+    start: 202,
+    end: 225,
+    distance: 36902
+  }, {
+    start: 225,
+    end: 202,
+    distance: 36902
+  }, {
+    start: 215,
+    end: 282,
+    distance: 18953
+  }, {
+    start: 282,
+    end: 215,
+    distance: 18953
+  }, {
+    start: 227,
+    end: 252,
+    distance: 30843
+  }, {
+    start: 252,
+    end: 227,
+    distance: 30843
+  }, {
+    start: 233,
+    end: 283,
+    distance: 24862
+  }, {
+    start: 283,
+    end: 233,
+    distance: 24862
+  }, {
+    start: 247,
+    end: 254,
+    distance: 35369
+  }, {
+    start: 254,
+    end: 247,
+    distance: 35369
+  }, {
+    start: 262,
+    end: 287,
+    distance: 42235
+  }, {
+    start: 287,
+    end: 262,
+    distance: 42235
+  }, {
+    start: 290,
+    end: 291,
+    distance: 62270
+  }, {
+    start: 291,
+    end: 290,
+    distance: 62270
+  }, {
+    start: 55,
+    end: 210,
+    distance: 48749
+  }, {
+    start: 210,
+    end: 55,
+    distance: 48749
+  }, {
+    start: 58,
+    end: 172,
+    distance: 66095
+  }, {
+    start: 172,
+    end: 58,
+    distance: 66095
+  }, {
+    start: 60,
+    end: 146,
+    distance: 71625
+  }, {
+    start: 146,
+    end: 60,
+    distance: 71625
+  }, {
+    start: 65,
+    end: 197,
+    distance: 67195
+  }, {
+    start: 197,
+    end: 65,
+    distance: 67195
+  }, {
+    start: 64,
+    end: 289,
+    distance: 37028
+  }, {
+    start: 289,
+    end: 64,
+    distance: 37028
+  }, {
+    start: 72,
+    end: 137,
+    distance: 77489
+  }, {
+    start: 137,
+    end: 72,
+    distance: 77489
+  }, {
+    start: 71,
+    end: 201,
+    distance: 51522
+  }, {
+    start: 201,
+    end: 71,
+    distance: 51522
+  }, {
+    start: 75,
+    end: 289,
+    distance: 62740
+  }, {
+    start: 289,
+    end: 75,
+    distance: 62740
+  }, {
+    start: 77,
+    end: 292,
+    distance: 103596
+  }, {
+    start: 292,
+    end: 77,
+    distance: 103596
+  }, {
+    start: 80,
+    end: 144,
+    distance: 113761
+  }, {
+    start: 144,
+    end: 80,
+    distance: 113761
+  }, {
+    start: 85,
+    end: 106,
+    distance: 51796
+  }, {
+    start: 106,
+    end: 85,
+    distance: 51796
+  }, {
+    start: 88,
+    end: 232,
+    distance: 16254
+  }, {
+    start: 232,
+    end: 88,
+    distance: 16254
+  }, {
+    start: 94,
+    end: 185,
+    distance: 81457
+  }, {
+    start: 185,
+    end: 94,
+    distance: 81457
+  }, {
+    start: 96,
+    end: 206,
+    distance: 57611
+  }, {
+    start: 206,
+    end: 96,
+    distance: 57611
+  }, {
+    start: 101,
+    end: 261,
+    distance: 55525
+  }, {
+    start: 261,
+    end: 101,
+    distance: 55525
+  }, {
+    start: 99,
+    end: 221,
+    distance: 44095
+  }, {
+    start: 221,
+    end: 99,
+    distance: 44095
+  }, {
+    start: 104,
+    end: 149,
+    distance: 39193
+  }, {
+    start: 149,
+    end: 104,
+    distance: 39193
+  }, {
+    start: 104,
+    end: 177,
+    distance: 67644
+  }, {
+    start: 177,
+    end: 104,
+    distance: 67644
+  }, {
+    start: 113,
+    end: 179,
+    distance: 44689
+  }, {
+    start: 179,
+    end: 113,
+    distance: 44689
+  }, {
+    start: 117,
+    end: 294,
+    distance: 41882
+  }, {
+    start: 294,
+    end: 117,
+    distance: 41882
+  }, {
+    start: 124,
+    end: 182,
+    distance: 48862
+  }, {
+    start: 182,
+    end: 124,
+    distance: 48862
+  }, {
+    start: 129,
+    end: 296,
+    distance: 106028
+  }, {
+    start: 296,
+    end: 129,
+    distance: 106028
+  }, {
+    start: 131,
+    end: 176,
+    distance: 64721
+  }, {
+    start: 176,
+    end: 131,
+    distance: 64721
+  }, {
+    start: 136,
+    end: 212,
+    distance: 37311
+  }, {
+    start: 212,
+    end: 136,
+    distance: 37311
+  }, {
+    start: 138,
+    end: 301,
+    distance: 20730
+  }, {
+    start: 301,
+    end: 138,
+    distance: 20730
+  }, {
+    start: 143,
+    end: 149,
+    distance: 84326
+  }, {
+    start: 149,
+    end: 143,
+    distance: 84326
+  }, {
+    start: 146,
+    end: 268,
+    distance: 70903
+  }, {
+    start: 268,
+    end: 146,
+    distance: 70903
+  }, {
+    start: 152,
+    end: 235,
+    distance: 26599
+  }, {
+    start: 235,
+    end: 152,
+    distance: 26599
+  }, {
+    start: 159,
+    end: 208,
+    distance: 129025
+  }, {
+    start: 208,
+    end: 159,
+    distance: 129025
+  }, {
+    start: 167,
+    end: 174,
+    distance: 52362
+  }, {
+    start: 174,
+    end: 167,
+    distance: 52362
+  }, {
+    start: 165,
+    end: 170,
+    distance: 58999
+  }, {
+    start: 170,
+    end: 165,
+    distance: 58999
+  }, {
+    start: 180,
+    end: 307,
+    distance: 153044
+  }, {
+    start: 307,
+    end: 180,
+    distance: 153044
+  }, {
+    start: 182,
+    end: 184,
+    distance: 67328
+  }, {
+    start: 184,
+    end: 182,
+    distance: 67328
+  }, {
+    start: 192,
+    end: 199,
+    distance: 65493
+  }, {
+    start: 199,
+    end: 192,
+    distance: 65493
+  }, {
+    start: 207,
+    end: 216,
+    distance: 100860
+  }, {
+    start: 216,
+    end: 207,
+    distance: 100860
+  }, {
+    start: 214,
+    end: 251,
+    distance: 50164
+  }, {
+    start: 251,
+    end: 214,
+    distance: 50164
+  }, {
+    start: 226,
+    end: 227,
+    distance: 39722
+  }, {
+    start: 227,
+    end: 226,
+    distance: 39722
+  }, {
+    start: 231,
+    end: 242,
+    distance: 16130
+  }, {
+    start: 242,
+    end: 231,
+    distance: 16130
+  }, {
+    start: 243,
+    end: 295,
+    distance: 22956
+  }, {
+    start: 295,
+    end: 243,
+    distance: 22956
+  }, {
+    start: 258,
+    end: 298,
+    distance: 41802
+  }, {
+    start: 298,
+    end: 258,
+    distance: 41802
+  }, {
+    start: 56,
+    end: 119,
+    distance: 19874
+  }, {
+    start: 119,
+    end: 56,
+    distance: 19874
+  }, {
+    start: 58,
+    end: 197,
+    distance: 38635
+  }, {
+    start: 197,
+    end: 58,
+    distance: 38635
+  }, {
+    start: 60,
+    end: 154,
+    distance: 42536
+  }, {
+    start: 154,
+    end: 60,
+    distance: 42536
+  }, {
+    start: 65,
+    end: 284,
+    distance: 17279
+  }, {
+    start: 284,
+    end: 65,
+    distance: 17279
+  }, {
+    start: 68,
+    end: 228,
+    distance: 14398
+  }, {
+    start: 228,
+    end: 68,
+    distance: 14398
+  }, {
+    start: 72,
+    end: 171,
+    distance: 73629
+  }, {
+    start: 171,
+    end: 72,
+    distance: 73629
+  }, {
+    start: 71,
+    end: 181,
+    distance: 34284
+  }, {
+    start: 181,
+    end: 71,
+    distance: 34284
+  }, {
+    start: 76,
+    end: 91,
+    distance: 79443
+  }, {
+    start: 91,
+    end: 76,
+    distance: 79443
+  }, {
+    start: 78,
+    end: 103,
+    distance: 53388
+  }, {
+    start: 103,
+    end: 78,
+    distance: 53388
+  }, {
+    start: 80,
+    end: 159,
+    distance: 96670
+  }, {
+    start: 159,
+    end: 80,
+    distance: 96670
+  }, {
+    start: 85,
+    end: 132,
+    distance: 33254
+  }, {
+    start: 132,
+    end: 85,
+    distance: 33254
+  }, {
+    start: 90,
+    end: 183,
+    distance: 27989
+  }, {
+    start: 183,
+    end: 90,
+    distance: 27989
+  }, {
+    start: 94,
+    end: 243,
+    distance: 71858
+  }, {
+    start: 243,
+    end: 94,
+    distance: 71858
+  }, {
+    start: 96,
+    end: 296,
+    distance: 103024
+  }, {
+    start: 296,
+    end: 96,
+    distance: 103024
+  }, {
+    start: 101,
+    end: 265,
+    distance: 65218
+  }, {
+    start: 265,
+    end: 101,
+    distance: 65218
+  }, {
+    start: 102,
+    end: 251,
+    distance: 81424
+  }, {
+    start: 251,
+    end: 102,
+    distance: 81424
+  }, {
+    start: 105,
+    end: 113,
+    distance: 72095
+  }, {
+    start: 113,
+    end: 105,
+    distance: 72095
+  }, {
+    start: 104,
+    end: 167,
+    distance: 61869
+  }, {
+    start: 167,
+    end: 104,
+    distance: 61869
+  }, {
+    start: 114,
+    end: 240,
+    distance: 15033
+  }, {
+    start: 240,
+    end: 114,
+    distance: 15033
+  }, {
+    start: 114,
+    end: 158,
+    distance: 79248
+  }, {
+    start: 158,
+    end: 114,
+    distance: 79248
+  }, {
+    start: 124,
+    end: 207,
+    distance: 47093
+  }, {
+    start: 207,
+    end: 124,
+    distance: 47093
+  }, {
+    start: 125,
+    end: 205,
+    distance: 45052
+  }, {
+    start: 205,
+    end: 125,
+    distance: 45052
+  }, {
+    start: 131,
+    end: 196,
+    distance: 67222
+  }, {
+    start: 196,
+    end: 131,
+    distance: 67222
+  }, {
+    start: 136,
+    end: 268,
+    distance: 38470
+  }, {
+    start: 268,
+    end: 136,
+    distance: 38470
+  }, {
+    start: 139,
+    end: 233,
+    distance: 43514
+  }, {
+    start: 233,
+    end: 139,
+    distance: 43514
+  }, {
+    start: 143,
+    end: 162,
+    distance: 98729
+  }, {
+    start: 162,
+    end: 143,
+    distance: 98729
+  }, {
+    start: 146,
+    end: 276,
+    distance: 34544
+  }, {
+    start: 276,
+    end: 146,
+    distance: 34544
+  }, {
+    start: 153,
+    end: 195,
+    distance: 19465
+  }, {
+    start: 195,
+    end: 153,
+    distance: 19465
+  }, {
+    start: 160,
+    end: 234,
+    distance: 26594
+  }, {
+    start: 234,
+    end: 160,
+    distance: 26594
+  }, {
+    start: 167,
+    end: 177,
+    distance: 55642
+  }, {
+    start: 177,
+    end: 167,
+    distance: 55642
+  }, {
+    start: 173,
+    end: 239,
+    distance: 69210
+  }, {
+    start: 239,
+    end: 173,
+    distance: 69210
+  }, {
+    start: 182,
+    end: 207,
+    distance: 57422
+  }, {
+    start: 207,
+    end: 182,
+    distance: 57422
+  }, {
+    start: 181,
+    end: 233,
+    distance: 30845
+  }, {
+    start: 233,
+    end: 181,
+    distance: 30845
+  }, {
+    start: 192,
+    end: 219,
+    distance: 18969
+  }, {
+    start: 219,
+    end: 192,
+    distance: 18969
+  }, {
+    start: 196,
+    end: 245,
+    distance: 56557
+  }, {
+    start: 245,
+    end: 196,
+    distance: 56557
+  }, {
+    start: 207,
+    end: 299,
+    distance: 67682
+  }, {
+    start: 299,
+    end: 207,
+    distance: 67682
+  }, {
+    start: 214,
+    end: 291,
+    distance: 145605
+  }, {
+    start: 291,
+    end: 214,
+    distance: 145605
+  }, {
+    start: 226,
+    end: 252,
+    distance: 28686
+  }, {
+    start: 252,
+    end: 226,
+    distance: 28686
+  }, {
+    start: 231,
+    end: 290,
+    distance: 12850
+  }, {
+    start: 290,
+    end: 231,
+    distance: 12850
+  }, {
+    start: 244,
+    end: 254,
+    distance: 58628
+  }, {
+    start: 254,
+    end: 244,
+    distance: 58628
+  }, {
+    start: 258,
+    end: 299,
+    distance: 27304
+  }, {
+    start: 299,
+    end: 258,
+    distance: 27304
+  }, {
+    start: 280,
+    end: 296,
+    distance: 55814
+  }, {
+    start: 296,
+    end: 280,
+    distance: 55814
+  }, {
+    start: 56,
+    end: 124,
+    distance: 34478
+  }, {
+    start: 124,
+    end: 56,
+    distance: 34478
+  }, {
+    start: 59,
+    end: 264,
+    distance: 40227
+  }, {
+    start: 264,
+    end: 59,
+    distance: 40227
+  }, {
+    start: 61,
+    end: 110,
+    distance: 105248
+  }, {
+    start: 110,
+    end: 61,
+    distance: 105248
+  }, {
+    start: 66,
+    end: 151,
+    distance: 16894
+  }, {
+    start: 151,
+    end: 66,
+    distance: 16894
+  }, {
+    start: 69,
+    end: 78,
+    distance: 88679
+  }, {
+    start: 78,
+    end: 69,
+    distance: 88679
+  }, {
+    start: 72,
+    end: 172,
+    distance: 62472
+  }, {
+    start: 172,
+    end: 72,
+    distance: 62472
+  }, {
+    start: 73,
+    end: 229,
+    distance: 60563
+  }, {
+    start: 229,
+    end: 73,
+    distance: 60563
+  }, {
+    start: 76,
+    end: 117,
+    distance: 50432
+  }, {
+    start: 117,
+    end: 76,
+    distance: 50432
+  }, {
+    start: 78,
+    end: 109,
+    distance: 114502
+  }, {
+    start: 109,
+    end: 78,
+    distance: 114502
+  }, {
+    start: 80,
+    end: 161,
+    distance: 11869
+  }, {
+    start: 161,
+    end: 80,
+    distance: 11869
+  }, {
+    start: 85,
+    end: 165,
+    distance: 71323
+  }, {
+    start: 165,
+    end: 85,
+    distance: 71323
+  }, {
+    start: 90,
+    end: 185,
+    distance: 34677
+  }, {
+    start: 185,
+    end: 90,
+    distance: 34677
+  }, {
+    start: 94,
+    end: 266,
+    distance: 34612
+  }, {
+    start: 266,
+    end: 94,
+    distance: 34612
+  }, {
+    start: 97,
+    end: 130,
+    distance: 55984
+  }, {
+    start: 130,
+    end: 97,
+    distance: 55984
+  }, {
+    start: 102,
+    end: 122,
+    distance: 51965
+  }, {
+    start: 122,
+    end: 102,
+    distance: 51965
+  }, {
+    start: 102,
+    end: 259,
+    distance: 114956
+  }, {
+    start: 259,
+    end: 102,
+    distance: 114956
+  }, {
+    start: 105,
+    end: 130,
+    distance: 65278
+  }, {
+    start: 130,
+    end: 105,
+    distance: 65278
+  }, {
+    start: 109,
+    end: 260,
+    distance: 55491
+  }, {
+    start: 260,
+    end: 109,
+    distance: 55491
+  }, {
+    start: 115,
+    end: 154,
+    distance: 32924
+  }, {
+    start: 154,
+    end: 115,
+    distance: 32924
+  }, {
+    start: 113,
+    end: 285,
+    distance: 15927
+  }, {
+    start: 285,
+    end: 113,
+    distance: 15927
+  }, {
+    start: 125,
+    end: 269,
+    distance: 67571
+  }, {
+    start: 269,
+    end: 125,
+    distance: 67571
+  }, {
+    start: 125,
+    end: 153,
+    distance: 55555
+  }, {
+    start: 153,
+    end: 125,
+    distance: 55555
+  }, {
+    start: 131,
+    end: 288,
+    distance: 54949
+  }, {
+    start: 288,
+    end: 131,
+    distance: 54949
+  }, {
+    start: 133,
+    end: 264,
+    distance: 18908
+  }, {
+    start: 264,
+    end: 133,
+    distance: 18908
+  }, {
+    start: 139,
+    end: 259,
+    distance: 29127
+  }, {
+    start: 259,
+    end: 139,
+    distance: 29127
+  }, {
+    start: 143,
+    end: 177,
+    distance: 71415
+  }, {
+    start: 177,
+    end: 143,
+    distance: 71415
+  }, {
+    start: 147,
+    end: 285,
+    distance: 53610
+  }, {
+    start: 285,
+    end: 147,
+    distance: 53610
+  }, {
+    start: 163,
+    end: 165,
+    distance: 38601
+  }, {
+    start: 165,
+    end: 163,
+    distance: 38601
+  }, {
+    start: 167,
+    end: 248,
+    distance: 52438
+  }, {
+    start: 248,
+    end: 167,
+    distance: 52438
+  }, {
+    start: 175,
+    end: 242,
+    distance: 32069
+  }, {
+    start: 242,
+    end: 175,
+    distance: 32069
+  }, {
+    start: 182,
+    end: 258,
+    distance: 33817
+  }, {
+    start: 258,
+    end: 182,
+    distance: 33817
+  }, {
+    start: 190,
+    end: 201,
+    distance: 57519
+  }, {
+    start: 201,
+    end: 190,
+    distance: 57519
+  }, {
+    start: 193,
+    end: 277,
+    distance: 38870
+  }, {
+    start: 277,
+    end: 193,
+    distance: 38870
+  }, {
+    start: 198,
+    end: 225,
+    distance: 14688
+  }, {
+    start: 225,
+    end: 198,
+    distance: 14688
+  }, {
+    start: 210,
+    end: 260,
+    distance: 103224
+  }, {
+    start: 260,
+    end: 210,
+    distance: 103224
+  }, {
+    start: 214,
+    end: 302,
+    distance: 51202
+  }, {
+    start: 302,
+    end: 214,
+    distance: 51202
+  }, {
+    start: 226,
+    end: 294,
+    distance: 44610
+  }, {
+    start: 294,
+    end: 226,
+    distance: 44610
+  }, {
+    start: 232,
+    end: 272,
+    distance: 68339
+  }, {
+    start: 272,
+    end: 232,
+    distance: 68339
+  }, {
+    start: 244,
+    end: 289,
+    distance: 137262
+  }, {
+    start: 289,
+    end: 244,
+    distance: 137262
+  }, {
+    start: 262,
+    end: 286,
+    distance: 43170
+  }, {
+    start: 286,
+    end: 262,
+    distance: 43170
+  }, {
+    start: 280,
+    end: 306,
+    distance: 54112
+  }, {
+    start: 306,
+    end: 280,
+    distance: 54112
+  }, {
+    start: 56,
+    end: 209,
+    distance: 28006
+  }, {
+    start: 209,
+    end: 56,
+    distance: 28006
+  }, {
+    start: 60,
+    end: 118,
+    distance: 100430
+  }, {
+    start: 118,
+    end: 60,
+    distance: 100430
+  }, {
+    start: 67,
+    end: 93,
+    distance: 110454
+  }, {
+    start: 93,
+    end: 67,
+    distance: 110454
+  }, {
+    start: 70,
+    end: 285,
+    distance: 110312
+  }, {
+    start: 285,
+    end: 70,
+    distance: 110312
+  }, {
+    start: 74,
+    end: 205,
+    distance: 58275
+  }, {
+    start: 205,
+    end: 74,
+    distance: 58275
+  }, {
+    start: 77,
+    end: 274,
+    distance: 51090
+  }, {
+    start: 274,
+    end: 77,
+    distance: 51090
+  }, {
+    start: 82,
+    end: 255,
+    distance: 33992
+  }, {
+    start: 255,
+    end: 82,
+    distance: 33992
+  }, {
+    start: 86,
+    end: 259,
+    distance: 94845
+  }, {
+    start: 259,
+    end: 86,
+    distance: 94845
+  }, {
+    start: 91,
+    end: 294,
+    distance: 40510
+  }, {
+    start: 294,
+    end: 91,
+    distance: 40510
+  }, {
+    start: 100,
+    end: 175,
+    distance: 34023
+  }, {
+    start: 175,
+    end: 100,
+    distance: 34023
+  }, {
+    start: 103,
+    end: 232,
+    distance: 137121
+  }, {
+    start: 232,
+    end: 103,
+    distance: 137121
+  }, {
+    start: 108,
+    end: 264,
+    distance: 50276
+  }, {
+    start: 264,
+    end: 108,
+    distance: 50276
+  }, {
+    start: 116,
+    end: 288,
+    distance: 58136
+  }, {
+    start: 288,
+    end: 116,
+    distance: 58136
+  }, {
+    start: 123,
+    end: 273,
+    distance: 55520
+  }, {
+    start: 273,
+    end: 123,
+    distance: 55520
+  }, {
+    start: 130,
+    end: 246,
+    distance: 69092
+  }, {
+    start: 246,
+    end: 130,
+    distance: 69092
+  }, {
+    start: 136,
+    end: 211,
+    distance: 26473
+  }, {
+    start: 211,
+    end: 136,
+    distance: 26473
+  }, {
+    start: 141,
+    end: 171,
+    distance: 89152
+  }, {
+    start: 171,
+    end: 141,
+    distance: 89152
+  }, {
+    start: 145,
+    end: 147,
+    distance: 9660
+  }, {
+    start: 147,
+    end: 145,
+    distance: 9660
+  }, {
+    start: 157,
+    end: 255,
+    distance: 65884
+  }, {
+    start: 255,
+    end: 157,
+    distance: 65884
+  }, {
+    start: 164,
+    end: 288,
+    distance: 22262
+  }, {
+    start: 288,
+    end: 164,
+    distance: 22262
+  }, {
+    start: 178,
+    end: 205,
+    distance: 50163
+  }, {
+    start: 205,
+    end: 178,
+    distance: 50163
+  }, {
+    start: 187,
+    end: 243,
+    distance: 46430
+  }, {
+    start: 243,
+    end: 187,
+    distance: 46430
+  }, {
+    start: 192,
+    end: 193,
+    distance: 25599
+  }, {
+    start: 193,
+    end: 192,
+    distance: 25599
+  }, {
+    start: 206,
+    end: 241,
+    distance: 48928
+  }, {
+    start: 241,
+    end: 206,
+    distance: 48928
+  }, {
+    start: 213,
+    end: 244,
+    distance: 88680
+  }, {
+    start: 244,
+    end: 213,
+    distance: 88680
+  }, {
+    start: 218,
+    end: 300,
+    distance: 56761
+  }, {
+    start: 300,
+    end: 218,
+    distance: 56761
+  }, {
+    start: 239,
+    end: 249,
+    distance: 40305
+  }, {
+    start: 249,
+    end: 239,
+    distance: 40305
+  }, {
+    start: 267,
+    end: 297,
+    distance: 16408
+  }, {
+    start: 297,
+    end: 267,
+    distance: 16408
+  }, {
+    start: 56,
+    end: 262,
+    distance: 84225
+  }, {
+    start: 262,
+    end: 56,
+    distance: 84225
+  }, {
+    start: 60,
+    end: 92,
+    distance: 63279
+  }, {
+    start: 92,
+    end: 60,
+    distance: 63279
+  }, {
+    start: 62,
+    end: 149,
+    distance: 28987
+  }, {
+    start: 149,
+    end: 62,
+    distance: 28987
+  }, {
+    start: 67,
+    end: 218,
+    distance: 81550
+  }, {
+    start: 218,
+    end: 67,
+    distance: 81550
+  }, {
+    start: 70,
+    end: 84,
+    distance: 26552
+  }, {
+    start: 84,
+    end: 70,
+    distance: 26552
+  }, {
+    start: 73,
+    end: 99,
+    distance: 46124
+  }, {
+    start: 99,
+    end: 73,
+    distance: 46124
+  }, {
+    start: 76,
+    end: 294,
+    distance: 44488
+  }, {
+    start: 294,
+    end: 76,
+    distance: 44488
+  }, {
+    start: 79,
+    end: 103,
+    distance: 64846
+  }, {
+    start: 103,
+    end: 79,
+    distance: 64846
+  }, {
+    start: 83,
+    end: 171,
+    distance: 18139
+  }, {
+    start: 171,
+    end: 83,
+    distance: 18139
+  }, {
+    start: 89,
+    end: 97,
+    distance: 106913
+  }, {
+    start: 97,
+    end: 89,
+    distance: 106913
+  }, {
+    start: 95,
+    end: 160,
+    distance: 61718
+  }, {
+    start: 160,
+    end: 95,
+    distance: 61718
+  }, {
+    start: 98,
+    end: 145,
+    distance: 39482
+  }, {
+    start: 145,
+    end: 98,
+    distance: 39482
+  }, {
+    start: 102,
+    end: 181,
+    distance: 75009
+  }, {
+    start: 181,
+    end: 102,
+    distance: 75009
+  }, {
+    start: 103,
+    end: 121,
+    distance: 61193
+  }, {
+    start: 121,
+    end: 103,
+    distance: 61193
+  }, {
+    start: 105,
+    end: 246,
+    distance: 40206
+  }, {
+    start: 246,
+    end: 105,
+    distance: 40206
+  }, {
+    start: 112,
+    end: 188,
+    distance: 59547
+  }, {
+    start: 188,
+    end: 112,
+    distance: 59547
+  }, {
+    start: 116,
+    end: 176,
+    distance: 63640
+  }, {
+    start: 176,
+    end: 116,
+    distance: 63640
+  }, {
+    start: 120,
+    end: 301,
+    distance: 97807
+  }, {
+    start: 301,
+    end: 120,
+    distance: 97807
+  }, {
+    start: 127,
+    end: 180,
+    distance: 56601
+  }, {
+    start: 180,
+    end: 127,
+    distance: 56601
+  }, {
+    start: 131,
+    end: 140,
+    distance: 52270
+  }, {
+    start: 140,
+    end: 131,
+    distance: 52270
+  }, {
+    start: 136,
+    end: 166,
+    distance: 118919
+  }, {
+    start: 166,
+    end: 136,
+    distance: 118919
+  }, {
+    start: 140,
+    end: 241,
+    distance: 22518
+  }, {
+    start: 241,
+    end: 140,
+    distance: 22518
+  }, {
+    start: 144,
+    end: 204,
+    distance: 68650
+  }, {
+    start: 204,
+    end: 144,
+    distance: 68650
+  }, {
+    start: 156,
+    end: 184,
+    distance: 16500
+  }, {
+    start: 184,
+    end: 156,
+    distance: 16500
+  }, {
+    start: 163,
+    end: 170,
+    distance: 49355
+  }, {
+    start: 170,
+    end: 163,
+    distance: 49355
+  }, {
+    start: 168,
+    end: 176,
+    distance: 36783
+  }, {
+    start: 176,
+    end: 168,
+    distance: 36783
+  }, {
+    start: 175,
+    end: 257,
+    distance: 64265
+  }, {
+    start: 257,
+    end: 175,
+    distance: 64265
+  }, {
+    start: 186,
+    end: 203,
+    distance: 42402
+  }, {
+    start: 203,
+    end: 186,
+    distance: 42402
+  }, {
+    start: 190,
+    end: 302,
+    distance: 11115
+  }, {
+    start: 302,
+    end: 190,
+    distance: 11115
+  }, {
+    start: 199,
+    end: 281,
+    distance: 38675
+  }, {
+    start: 281,
+    end: 199,
+    distance: 38675
+  }, {
+    start: 211,
+    end: 212,
+    distance: 33547
+  }, {
+    start: 212,
+    end: 211,
+    distance: 33547
+  }, {
+    start: 223,
+    end: 244,
+    distance: 58622
+  }, {
+    start: 244,
+    end: 223,
+    distance: 58622
+  }, {
+    start: 237,
+    end: 289,
+    distance: 110436
+  }, {
+    start: 289,
+    end: 237,
+    distance: 110436
+  }, {
+    start: 256,
+    end: 301,
+    distance: 83822
+  }, {
+    start: 301,
+    end: 256,
+    distance: 83822
+  }, {
+    start: 57,
+    end: 304,
+    distance: 56221
+  }, {
+    start: 304,
+    end: 57,
+    distance: 56221
+  }, {
+    start: 57,
+    end: 250,
+    distance: 14721
+  }, {
+    start: 250,
+    end: 57,
+    distance: 14721
+  }, {
+    start: 63,
+    end: 277,
+    distance: 31929
+  }, {
+    start: 277,
+    end: 63,
+    distance: 31929
+  }, {
+    start: 68,
+    end: 152,
+    distance: 71607
+  }, {
+    start: 152,
+    end: 68,
+    distance: 71607
+  }, {
+    start: 70,
+    end: 95,
+    distance: 46761
+  }, {
+    start: 95,
+    end: 70,
+    distance: 46761
+  }, {
+    start: 74,
+    end: 153,
+    distance: 65389
+  }, {
+    start: 153,
+    end: 74,
+    distance: 65389
+  }, {
+    start: 77,
+    end: 215,
+    distance: 41475
+  }, {
+    start: 215,
+    end: 77,
+    distance: 41475
+  }, {
+    start: 78,
+    end: 277,
+    distance: 127023
+  }, {
+    start: 277,
+    end: 78,
+    distance: 127023
+  }, {
+    start: 83,
+    end: 166,
+    distance: 56617
+  }, {
+    start: 166,
+    end: 83,
+    distance: 56617
+  }, {
+    start: 86,
+    end: 249,
+    distance: 33078
+  }, {
+    start: 249,
+    end: 86,
+    distance: 33078
+  }, {
+    start: 96,
+    end: 172,
+    distance: 92335
+  }, {
+    start: 172,
+    end: 96,
+    distance: 92335
+  }, {
+    start: 99,
+    end: 178,
+    distance: 50809
+  }, {
+    start: 178,
+    end: 99,
+    distance: 50809
+  }, {
+    start: 103,
+    end: 134,
+    distance: 90150
+  }, {
+    start: 134,
+    end: 103,
+    distance: 90150
+  }, {
+    start: 106,
+    end: 132,
+    distance: 36132
+  }, {
+    start: 132,
+    end: 106,
+    distance: 36132
+  }, {
+    start: 112,
+    end: 273,
+    distance: 51159
+  }, {
+    start: 273,
+    end: 112,
+    distance: 51159
+  }, {
+    start: 116,
+    end: 219,
+    distance: 30368
+  }, {
+    start: 219,
+    end: 116,
+    distance: 30368
+  }, {
+    start: 121,
+    end: 272,
+    distance: 47611
+  }, {
+    start: 272,
+    end: 121,
+    distance: 47611
+  }, {
+    start: 127,
+    end: 235,
+    distance: 128488
+  }, {
+    start: 235,
+    end: 127,
+    distance: 128488
+  }, {
+    start: 131,
+    end: 150,
+    distance: 28086
+  }, {
+    start: 150,
+    end: 131,
+    distance: 28086
+  }, {
+    start: 136,
+    end: 276,
+    distance: 32688
+  }, {
+    start: 276,
+    end: 136,
+    distance: 32688
+  }, {
+    start: 142,
+    end: 176,
+    distance: 27074
+  }, {
+    start: 176,
+    end: 142,
+    distance: 27074
+  }, {
+    start: 148,
+    end: 190,
+    distance: 37265
+  }, {
+    start: 190,
+    end: 148,
+    distance: 37265
+  }, {
+    start: 158,
+    end: 248,
+    distance: 59080
+  }, {
+    start: 248,
+    end: 158,
+    distance: 59080
+  }, {
+    start: 170,
+    end: 263,
+    distance: 27077
+  }, {
+    start: 263,
+    end: 170,
+    distance: 27077
+  }, {
+    start: 178,
+    end: 287,
+    distance: 45701
+  }, {
+    start: 287,
+    end: 178,
+    distance: 45701
+  }, {
+    start: 191,
+    end: 194,
+    distance: 56465
+  }, {
+    start: 194,
+    end: 191,
+    distance: 56465
+  }, {
+    start: 194,
+    end: 275,
+    distance: 25583
+  }, {
+    start: 275,
+    end: 194,
+    distance: 25583
+  }, {
+    start: 212,
+    end: 276,
+    distance: 41894
+  }, {
+    start: 276,
+    end: 212,
+    distance: 41894
+  }, {
+    start: 223,
+    end: 285,
+    distance: 67442
+  }, {
+    start: 285,
+    end: 223,
+    distance: 67442
+  }, {
+    start: 236,
+    end: 252,
+    distance: 79320
+  }, {
+    start: 252,
+    end: 236,
+    distance: 79320
+  }, {
+    start: 238,
+    end: 276,
+    distance: 19031
+  }, {
+    start: 276,
+    end: 238,
+    distance: 19031
+  }, {
+    start: 279,
+    end: 304,
+    distance: 78274
+  }, {
+    start: 304,
+    end: 279,
+    distance: 78274
+  }, {
+    start: 58,
+    end: 129,
+    distance: 42217
+  }, {
+    start: 129,
+    end: 58,
+    distance: 42217
+  }, {
+    start: 61,
+    end: 272,
+    distance: 57196
+  }, {
+    start: 272,
+    end: 61,
+    distance: 57196
+  }, {
+    start: 66,
+    end: 158,
+    distance: 30563
+  }, {
+    start: 158,
+    end: 66,
+    distance: 30563
+  }, {
+    start: 69,
+    end: 96,
+    distance: 54596
+  }, {
+    start: 96,
+    end: 69,
+    distance: 54596
+  }, {
+    start: 72,
+    end: 196,
+    distance: 87272
+  }, {
+    start: 196,
+    end: 72,
+    distance: 87272
+  }, {
+    start: 73,
+    end: 269,
+    distance: 50325
+  }, {
+    start: 269,
+    end: 73,
+    distance: 50325
+  }, {
+    start: 76,
+    end: 147,
+    distance: 66647
+  }, {
+    start: 147,
+    end: 76,
+    distance: 66647
+  }, {
+    start: 78,
+    end: 134,
+    distance: 99941
+  }, {
+    start: 134,
+    end: 78,
+    distance: 99941
+  }, {
+    start: 81,
+    end: 260,
+    distance: 18663
+  }, {
+    start: 260,
+    end: 81,
+    distance: 18663
+  }, {
+    start: 85,
+    end: 286,
+    distance: 51810
+  }, {
+    start: 286,
+    end: 85,
+    distance: 51810
+  }, {
+    start: 90,
+    end: 295,
+    distance: 51527
+  }, {
+    start: 295,
+    end: 90,
+    distance: 51527
+  }, {
+    start: 95,
+    end: 105,
+    distance: 76780
+  }, {
+    start: 105,
+    end: 95,
+    distance: 76780
+  }, {
+    start: 97,
+    end: 235,
+    distance: 36079
+  }, {
+    start: 235,
+    end: 97,
+    distance: 36079
+  }, {
+    start: 102,
+    end: 173,
+    distance: 94220
+  }, {
+    start: 173,
+    end: 102,
+    distance: 94220
+  }, {
+    start: 103,
+    end: 109,
+    distance: 104906
+  }, {
+    start: 109,
+    end: 103,
+    distance: 104906
+  }, {
+    start: 105,
+    end: 160,
+    distance: 95733
+  }, {
+    start: 160,
+    end: 105,
+    distance: 95733
+  }, {
+    start: 111,
+    end: 211,
+    distance: 67702
+  }, {
+    start: 211,
+    end: 111,
+    distance: 67702
+  }, {
+    start: 116,
+    end: 150,
+    distance: 44470
+  }, {
+    start: 150,
+    end: 116,
+    distance: 44470
+  }, {
+    start: 118,
+    end: 254,
+    distance: 53476
+  }, {
+    start: 254,
+    end: 118,
+    distance: 53476
+  }, {
+    start: 126,
+    end: 151,
+    distance: 8673
+  }, {
+    start: 151,
+    end: 126,
+    distance: 8673
+  }, {
+    start: 130,
+    end: 160,
+    distance: 90782
+  }, {
+    start: 160,
+    end: 130,
+    distance: 90782
+  }, {
+    start: 133,
+    end: 279,
+    distance: 43761
+  }, {
+    start: 279,
+    end: 133,
+    distance: 43761
+  }, {
+    start: 132,
+    end: 292,
+    distance: 49136
+  }, {
+    start: 292,
+    end: 132,
+    distance: 49136
+  }, {
+    start: 140,
+    end: 206,
+    distance: 41991
+  }, {
+    start: 206,
+    end: 140,
+    distance: 41991
+  }, {
+    start: 143,
+    end: 185,
+    distance: 50005
+  }, {
+    start: 185,
+    end: 143,
+    distance: 50005
+  }, {
+    start: 148,
+    end: 186,
+    distance: 52333
+  }, {
+    start: 186,
+    end: 148,
+    distance: 52333
+  }, {
+    start: 148,
+    end: 201,
+    distance: 73486
+  }, {
+    start: 201,
+    end: 148,
+    distance: 73486
+  }, {
+    start: 170,
+    end: 221,
+    distance: 76134
+  }, {
+    start: 221,
+    end: 170,
+    distance: 76134
+  }, {
+    start: 177,
+    end: 185,
+    distance: 61766
+  }, {
+    start: 185,
+    end: 177,
+    distance: 61766
+  }, {
+    start: 186,
+    end: 214,
+    distance: 36633
+  }, {
+    start: 214,
+    end: 186,
+    distance: 36633
+  }, {
+    start: 191,
+    end: 220,
+    distance: 62878
+  }, {
+    start: 220,
+    end: 191,
+    distance: 62878
+  }, {
+    start: 204,
+    end: 266,
+    distance: 57106
+  }, {
+    start: 266,
+    end: 204,
+    distance: 57106
+  }, {
+    start: 210,
+    end: 277,
+    distance: 60885
+  }, {
+    start: 277,
+    end: 210,
+    distance: 60885
+  }, {
+    start: 217,
+    end: 240,
+    distance: 12321
+  }, {
+    start: 240,
+    end: 217,
+    distance: 12321
+  }, {
+    start: 221,
+    end: 286,
+    distance: 41875
+  }, {
+    start: 286,
+    end: 221,
+    distance: 41875
+  }, {
+    start: 237,
+    end: 266,
+    distance: 88498
+  }, {
+    start: 266,
+    end: 237,
+    distance: 88498
+  }, {
+    start: 253,
+    end: 255,
+    distance: 27991
+  }, {
+    start: 255,
+    end: 253,
+    distance: 27991
+  }, {
+    start: 267,
+    end: 274,
+    distance: 86024
+  }, {
+    start: 274,
+    end: 267,
+    distance: 86024
+  }, {
+    start: 302,
+    end: 303,
+    distance: 35299
+  }, {
+    start: 303,
+    end: 302,
+    distance: 35299
+  }, {
+    start: 58,
+    end: 137,
+    distance: 83770
+  }, {
+    start: 137,
+    end: 58,
+    distance: 83770
+  }, {
+    start: 62,
+    end: 104,
+    distance: 36433
+  }, {
+    start: 104,
+    end: 62,
+    distance: 36433
+  }, {
+    start: 68,
+    end: 179,
+    distance: 59073
+  }, {
+    start: 179,
+    end: 68,
+    distance: 59073
+  }, {
+    start: 72,
+    end: 241,
+    distance: 73005
+  }, {
+    start: 241,
+    end: 72,
+    distance: 73005
+  }, {
+    start: 74,
+    end: 293,
+    distance: 52594
+  }, {
+    start: 293,
+    end: 74,
+    distance: 52594
+  }, {
+    start: 78,
+    end: 222,
+    distance: 32290
+  }, {
+    start: 222,
+    end: 78,
+    distance: 32290
+  }, {
+    start: 84,
+    end: 213,
+    distance: 26206
+  }, {
+    start: 213,
+    end: 84,
+    distance: 26206
+  }, {
+    start: 89,
+    end: 180,
+    distance: 18936
+  }, {
+    start: 180,
+    end: 89,
+    distance: 18936
+  }, {
+    start: 91,
+    end: 92,
+    distance: 44814
+  }, {
+    start: 92,
+    end: 91,
+    distance: 44814
+  }, {
+    start: 102,
+    end: 214,
+    distance: 85176
+  }, {
+    start: 214,
+    end: 102,
+    distance: 85176
+  }, {
+    start: 104,
+    end: 143,
+    distance: 98629
+  }, {
+    start: 143,
+    end: 104,
+    distance: 98629
+  }, {
+    start: 110,
+    end: 272,
+    distance: 105454
+  }, {
+    start: 272,
+    end: 110,
+    distance: 105454
+  }, {
+    start: 117,
+    end: 147,
+    distance: 51388
+  }, {
+    start: 147,
+    end: 117,
+    distance: 51388
+  }, {
+    start: 128,
+    end: 270,
+    distance: 26908
+  }, {
+    start: 270,
+    end: 128,
+    distance: 26908
+  }, {
+    start: 135,
+    end: 255,
+    distance: 47608
+  }, {
+    start: 255,
+    end: 135,
+    distance: 47608
+  }, {
+    start: 138,
+    end: 293,
+    distance: 62916
+  }, {
+    start: 293,
+    end: 138,
+    distance: 62916
+  }, {
+    start: 143,
+    end: 237,
+    distance: 75271
+  }, {
+    start: 237,
+    end: 143,
+    distance: 75271
+  }, {
+    start: 150,
+    end: 288,
+    distance: 41649
+  }, {
+    start: 288,
+    end: 150,
+    distance: 41649
+  }, {
+    start: 164,
+    end: 189,
+    distance: 19108
+  }, {
+    start: 189,
+    end: 164,
+    distance: 19108
+  }, {
+    start: 165,
+    end: 275,
+    distance: 25274
+  }, {
+    start: 275,
+    end: 165,
+    distance: 25274
+  }, {
+    start: 188,
+    end: 271,
+    distance: 31147
+  }, {
+    start: 271,
+    end: 188,
+    distance: 31147
+  }, {
+    start: 196,
+    end: 241,
+    distance: 57362
+  }, {
+    start: 241,
+    end: 196,
+    distance: 57362
+  }, {
+    start: 200,
+    end: 247,
+    distance: 30472
+  }, {
+    start: 247,
+    end: 200,
+    distance: 30472
+  }, {
+    start: 204,
+    end: 259,
+    distance: 67936
+  }, {
+    start: 259,
+    end: 204,
+    distance: 67936
+  }, {
+    start: 216,
+    end: 297,
+    distance: 26253
+  }, {
+    start: 297,
+    end: 216,
+    distance: 26253
+  }, {
+    start: 229,
+    end: 263,
+    distance: 38253
+  }, {
+    start: 263,
+    end: 229,
+    distance: 38253
+  }, {
+    start: 234,
+    end: 307,
+    distance: 61892
+  }, {
+    start: 307,
+    end: 234,
+    distance: 61892
+  }, {
+    start: 252,
+    end: 294,
+    distance: 52954
+  }, {
+    start: 294,
+    end: 252,
+    distance: 52954
+  }, {
+    start: 264,
+    end: 269,
+    distance: 97740
+  }, {
+    start: 269,
+    end: 264,
+    distance: 97740
+  }, {
+    start: 296,
+    end: 306,
+    distance: 8081
+  }, {
+    start: 306,
+    end: 296,
+    distance: 8081
+  }, {
+    start: 59,
+    end: 273,
+    distance: 71621
+  }, {
+    start: 273,
+    end: 59,
+    distance: 71621
+  }, {
+    start: 64,
+    end: 162,
+    distance: 27346
+  }, {
+    start: 162,
+    end: 64,
+    distance: 27346
+  }, {
+    start: 69,
+    end: 134,
+    distance: 65815
+  }, {
+    start: 134,
+    end: 69,
+    distance: 65815
+  }, {
+    start: 72,
+    end: 206,
+    distance: 56765
+  }, {
+    start: 206,
+    end: 72,
+    distance: 56765
+  }, {
+    start: 74,
+    end: 230,
+    distance: 35379
+  }, {
+    start: 230,
+    end: 74,
+    distance: 35379
+  }, {
+    start: 76,
+    end: 118,
+    distance: 52209
+  }, {
+    start: 118,
+    end: 76,
+    distance: 52209
+  }, {
+    start: 82,
+    end: 220,
+    distance: 26369
+  }, {
+    start: 220,
+    end: 82,
+    distance: 26369
+  }, {
+    start: 86,
+    end: 159,
+    distance: 64719
+  }, {
+    start: 159,
+    end: 86,
+    distance: 64719
+  }, {
+    start: 92,
+    end: 238,
+    distance: 62763
+  }, {
+    start: 238,
+    end: 92,
+    distance: 62763
+  }, {
+    start: 98,
+    end: 223,
+    distance: 38029
+  }, {
+    start: 223,
+    end: 98,
+    distance: 38029
+  }, {
+    start: 102,
+    end: 249,
+    distance: 105254
+  }, {
+    start: 249,
+    end: 102,
+    distance: 105254
+  }, {
+    start: 106,
+    end: 194,
+    distance: 47005
+  }, {
+    start: 194,
+    end: 106,
+    distance: 47005
+  }, {
+    start: 110,
+    end: 280,
+    distance: 57090
+  }, {
+    start: 280,
+    end: 110,
+    distance: 57090
+  }, {
+    start: 123,
+    end: 243,
+    distance: 20286
+  }, {
+    start: 243,
+    end: 123,
+    distance: 20286
+  }, {
+    start: 128,
+    end: 195,
+    distance: 35174
+  }, {
+    start: 195,
+    end: 128,
+    distance: 35174
+  }, {
+    start: 134,
+    end: 296,
+    distance: 54618
+  }, {
+    start: 296,
+    end: 134,
+    distance: 54618
+  }, {
+    start: 137,
+    end: 172,
+    distance: 46423
+  }, {
+    start: 172,
+    end: 137,
+    distance: 46423
+  }, {
+    start: 141,
+    end: 305,
+    distance: 44817
+  }, {
+    start: 305,
+    end: 141,
+    distance: 44817
+  }, {
+    start: 143,
+    end: 266,
+    distance: 92348
+  }, {
+    start: 266,
+    end: 143,
+    distance: 92348
+  }, {
+    start: 150,
+    end: 168,
+    distance: 18799
+  }, {
+    start: 168,
+    end: 150,
+    distance: 18799
+  }, {
+    start: 163,
+    end: 191,
+    distance: 41979
+  }, {
+    start: 191,
+    end: 163,
+    distance: 41979
+  }, {
+    start: 171,
+    end: 196,
+    distance: 32080
+  }, {
+    start: 196,
+    end: 171,
+    distance: 32080
+  }, {
+    start: 189,
+    end: 277,
+    distance: 58969
+  }, {
+    start: 277,
+    end: 189,
+    distance: 58969
+  }, {
+    start: 200,
+    end: 244,
+    distance: 54540
+  }, {
+    start: 244,
+    end: 200,
+    distance: 54540
+  }, {
+    start: 207,
+    end: 209,
+    distance: 44955
+  }, {
+    start: 209,
+    end: 207,
+    distance: 44955
+  }, {
+    start: 222,
+    end: 260,
+    distance: 74062
+  }, {
+    start: 260,
+    end: 222,
+    distance: 74062
+  }, {
+    start: 229,
+    end: 264,
+    distance: 70997
+  }, {
+    start: 264,
+    end: 229,
+    distance: 70997
+  }, {
+    start: 256,
+    end: 293,
+    distance: 73961
+  }, {
+    start: 293,
+    end: 256,
+    distance: 73961
+  }, {
+    start: 268,
+    end: 284,
+    distance: 14011
+  }, {
+    start: 284,
+    end: 268,
+    distance: 14011
+  }, {
+    start: 155,
+    end: 212,
+    distance: 66900
+  }, {
+    start: 212,
+    end: 155,
+    distance: 66900
+  }]
 };
