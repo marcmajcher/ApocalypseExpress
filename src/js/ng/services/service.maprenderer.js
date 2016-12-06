@@ -120,6 +120,9 @@
       return oldCenter.subtract(offset);
     }
 
+    const maxZoom = 1;
+    const minZoom = 0.2;
+
     function setupMouseWheel(element, actions) {
       if (actions.zoom) {
         element.bind('mousewheel', (event) => {
@@ -127,7 +130,9 @@
             const mousePos = new paper.Point(event.offsetX, event.offsetY);
             const zoom = changeZoom(paper.view.zoom, event.originalEvent.wheelDeltaY,
               paper.view.center, mousePos);
-            paper.view.zoom = zoom.newZoom;
+            if (zoom.newZoom < maxZoom && zoom.newZoom > minZoom) {
+              paper.view.zoom = zoom.newZoom;
+            }
             // view.center = view.center.add(z.a);
             event.preventDefault();
           }
