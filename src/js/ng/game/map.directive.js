@@ -4,7 +4,7 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  const renderMap = function renderMap(RenderMap) {
+  const apoxMap = function apoxMap(MapRenderer) {
     return {
       restrict: 'E',
       template: '<canvas class="map-canvas" resize="true"></canvas>',
@@ -12,13 +12,14 @@
         paper.setup(element.context.firstChild);
         const bgLayer = new paper.Layer();
         bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+        bgLayer.opacity = 0.5;
 
         const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
 
         scope.$watch('map.dataLoaded', () => {
           const data = scope.map.mapData;
-          RenderMap.render({
+          MapRenderer.render({
             isAdmin: false,
             data,
             scope,
@@ -28,10 +29,10 @@
         });
 
         paper.view.center = new paper.Point(1100, 500);
-        element.bind('mousewheel', RenderMap.onMouseWheel);
+        element.bind('mousewheel', MapRenderer.onMouseWheel);
       }
     };
   };
 
-  angular.module('apox').directive('apoxMap', ['RenderMap', renderMap]);
+  angular.module('apox').directive('apoxMap', ['MapRenderer', apoxMap]);
 })();

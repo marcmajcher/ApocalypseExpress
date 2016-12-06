@@ -4,7 +4,7 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  const renderMap = function renderMap() {
+  const mapRenderer = function mapRenderer() {
     const xScale = 435.30;
     const yScale = -506.5;
     const xOffset = 43647;
@@ -243,5 +243,5 @@
     };
   };
 
-  angular.module('apox').factory('RenderMap', renderMap);
+  angular.module('apox').factory('MapRenderer', mapRenderer);
 })();
