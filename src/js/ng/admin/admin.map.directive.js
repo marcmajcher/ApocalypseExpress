@@ -26,6 +26,10 @@
               factionLayer,
               mapLayer
             });
+            MapRenderer.setupMouseWheel(element, {
+              zoom: true,
+              pan: true
+            });
           }
         });
 

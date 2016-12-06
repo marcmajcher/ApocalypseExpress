@@ -120,20 +120,27 @@
       return oldCenter.subtract(offset);
     }
 
-    function onMouseWheel(event) {
-      const dx = event.originalEvent.wheelDeltaX;
-      const dy = event.originalEvent.wheelDeltaY;
-
-      if (event.altKey) {
-        const mousePos = new paper.Point(event.offsetX, event.offsetY);
-        const zoom = changeZoom(paper.view.zoom, dy, paper.view.center, mousePos);
-        paper.view.zoom = zoom.newZoom;
-        // view.center = view.center.add(z.a);
-        event.preventDefault();
+    function setupMouseWheel(element, actions) {
+      if (actions.zoom) {
+        element.bind('mousewheel', (event) => {
+          if (event.altKey) {
+            const mousePos = new paper.Point(event.offsetX, event.offsetY);
+            const zoom = changeZoom(paper.view.zoom, event.originalEvent.wheelDeltaY,
+              paper.view.center, mousePos);
+            paper.view.zoom = zoom.newZoom;
+            // view.center = view.center.add(z.a);
+            event.preventDefault();
+          }
+        });
       }
-      else {
-        paper.view.center = changeCenter(paper.view.center, dx, dy, 1);
-        event.preventDefault();
+
+      if (actions.pan) {
+        element.bind('mousewheel', (event) => {
+          paper.view.center = changeCenter(paper.view.center,
+            event.originalEvent.wheelDeltaX,
+            event.originalEvent.wheelDeltaY, 1);
+          event.preventDefault();
+        });
       }
     }
 
@@ -240,7 +247,7 @@
     /* Factory object */
 
     return {
-      onMouseWheel,
+      setupMouseWheel,
       render,
     };
   };

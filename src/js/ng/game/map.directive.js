@@ -17,7 +17,7 @@
         const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
 
-        element.bind('mousewheel', MapRenderer.onMouseWheel);
+        // element.bind('mousewheel', MapRenderer.onMouseWheel);
 
         function centerMap() {
           if (scope.$parent.game.currentLocation && scope.map.mapData.locations) {
@@ -38,6 +38,10 @@
             });
             centerMap();
           }
+          MapRenderer.setupMouseWheel(element, {
+            zoom: true,
+            pan: false
+          });
         });
 
         scope.$watch('$parent.game.currentLocation', () => {
