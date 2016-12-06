@@ -162,14 +162,16 @@
           const loc1 = data.locations[connection.loc1];
           const loc2 = data.locations[connection.loc2];
 
-          const path = new paper.Path.Line(loc1.point, loc2.point);
-          path.strokeColor = isAdmin ? 'black' : 'dimgrey';
-          path.strokeWidth = baseConWidth;
+          if (loc1 && loc2) {
+            const path = new paper.Path.Line(loc1.point, loc2.point);
+            path.strokeColor = isAdmin ? 'black' : 'dimgrey';
+            path.strokeWidth = baseConWidth;
 
-          loc1.ends.push(path.segments[0].point);
-          loc2.ends.push(path.segments[1].point);
-          loc1.paths.push(path);
-          loc2.paths.push(path);
+            loc1.ends.push(path.segments[0].point);
+            loc2.ends.push(path.segments[1].point);
+            loc1.paths.push(path);
+            loc2.paths.push(path);
+          }
         }
 
         /* render locations */

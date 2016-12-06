@@ -20,7 +20,7 @@
         element.bind('mousewheel', MapRenderer.onMouseWheel);
 
         function centerMap() {
-          if (scope.$parent.game.currentLocation) {
+          if (scope.$parent.game.currentLocation && scope.map.mapData.locations) {
             const loc = scope.map.mapData.locations[scope.$parent.game.currentLocation.id];
             paper.view.center = new paper.Point(loc.point.x, loc.point.y);
           }

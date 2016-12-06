@@ -96,7 +96,7 @@ router.patch('/', (req, res, next) => {
 router.post('/', /* isNotTraveling, */ (req, res) => {
   // TODO: use timer to travel
   // TODO: add 'traveling' column, check that not already traveling
-  // TODO: check to verify that destination is adjacent to current location
+  // TODO: *** check to verify that destination is adjacent to current location
   util.knex('trips').where('driverid', req.session.user.driverid)
     .orderBy('sequence').first()
     .select('locationid')
@@ -104,13 +104,14 @@ router.post('/', /* isNotTraveling, */ (req, res) => {
       util.knex('drivers').where('id', req.session.user.driverid)
         .update('location', destination.locationid)
         .then(() => {
+          // TODO: update driver_visited table
+          // remove current destination when destination is reached
           util.knex('trips').where('driverid', req.session.user.driverid).del()
             .then(() => {
               res.send('ok');
             });
           // TODO: error handling
-          // TODO: remove current destination when destination is reached
-          // TODO: better response - include id of next destination?
+          // TODO: better response - include id of next/current location?
         });
     });
 });
