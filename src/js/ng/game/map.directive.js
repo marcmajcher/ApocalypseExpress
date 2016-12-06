@@ -11,7 +11,7 @@
       link: (scope, element) => {
         paper.setup(element.context.firstChild);
         const bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
 
         const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
