@@ -9,9 +9,9 @@ const util = require('./_util');
 router.use(util.loginRequired);
 
 router.get('/', (req, res) => {
-  // TODO: update to only show locations visited by user
   const myData = {};
-  if (req.session.user.role === 'aadmin') {
+
+  if (req.session.user.role === 'admin') {
     util.knex('locations').then((locations) => {
       myData.locations = locations.reduce((last, cur) => {
         last[cur.id] = cur;
@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
       'locations.id': 'driver_visited.locationid',
       'driver_visited.driverid': req.session.user.driverid
     })
+    .select('id', 'name', 'latitude', 'longitude', 'population', 'tech', 'factionid', 'type')
     .then((locations) => {
       myData.locations = locations.reduce((last, cur) => {
         last[cur.id] = cur;
