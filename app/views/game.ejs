@@ -28,7 +28,7 @@
               <tr ng-repeat="c in game.currentLocation.connections | orderBy: c.distance"
                   class="{{c.name === game.destinationName ? 'current' : 'select'}}">
                 <td>{{c.name}}</td>
-                <td>{{c.distance/1000 | number: 1}}</td>
+                <td>{{c.distance/1000 | number: 1}} km</td>
                 <td class="button">
                   <button ng-show="c.name !== game.destinationName"
                           ng-click="game.setDestination(c.id)"

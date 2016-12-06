@@ -25,7 +25,6 @@
             factionLayer,
             mapLayer
           });
-          RenderMap.toggleFactions();
         });
 
         paper.view.center = new paper.Point(1100, 500);
