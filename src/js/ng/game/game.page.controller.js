@@ -52,6 +52,7 @@
         TripService.beginTrip().then((data) => {
           if (data === 'ok') {
             vm.getCurrentLocation();
+            console.log(vm);
             vm.destinationName = undefined;
             vm.destinationId = undefined;
             vm.working = false;

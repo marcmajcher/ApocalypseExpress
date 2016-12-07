@@ -10,7 +10,7 @@
     vm.mapData = {};
     vm.dataLoaded = false;
 
-    vm.loadMapData = function load() {
+    vm.loadMapData = function loadMapData() {
       MapService.getMap()
         .then((res) => {
           vm.mapData.locations = res.data.locations;

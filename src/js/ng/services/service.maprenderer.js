@@ -167,6 +167,8 @@
           data.locations[id].ends = [];
         });
 
+        mapLayer.removeChildren();
+
         /* Draw connections */
         for (let i = 0; i < data.connections.length; i++) {
           const connection = data.connections[i];
@@ -177,6 +179,7 @@
             const path = new paper.Path.Line(start.point, end.point);
             path.strokeColor = isAdmin ? 'black' : 'dimgrey';
             path.strokeWidth = baseConWidth;
+            mapLayer.addChild(path);
 
             start.ends.push(path.segments[0].point);
             end.ends.push(path.segments[1].point);

@@ -120,7 +120,7 @@ router.post('/', /* isNotTraveling, */ (req, res) => {
                         locationid: destination.locationid,
                         driverid
                       }, '*')
-                      .then((result) => {
+                      .then(() => {
                         res.send('ok');
                       });
                   }
