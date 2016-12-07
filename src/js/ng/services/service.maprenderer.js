@@ -15,11 +15,11 @@
 
     const factionColors = [
       new paper.Color(0, 0, 0, 0.95),
-      new paper.Color(0, 0, 255, 0.2),
-      new paper.Color(255, 0, 0, 0.2),
-      new paper.Color(0, 255, 0, 0.2),
-      new paper.Color(75, 0, 130, 0.2),
-      new paper.Color(255, 255, 0, 0.2)
+      new paper.Color(0, 0, 255, 0.5),
+      new paper.Color(255, 0, 0, 0.5),
+      new paper.Color(0, 255, 0, 0.5),
+      new paper.Color(75, 0, 130, 0.5),
+      new paper.Color(255, 255, 0, 0.5)
     ];
 
     function locToPoint(loc) {
@@ -216,7 +216,8 @@
           const dot = new paper.Path.Circle({
             center: location.point,
             radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-            fillColor: isAdmin ? 'black' : 'dimgrey',
+            fillColor: isAdmin ? 'black' : factionColors[location.factionid],
+            strokeColor: 'black',
             name: 'dot'
           });
 
