@@ -90,7 +90,7 @@ module.exports = {
       population: 500,
       tech: 3
     },
-    fullLocationData: {
+    userLocationData: {
       id: 1,
       name: 'Garnet',
       latitude: 30.2971,
@@ -108,22 +108,6 @@ module.exports = {
         start: 1,
         end: 3,
         distance: 94887
-      }, {
-        start: 2,
-        end: 1,
-        distance: 97154
-      }, {
-        start: 2,
-        end: 3,
-        distance: 97154
-      }, {
-        start: 3,
-        end: 1,
-        distance: 97154
-      }, {
-        start: 3,
-        end: 2,
-        distance: 97154
       }]
     }
   }

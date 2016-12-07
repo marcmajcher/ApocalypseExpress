@@ -39,7 +39,7 @@ describe('Location', () => {
         req.cookies = testUserCookie;
         req.expect(200)
           .end((err2, res2) => {
-            JSON.parse(res2.text).should.deepEqual(util.locations.fullLocationData);
+            JSON.parse(res2.text).should.deepEqual(util.locations.userLocationData);
             done();
           });
       });
