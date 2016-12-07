@@ -18,19 +18,8 @@
         vm.driver = driver;
       });
 
-      vm.getCurrentConnections = function getCurrentConnections() {
+      vm.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
-          const filteredConnections = [];
-          for (let i = 0; i < location.connections.length; i++) {
-            const connection = location.connections[i];
-            if (connection.name !== location.name) {
-              connection.id = connection.loc1 === location.id ? connection.loc2 : connection.loc1;
-              delete connection.loc1;
-              delete connection.loc2;
-              filteredConnections.push(connection);
-            }
-          }
-          location.connections = filteredConnections;
           vm.currentLocation = location;
         });
       };
@@ -63,7 +52,7 @@
         TripService.beginTrip().then((data) => {
           if (data === 'ok') {
             vm.working = false;
-            vm.getCurrentConnections();
+            vm.getCurrentLocation();
             vm.destinationName = undefined;
             vm.destinationId = undefined;
           }
@@ -81,7 +70,7 @@
         });
       };
 
-      vm.getCurrentConnections();
+      vm.getCurrentLocation();
       vm.getCurrentDestination();
     };
 
