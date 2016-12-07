@@ -19,8 +19,8 @@ module.exports = {
   ],
   connections: [<% for (var i=0; i<data.connections.length; i++) { %>
     {
-      loc1: <%=data.connections[i].loc1%>,
-      loc2: <%=data.connections[i].loc2%>,
+      start: <%=data.connections[i].start%>,
+      end: <%=data.connections[i].end%>,
       distance: <%=data.connections[i].distance%>
     }<%=(i<data.connections.length-1)?',':''%><% } %>
   ]

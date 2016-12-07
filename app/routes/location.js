@@ -12,13 +12,7 @@ router.get('/', (req, res) => {
   util.knex('locations').where('id',
       util.knex('drivers').where('id', req.session.user.driverid).select('location')).first()
     .then((location) => {
-      util.knex('connections')
-        .innerJoin('locations', {
-          'connections.start': 'locations.id'
-        })
-        .where('connections.start', location.id)
-        .distinct(util.knex.raw('on (name) name'))
-        .select('start', 'end', 'distance')
+      util.knex('connections').where('start', location.id)
         .then((connections) => {
           location.connections = connections;
           res.send(location);

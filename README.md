@@ -110,8 +110,8 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
    | latitude    | float   |          +----------------------+ +-----+ locationid | id      |
    | longitude   | float   |          | Connections          |       +----------------------+
    | description | string  |          +----------------------+
-   | population  | integer |<---------+ loc1       | id      |
-   | tech        | integer |<---------+ loc2       | id      |
+   | population  | integer |<---------+ start      | id      |
+   | tech        | integer |<---------+ end        | id      |
    | factionid   | id      +----+     | distance   | integer |
    | type        | string  |    |     | difficulty | integer |
    +-----------------------+    |     +----------------------+
@@ -122,20 +122,20 @@ Apocalypse Express is a game inspired by Mad Max, Autoduel, Elite, Auto Assault,
 
 Column | Type | Modifiers
 ---|---|---
-config          | character varying(255) |
+config | character varying(255) |
 defaultLocation | integer                |
 
 **connections**
 
 Column | Type | Modifiers
 ---|---|---
-loc1     | integer |
-loc2     | integer |
+start | integer |
+end | integer |
 distance | integer |
 `
 Foreign-key constraints:
- "city_link_city1_foreign" FOREIGN KEY (loc1) REFERENCES locations(id) ON DELETE CASCADE
- "city_link_city2_foreign" FOREIGN KEY (loc2) REFERENCES locations(id) ON DELETE CASCADE
+ "city_link_city1_foreign" FOREIGN KEY (start) REFERENCES locations(id) ON DELETE CASCADE
+ "city_link_city2_foreign" FOREIGN KEY (end) REFERENCES locations(id) ON DELETE CASCADE
 `
 
 **drivers**
@@ -192,8 +192,8 @@ Check constraints:
 
 `
 Referenced by:
-TABLE "connections" CONSTRAINT "city_link_city1_foreign" FOREIGN KEY (loc1) REFERENCES locations(id) ON DELETE CASCADE
-TABLE "connections" CONSTRAINT "city_link_city2_foreign" FOREIGN KEY (loc2) REFERENCES locations(id) ON DELETE CASCADE
+TABLE "connections" CONSTRAINT "city_link_city1_foreign" FOREIGN KEY (start) REFERENCES locations(id) ON DELETE CASCADE
+TABLE "connections" CONSTRAINT "city_link_city2_foreign" FOREIGN KEY (end) REFERENCES locations(id) ON DELETE CASCADE
 TABLE "drivers" CONSTRAINT "drivers_destination_foreign" FOREIGN KEY (destination) REFERENCES locations(id)
 TABLE "drivers" CONSTRAINT "drivers_location_foreign" FOREIGN KEY (location) REFERENCES locations(id) ON DELETE CASCADE
 `
