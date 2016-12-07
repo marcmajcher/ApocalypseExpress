@@ -21,7 +21,6 @@
       vm.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
           vm.currentLocation = location;
-          console.log(location);
         });
       };
 

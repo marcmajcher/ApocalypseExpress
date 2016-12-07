@@ -13,7 +13,6 @@
 
         const bgLayer = new paper.Layer();
         bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
-        const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
 
         scope.$watch('admin.dataLoaded', () => {
@@ -23,7 +22,6 @@
               isAdmin: true,
               data,
               scope,
-              factionLayer,
               mapLayer
             });
             MapRenderer.setupMouseWheel(element, {

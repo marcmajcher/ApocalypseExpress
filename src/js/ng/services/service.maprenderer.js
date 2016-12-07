@@ -14,12 +14,12 @@
     const baseConWidth = 3;
 
     const factionColors = [
-      new paper.Color(0, 0, 0, 0.95),
-      new paper.Color(0, 0, 255, 0.5),
-      new paper.Color(255, 0, 0, 0.5),
-      new paper.Color(0, 255, 0, 0.5),
-      new paper.Color(75, 0, 130, 0.5),
-      new paper.Color(255, 255, 0, 0.5)
+      new paper.Color(0, 0, 0),
+      new paper.Color('#6666ff'),
+      new paper.Color('#ff6666'),
+      new paper.Color('#669966'),
+      new paper.Color('#ac00e6'),
+      new paper.Color('#ffff66')
     ];
 
     function locToPoint(loc) {
@@ -156,8 +156,7 @@
         isAdmin,
         data,
         scope,
-        mapLayer,
-        factionLayer
+        mapLayer
       } = args;
 
       if (data.locations && data.connections) {
@@ -171,18 +170,18 @@
         /* Draw connections */
         for (let i = 0; i < data.connections.length; i++) {
           const connection = data.connections[i];
-          const loc1 = data.locations[connection.loc1];
-          const loc2 = data.locations[connection.loc2];
+          const start = data.locations[connection.start];
+          const end = data.locations[connection.end];
 
-          if (loc1 && loc2) {
-            const path = new paper.Path.Line(loc1.point, loc2.point);
+          if (start && end) {
+            const path = new paper.Path.Line(start.point, end.point);
             path.strokeColor = isAdmin ? 'black' : 'dimgrey';
             path.strokeWidth = baseConWidth;
 
-            loc1.ends.push(path.segments[0].point);
-            loc2.ends.push(path.segments[1].point);
-            loc1.paths.push(path);
-            loc2.paths.push(path);
+            start.ends.push(path.segments[0].point);
+            end.ends.push(path.segments[1].point);
+            start.paths.push(path);
+            end.paths.push(path);
           }
         }
 
@@ -195,28 +194,10 @@
         locationKeys.forEach((id) => {
           const location = data.locations[id];
 
-          const faction = new paper.Path.Circle({
-            center: location.point,
-            radius: baseDotSize * Math.ceil(Math.log10(location.population)) * 40,
-            name: 'faction'
-          });
-          faction.fillColor = {
-            gradient: {
-              stops: [
-                [factionColors[location.factionid], 0.6],
-                [new paper.Color(255, 255, 255, 0), 1]
-              ],
-              radial: true
-            },
-            origin: faction.position,
-            destination: faction.bounds.rightCenter
-          };
-          factionLayer.addChild(faction);
-
           const dot = new paper.Path.Circle({
             center: location.point,
             radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-            fillColor: isAdmin ? 'black' : factionColors[location.factionid],
+            fillColor: factionColors[location.factionid],
             strokeColor: 'black',
             name: 'dot'
           });
@@ -245,8 +226,6 @@
           }
           mapLayer.addChild(locGroup);
         });
-
-        factionLayer.visible = isAdmin;
       }
     }
 

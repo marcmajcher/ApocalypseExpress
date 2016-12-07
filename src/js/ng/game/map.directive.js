@@ -14,10 +14,7 @@
         bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
         bgLayer.opacity = 0.5;
 
-        const factionLayer = new paper.Layer();
         const mapLayer = new paper.Layer();
-
-        // element.bind('mousewheel', MapRenderer.onMouseWheel);
 
         function centerMap() {
           if (scope.$parent.game.currentLocation && scope.map.mapData.locations) {
@@ -33,7 +30,6 @@
               isAdmin: false,
               data,
               scope,
-              factionLayer,
               mapLayer
             });
             centerMap();
