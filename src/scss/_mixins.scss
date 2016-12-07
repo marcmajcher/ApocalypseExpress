@@ -1,0 +1,27 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin faction-colors() {
+  &.light {
+    background-color: yellow;
+  }
+
+  &.republic {
+    background-color: blue;
+  }
+
+  &.confederation {
+    background-color: red;
+  }
+
+  &.alliance {
+    background-color: green;
+  }
+
+  &.petrex {
+    background-color: indigo;
+  }
+}

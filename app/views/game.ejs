@@ -12,8 +12,7 @@
           <div class="faction-slug {{game.factionTags[game.currentLocation.factionid]}}"></div>
         </div>
         <div class="location-info">
-          Population: {{game.currentLocation.population}}<br/>
-          Tech Level: {{game.currentLocation.tech}}
+          Population: {{game.currentLocation.population}}<br/> Tech Level: {{game.currentLocation.tech}}
         </div>
         <div class="location-description">{{game.currentLocation.description}}</div>
       </div>
@@ -25,6 +24,7 @@
           <table class="table" id="destinations-list">
             <thead>
               <tr>
+                <th></th>
                 <th>Destination</th>
                 <th>Distance</th>
                 <th></th>
@@ -32,30 +32,30 @@
             </thead>
             <tbody>
               <tr ng-repeat="c in game.currentLocation.connections | orderBy: c.distance"
-                  class="{{c.name === game.destinationName ? 'current' : 'select'}}">
-                <td>{{c.name}}</td>
-                <td>{{c.distance/1000 | number: 1}} km</td>
+              class="{{c.name === game.destinationName ? 'current' : 'select'}}"
+              ng-click="game.setDestination(c.id)">
+                <td class="col-faction">
+                  <div class="faction-dot {{game.factionTags[c.factionid]}}"></div>
+                </td>
+                <td class="col-name">{{c.name}}</td>
+                <td class="col-distance">{{c.distance/1000 | number: 1}} km</td>
                 <td class="button">
-                  <button ng-show="c.name !== game.destinationName"
-                          ng-click="game.setDestination(c.id)"
-                          ng-disabled="game.working">Set</button>
+                  <button class="btn-go btn btn-warning" ng-show="c.name === game.destinationName"
+                          ng-click="game.goDestination()" ng-disabled="game.working">
+                    Hit the road!
+                  </button>
                 </td>
               </tr>
               <tr>
-                <td colspan="3" class="button">
-                  <button ng-click="game.clearDestination()" ng-disabled="game.working">
+                <td colspan="4" class="button">
+                  <button class="btn btn-secondary"
+                    ng-click="game.clearDestination()" ng-disabled="game.working">
                     Clear Destination
                   </button>
                 </td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div ng-if="game.destinationName" class="go-destination">
-          <button class="go" ng-click="game.goDestination()" ng-disabled="game.working">
-            Hit the road!
-          </button>
         </div>
 
         <div ng-if="game.traveling">

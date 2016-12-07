@@ -21,6 +21,7 @@
       vm.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
           vm.currentLocation = location;
+          console.log(location);
         });
       };
 
@@ -51,10 +52,10 @@
         vm.working = true;
         TripService.beginTrip().then((data) => {
           if (data === 'ok') {
-            vm.working = false;
             vm.getCurrentLocation();
             vm.destinationName = undefined;
             vm.destinationId = undefined;
+            vm.working = false;
           }
         });
       };

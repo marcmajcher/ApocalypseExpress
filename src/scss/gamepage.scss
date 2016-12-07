@@ -19,34 +19,13 @@ body.game-page {
     float: right;
     margin: 8px 0;
     opacity: 0.5;
-    -moz-border-radius: 0.5em 0 0 0.5em;
-    -webkit-border-radius: 0.5em 0 0 0.5em;
-    border-radius: 0.5em 0 0 0.5em;
-
-    &.light {
-      background-color: yellow;
-    }
-
-    &.republic {
-      background-color: blue;
-    }
-
-    &.confederation {
-      background-color: red;
-    }
-
-    &.alliance {
-      background-color: green;
-    }
-
-    &.petrex {
-      background-color: indigo;
-    }
+    @include border-radius(0.5em 0 0 0.5em);
+    @include faction-colors;
   }
 
   .location-name {
     color: #666;
-    font-weight: lighter;
+    font-weight: 300;
   }
 
   .location-info {
@@ -69,24 +48,41 @@ body.game-page {
       margin: 0;
       background-color: white;
 
+      td {
+        vertical-align: middle;
+      }
+
       tr.current td {
-        background-color: #666;
+        background-color: #999;
         color: white;
       }
 
-      tr td.button {
+      td.col-name {
+        font-weight: 300;
+      }
+
+      td.button {
+        width: 150px;
         text-align: right;
+      }
+
+      .faction-dot {
+        @include border-radius(0.5em);
+        opacity: 0.5;
+        height: 1em;
+        width: 1em;
+
+        background-color: grey;
+        @include faction-colors;
       }
     }
   }
 
-  .go-destination {
+  .btn-go {
     text-align: center;
-    font-size: 2.5em;
-
-    span.destination-name {
-      font-size: 1.8em;
-    }
+    font-size: 1em;
+    padding: 2px;
+    color: black;
   }
 
   canvas.map-canvas {
