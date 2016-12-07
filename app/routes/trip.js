@@ -36,6 +36,7 @@ router.get('/', (req, res) => {
 });
 
 /* Create a new trip with given destination or destinations */
+// TODO: *** check to verify that destination is adjacent to current location
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
@@ -94,24 +95,42 @@ router.patch('/', (req, res, next) => {
 
 /* Begin current trip */
 router.post('/', /* isNotTraveling, */ (req, res) => {
+  const driverid = req.session.user.driverid;
   // TODO: use timer to travel
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: *** check to verify that destination is adjacent to current location
-  util.knex('trips').where('driverid', req.session.user.driverid)
+  util.knex('trips').where('driverid', driverid)
     .orderBy('sequence').first()
     .select('locationid')
     .then((destination) => {
-      util.knex('drivers').where('id', req.session.user.driverid)
+      util.knex('drivers').where('id', driverid)
         .update('location', destination.locationid)
         .then(() => {
-          // TODO: update driver_visited table
           // remove current destination when destination is reached
-          util.knex('trips').where('driverid', req.session.user.driverid).del()
+          util.knex('trips').where('driverid', driverid).del()
             .then(() => {
-              res.send('ok');
+              util.knex('driver_visited').where({
+                  locationid: destination.locationid,
+                  driverid
+                })
+                .then((entry) => {
+                  if (entry.length === 0) {
+                    util.knex('driver_visited')
+                      .insert({
+                        locationid: destination.locationid,
+                        driverid
+                      }, '*')
+                      .then((result) => {
+                        res.send('ok');
+                      });
+                  }
+                  else {
+                    res.send('ok');
+                  }
+                });
+              // TODO: error handling
+              // TODO: better response - include id of next/current location?
             });
-          // TODO: error handling
-          // TODO: better response - include id of next/current location?
         });
     });
 });

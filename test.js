@@ -3,14 +3,23 @@
 const config = require('./knexfile').development;
 const knex = require('knex')(config);
 
-const myData = {};
+const driver = 1;
+const loc = 1;
 
-knex('locations').where('id',
-  knex('drivers').where('id', 1).select('location')).first()
-  .then((location) => {
-    knex('connections').where('start', location.id)
-      .then((connections) => {
-        console.log(connections);
-        process.exit();
-      });
+knex('driver_visited')
+  .whereNotExists(knex('driver_visited')
+    .whereRaw(`locationid=${loc} and driverid=${driver}`)
+  )
+  .insert({
+    locationid: loc,
+    driverid: driver
+  }, '*')
+  .then((data) => {
+    console.log(data);
+    process.exit();
   });
+
+
+// insert into driver_visited (locationid, driverid)
+// select 2,1
+//where not exists (select * from driver_visited where locationid=2 and driverid=1);
