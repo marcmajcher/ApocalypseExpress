@@ -13,21 +13,23 @@
 
         const mapLayer = new paper.Layer();
 
-        MapService.loadMap()
-          .then(() => {
-            MapRenderer.render({
-              isAdmin: false,
-              mapLayer
-            });
-            MapRenderer.centerMap(GameService.currentLocation);
-          });
-
         MapRenderer.setupMouseWheel(element, {
           zoom: true
         });
 
-        scope.$watch(() => GameService.currentLocation, (val) => {
-          MapRenderer.centerMap(GameService.currentLocation);
+        function renderMap() {
+          MapService.loadMap()
+            .then(() => {
+              MapRenderer.render({
+                isAdmin: false,
+                mapLayer
+              });
+              MapRenderer.centerMap(GameService.currentLocation);
+            });
+        }
+
+        scope.$watch(() => GameService.currentLocation, () => {
+          renderMap();
         }, true);
       }
     };

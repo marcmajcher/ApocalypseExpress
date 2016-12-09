@@ -4,23 +4,14 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  const mapRenderer = function mapRenderer(MapService) {
+  const mapRenderer = function mapRenderer(MapService, FactionService) {
     const xScale = 435.30;
     const yScale = -506.5;
     const xOffset = 43647;
     const yOffset = 15855;
 
     const baseDotSize = 3;
-    const baseConWidth = 3;
-
-    const factionColors = [
-      new paper.Color('#000000'),
-      new paper.Color('#6666ff'),
-      new paper.Color('#ff6666'),
-      new paper.Color('#669966'),
-      new paper.Color('#ac00e6'),
-      new paper.Color('#ffff66')
-    ];
+    const baseConWidth = 6;
 
     function locToPoint(loc) {
       return new paper.Point(
@@ -183,9 +174,12 @@
           const end = data.locations[connection.end];
 
           if (start && end) {
-            const path = new paper.Path.Line(start.point, end.point);
-            path.strokeColor = 'black';
-            path.strokeWidth = baseConWidth;
+            const path = new paper.Path.Line({
+              from: start.point,
+              to: end.point,
+              strokeColor: 'black',
+              strokeWidth: baseConWidth
+            });
             mapLayer.addChild(path);
 
             start.ends.push(path.segments[0].point);
@@ -207,7 +201,7 @@
           const dot = new paper.Path.Circle({
             center: location.point,
             radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-            fillColor: factionColors[location.factionid],
+            fillColor: new paper.Color(FactionService.factionColors[location.factionid]),
             strokeColor: 'black',
             name: 'dot'
           });
@@ -249,5 +243,7 @@
     };
   };
 
-  angular.module('apox').factory('MapRenderer', ['MapService', mapRenderer]);
+  angular.module('apox').factory('MapRenderer', [
+    'MapService', 'FactionService', mapRenderer
+  ]);
 })();

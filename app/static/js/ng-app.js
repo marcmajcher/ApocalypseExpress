@@ -111,112 +111,6 @@
 
   angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
 })();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var gamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
-    var vm = this;
-
-    vm.working = false;
-    vm.traveling = false;
-    vm.factionTags = FactionService.factionTags;
-
-    GameService.init().then(function () {
-      vm.driver = GameService.driver;
-      vm.currentLocation = GameService.currentLocation;
-      vm.destination = GameService.destination;
-    });
-
-    vm.setDestination = function setDestination(id) {
-      vm.working = true;
-      TripService.setNextDestination(id).then(function (data) {
-        if (data.ok) {
-          vm.destinationName = data.name;
-          vm.destinationId = data.id;
-          vm.working = false;
-        }
-        // TODO: error check
-        // TODO: better response from the route - return new id?
-      });
-    };
-
-    vm.goDestination = function goDestination() {
-      vm.working = true;
-      TripService.beginTrip().then(function (data) {
-        if (data === 'ok') {
-          vm.getCurrentLocation();
-          vm.destinationName = undefined;
-          vm.destinationId = undefined;
-          vm.working = false;
-        }
-      });
-    };
-
-    vm.getCurrentLocation = function getCurrentLocation() {
-      LocationService.getCurrentLocation().then(function (location) {
-        vm.currentLocation = location;
-        GameService.currentLocation = location;
-      });
-    };
-
-    vm.clearDestination = function clearDestination() {
-      vm.working = true;
-      TripService.clearTrip().then(function (data) {
-        if (data === 'ok') {
-          vm.destinationName = undefined;
-          vm.destinationId = undefined;
-          vm.working = false;
-        }
-      });
-    };
-  };
-
-  angular.module('apox').controller('GamePageController', ['GameService', 'FactionService', 'LocationService', 'TripService', gamePageController]);
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
-    return {
-      restrict: 'E',
-      template: '<canvas class="map-canvas" resize="true"></canvas>',
-      link: function link(scope, element) {
-        paper.setup(element.context.firstChild);
-
-        var bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
-
-        var mapLayer = new paper.Layer();
-
-        MapService.loadMap().then(function () {
-          MapRenderer.render({
-            isAdmin: false,
-            mapLayer: mapLayer
-          });
-          MapRenderer.centerMap(GameService.currentLocation);
-        });
-
-        MapRenderer.setupMouseWheel(element, {
-          zoom: true
-        });
-
-        scope.$watch(function () {
-          return GameService.currentLocation;
-        }, function (val) {
-          MapRenderer.centerMap(GameService.currentLocation);
-        }, true);
-      }
-    };
-  };
-
-  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
-})();
 //
 // app.factory('socket', function($rootScope){
 //   var socket = io.connect();
@@ -361,16 +255,14 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  var mapRenderer = function mapRenderer(MapService) {
+  var mapRenderer = function mapRenderer(MapService, FactionService) {
     var xScale = 435.30;
     var yScale = -506.5;
     var xOffset = 43647;
     var yOffset = 15855;
 
     var baseDotSize = 3;
-    var baseConWidth = 3;
-
-    var factionColors = [new paper.Color('#000000'), new paper.Color('#6666ff'), new paper.Color('#ff6666'), new paper.Color('#669966'), new paper.Color('#ac00e6'), new paper.Color('#ffff66')];
+    var baseConWidth = 6;
 
     function locToPoint(loc) {
       return new paper.Point(loc.longitude * xScale + xOffset, loc.latitude * yScale + yOffset);
@@ -528,9 +420,12 @@
             var end = data.locations[connection.end];
 
             if (start && end) {
-              var path = new paper.Path.Line(start.point, end.point);
-              path.strokeColor = 'black';
-              path.strokeWidth = baseConWidth;
+              var path = new paper.Path.Line({
+                from: start.point,
+                to: end.point,
+                strokeColor: 'black',
+                strokeWidth: baseConWidth
+              });
               mapLayer.addChild(path);
 
               start.ends.push(path.segments[0].point);
@@ -552,7 +447,7 @@
             var dot = new paper.Path.Circle({
               center: location.point,
               radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-              fillColor: factionColors[location.factionid],
+              fillColor: new paper.Color(FactionService.factionColors[location.factionid]),
               strokeColor: 'black',
               name: 'dot'
             });
@@ -595,7 +490,7 @@
     };
   };
 
-  angular.module('apox').factory('MapRenderer', ['MapService', mapRenderer]);
+  angular.module('apox').factory('MapRenderer', ['MapService', 'FactionService', mapRenderer]);
 })();
 'use strict';
 
@@ -689,4 +584,112 @@
   };
 
   angular.module('apox').factory('TripService', ['$http', '$q', tripService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var gamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
+    var vm = this;
+
+    vm.working = false;
+    vm.traveling = false;
+    vm.factionTags = FactionService.factionTags;
+
+    GameService.init().then(function () {
+      vm.driver = GameService.driver;
+      vm.currentLocation = GameService.currentLocation;
+      vm.destination = GameService.destination;
+    });
+
+    vm.setDestination = function setDestination(id) {
+      vm.working = true;
+      TripService.setNextDestination(id).then(function (data) {
+        if (data.ok) {
+          vm.destinationName = data.name;
+          vm.destinationId = data.id;
+          vm.working = false;
+        }
+        // TODO: error check
+        // TODO: better response from the route - return new id?
+      });
+    };
+
+    vm.goDestination = function goDestination() {
+      vm.working = true;
+      TripService.beginTrip().then(function (data) {
+        if (data === 'ok') {
+          vm.getCurrentLocation();
+          vm.destinationName = undefined;
+          vm.destinationId = undefined;
+          vm.working = false;
+        }
+      });
+    };
+
+    vm.getCurrentLocation = function getCurrentLocation() {
+      LocationService.getCurrentLocation().then(function (location) {
+        vm.currentLocation = location;
+        GameService.currentLocation = location;
+      });
+    };
+
+    vm.clearDestination = function clearDestination() {
+      vm.working = true;
+      TripService.clearTrip().then(function (data) {
+        if (data === 'ok') {
+          vm.destinationName = undefined;
+          vm.destinationId = undefined;
+          vm.working = false;
+        }
+      });
+    };
+  };
+
+  angular.module('apox').controller('GamePageController', ['GameService', 'FactionService', 'LocationService', 'TripService', gamePageController]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapRenderer.setupMouseWheel(element, {
+          zoom: true
+        });
+
+        function renderMap() {
+          MapService.loadMap().then(function () {
+            MapRenderer.render({
+              isAdmin: false,
+              mapLayer: mapLayer
+            });
+            MapRenderer.centerMap(GameService.currentLocation);
+          });
+        }
+
+        scope.$watch(function () {
+          return GameService.currentLocation;
+        }, function () {
+          renderMap();
+        }, true);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
 })();

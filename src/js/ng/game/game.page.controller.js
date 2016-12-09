@@ -43,12 +43,12 @@
         });
       };
 
-            vm.getCurrentLocation = function getCurrentLocation() {
-              LocationService.getCurrentLocation().then((location) => {
-                vm.currentLocation = location;
-                GameService.currentLocation = location;
-              });
-            };
+      vm.getCurrentLocation = function getCurrentLocation() {
+        LocationService.getCurrentLocation().then((location) => {
+          vm.currentLocation = location;
+          GameService.currentLocation = location;
+        });
+      };
 
       vm.clearDestination = function clearDestination() {
         vm.working = true;
