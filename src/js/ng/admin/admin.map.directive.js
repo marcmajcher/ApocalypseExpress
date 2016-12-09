@@ -25,8 +25,9 @@
               mapLayer
             });
             MapRenderer.setupMouseWheel(element, {
+              pan: true,
               zoom: true,
-              pan: true
+              zoomAlt: true
             });
           }
         });

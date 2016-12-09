@@ -126,7 +126,7 @@
 
       if (actions.zoom) {
         element.bind('mousewheel', (event) => {
-          if (event.altKey) {
+          if (!actions.zoomAlt || event.altKey) {
             const mousePos = new paper.Point(event.offsetX, event.offsetY);
             const zoom = changeZoom(paper.view.zoom, event.originalEvent.wheelDeltaY,
               paper.view.center, mousePos);
@@ -235,8 +235,8 @@
     /* Factory object */
 
     return {
-      setupMouseWheel,
       render,
+      setupMouseWheel
     };
   };
 

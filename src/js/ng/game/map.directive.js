@@ -12,7 +12,7 @@
         paper.setup(element.context.firstChild);
         const bgLayer = new paper.Layer();
         bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
-        bgLayer.opacity = 0.5;
+        // bgLayer.opacity = 0.5;
 
         const mapLayer = new paper.Layer();
 
@@ -35,8 +35,9 @@
             centerMap();
           }
           MapRenderer.setupMouseWheel(element, {
+            pan: false,
             zoom: true,
-            pan: false
+            zoomAlt: false
           });
         });
 
