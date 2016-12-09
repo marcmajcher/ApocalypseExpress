@@ -4,7 +4,7 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  const apoxAdminMap = function apoxAdminMap(MapRenderer) {
+  const apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
     return {
       restrict: 'E',
       template: '<canvas class="map-canvas" resize="true"></canvas>',
@@ -13,30 +13,28 @@
 
         const bgLayer = new paper.Layer();
         bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+
         const mapLayer = new paper.Layer();
 
-        scope.$watch('admin.dataLoaded', () => {
-          if (scope.admin.dataLoaded) {
-            const data = scope.admin.mapData;
+        MapService.loadMap()
+          .then(() => {
             MapRenderer.render({
               isAdmin: true,
-              data,
-              scope,
-              mapLayer
+              mapLayer,
+              scope
             });
-            MapRenderer.setupMouseWheel(element, {
-              pan: true,
-              zoom: true,
-              zoomAlt: true
-            });
-          }
+          });
+
+        MapRenderer.setupMouseWheel(element, {
+          pan: true,
+          zoom: true,
+          zoomAlt: true
         });
 
         paper.view.center = new paper.Point(1100, 500);
-        element.bind('mousewheel', MapRenderer.onMouseWheel);
       }
     };
   };
 
-  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', apoxAdminMap]);
+  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
 })();

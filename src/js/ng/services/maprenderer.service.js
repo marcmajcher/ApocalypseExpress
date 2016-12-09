@@ -4,7 +4,7 @@
   /* eslint-env jquery, browser */
   /* eslint no-magic-numbers: "off" */
 
-  const mapRenderer = function mapRenderer() {
+  const mapRenderer = function mapRenderer(MapService) {
     const xScale = 435.30;
     const yScale = -506.5;
     const xOffset = 43647;
@@ -14,7 +14,7 @@
     const baseConWidth = 3;
 
     const factionColors = [
-      new paper.Color(0, 0, 0),
+      new paper.Color('#000000'),
       new paper.Color('#6666ff'),
       new paper.Color('#ff6666'),
       new paper.Color('#669966'),
@@ -149,15 +149,22 @@
       }
     }
 
+    function centerMap(location) {
+      if (location) {
+        paper.view.center = locToPoint(location);
+      }
+    }
+
     /* Main rendering method */
 
     function render(args) {
       const {
         isAdmin,
-        data,
-        scope,
-        mapLayer
+        mapLayer,
+        scope
       } = args;
+
+      const data = MapService.mapData;
 
       if (data.locations && data.connections) {
         /* calculate location points */
@@ -236,10 +243,11 @@
     /* Factory object */
 
     return {
+      centerMap,
       render,
       setupMouseWheel
     };
   };
 
-  angular.module('apox').factory('MapRenderer', mapRenderer);
+  angular.module('apox').factory('MapRenderer', ['MapService', mapRenderer]);
 })();

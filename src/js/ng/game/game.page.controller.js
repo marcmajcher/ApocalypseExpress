@@ -4,39 +4,23 @@
   /* eslint-env jquery, browser */
 
   const gamePageController =
-    function gamePageController(GameService, DriverService, LocationService, TripService) {
+    function gamePageController(GameService, FactionService, LocationService, TripService) {
       const vm = this;
 
       vm.working = false;
       vm.traveling = false;
+      vm.factionTags = FactionService.factionTags;
 
-      vm.factionTags = [
-        '', 'republic', 'confederation', 'alliance', 'petrex', 'light'
-      ];
-
-      DriverService.getDriver().then((driver) => {
-        vm.driver = driver;
-      });
-
-      vm.getCurrentLocation = function getCurrentLocation() {
-        LocationService.getCurrentLocation().then((location) => {
-          vm.currentLocation = location;
+      GameService.init()
+        .then(() => {
+          vm.driver = GameService.driver;
+          vm.currentLocation = GameService.currentLocation;
+          vm.destination = GameService.destination;
         });
-      };
-
-      vm.getCurrentDestination = function getCurrentDestination() {
-        TripService.getCurrentTrip().then((data) => {
-          if (data.trip[0]) {
-            vm.destinationName = data.trip[0].name;
-            vm.destinationId = data.trip[0].id;
-          }
-        });
-      };
 
       vm.setDestination = function setDestination(id) {
         vm.working = true;
         TripService.setNextDestination(id).then((data) => {
-          // console.log('set destination got:', data);
           if (data.ok) {
             vm.destinationName = data.name;
             vm.destinationId = data.id;
@@ -59,6 +43,13 @@
         });
       };
 
+            vm.getCurrentLocation = function getCurrentLocation() {
+              LocationService.getCurrentLocation().then((location) => {
+                vm.currentLocation = location;
+                GameService.currentLocation = location;
+              });
+            };
+
       vm.clearDestination = function clearDestination() {
         vm.working = true;
         TripService.clearTrip().then((data) => {
@@ -69,13 +60,10 @@
           }
         });
       };
-
-      vm.getCurrentLocation();
-      vm.getCurrentDestination();
-
-      console.log(vm);
     };
 
   angular.module('apox')
-    .controller('GamePageController', ['GameService', 'DriverService', 'LocationService', 'TripService', gamePageController]);
+    .controller('GamePageController', [
+      'GameService', 'FactionService', 'LocationService', 'TripService', gamePageController
+    ]);
 })();

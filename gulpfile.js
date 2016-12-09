@@ -14,7 +14,7 @@ const nodemon = require('gulp-nodemon');
 // const notify = require("gulp-notify");
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
+// const uglify = require('gulp-uglify');
 
 const lintable = [
   'app/**/*.js',
@@ -51,22 +51,15 @@ gulp.task('imagemin', () =>
 
 gulp.task('scripts', () => {
   gulp
-    .src('src/js/*.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    // .on('error', (error) => {
-    //   console.error(error.toString()); // eslint-disable-line no-console
-    // })
-    // .pipe(uglify()) // only uglify/min on prod
-    .pipe(gulp.dest('app/static/js'));
-  gulp
     .src('src/js/ng/**/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
+    .on('error', (error) => {
+      console.error(error.toString()); // eslint-disable-line no-console
+    })
     .pipe(concat('ng-app.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('app/static/js'));
 });
 
@@ -75,10 +68,10 @@ gulp.task('eslint', () =>
   .src(lintable)
   .pipe(eslint())
   .pipe(eslint.format())
-  // .on('error', (error) => {
-  //   console.error(error.toString()); // eslint-disable-line no-console
-  //   this.emit('end');
-  // })
+  .on('error', (error) => {
+    console.error(error.toString()); // eslint-disable-line no-console
+    this.emit('end');
+  })
 );
 
 gulp.task('jshint', () => gulp

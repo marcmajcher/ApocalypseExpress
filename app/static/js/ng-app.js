@@ -1,1 +1,692 @@
-"use strict";!function(){angular.module("apox",[])}(),function(){var t=function(t){var n=this;n.location={},n.mapData={},n.showDetailPanel=!0,n.dataLoaded=!1,n.closeDetailPanel=function(){n.showDetailPanel=!1},n.loadMapData=function(){t.loadMap().then(function(t){n.mapData=t.data,n.dataLoaded=!0})},n.updateLocationDetails=function(){var e=n.location;e.id>0&&t.updateLocation(e.id,{name:e.name,longitude:e.longitude,latitude:e.latitude,description:e.description,population:e.population,tech:e.tech,type:e.type,factionid:e.factionid}).catch(function(){window.alert("PATCH ERROR")})},n.loadMapData()};angular.module("apox").controller("AdminMapController",["MapService",t])}(),function(){var t=function(t){return{restrict:"E",template:'<canvas class="map-canvas" resize="true"></canvas>',link:function(n,e){paper.setup(e.context.firstChild);var a=new paper.Layer;a.texasMap=new paper.Raster("/img/texasmap.jpg");var o=new paper.Layer;n.$watch("admin.dataLoaded",function(){if(n.admin.dataLoaded){var a=n.admin.mapData;t.render({isAdmin:!0,data:a,scope:n,mapLayer:o}),t.setupMouseWheel(e,{pan:!0,zoom:!0,zoomAlt:!0})}}),paper.view.center=new paper.Point(1100,500),e.bind("mousewheel",t.onMouseWheel)}}};angular.module("apox").directive("apoxAdminMap",["MapRenderer",t])}(),function(){var t=function(t,n,e,a){var o=this;o.working=!1,o.traveling=!1,o.factionTags=["","republic","confederation","alliance","petrex","light"],n.getDriver().then(function(t){o.driver=t}),o.getCurrentLocation=function(){e.getCurrentLocation().then(function(t){o.currentLocation=t})},o.getCurrentDestination=function(){a.getCurrentTrip().then(function(t){t.trip[0]&&(o.destinationName=t.trip[0].name,o.destinationId=t.trip[0].id)})},o.setDestination=function(t){o.working=!0,a.setNextDestination(t).then(function(t){t.ok&&(o.destinationName=t.name,o.destinationId=t.id,o.working=!1)})},o.goDestination=function(){o.working=!0,a.beginTrip().then(function(t){"ok"===t&&(o.getCurrentLocation(),o.destinationName=void 0,o.destinationId=void 0,o.working=!1)})},o.clearDestination=function(){o.working=!0,a.clearTrip().then(function(t){"ok"===t&&(o.destinationName=void 0,o.destinationId=void 0,o.working=!1)})},o.getCurrentLocation(),o.getCurrentDestination(),console.log(o)};angular.module("apox").controller("GamePageController",["GameService","DriverService","LocationService","TripService",t])}(),function(){var t=function(t){var n=this;n.mapData={},n.dataLoaded=!1,n.loadMapData=function(){n.dataLoaded=!1,t.loadMap().then(function(t){n.mapData=t.data,n.dataLoaded=!0})},n.loadMapData()};angular.module("apox").controller("GameMapController",["MapService",t])}(),function(){var t=function(t){return{restrict:"E",template:'<canvas class="map-canvas" resize="true"></canvas>',link:function(n,e){function a(){if(n.$parent.game.currentLocation&&n.map.mapData.locations){var t=n.map.mapData.locations[n.$parent.game.currentLocation.id];paper.view.center=new paper.Point(t.point.x,t.point.y)}}paper.setup(e.context.firstChild);var o=new paper.Layer;o.texasMap=new paper.Raster("/img/texasmap2.jpg");var i=new paper.Layer;n.$watch("map.dataLoaded",function(){if(n.map.dataLoaded){var o=n.map.mapData;t.render({isAdmin:!1,data:o,mapLayer:i}),a()}t.setupMouseWheel(e,{zoom:!0})}),n.$watch("$parent.game.currentLocation",function(){a()})}}};angular.module("apox").directive("apoxMap",["MapRenderer",t])}(),function(){var t="/driver",n=function(n,e){return{getDriver:function(){return e(function(e,a){n.get(t).then(function(t){e(t.data)},function(t){a(t)})})}}};angular.module("apox").factory("DriverService",["$http","$q",n])}(),function(){var t=function(){return{booyah:function(){console.log("BOOYAH")}}};angular.module("apox").factory("GameService",[t])}(),function(){var t="/location",n=function(n,e){return{getCurrentLocation:function(){return e(function(e,a){n.get(t).then(function(t){e(t.data)},function(t){a(t)})})}}};angular.module("apox").factory("LocationService",["$http","$q",n])}(),function(){var t=function(){function t(t){return new paper.Point(t.longitude*d+f,t.latitude*s+m)}function n(t){return{longitude:(t.x-f)/d,latitude:(t.y-m)/s}}function e(t){var n=t.target.parent;t.target.remove(),n.addChild(t.target),t.target.children.dot.fillColor.alpha=.5;for(var e=0;e<t.target.location.paths.length;e++)t.target.location.paths[e].strokeColor=new paper.Color(0,0,0,.5);t.target.scope.$apply(function(){t.target.scope.admin.showDetailPanel=!0,t.target.scope.admin.location=t.target.location})}function a(t){t.target.children.dot.fillColor.alpha=1;for(var n=0;n<t.target.location.paths.length;n++)t.target.location.paths[n].strokeColor="black"}function o(t){var e=t.target;e.position=e.position.add([t.delta.x,t.delta.y]);for(var a=0;a<e.location.paths.length;a++)e.location.ends[a].x=e.children.dot.position.x,e.location.ends[a].y=e.children.dot.position.y;var o=n(e.position);e.location.longitude=o.longitude,e.location.latitude=o.latitude,e.scope.$apply(function(){e.scope.admin.location.longitude=o.longitude,e.scope.admin.location.latitude=o.latitude}),t.stopPropagation()}function i(t){t.target.children.locname.visible=!0}function r(t){t.target.children.locname.visible=!1}function c(t,n,e,a){var o=1.05,i=t;n>0&&(i*=o),n<0&&(i/=o);var r=t/i,c=a.subtract(e),p=a.subtract(c.multiply(r)).subtract(e);return{newZoom:i,a:p}}function p(t,n,e,a){var o=new paper.Point(n,e).multiply(a);return t.subtract(o)}function u(t,n){var e=1,a=.2;n.zoom&&t.bind("mousewheel",function(t){if(!n.zoomAlt||t.altKey){var o=new paper.Point(t.offsetX,t.offsetY),i=c(paper.view.zoom,t.originalEvent.wheelDeltaY,paper.view.center,o);i.newZoom<e&&i.newZoom>a&&(paper.view.zoom=i.newZoom),t.preventDefault()}}),n.pan&&t.bind("mousewheel",function(t){paper.view.center=p(paper.view.center,t.originalEvent.wheelDeltaX,t.originalEvent.wheelDeltaY,1),t.preventDefault()})}function l(n){var c=n.isAdmin,p=n.data,u=n.scope,l=n.mapLayer;p.locations&&p.connections&&!function(){Object.keys(p.locations).forEach(function(n){p.locations[n].point=t(p.locations[n]),p.locations[n].paths=[],p.locations[n].ends=[]}),l.removeChildren();for(var n=0;n<p.connections.length;n++){var d=p.connections[n],s=p.locations[d.start],f=p.locations[d.end];if(s&&f){var m=new paper.Path.Line(s.point,f.point);m.strokeColor="black",m.strokeWidth=g,l.addChild(m),s.ends.push(m.segments[0].point),f.ends.push(m.segments[1].point),s.paths.push(m),f.paths.push(m)}}var w=[0,-20],C=Object.keys(p.locations).sort(function(t,n){return p.locations[t].latitude<p.locations[n].latitude});C.forEach(function(t){var n=p.locations[t],d=new paper.Path.Circle({center:n.point,radius:v*Math.ceil(Math.log10(n.population)),fillColor:h[n.factionid],strokeColor:"black",name:"dot"}),s=new paper.PointText({point:n.point.add(w),justification:"center",fillColor:"white",strokeColor:"black",strokeWidth:.5,content:n.name,name:"locname",visible:!c,fontSize:30}),f=new paper.Group([d,s]);f.location=n,f.scope=u,c&&(f.onMouseEnter=i,f.onMouseLeave=r,f.onMouseDrag=o,f.onMouseDown=e,f.onMouseUp=a),l.addChild(f)})}()}var d=435.3,s=-506.5,f=43647,m=15855,v=3,g=3,h=[new paper.Color(0,0,0),new paper.Color("#6666ff"),new paper.Color("#ff6666"),new paper.Color("#669966"),new paper.Color("#ac00e6"),new paper.Color("#ffff66")];return{render:l,setupMouseWheel:u}};angular.module("apox").factory("MapRenderer",t)}(),function(){var t=function(t){return{loadMap:function(){return t.get("/map")},updateLocation:function(n,e){return t.patch("/admin/map/location/"+n,e)}}};angular.module("apox").factory("MapService",["$http",t])}(),function(){var t="/trip",n=function(n,e){return{getCurrentTrip:function(){return e(function(e,a){n.get(t).then(function(t){e(t.data)},function(t){a(t)})})},setNextDestination:function(a){return e(function(e,o){n.put(t,{destination:a}).then(function(t){e(t.data)},function(t){o(t)})})},clearTrip:function(){return e(function(e,a){n.delete(t).then(function(t){e(t.data)},function(t){a(t)})})},beginTrip:function(){return e(function(e,a){n.post(t).then(function(t){e(t.data)},function(t){a(t)})})}}};angular.module("apox").factory("TripService",["$http","$q",n])}();
+'use strict';
+
+(function () {
+  'use strict';
+
+  angular.module('apox', []);
+})();
+// function calcCrow(lat1, lon1, lat2, lon2)
+//   {
+//     var R = 6371; // km
+//     var dLat = toRad(lat2-lat1);
+//     var dLon = toRad(lon2-lon1);
+//     var lat1 = toRad(lat1);
+//     var lat2 = toRad(lat2);
+//
+//     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+//       Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+//     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+//     var d = R * c;
+//     return d;
+//   }
+//
+//   // Converts numeric degrees to radians
+//   function toRad(Value)
+//   {
+//       return Value * Math.PI / 180;
+//   }
+"use strict";
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var adminMapController = function adminMapController(MapService) {
+    var vm = this;
+
+    vm.location = {};
+    vm.mapData = {};
+    vm.showDetailPanel = true;
+    vm.dataLoaded = false;
+
+    vm.closeDetailPanel = function close() {
+      vm.showDetailPanel = false;
+    };
+
+    vm.updateLocationDetails = function update() {
+      var loc = vm.location;
+      if (loc.id > 0) {
+        // TODO: add waiting spinner
+        MapService.updateLocation(loc.id, {
+          name: loc.name,
+          longitude: loc.longitude,
+          latitude: loc.latitude,
+          description: loc.description,
+          population: loc.population,
+          tech: loc.tech,
+          type: loc.type,
+          factionid: loc.factionid
+        }).catch(function () {
+          window.alert('PATCH ERROR'); // eslint-disable-line no-alert
+        });
+        // .then(() => {
+        //   remove spinner
+        // });
+      }
+    };
+  };
+
+  angular.module('apox').controller('AdminMapController', ['MapService', adminMapController]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+  /* eslint no-magic-numbers: "off" */
+
+  var apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapService.loadMap().then(function () {
+          MapRenderer.render({
+            isAdmin: true,
+            mapLayer: mapLayer,
+            scope: scope
+          });
+        });
+
+        MapRenderer.setupMouseWheel(element, {
+          pan: true,
+          zoom: true,
+          zoomAlt: true
+        });
+
+        paper.view.center = new paper.Point(1100, 500);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var gamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
+    var vm = this;
+
+    vm.working = false;
+    vm.traveling = false;
+    vm.factionTags = FactionService.factionTags;
+
+    GameService.init().then(function () {
+      vm.driver = GameService.driver;
+      vm.currentLocation = GameService.currentLocation;
+      vm.destination = GameService.destination;
+    });
+
+    vm.setDestination = function setDestination(id) {
+      vm.working = true;
+      TripService.setNextDestination(id).then(function (data) {
+        if (data.ok) {
+          vm.destinationName = data.name;
+          vm.destinationId = data.id;
+          vm.working = false;
+        }
+        // TODO: error check
+        // TODO: better response from the route - return new id?
+      });
+    };
+
+    vm.goDestination = function goDestination() {
+      vm.working = true;
+      TripService.beginTrip().then(function (data) {
+        if (data === 'ok') {
+          vm.getCurrentLocation();
+          vm.destinationName = undefined;
+          vm.destinationId = undefined;
+          vm.working = false;
+        }
+      });
+    };
+
+    vm.getCurrentLocation = function getCurrentLocation() {
+      LocationService.getCurrentLocation().then(function (location) {
+        vm.currentLocation = location;
+        GameService.currentLocation = location;
+      });
+    };
+
+    vm.clearDestination = function clearDestination() {
+      vm.working = true;
+      TripService.clearTrip().then(function (data) {
+        if (data === 'ok') {
+          vm.destinationName = undefined;
+          vm.destinationId = undefined;
+          vm.working = false;
+        }
+      });
+    };
+  };
+
+  angular.module('apox').controller('GamePageController', ['GameService', 'FactionService', 'LocationService', 'TripService', gamePageController]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapService.loadMap().then(function () {
+          MapRenderer.render({
+            isAdmin: false,
+            mapLayer: mapLayer
+          });
+          MapRenderer.centerMap(GameService.currentLocation);
+        });
+
+        MapRenderer.setupMouseWheel(element, {
+          zoom: true
+        });
+
+        scope.$watch(function () {
+          return GameService.currentLocation;
+        }, function (val) {
+          MapRenderer.centerMap(GameService.currentLocation);
+        }, true);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
+})();
+//
+// app.factory('socket', function($rootScope){
+//   var socket = io.connect();
+//   return {
+//     on: function(eventName, callback) {
+//       socket.on(eventName, function() {
+//         var args = arguments;
+//         $rootScope.$apply(function() {
+//           callback.apply(socket, args);
+//         });
+//       });
+//     },
+//     emit: function(eventName, data, callback) {
+//       socket.emit(eventName, data, function() {
+//         var args = arguments;
+//         $rootScope.$apply(function() {
+//           if(callback) {
+//             callback.apply(socket, args);
+//           }
+//         });
+//       });
+//     }
+//   };
+// });
+"use strict";
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var driverRoute = '/driver';
+
+  /* A service to interface with the driver routes */
+
+  var driverService = function driverService($http, $q) {
+    return {
+      getDriver: function getDriver() {
+        return $q(function (resolve, reject) {
+          $http.get(driverRoute).then(function (driver) {
+            resolve(driver.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      }
+    };
+  };
+
+  angular.module('apox').factory('DriverService', ['$http', '$q', driverService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var factionService = function factionService() {
+    return {
+      factionColors: ['#000000', '#6666ff', '#ff6666', '#669966', '#ac00e6', '#ffff66'],
+      factionTags: ['', 'republic', 'confederation', 'alliance', 'petrex', 'light']
+    };
+  };
+
+  angular.module('apox').factory('FactionService', [factionService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var gameService = function gameService($q, DriverService, LocationService, TripService) {
+    return {
+      init: function init() {
+        var _this = this;
+
+        return $q.all([
+        /* Get driver info */
+        DriverService.getDriver().then(function (driver) {
+          _this.driver = driver;
+        }),
+
+        /* Get info for current location */
+        LocationService.getCurrentLocation().then(function (location) {
+          _this.currentLocation = location;
+        }),
+
+        /* Get info for current trip, if any */
+        TripService.getCurrentTrip().then(function (data) {
+          if (data.trip[0]) {
+            _this.destination = {
+              id: data.trip[0].id,
+              name: data.trip[0].name
+            };
+          }
+        })]);
+      },
+      driver: undefined,
+      currentLocation: undefined,
+      destination: undefined
+    };
+  };
+
+  angular.module('apox').factory('GameService', ['$q', 'DriverService', 'LocationService', 'TripService', gameService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var locationRoute = '/location';
+
+  /* A service to interface with the location routes */
+
+  var locationService = function locationService($http, $q) {
+    return {
+      getCurrentLocation: function getCurrentLocation() {
+        return $q(function (resolve, reject) {
+          $http.get(locationRoute).then(function (location) {
+            resolve(location.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      }
+    };
+  };
+
+  angular.module('apox').factory('LocationService', ['$http', '$q', locationService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+  /* eslint no-magic-numbers: "off" */
+
+  var mapRenderer = function mapRenderer(MapService) {
+    var xScale = 435.30;
+    var yScale = -506.5;
+    var xOffset = 43647;
+    var yOffset = 15855;
+
+    var baseDotSize = 3;
+    var baseConWidth = 3;
+
+    var factionColors = [new paper.Color('#000000'), new paper.Color('#6666ff'), new paper.Color('#ff6666'), new paper.Color('#669966'), new paper.Color('#ac00e6'), new paper.Color('#ffff66')];
+
+    function locToPoint(loc) {
+      return new paper.Point(loc.longitude * xScale + xOffset, loc.latitude * yScale + yOffset);
+    }
+
+    function pointToLatLong(point) {
+      return {
+        longitude: (point.x - xOffset) / xScale,
+        latitude: (point.y - yOffset) / yScale
+      };
+    }
+
+    /* Location dot mouse event handlers */
+
+    function mousedownLocation(event) {
+      /* pop target dot to the top of the z-index */
+      var parent = event.target.parent;
+      event.target.remove();
+      parent.addChild(event.target);
+
+      event.target.children.dot.fillColor.alpha = 0.5;
+      for (var i = 0; i < event.target.location.paths.length; i++) {
+        event.target.location.paths[i].strokeColor = new paper.Color(0, 0, 0, 0.5);
+      }
+
+      event.target.scope.$apply(function () {
+        event.target.scope.admin.showDetailPanel = true;
+        event.target.scope.admin.location = event.target.location;
+      });
+    }
+
+    function mouseupLocation(event) {
+      event.target.children.dot.fillColor.alpha = 1;
+      for (var i = 0; i < event.target.location.paths.length; i++) {
+        event.target.location.paths[i].strokeColor = 'black';
+      }
+    }
+
+    function dragLocation(event) {
+      /* update the position of the target dot based on mouse move */
+      var target = event.target;
+      target.position = target.position.add([event.delta.x, event.delta.y]);
+
+      /* update all connected paths with new position */
+      for (var i = 0; i < target.location.paths.length; i++) {
+        target.location.ends[i].x = target.children.dot.position.x;
+        target.location.ends[i].y = target.children.dot.position.y;
+      }
+
+      /* set the lat/long for the new position on the target dot */
+      var newLocation = pointToLatLong(target.position);
+      target.location.longitude = newLocation.longitude;
+      target.location.latitude = newLocation.latitude;
+
+      /* update controller model */
+      target.scope.$apply(function () {
+        target.scope.admin.location.longitude = newLocation.longitude;
+        target.scope.admin.location.latitude = newLocation.latitude;
+      });
+
+      event.stopPropagation();
+    }
+
+    function rolloverLocation(event) {
+      event.target.children.locname.visible = true;
+    }
+
+    function rolloutLocation(event) {
+      event.target.children.locname.visible = false;
+    }
+
+    /* Mousewheel navigation methods */
+
+    function changeZoom(oldZoom, delta, c, p) {
+      var factor = 1.05;
+      var newZoom = oldZoom;
+      if (delta > 0) {
+        newZoom *= factor;
+      }
+      if (delta < 0) {
+        newZoom /= factor;
+      }
+      // return newZoom;
+      var beta = oldZoom / newZoom;
+      var pc = p.subtract(c);
+      var a = p.subtract(pc.multiply(beta)).subtract(c);
+      return {
+        newZoom: newZoom,
+        a: a
+      };
+    }
+
+    function changeCenter(oldCenter, deltaX, deltaY, factor) {
+      var offset = new paper.Point(deltaX, deltaY).multiply(factor);
+      return oldCenter.subtract(offset);
+    }
+
+    function setupMouseWheel(element, actions) {
+      var maxZoom = 1;
+      var minZoom = 0.2;
+
+      if (actions.zoom) {
+        element.bind('mousewheel', function (event) {
+          if (!actions.zoomAlt || event.altKey) {
+            var mousePos = new paper.Point(event.offsetX, event.offsetY);
+            var zoom = changeZoom(paper.view.zoom, event.originalEvent.wheelDeltaY, paper.view.center, mousePos);
+            if (zoom.newZoom < maxZoom && zoom.newZoom > minZoom) {
+              paper.view.zoom = zoom.newZoom;
+            }
+            // view.center = view.center.add(z.a);
+            event.preventDefault();
+          }
+        });
+      }
+
+      if (actions.pan) {
+        element.bind('mousewheel', function (event) {
+          paper.view.center = changeCenter(paper.view.center, event.originalEvent.wheelDeltaX, event.originalEvent.wheelDeltaY, 1);
+          event.preventDefault();
+        });
+      }
+    }
+
+    function centerMap(location) {
+      if (location) {
+        paper.view.center = locToPoint(location);
+      }
+    }
+
+    /* Main rendering method */
+
+    function render(args) {
+      var isAdmin = args.isAdmin,
+          mapLayer = args.mapLayer,
+          scope = args.scope;
+
+
+      var data = MapService.mapData;
+
+      if (data.locations && data.connections) {
+        (function () {
+          /* calculate location points */
+          Object.keys(data.locations).forEach(function (id) {
+            data.locations[id].point = locToPoint(data.locations[id]);
+            data.locations[id].paths = [];
+            data.locations[id].ends = [];
+          });
+
+          mapLayer.removeChildren();
+
+          /* Draw connections */
+          for (var i = 0; i < data.connections.length; i++) {
+            var connection = data.connections[i];
+            var start = data.locations[connection.start];
+            var end = data.locations[connection.end];
+
+            if (start && end) {
+              var path = new paper.Path.Line(start.point, end.point);
+              path.strokeColor = 'black';
+              path.strokeWidth = baseConWidth;
+              mapLayer.addChild(path);
+
+              start.ends.push(path.segments[0].point);
+              end.ends.push(path.segments[1].point);
+              start.paths.push(path);
+              end.paths.push(path);
+            }
+          }
+
+          /* render locations */
+          var textOffset = [0, -20];
+          var locationKeys = Object.keys(data.locations).sort(function (a, b) {
+            return data.locations[a].latitude < data.locations[b].latitude;
+          });
+
+          locationKeys.forEach(function (id) {
+            var location = data.locations[id];
+
+            var dot = new paper.Path.Circle({
+              center: location.point,
+              radius: baseDotSize * Math.ceil(Math.log10(location.population)),
+              fillColor: factionColors[location.factionid],
+              strokeColor: 'black',
+              name: 'dot'
+            });
+
+            var text = new paper.PointText({
+              point: location.point.add(textOffset),
+              justification: 'center',
+              fillColor: 'white',
+              strokeColor: 'black',
+              strokeWidth: 0.5,
+              content: location.name,
+              name: 'locname',
+              visible: !isAdmin,
+              fontSize: 30
+            });
+
+            var locGroup = new paper.Group([dot, text]);
+            locGroup.location = location;
+            locGroup.scope = scope;
+
+            if (isAdmin) {
+              locGroup.onMouseEnter = rolloverLocation;
+              locGroup.onMouseLeave = rolloutLocation;
+              locGroup.onMouseDrag = dragLocation;
+              locGroup.onMouseDown = mousedownLocation;
+              locGroup.onMouseUp = mouseupLocation;
+            }
+            mapLayer.addChild(locGroup);
+          });
+        })();
+      }
+    }
+
+    /* Factory object */
+
+    return {
+      centerMap: centerMap,
+      render: render,
+      setupMouseWheel: setupMouseWheel
+    };
+  };
+
+  angular.module('apox').factory('MapRenderer', ['MapService', mapRenderer]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  /* A service to interface with the map routes */
+
+  var mapService = function mapService($http) {
+    return {
+      loadMap: function loadMap() {
+        var _this = this;
+
+        this.mapData.loaded = false;
+        return $http.get('/map').then(function (res) {
+          _this.mapData.locations = res.data.locations;
+          _this.mapData.connections = res.data.connections;
+          _this.mapData.loaded = true;
+        });
+      },
+      updateLocation: function updateLocation(id, data) {
+        return $http.patch('/admin/map/location/' + id, data);
+      },
+      mapData: {
+        locations: {},
+        connections: [],
+        loaded: false
+      }
+    };
+  };
+
+  angular.module('apox').factory('MapService', ['$http', mapService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var tripRoute = '/trip';
+
+  /* A service to interface with the trip routes */
+
+  var tripService = function tripService($http, $q) {
+    return {
+      getCurrentTrip: function getCurrentTrip() {
+        return $q(function (resolve, reject) {
+          $http.get(tripRoute).then(function (trip) {
+            resolve(trip.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      },
+      setNextDestination: function setNextDestination(id) {
+        return $q(function (resolve, reject) {
+          $http.put(tripRoute, {
+            destination: id
+          }).then(function (res) {
+            resolve(res.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      },
+      clearTrip: function clearTrip() {
+        return $q(function (resolve, reject) {
+          $http.delete(tripRoute).then(function (res) {
+            resolve(res.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      },
+      beginTrip: function beginTrip() {
+        return $q(function (resolve, reject) {
+          $http.post(tripRoute).then(function (res) {
+            resolve(res.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      }
+      // ,
+      // addDestination: function addDestination(id) {
+      // }
+    };
+  };
+
+  angular.module('apox').factory('TripService', ['$http', '$q', tripService]);
+})();

@@ -15,14 +15,6 @@
       vm.showDetailPanel = false;
     };
 
-    vm.loadMapData = function load() {
-      MapService.loadMap()
-        .then((res) => {
-          vm.mapData = res.data;
-          vm.dataLoaded = true;
-        });
-    };
-
     vm.updateLocationDetails = function update() {
       const loc = vm.location;
       if (loc.id > 0) {
@@ -46,7 +38,6 @@
       }
     };
 
-    vm.loadMapData();
   };
 
   angular.module('apox')
