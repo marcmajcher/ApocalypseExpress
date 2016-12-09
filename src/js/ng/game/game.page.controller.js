@@ -72,6 +72,8 @@
 
       vm.getCurrentLocation();
       vm.getCurrentDestination();
+
+      console.log(vm);
     };
 
   angular.module('apox')

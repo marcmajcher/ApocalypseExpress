@@ -177,7 +177,7 @@
 
           if (start && end) {
             const path = new paper.Path.Line(start.point, end.point);
-            path.strokeColor = isAdmin ? 'black' : 'dimgrey';
+            path.strokeColor = 'black';
             path.strokeWidth = baseConWidth;
             mapLayer.addChild(path);
 
@@ -191,7 +191,7 @@
         /* render locations */
         const textOffset = [0, -20];
         const locationKeys = Object.keys(data.locations).sort((a, b) =>
-          data.locations[a].latitude > data.locations[b].latitude
+          data.locations[a].latitude < data.locations[b].latitude
         );
 
         locationKeys.forEach((id) => {
@@ -208,8 +208,9 @@
           const text = new paper.PointText({
             point: location.point.add(textOffset),
             justification: 'center',
-            fillColor: 'black',
-            strokeColor: isAdmin ? 'white' : 'none',
+            fillColor: 'white',
+            strokeColor: 'black',
+            strokeWidth: 0.5,
             content: location.name,
             name: 'locname',
             visible: !isAdmin,
