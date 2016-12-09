@@ -13,8 +13,7 @@
     vm.loadMapData = function loadMapData() {
       MapService.getMap()
         .then((res) => {
-          vm.mapData.locations = res.data.locations;
-          vm.mapData.connections = res.data.connections;
+          vm.mapData = res.data;
           vm.dataLoaded = true;
         });
     };

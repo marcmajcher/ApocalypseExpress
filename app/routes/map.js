@@ -33,9 +33,43 @@ function getAllConnections(mapData) {
     });
 }
 
-router.get('/', (req, res) => {
-  const myData = {};
+/* Select locations from db for a given user */
+function getUserLocations(driverId) {
+  return util.knex('locations')
+    .join('driver_visited', {
+      'locations.id': 'driver_visited.locationid',
+      'driver_visited.driverid': driverId
+    })
+    .select('id', 'name', 'latitude', 'longitude', 'population', 'tech', 'factionid', 'type')
+    .then(locations => ({
+      locations: indexLocations(locations)
+    }));
+}
 
+function getUserConnections(mapData) {
+  return util.knex('connections')
+    .whereIn('start', Object.keys(mapData.locations))
+    .then((connections) => {
+      mapData.connections = connections;
+      return mapData;
+    });
+}
+
+function getConnectedLocations(mapData) {
+  return util.knex('locations')
+    .whereIn('id', mapData.connections.map(el => el.end))
+    .then((locations) => {
+      locations.forEach((el) => {
+          mapData.locations[el.id] = el;
+      });
+      // mapData.locations = locations;
+      return mapData;
+    });
+}
+
+/* GET /map route */
+
+router.get('/', (req, res) => {
   if (req.session.user.role === 'admin') {
     getAllLocations()
       .then(getAllConnections)
@@ -44,17 +78,11 @@ router.get('/', (req, res) => {
       });
   }
   else {
-    util.knex('locations').join('driver_visited', {
-        'locations.id': 'driver_visited.locationid',
-        'driver_visited.driverid': req.session.user.driverid
-      })
-      .select('id', 'name', 'latitude', 'longitude', 'population', 'tech', 'factionid', 'type')
-      .then((locations) => {
-        myData.locations = indexLocations(locations);
-        util.knex('connections').then((connections) => {
-          myData.connections = connections;
-          res.send(myData);
-        });
+    getUserLocations(req.session.user.driverid)
+      .then(getUserConnections)
+      .then(getConnectedLocations)
+      .then((mapData) => {
+        res.send(mapData);
       });
   }
 });
