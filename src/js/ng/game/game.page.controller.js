@@ -4,7 +4,7 @@
   /* eslint-env jquery, browser */
 
   const gamePageController =
-    function gamePageController(DriverService, LocationService, TripService) {
+    function gamePageController(GameService, DriverService, LocationService, TripService) {
       const vm = this;
 
       vm.working = false;
@@ -77,5 +77,5 @@
     };
 
   angular.module('apox')
-    .controller('GamePageController', ['DriverService', 'LocationService', 'TripService', gamePageController]);
+    .controller('GamePageController', ['GameService', 'DriverService', 'LocationService', 'TripService', gamePageController]);
 })();

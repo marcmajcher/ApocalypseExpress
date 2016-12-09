@@ -5,6 +5,8 @@
 
   const tripRoute = '/trip';
 
+  /* A service to interface with the trip routes */
+
   const tripService = function tripService($http, $q) {
     return {
       getCurrentTrip: function getCurrentTrip() {

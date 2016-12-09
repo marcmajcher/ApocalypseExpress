@@ -16,10 +16,9 @@
     };
 
     vm.loadMapData = function load() {
-      MapService.getMap()
+      MapService.loadMap()
         .then((res) => {
-          vm.mapData.locations = res.data.locations;
-          vm.mapData.connections = res.data.connections;
+          vm.mapData = res.data;
           vm.dataLoaded = true;
         });
     };

@@ -5,6 +5,8 @@
 
   const locationRoute = '/location';
 
+  /* A service to interface with the location routes */
+
   const locationService = function locationService($http, $q) {
     return {
       getCurrentLocation: function getCurrentLocation() {

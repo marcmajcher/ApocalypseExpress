@@ -5,6 +5,8 @@
 
   const driverRoute = '/driver';
 
+  /* A service to interface with the driver routes */
+
   const driverService = function driverService($http, $q) {
     return {
       getDriver: function getDriver() {

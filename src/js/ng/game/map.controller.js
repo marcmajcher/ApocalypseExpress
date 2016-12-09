@@ -11,7 +11,7 @@
 
     vm.loadMapData = function loadMapData() {
       vm.dataLoaded = false;
-      MapService.getMap()
+      MapService.loadMap()
         .then((res) => {
           vm.mapData = res.data;
           vm.dataLoaded = true;
