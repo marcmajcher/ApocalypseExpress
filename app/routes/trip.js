@@ -40,15 +40,14 @@ router.get('/', (req, res) => {
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid).del()
     .then(() => {
-      const destinationIds = (Array.isArray(req.body.destination)) ?
-        req.body.destination : [req.body.destination];
-      const tripValues = destinationIds.map((element, index) => ({
+      const trip = {
         driverid: req.session.user.driverid,
-        sequence: index + 1,
-        locationid: element,
-        distance: 1000
-      }));
-      util.knex('trips').insert(tripValues).returning('locationid')
+        sequence: 1,
+        locationid: req.body.destination,
+        distance: 1000 // TODO: get correct distance for trip
+      };
+      util.knex('trips').insert(trip)
+        .returning('locationid')
         .then((ids) => {
           util.knex('locations').where('id', ids[0]).first() // TODO: handle array of ids
             .then((location) => {
@@ -59,31 +58,6 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
               });
               // TODO: better response - include id?
             });
-        })
-        .catch((err) => {
-          const error = new Error(`Trip DB error: ${err}`);
-          error.status = 500;
-          next(error);
-        });
-    });
-});
-
-/* Append the given destination to the current trip */
-// TODO: create trip sequence index table?
-// TODO: *** not going to be used until later, but don't remove because tests ***
-router.patch('/', (req, res, next) => {
-  util.knex('trips').where('driverid', req.session.user.driverid).max('sequence').first()
-    .then((max) => {
-      const seq = max.max + 1;
-      util.knex('trips').insert({
-          driverid: req.session.user.driverid,
-          sequence: seq,
-          locationid: req.body.destination,
-          distance: 1
-        })
-        .then(() => {
-          res.send('ok');
-          // TODO: better response - include id?
         })
         .catch((err) => {
           const error = new Error(`Trip DB error: ${err}`);

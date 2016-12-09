@@ -34,6 +34,15 @@ describe('Trip', () => {
       });
   });
 
+  it('should not be possible to create a new trip to a non-adjacent location', (done) => {
+    const req = request(app)
+      .put('/trip')
+      .send('destination=4')
+      .set('Accept', 'application/json');
+    req.cookies = userCookie;
+    req.expect(500, done);
+  });
+
   it('should be able to create a new trip', (done) => {
     const req = request(app)
       .put('/trip')
@@ -42,7 +51,7 @@ describe('Trip', () => {
     req.cookies = userCookie;
     req.expect(200)
       .end((err, res) => {
-        JSON.parse(res.text).ok.should.be.true;  // jshint ignore:line
+        JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
         util.knex('trips').first().then((data) => {
           data.sequence.should.equal(1);
           data.locationid.should.equal(2);
@@ -52,23 +61,23 @@ describe('Trip', () => {
       });
   });
 
-  it('should be able to add a destination to a trip', (done) => {
-    const req = request(app)
-      .patch('/trip')
-      .send('destination=3')
-      .set('Accept', 'application/json');
-    req.cookies = userCookie;
-    req.expect(200)
-      .end((err, res) => {
-        res.text.should.equal('ok');
-        util.knex('trips').then((data) => {
-          data.length.should.equal(2);
-          data[1].locationid.should.equal(3);
-          data[1].sequence.should.equal(2);
-          done();
-        });
-      });
-  });
+  // it('should be able to add a destination to a trip', (done) => {
+  //   const req = request(app)
+  //     .patch('/trip')
+  //     .send('destination=3')
+  //     .set('Accept', 'application/json');
+  //   req.cookies = userCookie;
+  //   req.expect(200)
+  //     .end((err, res) => {
+  //       res.text.should.equal('ok');
+  //       util.knex('trips').then((data) => {
+  //         data.length.should.equal(2);
+  //         data[1].locationid.should.equal(3);
+  //         data[1].sequence.should.equal(2);
+  //         done();
+  //       });
+  //     });
+  // });
 
   it('should be able to begin the trip', (done) => {
     const req = request(app)
