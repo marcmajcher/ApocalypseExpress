@@ -30,32 +30,51 @@ const config = {
     type: 'hold',
     tech: 5,
     factionid: 0
+  }, {
+    name: 'Steven',
+    latitude: 30.6,
+    longitude: -97,
+    description: 'Human-Gem hybrid',
+    population: 716512,
+    type: 'freehold',
+    tech: 8,
+    factionid: 1
   }],
   connections: [{
-    start: 1,
-    end: 2,
-    distance: 97154
-  }, {
-    start: 1,
-    end: 3,
-    distance: 94887
-  }, {
-    start: 2,
-    end: 1,
-    distance: 97154
-  }, {
-    start: 2,
-    end: 3,
-    distance: 97154
-  }, {
-    start: 3,
-    end: 1,
-    distance: 97154
-  }, {
-    start: 3,
-    end: 2,
-    distance: 97154
-  }]
+      start: 1,
+      end: 2,
+      distance: 97154
+    }, {
+      start: 1,
+      end: 3,
+      distance: 94887
+    }, {
+      start: 2,
+      end: 1,
+      distance: 97154
+    }, {
+      start: 2,
+      end: 3,
+      distance: 97154
+    }, {
+      start: 3,
+      end: 1,
+      distance: 97154
+    }, {
+      start: 3,
+      end: 2,
+      distance: 97154
+    }, {
+      start: 3,
+      end: 4,
+      distance: 19212
+    }, {
+      start: 4,
+      end: 3,
+      distance: 19281
+    }
+
+  ]
 };
 
 exports.seed = knex =>

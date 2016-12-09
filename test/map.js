@@ -59,7 +59,7 @@ describe('Map', () => {
             cities[1].name.should.equal('Garnet');
             cities[2].name.should.equal('Amethyst');
             cities[3].name.should.equal('Pearl');
-            links.length.should.equal(6); // eslint-disable-line no-magic-numbers
+            links.length.should.equal(8); // eslint-disable-line no-magic-numbers
             done();
           });
       });

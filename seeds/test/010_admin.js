@@ -2,7 +2,7 @@
 
 /* eslint-env node */
 
-exports.seed = (knex, Promise) =>
+exports.seed = knex =>
   knex('users').del()
   .then(() =>
     knex('drivers').insert({
@@ -10,8 +10,7 @@ exports.seed = (knex, Promise) =>
       location: 1
     })
   )
-  .then(() => Promise.all([
-    knex('users').insert([{
+  .then(() => knex('users').insert([{
       email: 'admin@gmail.com',
       firstname: 'Admin',
       lastname: 'User',
@@ -24,5 +23,12 @@ exports.seed = (knex, Promise) =>
       lastname: 'User',
       driverid: 1,
       hashedPassword: '$2a$12$JgZVSmqm8/DGpi3kV3ODKefDw7ajkvpqlp8Qg1VpDaCUZBgm9E4Gu'
-    }])
-  ]));
+    }], '*')
+  )
+  .then(users => knex('driver_visited').insert([{
+    driverid: users[0].driverid,
+    locationid: 1
+  }, {
+    driverid: users[1].driverid,
+    locationid: 1
+  }]));
