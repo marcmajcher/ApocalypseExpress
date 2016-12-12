@@ -19,7 +19,7 @@ function deleteTripForDriver(driverid, next) {
     });
 }
 
-function destinationIsAdjacent(driverid, destinationid, next) {
+function adjacentConnections(driverid, destinationid, next) {
   return util.knex('connections').where({
       end: destinationid,
       start: util.knex('drivers').where('id', driverid).select('location')
@@ -30,7 +30,7 @@ function destinationIsAdjacent(driverid, destinationid, next) {
         error.status = 500;
         next(error);
       }
-      return connections.length;
+      return connections;
     })
     .catch((err) => {
       const error = new Error(`Trip DB error: ${err}`);
@@ -67,15 +67,15 @@ router.get('/', (req, res) => {
 
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
   const driverid = req.session.user.driverid;
-  destinationIsAdjacent(driverid, req.body.destination, next)
+  adjacentConnections(driverid, req.body.destination, next)
     .then((connections) => {
-      if (connections > 0) {
+      if (connections.length > 0) {
         deleteTripForDriver(driverid, next).then(() => {
           const trip = {
             driverid: req.session.user.driverid,
             sequence: 1,
             locationid: req.body.destination,
-            distance: 1000 // TODO: get correct distance for trip
+            distance: connections[0].distance
           };
           util.knex('trips').insert(trip)
             .returning('locationid')

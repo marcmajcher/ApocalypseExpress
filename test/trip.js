@@ -61,6 +61,13 @@ describe('Trip', () => {
       });
   });
 
+  it('should have the correct distance for a trip', (done) => {
+    util.knex('trips').where('driverid', 1).first().then((trip) => {
+      trip.distance.should.equal(97154);
+      done();
+    })
+  });
+
   it('should be able to begin the trip', (done) => {
     const req = request(app)
       .post('/trip')

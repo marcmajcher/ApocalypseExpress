@@ -2,6 +2,7 @@
 
 ## Implementing
 
+* DB error checking everywhere
 
 ## Writing Unit Tests
 
@@ -9,8 +10,6 @@
 
 ## On Deck
 
-* Get correct length for trips
-* DB error checking everywhere
 
 ## Backlog
 
@@ -87,3 +86,4 @@
 * Drivers should keep track of all locations visited
 * Trip should delete trip when completed
 * Only add location to driver_visited the first time visited
+* Get correct length for trips
