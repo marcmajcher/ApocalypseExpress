@@ -6,9 +6,6 @@
 ## Writing Unit Tests
 
 * Write tests for all services
-* Drivers should keep track of all locations visited
-* Trip should delete trip when completed
-* Only add location to driver_visited the first time visited
 
 ## On Deck
 
@@ -87,3 +84,6 @@
 ## Done
 
 * User should not be able to set a new destination that is not connected to their current location.
+* Drivers should keep track of all locations visited
+* Trip should delete trip when completed
+* Only add location to driver_visited the first time visited

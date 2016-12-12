@@ -28,7 +28,4 @@ exports.seed = knex =>
   .then(users => knex('driver_visited').insert([{
     driverid: users[0].driverid,
     locationid: 1
-  }, {
-    driverid: users[1].driverid,
-    locationid: 1
   }]));
