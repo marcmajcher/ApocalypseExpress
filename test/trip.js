@@ -6,6 +6,7 @@
 
 const app = require('../app/app.js');
 const request = require('supertest');
+const should = require('should');
 const util = require('./_util');
 
 let userCookie;
@@ -56,28 +57,10 @@ describe('Trip', () => {
           data.sequence.should.equal(1);
           data.locationid.should.equal(2);
           data.driverid.should.equal(1);
+          done();
         });
-        done();
       });
   });
-
-  // it('should be able to add a destination to a trip', (done) => {
-  //   const req = request(app)
-  //     .patch('/trip')
-  //     .send('destination=3')
-  //     .set('Accept', 'application/json');
-  //   req.cookies = userCookie;
-  //   req.expect(200)
-  //     .end((err, res) => {
-  //       res.text.should.equal('ok');
-  //       util.knex('trips').then((data) => {
-  //         data.length.should.equal(2);
-  //         data[1].locationid.should.equal(3);
-  //         data[1].sequence.should.equal(2);
-  //         done();
-  //       });
-  //     });
-  // });
 
   it('should be able to begin the trip', (done) => {
     const req = request(app)

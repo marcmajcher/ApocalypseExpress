@@ -7,8 +7,13 @@
 
 * Write tests for all services
 * Drivers should keep track of all locations visited
+* Trip should delete trip when completed
+* Only add location to driver_visited the first time visited
 
 ## On Deck
+
+* Get correct length for trips
+* DB error checking everywhere
 
 ## Backlog
 
