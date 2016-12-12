@@ -19,7 +19,6 @@ function deleteTripForDriver(driverid, next) {
     });
 }
 
-
 function destinationIsAdjacent(driverid, destinationid, next) {
   return util.knex('connections').where({
       end: destinationid,
@@ -27,7 +26,7 @@ function destinationIsAdjacent(driverid, destinationid, next) {
     })
     .then((connections) => {
       if (connections.length === 0) {
-        const error = new Error('Destination not adjacent');
+        const error = new Error(`Destination ${destinationid} not adjacent`);
         error.status = 500;
         next(error);
       }
@@ -37,6 +36,7 @@ function destinationIsAdjacent(driverid, destinationid, next) {
       const error = new Error(`Trip DB error: ${err}`);
       error.status = 500;
       next(error);
+      return 0;
     });
 }
 
@@ -104,8 +104,6 @@ router.post('/', /* isNotTraveling, */ (req, res, next) => {
   const driverid = req.session.user.driverid;
   // TODO: use timer to travel (instant for admin)
   // TODO: add 'traveling' column, check that not already traveling
-  // TODO: *** check to verify that destination is adjacent to current location
-  // TODO: delete drip after done
   util.knex('trips').where('driverid', driverid)
     .orderBy('sequence').first()
     .select('locationid')
@@ -113,7 +111,6 @@ router.post('/', /* isNotTraveling, */ (req, res, next) => {
       util.knex('drivers').where('id', driverid)
         .update('location', destination.locationid)
         .then(() => {
-          // remove current destination when destination is reached
           deleteTripForDriver(driverid, next).then(() => {
             util.knex('driver_visited').where({
                 locationid: destination.locationid,

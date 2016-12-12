@@ -41,7 +41,7 @@
                 <td class="col-distance">{{c.distance/1000 | number: 1}} km</td>
                 <td class="button">
                   <button class="btn-go btn btn-warning" ng-show="c.name === game.destinationName"
-                          ng-click="game.goDestination()" ng-disabled="game.working">
+                          ng-click="game.goDestination();$event.stopPropagation()" ng-disabled="game.working">
                     Hit the road!
                   </button>
                 </td>
