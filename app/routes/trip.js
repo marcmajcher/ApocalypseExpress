@@ -30,7 +30,8 @@ function destinationIsAdjacent(driverid, destinationid, next) {
         const error = new Error('Destination not adjacent');
         error.status = 500;
         next(error);
-      };
+      }
+      return connections.length;
     })
     .catch((err) => {
       const error = new Error(`Trip DB error: ${err}`);
@@ -64,36 +65,37 @@ router.get('/', (req, res) => {
       - if there are things, cool. if not, bail.
 */
 
-
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
   const driverid = req.session.user.driverid;
   destinationIsAdjacent(driverid, req.body.destination, next)
-    .then(() => {
-      deleteTripForDriver(driverid, next).then(() => {
-        const trip = {
-          driverid: req.session.user.driverid,
-          sequence: 1,
-          locationid: req.body.destination,
-          distance: 1000 // TODO: get correct distance for trip
-        };
-        util.knex('trips').insert(trip)
-          .returning('locationid')
-          .then((ids) => {
-            util.knex('locations').where('id', ids[0]).first()
-              .then((location) => {
-                res.send({
-                  ok: true,
-                  id: location.id,
-                  name: location.name
+    .then((connections) => {
+      if (connections > 0) {
+        deleteTripForDriver(driverid, next).then(() => {
+          const trip = {
+            driverid: req.session.user.driverid,
+            sequence: 1,
+            locationid: req.body.destination,
+            distance: 1000 // TODO: get correct distance for trip
+          };
+          util.knex('trips').insert(trip)
+            .returning('locationid')
+            .then((ids) => {
+              util.knex('locations').where('id', ids[0]).first()
+                .then((location) => {
+                  res.send({
+                    ok: true,
+                    id: location.id,
+                    name: location.name
+                  });
                 });
-              });
-          })
-          .catch((err) => {
-            const error = new Error(`Trip DB error: ${err}`);
-            error.status = 500;
-            next(error);
-          });
-      });
+            })
+            .catch((err) => {
+              const error = new Error(`Trip DB error: ${err}`);
+              error.status = 500;
+              next(error);
+            });
+        });
+      }
     });
 });
 
@@ -108,7 +110,6 @@ router.post('/', /* isNotTraveling, */ (req, res, next) => {
     .orderBy('sequence').first()
     .select('locationid')
     .then((destination) => {
-      console.log('DESTINATION XXXX', destination)
       util.knex('drivers').where('id', driverid)
         .update('location', destination.locationid)
         .then(() => {

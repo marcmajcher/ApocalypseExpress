@@ -6,7 +6,6 @@
 
 const app = require('../app/app.js');
 const request = require('supertest');
-const should = require('should');
 const util = require('./_util');
 
 let userCookie;
