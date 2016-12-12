@@ -36,34 +36,59 @@ router.get('/', (req, res) => {
 });
 
 /* Create a new trip with given destination or destinations */
-// TODO: *** check to verify that destination is adjacent to current location
+
+/*
+  - Check that destination is connected to current location
+    - get driverid from req.session.user.driverid
+    - select driver from drivers where id = driverid
+    - select location from locations where id = driver.location
+    - select * from connections where start = location and end = destination
+      - if there are things, cool. if not, bail.
+
+*/
+
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
-  util.knex('trips').where('driverid', req.session.user.driverid).del()
-    .then(() => {
-      const trip = {
-        driverid: req.session.user.driverid,
-        sequence: 1,
-        locationid: req.body.destination,
-        distance: 1000 // TODO: get correct distance for trip
-      };
-      util.knex('trips').insert(trip)
-        .returning('locationid')
-        .then((ids) => {
-          util.knex('locations').where('id', ids[0]).first() // TODO: handle array of ids
-            .then((location) => {
-              res.send({
-                ok: true,
-                id: location.id,
-                name: location.name
+  const driverid = req.session.user.driverid;
+  // Verify that destination is adjacent to the driver's current location
+  util.knex('connections').where({
+      end: req.body.destination,
+      start: util.knex('drivers').where('id', driverid).select('location')
+    })
+    .then((connections) => {
+      if (connections.length > 0) {
+        // do the thing
+        util.knex('trips').where('driverid', driverid).del()
+          .then(() => {
+            const trip = {
+              driverid: req.session.user.driverid,
+              sequence: 1,
+              locationid: req.body.destination,
+              distance: 1000 // TODO: get correct distance for trip
+            };
+            util.knex('trips').insert(trip)
+              .returning('locationid')
+              .then((ids) => {
+                util.knex('locations').where('id', ids[0]).first()
+                  .then((location) => {
+                    res.send({
+                      ok: true,
+                      id: location.id,
+                      name: location.name
+                    });
+                  });
+              })
+              .catch((err) => {
+                const error = new Error(`Trip DB error: ${err}`);
+                error.status = 500;
+                next(error);
               });
-              // TODO: better response - include id?
-            });
-        })
-        .catch((err) => {
-          const error = new Error(`Trip DB error: ${err}`);
-          error.status = 500;
-          next(error);
-        });
+          });
+      }
+      else {
+        const error = new Error('Destination not adjacent');
+        error.status = 500;
+        next(error);
+      }
     });
 });
 
@@ -73,6 +98,7 @@ router.post('/', /* isNotTraveling, */ (req, res) => {
   // TODO: use timer to travel
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: *** check to verify that destination is adjacent to current location
+  // TODO: delete drip after done
   util.knex('trips').where('driverid', driverid)
     .orderBy('sequence').first()
     .select('locationid')

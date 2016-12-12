@@ -40,7 +40,7 @@ describe('Map', () => {
   it('should return correct map data for a logged in user', (done) => {
     const req = request(app)
       .get('/map')
-      .set('Accept', 'text/json')
+      .set('Accept', 'text/json');
     req.cookies = userCookie;
     req.expect(200)
       .expect('Content-Type', /text/)

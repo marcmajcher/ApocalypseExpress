@@ -2,7 +2,6 @@
 
 ## Implementing
 
-* User should not be able to set a new destination that is not connected to their current location.
 
 ## Writing Unit Tests
 
@@ -53,7 +52,7 @@
   * Exits
   * Mission Board
   * Trading Post
-  * Chop Chop
+  * Chop Shop
   * News Outlet
 
 ## Frontend/UI Tasks
@@ -77,3 +76,9 @@
 * Admin should be able to add a new location
 * Return dot to original location if canceled
 * Admin should be able to edit location connections
+
+----
+
+## Done
+
+* User should not be able to set a new destination that is not connected to their current location.
