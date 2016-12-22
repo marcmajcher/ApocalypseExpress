@@ -55,6 +55,7 @@
   * Trading Post
   * Chop Shop
   * News Outlet
+* Mission Board: the WALL (Work and Labor List)
 
 ## Frontend/UI Tasks
 
