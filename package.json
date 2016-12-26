@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./app/www",
     "start-test": "NODE_ENV=test node ./app/www",
-    "test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test nyc mocha",
     "prot": "protractor test-e2e/protractor.conf.js",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update"
@@ -57,6 +57,7 @@
     "jasmine": "^2.5.2",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
+    "nyc": "^10.0.0",
     "protractor": "^4.0.11",
     "sass": "^0.5.0"
   }
