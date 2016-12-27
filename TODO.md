@@ -1,5 +1,7 @@
 # ApocalypseExpress TODO List
 
+* Update auth to use JWT
+
 ## Implementing
 
 * DB error checking everywhere
@@ -10,52 +12,61 @@
 
 ## On Deck
 
+* Add server side check for password and email validity on register and /account
 
 ## Backlog
 
-* User should be able to buy and sell goods at locations
-* Each trade good should have a base price, modified by multipliers in each location
-* Each location should have a list of goods for trade with quantities and prices
-* Refactor location positions from lat/long to x/y km from Ozz
-* Work on models (services?) for locations/drivers/etc in object class format
-* Driver should have reputations (for driving/exploring/combat/trade/etc.)
-* Get browser sync and livereload working with gulp and nodemon
-* Driver should have a current vehicle
 * Connections between locations should have a correct distance and difficulty (# of events?)
+* Trips between locations should have events
+
+* Driver should have a current vehicle
+* Each location should have a list of goods for trade with quantities and prices
+* Each trade good should have a base price, modified by multipliers in each location
+* User should be able to buy and sell goods at locations
+
+* Driver should have reputations (for driving/exploring/combat/trade/etc.)
+* Create driver_reputations table
+
+* Drivers should have reputation with each faction
+* Drivers should have a starting reputation with each faction
+* Each faction should have a set of attributes
+* Name
+* Home location
+
 * Add driver_vehicles for vehicle upgrades/alterations
 * Drivers should be able to upgrade/alter vehicles
-* Drivers should have reputation with each faction
-* Create driver_reputations table
-* Trips between locations should have events
-* Drivers should have a starting reputation with each faction
+
+* Vehicles should have a list of attributes
+* Model
+* Size
+* Type
+* Cargo Capacity
+* Fuel Capacity
+* kmpg
+* Base Price
+* Top Speed
+* Passengers
+* TRBL armor
+* Weapons
+* Add-ons
+
+* Each location should have a set of services
+* Exits
+* Mission Board
+* Trading Post
+* Chop Shop
+* News Outlet
+* Mission Board: the WALL (Work and Labor List)
+
 * Drivers should keep track of how many kills they have made (how much damage done/taken?)
 * Drivers should keep track of total money made
 * Drivers should keep track of how many events they've encountered (success/failure?)
 * Drivers should keep track of how many km they've driven
 * Badges should be available for various milestones
-* Vehicles should have a list of attributes
-  * Model
-  * Size
-  * Type
-  * Cargo Capacity
-  * Fuel Capacity
-  * kmpg
-  * Base Price
-  * Top Speed
-  * Passengers
-  * TRBL armor
-  * Weapons
-  * Add-ons
-* Each faction should have a set of attributes
-  * Name
-  * Home location
-* Each location should have a set of services
-  * Exits
-  * Mission Board
-  * Trading Post
-  * Chop Shop
-  * News Outlet
-* Mission Board: the WALL (Work and Labor List)
+
+* Refactor location positions from lat/long to x/y km from Ozz
+* Work on models (services?) for locations/drivers/etc in object class format
+* Get browser sync and livereload working with gulp and nodemon
 
 ## Frontend/UI Tasks
 
@@ -65,10 +76,8 @@
 
 ## Backend Tasks
 
-* Add server side check for password and email validity on register and /account
 * System should create event log for every route action
 * Index db tables
-* Update auth to use JWT
 * Think about internationalization
 
 ## Admin Map Editor
