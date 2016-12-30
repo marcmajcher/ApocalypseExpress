@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const session = require('cookie-session');
 const randomstring = require('randomstring');
 const methodOverride = require('method-override');
+require('dotenv').load();
 
 const app = express();
 app.disable('x-powered-by');

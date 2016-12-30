@@ -34,7 +34,6 @@ router.get('/login', (req, res) => {
   util.renderTemplate(req, res, 'login');
 });
 
-/* eslint-disable no-param-reassign */
 /* Log user in and redirect them to the game page */
 router.post('/login', (req, res, next) => {
   util.knex('users').where({
