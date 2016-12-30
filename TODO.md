@@ -1,7 +1,5 @@
 # ApocalypseExpress TODO List
 
-* Update auth to use JWT
-
 ## Implementing
 
 * DB error checking everywhere
@@ -12,6 +10,7 @@
 
 ## On Deck
 
+* Work on models (services?) for locations/drivers/etc in object class format
 * Add server side check for password and email validity on register and /account
 
 ## Backlog
@@ -30,33 +29,33 @@
 * Drivers should have reputation with each faction
 * Drivers should have a starting reputation with each faction
 * Each faction should have a set of attributes
-* Name
-* Home location
+  * Name
+  * Home location
 
 * Add driver_vehicles for vehicle upgrades/alterations
 * Drivers should be able to upgrade/alter vehicles
 
 * Vehicles should have a list of attributes
-* Model
-* Size
-* Type
-* Cargo Capacity
-* Fuel Capacity
-* kmpg
-* Base Price
-* Top Speed
-* Passengers
-* TRBL armor
-* Weapons
-* Add-ons
+  * Model
+  * Size
+  * Type
+  * Cargo Capacity
+  * Fuel Capacity
+  * kmpg
+  * Base Price
+  * Top Speed
+  * Passengers
+  * TRBL armor
+  * Weapons
+  * Add-ons
 
 * Each location should have a set of services
-* Exits
-* Mission Board
-* Trading Post
-* Chop Shop
-* News Outlet
-* Mission Board: the WALL (Work and Labor List)
+  * Exits
+  * Mission Board
+  * Trading Post
+  * Chop Shop
+  * News Outlet
+  * Mission Board: the WALL (Work and Labor List)
 
 * Drivers should keep track of how many kills they have made (how much damage done/taken?)
 * Drivers should keep track of total money made
@@ -65,7 +64,6 @@
 * Badges should be available for various milestones
 
 * Refactor location positions from lat/long to x/y km from Ozz
-* Work on models (services?) for locations/drivers/etc in object class format
 * Get browser sync and livereload working with gulp and nodemon
 
 ## Frontend/UI Tasks
@@ -89,6 +87,8 @@
 * Admin should be able to edit location connections
 
 ----
+* Update auth to use JWT
+http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 
 ## Done
 

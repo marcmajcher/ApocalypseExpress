@@ -55,6 +55,8 @@ app.use((req, res, next) => {
   next();
 });
 
+// TODO: CSRF?
+
 app.use('/', require('./routes/index'));
 app.use('/admin', require('./routes/admin'));
 app.use('/driver', require('./routes/driver'));
