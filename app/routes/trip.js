@@ -43,7 +43,7 @@ function adjacentConnections(driverid, destinationid, next) {
 /* Trip Routes*/
 
 /* Return current trip info */
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   util.knex('trips').where('driverid', req.session.user.driverid)
     .join('locations', 'trips.locationid', 'locations.id')
     .select('trips.locationid', 'locations.name', 'trips.sequence')
@@ -52,6 +52,12 @@ router.get('/', (req, res) => {
       res.send({
         trip
       });
+    })
+    .catch((err) => {
+      const error = new Error(`Trip DB error: ${err}`);
+      error.status = 500;
+      next(error);
+      return 0;
     });
 });
 
@@ -140,9 +146,15 @@ router.post('/', /* isNotTraveling, */ (req, res, next) => {
 
 /* Clear current trip */
 router.delete('/', /* isNotTraveling, */ (req, res, next) => {
-  deleteTripForDriver(req.session.user.driverid, next).then(() => {
-    res.send('ok');
-  });
+  deleteTripForDriver(req.session.user.driverid, next)
+    .then(() => {
+      res.send('ok');
+    })
+    .catch((err) => {
+      const error = new Error(`Trip DB error: ${err}`);
+      error.status = 500;
+      next(error);
+    });
 });
 
 module.exports = router;

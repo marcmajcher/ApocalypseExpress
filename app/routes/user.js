@@ -89,6 +89,9 @@ router.patch('/account', (req, res, next) => {
             req.flash('Name updated.');
             util.renderTemplate(req, res, 'account');
           });
+      })
+      .catch((error) => {
+        next(error);
       });
   }
   else if (req.body.cpassword && req.body.password && req.body.vpassword) {

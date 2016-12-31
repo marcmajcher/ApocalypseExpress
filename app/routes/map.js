@@ -21,7 +21,8 @@ function getAllLocations() {
   return util.knex('locations')
     .then(locations => ({
       locations: indexLocations(locations)
-    }));
+    }))
+    .catch(error => error);
 }
 
 /* Select all connections from db */
@@ -30,7 +31,8 @@ function getAllConnections(mapData) {
     .then((connections) => {
       mapData.connections = connections;
       return mapData;
-    });
+    })
+    .catch(error => error);
 }
 
 /* Select locations from db for a given user */
@@ -43,7 +45,8 @@ function getUserLocations(driverId) {
     .select('id', 'name', 'latitude', 'longitude', 'population', 'tech', 'factionid', 'type')
     .then(locations => ({
       locations: indexLocations(locations)
-    }));
+    }))
+    .catch(error => error);
 }
 
 function getUserConnections(mapData) {
@@ -52,7 +55,8 @@ function getUserConnections(mapData) {
     .then((connections) => {
       mapData.connections = connections;
       return mapData;
-    });
+    })
+    .catch(error => error);
 }
 
 function getConnectedLocations(mapData) {
@@ -60,21 +64,25 @@ function getConnectedLocations(mapData) {
     .whereIn('id', mapData.connections.map(el => el.end))
     .then((locations) => {
       locations.forEach((el) => {
-          mapData.locations[el.id] = el;
+        mapData.locations[el.id] = el;
       });
       // mapData.locations = locations;
       return mapData;
-    });
+    })
+    .catch(error => error);
 }
 
 /* GET /map route */
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   if (req.session.user.role === 'admin') {
     getAllLocations()
       .then(getAllConnections)
       .then((mapData) => {
         res.send(mapData);
+      })
+      .catch((error) => {
+        next(error);
       });
   }
   else {
@@ -83,6 +91,9 @@ router.get('/', (req, res) => {
       .then(getConnectedLocations)
       .then((mapData) => {
         res.send(mapData);
+      })
+      .catch((error) => {
+        next(error);
       });
   }
 });

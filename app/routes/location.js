@@ -19,12 +19,16 @@ router.get('/', (req, res) => {
           location.connections = connections;
           res.send(location);
         });
+    })
+    .catch((/* error */) => {
+      // TODO: handle error
+      res.send(500);
     });
 });
 
 // router.get('/:id', (req, res) => {
 //
 // });
-// | GET | */location/:locid* | Brief info for given location
+// | GET | */location/:locid* | Brief info for given location (if visited)
 
 module.exports = router;
