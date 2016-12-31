@@ -2,7 +2,6 @@
 
 ## Implementing
 
-* DB error checking everywhere
 
 ## Writing Unit Tests
 
@@ -89,6 +88,7 @@
 ----
 * Update auth to use JWT
 http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
+* DB error checking everywhere
 
 ## Done
 
