@@ -7,6 +7,8 @@ const router = express.Router();
 const util = require('./_util');
 const bcrypt = require('bcrypt-as-promised');
 
+// TODO: move db stuff to models
+
 /* GET home page with user, driver, and location info */
 router.get('/', (req, res) => {
   const user = req.session.user;
