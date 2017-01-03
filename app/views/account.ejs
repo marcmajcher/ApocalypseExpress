@@ -1,5 +1,5 @@
 <h1>Manage your user account</h1>
-<form class="" action="/user/account?_method=PUT" method="post">
+<form class="" action="/user/account?_method=PATCH" method="post">
   <h2>Update User Info</h2>
   <div>
     <%= user.email %>
@@ -14,7 +14,7 @@
   </div>
   <button type="submit" class="btn btn-default">Update Info</button>
 </form>
-<form class="" action="/user/account?_method=PUT" method="post">
+<form class="" action="/user/account?_method=PATCH" method="post">
   <h2>Change Password</h2>
   <div class="form-group">
     <label for="cpassword">Current Password</label>

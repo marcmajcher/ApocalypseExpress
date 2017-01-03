@@ -4,7 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const util = require('./_util');
+const util = require('../_util');
 const bcrypt = require('bcrypt-as-promised');
 
 // TODO: move db stuff to models

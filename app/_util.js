@@ -2,9 +2,9 @@
 
 /* eslint-env node */
 
-const config = require('../../knexfile')[process.env.NODE_ENV || 'development'];
+const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
-const nameList = require('../data/uniquenames');
+const nameList = require('./data/uniquenames');
 
 module.exports = {
   knex,
