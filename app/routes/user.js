@@ -5,6 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const util = require('../_util');
+const Joi = require('joi');
 const User = require('../models/user');
 
 /* Create new user */
