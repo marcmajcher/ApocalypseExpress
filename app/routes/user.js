@@ -8,6 +8,15 @@ const util = require('../_util');
 const Joi = require('joi');
 const User = require('../models/user');
 
+const createSchema = Joi.object().keys({
+  email: Joi.string().email().required(),
+  vemail: Joi.string().email().required(),
+  firstname: Joi.string().required(),
+  lastname: Joi.string().required(),
+  password: Joi.string().required(),
+  vpassword: Joi.string().required(),
+})
+
 /* Create new user */
 router.post('/', (req, res, next) => {
   // TODO: add verification with Joi
