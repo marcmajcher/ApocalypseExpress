@@ -81,3 +81,15 @@ exports.list = driverid =>
       return new Promise(resolve => resolve(location));
     })
   );
+
+exports.update = (id, data) =>
+  util.knex('locations').where('id', id).first().update({
+    name: data.name,
+    longitude: data.longitude,
+    latitude: data.latitude,
+    description: data.description,
+    population: data.population,
+    tech: data.tech,
+    type: data.type,
+    factionid: data.factionid
+  }, '*');

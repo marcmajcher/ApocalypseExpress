@@ -5,6 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const util = require('../_util');
+const Location = require('../models/location');
 
 router.use(util.adminRequired);
 
@@ -33,17 +34,7 @@ router.get('/mapseed', (req, res) => {
 });
 
 router.patch('/map/location/:locid', (req, res) => {
-  const data = req.body;
-  util.knex('locations').where('id', req.params.locid).first().update({
-      name: data.name,
-      longitude: data.longitude,
-      latitude: data.latitude,
-      description: data.description,
-      population: data.population,
-      tech: data.tech,
-      type: data.type,
-      factionid: data.factionid
-    }, '*')
+  Location.update(req.params.locid, req.body)
     .then(() => {
       res.send({
         status: 'ok'
