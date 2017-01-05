@@ -9,29 +9,20 @@ const Joi = require('joi');
 const User = require('../models/user');
 
 const createSchema = Joi.object().keys({
-  email: Joi.string().email().required(),
+  email: Joi.string().email().valid(Joi.ref('vemail')).required(),
   vemail: Joi.string().email().required(),
   firstname: Joi.string().required(),
   lastname: Joi.string().required(),
-  password: Joi.string().required(),
+  password: Joi.string().valid(Joi.ref('vpassword')).required(),
   vpassword: Joi.string().required(),
 })
 
 /* Create new user */
 router.post('/', (req, res, next) => {
-  // TODO: add verification with Joi
-  if (req.body.email && req.body.vemail &&
-    req.body.password && req.body.vpassword &&
-    req.body.firstname && req.body.lastname) {
-    if (req.body.password !== req.body.vpassword) {
-      const passwordError = new Error('Passwords do not match');
-      passwordError.status = 500;
-      next(passwordError);
-    }
-    else if (req.body.email !== req.body.vemail) {
-      const emailError = new Error('Emails do not match');
-      emailError.status = 500;
-      next(emailError);
+  Joi.validate(req.body, createSchema, function(err, value) {
+    if (err) {
+      err.status = 500;
+      next(err);
     }
     else {
       User.create(req.body)
@@ -42,12 +33,7 @@ router.post('/', (req, res, next) => {
           next(err);
         });
     }
-  }
-  else {
-    const err = new Error('Registration missing required fields');
-    err.status = 500;
-    next(err);
-  }
+  });
 });
 
 /* User account pages */
