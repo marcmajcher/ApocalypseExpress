@@ -9,7 +9,6 @@ const Trip = require('../models/trip');
 
 router.use(util.loginRequired);
 
-
 /* Return current trip info */
 router.get('/', (req, res, next) => {
   Trip.get(req.session.user.driverid)
@@ -33,7 +32,6 @@ router.get('/', (req, res, next) => {
     - select * from connections where start = location and end = destination
       - if there are things, cool. if not, bail.
 */
-
 router.put('/', /* isNotTraveling, */ (req, res, next) => {
   const driverid = req.session.user.driverid;
 
@@ -53,45 +51,22 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
 });
 
 /* Begin current trip */
-router.post('/', /* isNotTraveling, */ (req, res/* , next */) => { // TODO: catch errors for delete
-  const driverid = req.session.user.driverid;
+router.post('/', (req, res, next) => { // TODO: catch errors for delete, /* isNotTraveling, */
   // TODO: use timer to travel (instant for admin)
   // TODO: add 'traveling' column, check that not already traveling
-  util.knex('trips').where('driverid', driverid)
-    .orderBy('sequence').first()
-    .select('locationid')
-    .then((destination) => {
-      util.knex('drivers').where('id', driverid)
-        .update('location', destination.locationid)
-        .then(() => {
-          Trip.del(driverid)
-            .then(() => {
-              util.knex('driver_visited').where({
-                  locationid: destination.locationid,
-                  driverid
-                })
-                .then((entry) => {
-                  if (entry.length === 0) {
-                    util.knex('driver_visited')
-                      .insert({
-                        locationid: destination.locationid,
-                        driverid
-                      }, '*')
-                      .then(() => {
-                        res.send('ok');
-                      });
-                  }
-                  else {
-                    res.send('ok');
-                  }
-                });
-              // TODO: error handling
-              // TODO: better response - include id of next/current location?
-            });
-        });
-    });
-});
+  // TODO: what's the behavior when we start a trip that doesn't exist? TEST
 
+  Trip.begin(req.session.user.driverid)
+    .then(() => {
+      res.send('ok');
+    })
+    .catch((err) => {
+      err.status = 500;
+      next(err);
+    });
+  // TODO: error handling
+  // TODO: better response - include id of next/current location?
+});
 
 /* Clear current trip */
 router.delete('/', /* isNotTraveling, */ (req, res, next) => {
@@ -106,17 +81,3 @@ router.delete('/', /* isNotTraveling, */ (req, res, next) => {
 });
 
 module.exports = router;
-
-// function isNotTraveling(req, res, next) {
-//   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
-//     .then((traveling) => {
-//       next();
-//       if (traveling) {
-//         next();
-//         // res.send('traveling');
-//       }
-//       else {
-//         next();
-//       }
-//     });
-// }

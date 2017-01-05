@@ -34,3 +34,29 @@ exports.create = (driverid, destinationid) =>
     }
     return undefined;
   });
+
+exports.begin = driverid =>
+  util.knex('trips').where('driverid', driverid)
+  .orderBy('sequence').first()
+  .select('locationid')
+  .then(destination => {
+    console.log('****FREAKIN DESTINATION:', destination);
+    return util.knex('drivers').where('id', driverid)
+      .update('location', destination.locationid, '*')
+      .then(location => Location.visit(driverid, location.id))
+      .then(() => deleteTrip(driverid));
+  });
+
+// function isNotTraveling(req, res, next) {
+//   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
+//     .then((traveling) => {
+//       next();
+//       if (traveling) {
+//         next();
+//         // res.send('traveling');
+//       }
+//       else {
+//         next();
+//       }
+//     });
+// }

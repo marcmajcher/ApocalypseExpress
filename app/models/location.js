@@ -93,3 +93,18 @@ exports.update = (id, data) =>
     type: data.type,
     factionid: data.factionid
   }, '*');
+
+exports.visit = (driverid, locationid) =>
+  util.knex('driver_visited').where({
+    locationid,
+    driverid
+  })
+  .then((entry) => {
+    if (entry.length === 0) {
+      return util.knex('driver_visited').insert({
+        locationid,
+        driverid
+      }, '*');
+    }
+    return undefined;
+  });
