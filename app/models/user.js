@@ -3,16 +3,42 @@
 /* eslint-env node */
 
 const util = require('../_util');
+const Joi = require('joi');
 const bcrypt = require('bcrypt-as-promised');
 const bcRounds = 12;
 
 let defaultLocation = 1;
 
+exports.createSchema = Joi.object().keys({
+  email: Joi.string().email().valid(Joi.ref('vemail'))
+    .required(),
+  vemail: Joi.string().email().required(),
+  firstname: Joi.string().max(60).required(),
+  lastname: Joi.string().max(60).required(),
+  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
+    .required(),
+  vpassword: Joi.string().required(),
+});
+
+exports.updateSchema = Joi.object().keys({
+  firstname: Joi.string().max(60).required(),
+  lastname: Joi.string().max(60).required()
+});
+
+exports.updatePasswordSchema = Joi.object().keys({
+  cpassword: Joi.string().required(),
+  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
+    .required(),
+  vpassword: Joi.string().required()
+});
+
+/* Grab default location from config db */
 util.knex('config').where('config', 'default').first()
   .then((config) => {
     defaultLocation = config.defaultLocation;
   });
 
+/* Get a user with given email/id */
 exports.get = email => util.knex('users').where('email', email).first();
 
 /* Create a new user with the provided info and return a promise */
@@ -48,7 +74,6 @@ exports.update = (email, data) =>
     lastname: data.lastname,
   });
 
-
 /* Update a user's password */
 exports.updatePassword = (email, currentPassword, newPassword) =>
   util.knex('users').where('email', email).first()
@@ -58,4 +83,5 @@ exports.updatePassword = (email, currentPassword, newPassword) =>
     .update({
       hashedPassword
     }));
-// authenticate
+
+/* Authenticate a user with given email and password */

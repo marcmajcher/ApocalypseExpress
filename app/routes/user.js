@@ -9,32 +9,9 @@ const util = require('../_util');
 const Joi = require('joi');
 const User = require('../models/user');
 
-const createSchema = Joi.object().keys({
-  email: Joi.string().email().valid(Joi.ref('vemail'))
-    .required(),
-  vemail: Joi.string().email().required(),
-  firstname: Joi.string().max(60).required(),
-  lastname: Joi.string().max(60).required(),
-  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
-    .required(),
-  vpassword: Joi.string().required(),
-});
-
-const updateSchema = Joi.object().keys({
-  firstname: Joi.string().max(60).required(),
-  lastname: Joi.string().max(60).required()
-});
-
-const updatePasswordSchema = Joi.object().keys({
-  cpassword: Joi.string().required(),
-  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
-    .required(),
-  vpassword: Joi.string().required()
-});
-
 /* Create new user */
 router.post('/', (req, res, next) => {
-  Joi.validate(req.body, createSchema, (err) => {
+  Joi.validate(req.body, User.createSchema, (err) => {
     if (err) {
       err.status = 500;
       next(err);
@@ -61,7 +38,7 @@ router.get('/account', (req, res) => {
 /* Update user account information */
 router.patch('/account', (req, res, next) => {
   if (req.body.firstname && req.body.lastname) {
-    Joi.validate(req.body, updateSchema, (err) => {
+    Joi.validate(req.body, User.updateSchema, (err) => {
       if (err) {
         err.status = 500;
         next(err);
@@ -84,7 +61,7 @@ router.patch('/account', (req, res, next) => {
     });
   }
   else if (req.body.cpassword && req.body.password && req.body.vpassword) {
-    Joi.validate(req.body, updatePasswordSchema, (err) => {
+    Joi.validate(req.body, User.updatePasswordSchema, (err) => {
       if (err) {
         err.status = 500;
         next(err);
