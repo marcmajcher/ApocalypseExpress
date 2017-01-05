@@ -6,19 +6,23 @@
 ## Writing Unit Tests
 
 * Write tests for all services
+* Write tests for ticker
 
 ## On Deck
 
+* connections model
+* Connections between locations should have a correct distance and difficulty (# of events?)
+* Driver should have a current vehicle
+
 ## Bugs
 
+* Trip not working
 * Why is it making two calls to /map on the game page?
 
 ## Backlog
 
-* Connections between locations should have a correct distance and difficulty (# of events?)
 * Trips between locations should have events
 
-* Driver should have a current vehicle
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location
 * User should be able to buy and sell goods at locations

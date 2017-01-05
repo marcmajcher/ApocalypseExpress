@@ -9,7 +9,7 @@ const Trip = require('../models/trip');
 
 router.use(util.loginRequired);
 
-/* Return current trip info */
+/* Return current trip info */ // TODO: add traveling status
 router.get('/', (req, res, next) => {
   Trip.get(req.session.user.driverid)
     .then((trip) => {

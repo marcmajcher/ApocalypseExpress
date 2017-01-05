@@ -4,8 +4,29 @@
 
 const tickInterval = 1000;
 
-function tick() {
-  // console.log('TICK', Date.now());
+function tick(ticker) {
+  Object.keys(ticker.callbacks).forEach((key) => {
+    ticker.callbacks[key]();
+  });
 }
 
-module.exports = setInterval(tick, tickInterval);
+const tickerObj = {
+  interval: undefined,
+  callbacks: {},
+  addCallback: function(fn) {
+    const id = Date.now();
+    this.callbacks[id] = fn;
+    return id;
+  },
+  removeCallback: function(id) {
+    delete this.callbacks[id];
+  },
+  start: function() {
+    this.interval = setInterval(tick, tickInterval, this);
+  },
+  stop: function() {
+    clearInterval(this.interval);
+  }
+};
+
+module.exports = tickerObj;

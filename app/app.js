@@ -98,6 +98,11 @@ app.use((err, req, res) => {
 });
 
 /* Set up intervals for all the things */
-require('./ticker');
+const ticker = require('./ticker');
+ticker.start();
+
+const fn1 = ticker.addCallback(function() {
+  console.log('TICKER 1',Date.now());
+})
 
 module.exports = app;
