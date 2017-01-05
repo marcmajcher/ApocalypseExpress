@@ -9,7 +9,7 @@ const Driver = require('../models/driver');
 
 router.use(util.loginRequired);
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   Driver.get(req.session.user.driverid)
     .then((driver) => {
       res.send(driver);

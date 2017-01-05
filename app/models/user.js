@@ -6,28 +6,31 @@ const util = require('../_util');
 const Joi = require('joi');
 const bcrypt = require('bcrypt-as-promised');
 const bcRounds = 12;
+const nameMax = 60;
+const passMin = 8;
+const passMax = 64;
 
-let defaultLocation = 1;
+let defaultLocation;
 
 exports.createSchema = Joi.object().keys({
   email: Joi.string().email().valid(Joi.ref('vemail'))
     .required(),
   vemail: Joi.string().email().required(),
-  firstname: Joi.string().max(60).required(),
-  lastname: Joi.string().max(60).required(),
-  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
+  firstname: Joi.string().max(nameMax).required(),
+  lastname: Joi.string().max(nameMax).required(),
+  password: Joi.string().max(passMax).min(passMin).valid(Joi.ref('vpassword'))
     .required(),
   vpassword: Joi.string().required(),
 });
 
 exports.updateSchema = Joi.object().keys({
-  firstname: Joi.string().max(60).required(),
-  lastname: Joi.string().max(60).required()
+  firstname: Joi.string().max(nameMax).required(),
+  lastname: Joi.string().max(nameMax).required()
 });
 
 exports.updatePasswordSchema = Joi.object().keys({
   cpassword: Joi.string().required(),
-  password: Joi.string().max(60).min(8).valid(Joi.ref('vpassword'))
+  password: Joi.string().max(passMax).min(passMin).valid(Joi.ref('vpassword'))
     .required(),
   vpassword: Joi.string().required()
 });
@@ -85,3 +88,11 @@ exports.updatePassword = (email, currentPassword, newPassword) =>
     }));
 
 /* Authenticate a user with given email and password */
+/* eslint no-confusing-arrow: 0 */
+exports.authenticate = (email, password) =>
+  util.knex('users').where('email', email).first()
+  .then(user => user ?
+    bcrypt.compare(password, user.hashedPassword)
+    .then(() => new Promise(resolve => resolve(user))) :
+    undefined
+  );

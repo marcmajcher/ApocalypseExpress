@@ -9,8 +9,9 @@
 
 ## On Deck
 
-* Work on models (services?) for locations/drivers/etc in object class format
-* Add server side check for password and email validity on register and /account
+## Bugs
+
+* Why is it making two calls to /map on the game page?
 
 ## Backlog
 
@@ -92,6 +93,8 @@ http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 
 ## Done
 
+* Work on models (services?) for locations/drivers/etc in object class format
+* Add server side check for password and email validity on register and /account
 * User should not be able to set a new destination that is not connected to their current location.
 * Drivers should keep track of all locations visited
 * Trip should delete trip when completed

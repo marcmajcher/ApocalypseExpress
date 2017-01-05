@@ -1,7 +1,6 @@
 'use strict';
 
 /* eslint-env node */
-/* eslint no-magic-numbers: 0 */
 
 const express = require('express');
 const router = express.Router();
