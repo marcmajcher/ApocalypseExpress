@@ -2,8 +2,6 @@
 
 /* eslint-env node */
 
-// create
-// get
-// list
-// update
-// delete
+const util = require('../_util');
+
+exports.get = id => util.knex('drivers').where('id', id).first();

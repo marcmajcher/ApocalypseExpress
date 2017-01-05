@@ -5,16 +5,18 @@
 const express = require('express');
 const router = express.Router();
 const util = require('../_util');
+const Driver = require('../models/driver');
 
 router.use(util.loginRequired);
 
 router.get('/', (req, res) => {
-  util.knex('drivers').where('id', req.session.user.driverid).first()
+  Driver.get(req.session.user.driverid)
     .then((driver) => {
       res.send(driver);
     })
-    .catch((/* error */) => {
-      res.send(500);
+    .catch((error) => {
+      error.status = 500;
+      next(error);
     });
 });
 
