@@ -5,30 +5,31 @@
 const express = require('express');
 const router = express.Router();
 const util = require('../_util');
+const Location = require('../models/location');
 
 router.use(util.loginRequired);
 
-router.get('/', (req, res) => {
-  util.knex('locations').where('id',
-      util.knex('drivers').where('id', req.session.user.driverid).select('location')).first()
+router.get('/', (req, res, next) => {
+  Location.list(req.session.user.driverid)
     .then((location) => {
-      util.knex('connections').where('start', location.id)
-        .innerJoin('locations', 'locations.id', 'connections.end')
-        .select('id', 'distance', 'name', 'factionid', 'type')
-        .then((connections) => {
-          location.connections = connections;
-          res.send(location);
-        });
+      res.send(location);
     })
-    .catch((/* error */) => {
-      // TODO: handle error
-      res.send(500);
+    .catch((error) => {
+      error.status = 500;
+      next(error);
     });
 });
 
-// router.get('/:id', (req, res) => {
-//
-// });
-// | GET | */location/:locid* | Brief info for given location (if visited)
+router.get('/:id', (req, res, next) => {
+  // TODO: write tests
+  Location.get(req.params.id)
+    .then((location) => {
+      res.send(location);
+    })
+    .catch((error) => {
+      error.status = 500;
+      next(error);
+    });
+});
 
 module.exports = router;
