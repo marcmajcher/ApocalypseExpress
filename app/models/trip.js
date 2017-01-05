@@ -4,6 +4,11 @@
 
 const util = require('../_util');
 const Location = require('./location');
+const ticker = require('../ticker');
+
+ticker.addCallback(
+  () => console.log('Trip callback')
+);
 
 exports.get = driverid => util.knex('trips').where('driverid', driverid)
   .join('locations', 'trips.locationid', 'locations.id')
@@ -39,7 +44,7 @@ exports.begin = driverid =>
   util.knex('trips').where('driverid', driverid)
   .orderBy('sequence').first()
   .select('locationid')
-  .then(destination => {
+  .then((destination) => {
     console.log('****FREAKIN DESTINATION:', destination);
     return util.knex('drivers').where('id', driverid)
       .update('location', destination.locationid, '*')

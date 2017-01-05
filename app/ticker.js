@@ -13,18 +13,18 @@ function tick(ticker) {
 const tickerObj = {
   interval: undefined,
   callbacks: {},
-  addCallback: function(fn) {
+  addCallback(fn) {
     const id = Date.now();
     this.callbacks[id] = fn;
     return id;
   },
-  removeCallback: function(id) {
+  removeCallback(id) {
     delete this.callbacks[id];
   },
-  start: function() {
+  start() {
     this.interval = setInterval(tick, tickInterval, this);
   },
-  stop: function() {
+  stop() {
     clearInterval(this.interval);
   }
 };
