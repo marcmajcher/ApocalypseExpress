@@ -54,7 +54,7 @@ describe('Trip', () => {
         JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
         util.knex('trips').first().then((data) => {
           data.sequence.should.equal(1);
-          data.locationid.should.equal(2);
+          data.destinationid.should.equal(2);
           data.driverid.should.equal(1);
           done();
         });

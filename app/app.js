@@ -98,6 +98,8 @@ app.use((err, req, res) => {
 });
 
 /* Set up intervals for all the things */
-require('./ticker').start();
+if (app.get('env') !== 'test') {
+  require('./ticker').start();
+}
 
 module.exports = app;
