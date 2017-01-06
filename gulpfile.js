@@ -94,7 +94,7 @@ gulp.task('sass', () =>
 
 gulp.task('nodemon', () => nodemon({
   script: 'app/www',
-  watch: ['app/app.js', 'app/routes/**/*.js']
+  watch: ['app/app.js', 'app/routes/**/*.js', 'app/models/**/*.js']
 }));
 
 gulp.task('watch', () => {
