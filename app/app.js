@@ -99,7 +99,7 @@ app.use((err, req, res) => {
 
 /* Set up intervals for all the things */
 if (app.get('env') !== 'test') {
-  require('./ticker').start();
+  require('./ticker').start(); // eslint-disable-line global-require
 }
 
 module.exports = app;

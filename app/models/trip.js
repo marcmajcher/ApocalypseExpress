@@ -19,8 +19,7 @@ const deleteTrip = driverid => util.knex('trips').where('driverid', driverid).de
 exports.del = deleteTrip;
 
 /* Create a new trip for the given driver to the given location, returns location */
-exports.create = (driverid, destinationid) =>
-  util.knex('connections').where({
+exports.create = (driverid, destinationid) => util.knex('connections').where({
     end: destinationid,
     start: util.knex('drivers').where('id', driverid).select('location')
   })
@@ -31,6 +30,7 @@ exports.create = (driverid, destinationid) =>
           driverid,
           sequence: 1,
           destinationid,
+          startid: connections[0].start,
           distance: connections[0].distance
         })
         .returning('destinationid')

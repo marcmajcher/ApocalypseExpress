@@ -6,7 +6,9 @@ const tickInterval = 1000;
 
 function tick(ticker) {
   Object.keys(ticker.callbacks).forEach((key) => {
-    ticker.callbacks[key]();
+    if (ticker.callbacks[key]) {
+      ticker.callbacks[key]();
+    }
   });
 }
 
