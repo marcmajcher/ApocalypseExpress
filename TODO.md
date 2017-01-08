@@ -2,6 +2,7 @@
 
 ## Implementing
 
+* Better handling of ajax errors on client
 
 ## Writing Unit Tests
 
