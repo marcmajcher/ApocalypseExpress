@@ -31,6 +31,7 @@
         });
       };
 
+
       vm.goDestination = function goDestination() {
         vm.working = true;
         TripService.beginTrip().then((data) => {
