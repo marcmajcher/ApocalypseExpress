@@ -1,5 +1,6 @@
 <% if (user) { %>
-  <div ng-controller="GamePageController as game">
+  <!-- <div ng-controller="GamePageController as game"> -->
+  <game-page>
     <div class="row">
 
       <div class="col-md-6">
@@ -31,25 +32,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="c in game.currentLocation.connections | orderBy: c.distance"
-              class="{{c.name === game.destinationName ? 'current' : 'select'}}"
-              ng-click="game.setDestination(c.id)">
+              <tr ng-repeat="c in game.currentLocation.connections | orderBy: c.distance" class="{{c.name === game.destinationName ? 'current' : 'select'}}" ng-click="game.setDestination(c.id)">
                 <td class="col-faction">
                   <div class="faction-dot {{game.factionTags[c.factionid]}}"></div>
                 </td>
                 <td class="col-name">{{c.name}}</td>
                 <td class="col-distance">{{c.distance/1000 | number: 1}} km</td>
                 <td class="button">
-                  <button class="btn-go btn btn-warning" ng-show="c.name === game.destinationName"
-                          ng-click="game.goDestination();$event.stopPropagation()" ng-disabled="game.working">
+                  <button class="btn-go btn btn-warning" ng-show="c.name === game.destinationName" ng-click="game.goDestination();$event.stopPropagation()" ng-disabled="game.working">
                     Hit the road!
                   </button>
                 </td>
               </tr>
               <tr>
                 <td colspan="4" class="button">
-                  <button class="btn btn-secondary"
-                    ng-click="game.clearDestination()" ng-disabled="game.working">
+                  <button class="btn btn-secondary" ng-click="game.clearDestination()" ng-disabled="game.working">
                     Clear Destination
                   </button>
                 </td>
@@ -64,7 +61,7 @@
       </div>
 
     </div>
-  </div>
+    </gamePage>
 
 
-  <% } %>
+    <% } %>

@@ -182,6 +182,24 @@
 (function () {
   'use strict';
 
+  /* eslint-env jquery, browser */
+
+  var gamePage = function gamePage() {
+
+    return {
+      scope: true,
+      controller: 'GamePageController',
+      controllerAs: 'game'
+    };
+  };
+
+  angular.module('apox').directive('gamePage', gamePage);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
   var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
     return {
       restrict: 'E',
