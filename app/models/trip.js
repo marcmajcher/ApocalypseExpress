@@ -39,17 +39,18 @@ exports.create = (driverid, destinationid) => util.knex('connections').where({
     return undefined;
   });
 
+
 exports.begin = driverid =>
   util.knex('trips').where('driverid', driverid)
   .orderBy('sequence').first()
-  .select('destinationid')
-  .then(destination =>
-    // console.log('****FREAKIN DESTINATION:', destination);
-    util.knex('drivers').where('id', driverid)
-    .update('location', destination.destinationid, '*')
-    .then(location => Location.visit(driverid, location.id))
-    .then(() => deleteTrip(driverid))
-  );
+  .update({
+    underway: true
+  }, '*');
+
+// util.knex('drivers').where('id', driverid)
+// .update('location', destination.destinationid, '*')
+// .then(location => Location.visit(driverid, location.id))
+// .then(() => deleteTrip(driverid))
 
 // function isNotTraveling(req, res, next) {
 //   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')

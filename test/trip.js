@@ -75,67 +75,75 @@ describe('Trip', () => {
     req.cookies = userCookie;
     req.expect(200)
       .end((err, res) => {
-        res.text.should.equal('ok');
-        util.knex('drivers').where('id', 1).first()
-          .then((driver) => {
-            driver.location.should.equal(2);
-            util.knex('trips').then((data) => {
-              data.length.should.equal(0);
-              done();
-            });
+        util.knex('trips').where('driverid', 1).first()
+          .then((trip) => {
+            trip.underway.should.be.true; // jshint ignore:line
+            res.text.should.equal('ok');
+            done();
           });
       });
-  });
 
-  it('should record the trip as visited', (done) => {
-    util.knex('driver_visited').where('driverid', 1)
-      .then((visited) => {
-        visited.length.should.equal(2);
-        done();
-      });
-  });
+    // should be in traveling state for x turn
+    // should not be traveling after enough x turns
+    // util.knex('drivers').where('id', 1).first()
+    //   .then((driver) => {
+    //     driver.location.should.equal(2);
+    //     util.knex('trips').then((data) => {
+    //       data.length.should.equal(0);
+    //       done();
+    //     });
+    //   });
 
-  it('should not record the same destination as visited more than once', (done) => {
-    let req = request(app)
-      .put('/trip')
-      .send('destination=1')
-      .set('Accept', 'application/json');
-    req.cookies = userCookie;
-    req.expect(200)
-      .end((err, res) => {
-        JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
-        req = request(app)
-          .post('/trip')
-          .set('Accept', 'application/json');
-        req.cookies = userCookie;
-        req.expect(200)
-          .end((err2, res2) => {
-            res2.text.should.equal('ok');
-            util.knex('drivers').where('id', 1).first()
-              .then((driver) => {
-                driver.location.should.equal(1);
-                util.knex('driver_visited').where('driverid', 1)
-                  .then((visited) => {
-                    visited.length.should.equal(2);
-                    done();
-                  });
-              });
-          });
-      });
-  });
-
-  it('should be able to delete a trip', (done) => {
-    const req = request(app)
-      .delete('/trip')
-      .set('Accept', 'application/json');
-    req.cookies = userCookie;
-    req.expect(200)
-      .end((err, res) => {
-        res.text.should.equal('ok');
-        util.knex('trips').then((data) => {
-          data.length.should.equal(0);
+    it('should record the trip as visited', (done) => {
+      util.knex('driver_visited').where('driverid', 1)
+        .then((visited) => {
+          visited.length.should.equal(2);
           done();
         });
-      });
+    });
+
+    it('should not record the same destination as visited more than once', (done) => {
+      let req = request(app)
+        .put('/trip')
+        .send('destination=1')
+        .set('Accept', 'application/json');
+      req.cookies = userCookie;
+      req.expect(200)
+        .end((err, res) => {
+          JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
+          req = request(app)
+            .post('/trip')
+            .set('Accept', 'application/json');
+          req.cookies = userCookie;
+          req.expect(200)
+            .end((err2, res2) => {
+              res2.text.should.equal('ok');
+              util.knex('drivers').where('id', 1).first()
+                .then((driver) => {
+                  driver.location.should.equal(1);
+                  util.knex('driver_visited').where('driverid', 1)
+                    .then((visited) => {
+                      visited.length.should.equal(2);
+                      done();
+                    });
+                });
+            });
+        });
+    });
+
+    it('should be able to delete a trip', (done) => {
+      const req = request(app)
+        .delete('/trip')
+        .set('Accept', 'application/json');
+      req.cookies = userCookie;
+      req.expect(200)
+        .end((err, res) => {
+          res.text.should.equal('ok');
+          util.knex('trips').then((data) => {
+            data.length.should.equal(0);
+            done();
+          });
+        });
+    });
   });
 });
