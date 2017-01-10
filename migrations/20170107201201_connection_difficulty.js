@@ -8,6 +8,6 @@ exports.up = knex => knex.schema.table('connections', (table) => {
   table.integer('difficulty').unsigned().notNullable().defaultTo(defaultDifficulty);
 });
 
-exports.down = knex => knex.schema.table('trips', (table) => {
+exports.down = knex => knex.schema.table('connections', (table) => {
   table.dropColumn('difficulty');
 });
