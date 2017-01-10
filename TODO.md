@@ -7,6 +7,7 @@
 
 ## Writing Unit Tests
 
+* Test everything by turning off server and displaying message for 500
 * Write tests for all services
 * Write tests for ticker
 
