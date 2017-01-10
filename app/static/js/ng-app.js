@@ -118,84 +118,156 @@
 
   /* eslint-env jquery, browser */
 
-  var gamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
-    var vm = this;
+  var GamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
+    var ctrl = this;
 
-    vm.working = false;
-    vm.traveling = false;
-    vm.factionTags = FactionService.factionTags;
+    ctrl.working = false;
+    ctrl.traveling = false;
+    ctrl.factionTags = FactionService.factionTags;
 
     GameService.init().then(function () {
-      vm.driver = GameService.driver;
-      vm.currentLocation = GameService.currentLocation;
-      vm.destination = GameService.destination;
+      ctrl.driver = GameService.driver;
+      ctrl.currentLocation = GameService.currentLocation;
+      ctrl.destination = GameService.destination;
     });
 
-    vm.setDestination = function setDestination(id) {
-      vm.working = true;
+    ctrl.setDestination = function setDestination(id) {
+      ctrl.working = true;
       TripService.setNextDestination(id).then(function (data) {
         if (data.ok) {
-          vm.destinationName = data.name;
-          vm.destinationId = data.id;
-          vm.working = false;
+          ctrl.destinationName = data.name;
+          ctrl.destinationId = data.id;
+          ctrl.working = false;
         }
         // TODO: error check
         // TODO: better response from the route - return new id?
       });
     };
 
-    vm.goDestination = function goDestination() {
-      vm.working = true;
+    ctrl.goDestination = function goDestination() {
+      ctrl.working = true;
       TripService.beginTrip().then(function (data) {
         if (data === 'ok') {
-          vm.getCurrentLocation();
-          vm.destinationName = undefined;
-          vm.destinationId = undefined;
-          vm.working = false;
+          ctrl.getCurrentLocation();
+          ctrl.destinationName = undefined;
+          ctrl.destinationId = undefined;
+          ctrl.working = false;
         }
       });
     };
 
-    vm.getCurrentLocation = function getCurrentLocation() {
+    ctrl.getCurrentLocation = function getCurrentLocation() {
       LocationService.getCurrentLocation().then(function (location) {
-        vm.currentLocation = location;
+        ctrl.currentLocation = location;
         GameService.currentLocation = location;
       });
     };
 
-    vm.clearDestination = function clearDestination() {
-      vm.working = true;
+    ctrl.clearDestination = function clearDestination() {
+      ctrl.working = true;
       TripService.clearTrip().then(function (data) {
         if (data === 'ok') {
-          vm.destinationName = undefined;
-          vm.destinationId = undefined;
-          vm.working = false;
+          ctrl.destinationName = undefined;
+          ctrl.destinationId = undefined;
+          ctrl.working = false;
         }
       });
     };
   };
 
-  angular.module('apox').controller('GamePageController', ['GameService', 'FactionService', 'LocationService', 'TripService', gamePageController]);
+  angular.module('apox').component('gamePage', {
+    controller: ['GameService', 'FactionService', 'LocationService', 'TripService', GamePageController],
+    templateUrl: '../tmpl/game/gamepage.template.html'
+  });
 })();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var gamePage = function gamePage() {
-
-    return {
-      scope: {},
-      controller: 'GamePageController',
-      controllerAs: 'game',
-      templateUrl: '../tmpl/game/gamepage.template.html'
-    };
-  };
-
-  angular.module('apox').directive('gamePage', gamePage);
-})();
+// (() => {
+//   'use strict';
+//
+//   /* eslint-env jquery, browser */
+//
+//   const gamePageController =
+//     function gamePageController(GameService, FactionService, LocationService, TripService) {
+//       const vm = this;
+//
+//       vm.working = false;
+//       vm.traveling = false;
+//       vm.factionTags = FactionService.factionTags;
+//
+//       GameService.init()
+//         .then(() => {
+//           vm.driver = GameService.driver;
+//           vm.currentLocation = GameService.currentLocation;
+//           vm.destination = GameService.destination;
+//         });
+//
+//       vm.setDestination = function setDestination(id) {
+//         vm.working = true;
+//         TripService.setNextDestination(id).then((data) => {
+//           if (data.ok) {
+//             vm.destinationName = data.name;
+//             vm.destinationId = data.id;
+//             vm.working = false;
+//           }
+//           // TODO: error check
+//           // TODO: better response from the route - return new id?
+//         });
+//       };
+//
+//       vm.goDestination = function goDestination() {
+//         vm.working = true;
+//         TripService.beginTrip().then((data) => {
+//           if (data === 'ok') {
+//             vm.getCurrentLocation();
+//             vm.destinationName = undefined;
+//             vm.destinationId = undefined;
+//             vm.working = false;
+//           }
+//         });
+//       };
+//
+//       vm.getCurrentLocation = function getCurrentLocation() {
+//         LocationService.getCurrentLocation().then((location) => {
+//           vm.currentLocation = location;
+//           GameService.currentLocation = location;
+//         });
+//       };
+//
+//       vm.clearDestination = function clearDestination() {
+//         vm.working = true;
+//         TripService.clearTrip().then((data) => {
+//           if (data === 'ok') {
+//             vm.destinationName = undefined;
+//             vm.destinationId = undefined;
+//             vm.working = false;
+//           }
+//         });
+//       };
+//     };
+//
+//   angular.module('apox')
+//     .controller('GamePageController', [
+//       'GameService', 'FactionService', 'LocationService', 'TripService', gamePageController
+//     ]);
+// })();
+"use strict";
+// (() => {
+//   'use strict';
+//
+//   /* eslint-env jquery, browser */
+//
+//   const gamePage = function gamePage() {
+//
+//     return {
+//       scope: {},
+//       controller: 'GamePageController',
+//       controllerAs: 'game',
+//       templateUrl: '../tmpl/game/gamepage.template.html'
+//     };
+//   };
+//
+//   angular.module('apox').directive('gamePage', gamePage);
+// })();
+"use strict";
 'use strict';
 
 (function () {
