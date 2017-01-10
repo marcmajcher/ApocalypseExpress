@@ -12,7 +12,7 @@ ticker.addCallback(
 
 exports.get = driverid => util.knex('trips').where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
-  .select('trips.destinationid', 'locations.name', 'trips.startid', 'trips.progress')
+  .select('trips.destinationid', 'locations.name', 'trips.startid', 'trips.progress', 'trips.underway')
   .orderBy('sequence');
 
 const deleteTrip = driverid => util.knex('trips').where('driverid', driverid).del();
@@ -28,7 +28,6 @@ exports.create = (driverid, destinationid) => util.knex('connections').where({
       return deleteTrip(driverid).then(() =>
         util.knex('trips').insert({
           driverid,
-          sequence: 1,
           destinationid,
           startid: connections[0].start,
           distance: connections[0].distance
