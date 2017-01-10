@@ -13,5 +13,4 @@
   };
 
   angular.module('apox').directive('gamePage', gamePage);
-
 })();
