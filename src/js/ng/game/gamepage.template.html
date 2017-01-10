@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <div class="row">
-
   <div class="col-md-6">
     <div class="driver-name text-center">
       <span id="driver-name">{{$ctrl.driver.name}}</span>
@@ -14,10 +14,8 @@
     </div>
     <div class="location-description">{{$ctrl.currentLocation.description}}</div>
   </div>
-
   <div class="col-md-6">
     <apox-map></apox-map>
-
     <div class="destinations">
       <table class="table" id="destinations-list">
         <thead>
@@ -51,10 +49,8 @@
         </tbody>
       </table>
     </div>
-
     <div ng-if="$ctrl.traveling">
       On the road....
     </div>
   </div>
-
 </div>
