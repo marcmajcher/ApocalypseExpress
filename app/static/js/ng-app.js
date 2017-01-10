@@ -187,7 +187,7 @@
   var gamePage = function gamePage() {
 
     return {
-      scope: true,
+      scope: {},
       controller: 'GamePageController',
       controllerAs: 'game',
       templateUrl: '../tmpl/game/gamepage.template.html'
