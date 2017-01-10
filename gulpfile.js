@@ -30,7 +30,7 @@ const lintable = [
 ];
 
 gulp.task('default', ['clean', 'build', 'watch', 'nodemon']);
-gulp.task('build', ['sass', 'imagemin', 'scripts']);
+gulp.task('build', ['sass', 'imagemin', 'scripts', 'ng-templates']);
 gulp.task('lint', ['eslint', 'jshint', 'watch']);
 
 gulp.task('clean', () =>
@@ -41,12 +41,17 @@ gulp.task('clean', () =>
   ])
 );
 
-
 gulp.task('imagemin', () =>
   gulp
   .src('src/img/**/*')
   // .pipe(imagemin())  // only imagemin on prod
   .pipe(gulp.dest('app/static/img'))
+);
+
+gulp.task('ng-templates', () =>
+  gulp
+  .src('src/js/ng/**/*.html')
+  .pipe(gulp.dest('app/static/tmpl'))
 );
 
 gulp.task('scripts', () => {

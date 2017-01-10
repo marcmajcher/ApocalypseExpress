@@ -8,7 +8,8 @@
     return {
       scope: true,
       controller: 'GamePageController',
-      controllerAs: 'game'
+      controllerAs: 'game',
+      templateUrl: '../tmpl/game/gamepage.template.html'
     };
   };
 
