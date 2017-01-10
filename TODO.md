@@ -2,6 +2,7 @@
 
 ## Implementing
 
+* connections model
 * Better handling of ajax errors on client
 
 ## Writing Unit Tests
@@ -11,8 +12,6 @@
 
 ## On Deck
 
-* connections model
-* Connections between locations should have a correct distance and difficulty (# of events?)
 * Driver should have a current vehicle
 
 ## Bugs
@@ -75,7 +74,7 @@
 
 * Update header to be responsive
 * Overall design
-* Angular form validation on login and register
+* Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
 
 ## Backend Tasks
 
@@ -85,6 +84,7 @@
 
 ## Admin Map Editor
 
+* Add ability to edit distance and difficulty of connections
 * Fix zoom multiplier bug on location move
 * Create 'add new location' route
 * Admin should be able to add a new location
@@ -106,3 +106,4 @@ http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Only add location to driver_visited the first time visited
 * Get correct length for trips
 * Componentize angular directives/controllers
+* Connections between locations should have a correct distance and difficulty (# of events?)
