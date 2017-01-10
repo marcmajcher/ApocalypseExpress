@@ -105,3 +105,4 @@ http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Trip should delete trip when completed
 * Only add location to driver_visited the first time visited
 * Get correct length for trips
+* Componentize angular directives/controllers
