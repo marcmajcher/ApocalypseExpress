@@ -116,21 +116,23 @@ describe('Trip', () => {
       .end((err, res) => {
         JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
         req = request(app)
-          .post('/trip')
+          .post('/trip/go')
           .set('Accept', 'application/json');
         req.cookies = userCookie;
         req.expect(200)
           .end((err2, res2) => {
             res2.text.should.equal('ok');
-            util.knex('drivers').where('id', 1).first()
-              .then((driver) => {
-                driver.location.should.equal(1);
-                util.knex('driver_visited').where('driverid', 1)
-                  .then((visited) => {
-                    visited.length.should.equal(2);
-                    done();
-                  });
-              });
+            Trip.tick(true).then(() => {
+              util.knex('drivers').where('id', 1).first()
+                .then((driver) => {
+                  driver.location.should.equal(1);
+                  util.knex('driver_visited').where('driverid', 1)
+                    .then((visited) => {
+                      visited.length.should.equal(2);
+                      done();
+                    });
+                });
+            });
           });
       });
   });
