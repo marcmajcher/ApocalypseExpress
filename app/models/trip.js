@@ -4,24 +4,24 @@
 
 const util = require('../_util');
 const Location = require('./location');
+const Driver = require('./driver');
 const ticker = require('../ticker');
 
-ticker.addCallback(
-  // () => console.log('Trip callback')
-);
+const speed = 10000;
 
 exports.get = driverid => util.knex('trips').where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
   .select('trips.destinationid', 'locations.name', 'trips.startid', 'trips.progress', 'trips.underway')
   .orderBy('sequence');
 
+// TODO: don't delete if underway
 const deleteTrip = driverid => util.knex('trips').where('driverid', driverid).del();
 exports.del = deleteTrip;
 
 /* Create a new trip for the given driver to the given location, returns location */
 exports.create = (driverid, destinationid) => util.knex('connections').where({
     end: destinationid,
-    start: util.knex('drivers').where('id', driverid).select('location')
+    start: Driver.getValue(driverid, 'location')
   })
   .then((connections) => {
     if (connections.length > 0) {
@@ -39,18 +39,14 @@ exports.create = (driverid, destinationid) => util.knex('connections').where({
     return undefined;
   });
 
-
-exports.begin = driverid =>
+exports.begin = driverid => Promise.all([
   util.knex('trips').where('driverid', driverid)
   .orderBy('sequence').first()
   .update({
     underway: true
-  }, '*');
-
-// util.knex('drivers').where('id', driverid)
-// .update('location', destination.destinationid, '*')
-// .then(location => Location.visit(driverid, location.id))
-// .then(() => deleteTrip(driverid))
+  }, '*'),
+  Driver.updateValue(driverid, 'traveling', true)
+]);
 
 // function isNotTraveling(req, res, next) {
 //   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
@@ -65,3 +61,39 @@ exports.begin = driverid =>
 //       }
 //     });
 // }
+
+const tickerTripProgress = function tickerTripProgress(testing = false) {
+  return util.knex('trips').where('underway', true)
+    .then((trips) => {
+      // TODO: this is a mess, needs serious optimization
+      // TODO: grab speed from driver->vehicle speed
+      if (trips.length > 0) {
+        for (let i = 0; i < trips.length; i++) {
+          const trip = trips[i];
+          const newProgress = trip.progress + speed;
+
+          Location.visit(1, 2);
+
+
+          if (testing || newProgress > trip.distance) {
+            console.log('DELETING TRIP', trip);
+            return deleteTrip(trip.driverid)
+              .then(Location.visit(trip.driverid, trip.destinationid))
+              .then(Driver.update(trip.driverid, {
+                location: trip.destinationid,
+                traveling: false
+              }))
+              .catch((error) => {
+                throw new Error('YOU FUCKED UP', error);
+              });
+          }
+          return util.knex('trips').where('driverid', trip.driverid)
+            .update('progress', newProgress, 'progress');
+        }
+      }
+      return undefined;
+    });
+};
+
+exports.tick = tickerTripProgress;
+ticker.addCallback(tickerTripProgress);

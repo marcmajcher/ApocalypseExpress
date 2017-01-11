@@ -7,6 +7,7 @@
 const app = require('../app/app.js');
 const request = require('supertest');
 const util = require('./_util');
+const Trip = require('../app/models/trip');
 
 let userCookie;
 
@@ -96,11 +97,15 @@ describe('Trip', () => {
   //   });
 
   it('should record the trip as visited', (done) => {
-    util.knex('driver_visited').where('driverid', 1)
-      .then((visited) => {
-        visited.length.should.equal(2);
-        done();
-      });
+    Trip.tick(true).then(() => {
+      console.log('THEN AFER TICK');
+      util.knex('driver_visited').where('driverid', 1)
+        .then((visited) => {
+          console.log(visited);
+          visited.length.should.equal(2);
+          done();
+        });
+    });
   });
 
   it('should not record the same destination as visited more than once', (done) => {
