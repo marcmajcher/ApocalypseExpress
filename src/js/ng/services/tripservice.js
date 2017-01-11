@@ -45,19 +45,16 @@
         });
       },
       beginTrip: function beginTrip() {
-          return $q((resolve, reject) => {
-            $http.post(tripRoute)
-              .then((res) => {
-                  resolve(res.data);
-                },
-                (err) => {
-                  reject(err);
-                });
-          });
-        }
-        // ,
-        // addDestination: function addDestination(id) {
-        // }
+        return $q((resolve, reject) => {
+          $http.post(`${tripRoute}/go`)
+            .then((res) => {
+                resolve(res.data);
+              },
+              (err) => {
+                reject(err);
+              });
+        });
+      }
     };
   };
 

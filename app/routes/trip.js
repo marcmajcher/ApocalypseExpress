@@ -52,24 +52,23 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
 });
 
 /* Begin current trip */
-router.post('/', (req, res, next) => { // TODO: catch errors for delete, /* isNotTraveling, */
+router.post('/go', (req, res, next) => { // TODO: catch errors for delete, /* isNotTraveling, */
   // TODO: use timer to travel (instant for admin)
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: what's the behavior when we start a trip that doesn't exist? TEST
   Driver.get(req.session.user.driverid)
-  .then((driver) => {
-    if (!driver.traveling) {
-      Trip.begin(req.session.user.driverid)
-        .then(() => {
-          res.send('ok');
-        })
-        .catch((err) => {
-          err.status = 500;
-          next(err);
-        });
-    }
-  });
-
+    .then((driver) => {
+      if (!driver.traveling) {
+        Trip.begin(req.session.user.driverid)
+          .then(() => {
+            res.send('ok');
+          })
+          .catch((err) => {
+            err.status = 500;
+            next(err);
+          });
+      }
+    });
   // TODO: error handling
 });
 
