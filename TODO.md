@@ -13,6 +13,7 @@
 
 ## On Deck
 
+* set up little socket server for trip progress push
 * Driver should have a current vehicle
 
 ## Bugs

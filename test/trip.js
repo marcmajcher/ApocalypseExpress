@@ -71,7 +71,7 @@ describe('Trip', () => {
 
   it('should be able to begin the trip', (done) => {
     const req = request(app)
-      .post('/trip')
+      .post('/trip/go')
       .set('Accept', 'application/json');
     req.cookies = userCookie;
     req.expect(200)

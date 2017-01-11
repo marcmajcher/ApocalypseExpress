@@ -18,7 +18,7 @@ exports.get = driverid => util.knex('trips').where('driverid', driverid)
 const deleteTrip = driverid => util.knex('trips')
   .where('driverid', driverid).del()
   .catch((error) => {
-    console.log('Error in models/trip.deleteTrip', error); //
+    console.log('Error in models/trip.deleteTrip', error); // eslint-disable-line
   });
 exports.del = deleteTrip;
 
@@ -43,7 +43,7 @@ exports.create = (driverid, destinationid) => util.knex('connections').where({
     return undefined;
   })
   .catch((error) => {
-    console.log('Error in models/trip.create', error); //
+    console.log('Error in models/trip.create', error); // eslint-disable-line
   });
 
 exports.begin = driverid => Driver.updateValue(driverid, 'traveling', true)
@@ -61,7 +61,7 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       // TODO: this is a mess, needs serious optimization
       // TODO: grab speed from driver->vehicle speed
       if (trips.length > 0) {
-        console.log('trips: ', trips.map(e => `Progress: ${e.progress}`));
+        console.log('trips: ', trips.map(e => `Progress: ${e.progress}`)); // eslint-disable-line
         for (let i = 0; i < trips.length; i++) {
           const trip = trips[i];
           const newProgress = trip.progress + speed;
@@ -70,16 +70,21 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
             return deleteTrip(trip.driverid)
               .then(
                 () => {
-                  console.log('TRIP COMPLETED AND DELETED');
+                  console.log('TRIP COMPLETED AND DELETED'); // eslint-disable-line
                   return Driver.update(trip.driverid, {
                     location: trip.destinationid,
                     traveling: false
                   });
                 })
-              .then(Location.visit(trip.driverid, trip.destinationid))
-              .catch((error) => {
-                console.log('ERROR in tickerTripProgress-deleteTrip', error);
-              });
+              .then(
+                () => {
+                  console.log('VISITING');
+                  return Location.visit(trip.driverid, trip.destinationid);
+                })
+              .catch(
+                (error) => {
+                  console.log('ERROR in tickerTripProgress-deleteTrip', error); // eslint-disable-line
+                });
           }
           return util.knex('trips').where('driverid', trip.driverid)
             .update('progress', newProgress, 'progress');
