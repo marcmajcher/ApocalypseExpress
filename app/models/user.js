@@ -10,8 +10,6 @@ const nameMax = 60;
 const passMin = 8;
 const passMax = 64;
 
-let defaultLocation;
-
 exports.createSchema = Joi.object().keys({
   email: Joi.string().email().valid(Joi.ref('vemail'))
     .required(),
@@ -35,36 +33,37 @@ exports.updatePasswordSchema = Joi.object().keys({
   vpassword: Joi.string().required()
 });
 
-/* Grab default location from config db */
-util.knex('config').where('config', 'default').first()
-  .then((config) => {
-    defaultLocation = config.defaultLocation;
-  });
-
 /* Get a user with given email/id */
 exports.get = email => util.knex('users').where('email', email).first();
 
 /* Create a new user with the provided info and return a promise */
-exports.create = (userInfo) => {
+exports.create = (userInfo, isAdmin = false) => {
   let hashedPassword = '';
+  let config;
+  userInfo.role = isAdmin ? 'admin' : 'player';
 
   return bcrypt.hash(userInfo.password, bcRounds)
     .then((digest) => {
       hashedPassword = digest;
     })
-    .then(() => util.knex('drivers').insert({
-      name: util.generateApocName(),
-      location: defaultLocation
-    }, '*'))
+    .then(() => util.knex('config').where('config', 'default').first())
+    .then((defaultConfig) => {
+      config = defaultConfig;
+      return util.knex('drivers').insert({
+        name: util.generateApocName(),
+        location: config.defaultLocation
+      }, '*');
+    })
     .then(drivers => util.knex('users').insert({
       email: userInfo.email,
       firstname: userInfo.firstname,
       lastname: userInfo.lastname,
+      role: userInfo.role,
       hashedPassword,
       driverid: drivers[0].id
     }, '*'))
     .then(users => util.knex('driver_visited').insert({
-      locationid: defaultLocation,
+      locationid: config.defaultLocation,
       driverid: users[0].driverid
     }, '*'));
 };
