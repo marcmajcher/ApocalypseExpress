@@ -72,17 +72,13 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
           const trip = trips[i];
           const newProgress = trip.progress + speed;
 
-          Location.visit(1, 2);
-
-
           if (testing || newProgress > trip.distance) {
-            console.log('DELETING TRIP', trip);
-            return deleteTrip(trip.driverid)
-              .then(Location.visit(trip.driverid, trip.destinationid))
+            return Location.visit(trip.driverid, trip.destinationid)
               .then(Driver.update(trip.driverid, {
                 location: trip.destinationid,
                 traveling: false
               }))
+              .then(deleteTrip(trip.driverid)) // TODO: not chaining properly at top of chain
               .catch((error) => {
                 throw new Error('YOU FUCKED UP', error);
               });

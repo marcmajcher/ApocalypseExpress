@@ -98,10 +98,8 @@ describe('Trip', () => {
 
   it('should record the trip as visited', (done) => {
     Trip.tick(true).then(() => {
-      console.log('THEN AFER TICK');
       util.knex('driver_visited').where('driverid', 1)
         .then((visited) => {
-          console.log(visited);
           visited.length.should.equal(2);
           done();
         });

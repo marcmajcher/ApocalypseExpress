@@ -100,9 +100,7 @@ exports.visit = (driverid, locationid) =>
     driverid
   })
   .then((entry) => {
-    console.log('in visit----', entry, driverid, locationid);
     if (entry.length === 0) {
-      console.log('DO THE THING');
       return util.knex('driver_visited').insert({
         locationid,
         driverid
