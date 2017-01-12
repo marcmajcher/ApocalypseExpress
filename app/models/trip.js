@@ -61,7 +61,8 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       // TODO: this is a mess, needs serious optimization
       // TODO: grab speed from driver->vehicle speed
       if (trips.length > 0) {
-        console.log('trips: ', trips.map(e => `Progress: ${e.progress}`)); // eslint-disable-line
+        console.log('trips: ', trips.map(e =>
+          `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`)); // eslint-disable-line
         for (let i = 0; i < trips.length; i++) {
           const trip = trips[i];
           const newProgress = trip.progress + speed;
