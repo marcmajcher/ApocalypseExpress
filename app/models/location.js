@@ -3,6 +3,9 @@
 /* eslint-env node */
 
 const util = require('../_util');
+const Connection = require('./connection');
+const Driver = require('./driver');
+const locationDb = 'locations';
 
 /* Convert locations array into indexed object */
 function indexLocations(locations) {
@@ -12,8 +15,10 @@ function indexLocations(locations) {
   }, {});
 }
 
+exports.list = () => util.knex(locationDb);
+
 /* Select all locations from db and index */
-exports.getAllLocations = () => util.knex('locations')
+exports.getAllLocations = () => util.knex(locationDb)
   .then(locations => ({
     locations: indexLocations(locations)
   }))
@@ -21,7 +26,7 @@ exports.getAllLocations = () => util.knex('locations')
 
 /* Select all connections from db */
 exports.getAllConnections = mapData =>
-  util.knex('connections')
+  Connection.list()
   .then((connections) => {
     mapData.connections = connections;
     return mapData;
@@ -30,7 +35,7 @@ exports.getAllConnections = mapData =>
 
 /* Select locations from db for a given user */
 exports.getUserLocations = driverId =>
-  util.knex('locations')
+  util.knex(locationDb)
   .join('driver_visited', {
     'locations.id': 'driver_visited.locationid',
     'driver_visited.driverid': driverId
@@ -41,17 +46,8 @@ exports.getUserLocations = driverId =>
   }))
   .catch(error => error);
 
-exports.getUserConnections = mapData =>
-  util.knex('connections')
-  .whereIn('start', Object.keys(mapData.locations))
-  .then((connections) => {
-    mapData.connections = connections;
-    return mapData;
-  })
-  .catch(error => error);
-
 exports.getConnectedLocations = mapData =>
-  util.knex('locations')
+  util.knex(locationDb)
   .whereIn('id', mapData.connections.map(el => el.end))
   .then((locations) => {
     locations.forEach((el) => {
@@ -64,17 +60,18 @@ exports.getConnectedLocations = mapData =>
 
 
 /* Get the info for a single location given an id */
-exports.get = id => util.knex('locations').where('id', id).first();
+exports.get = id => util.knex(locationDb).where('id', id).first();
 
 /* Given a driver, get the info for the driver's current location,
    and all adjacent locations */
-exports.list = driverid =>
-  util.knex('locations').where('id',
-    util.knex('drivers').where('id', driverid).select('location'))
+exports.localList = driverid =>
+  util.knex(locationDb).where('id',
+    // util.knex('drivers').where('id', driverid).select('location'))
+    Driver.getValue(driverid, 'location'))
   .first()
   .then(location =>
     util.knex('connections').where('start', location.id)
-    .innerJoin('locations', 'locations.id', 'connections.end')
+    .innerJoin(locationDb, 'locations.id', 'connections.end')
     .select('id', 'distance', 'name', 'factionid', 'type')
     .then((connections) => {
       location.connections = connections;
@@ -83,7 +80,7 @@ exports.list = driverid =>
   );
 
 exports.update = (id, data) =>
-  util.knex('locations').where('id', id).first().update({
+  util.knex(locationDb).where('id', id).first().update({
     name: data.name,
     longitude: data.longitude,
     latitude: data.latitude,

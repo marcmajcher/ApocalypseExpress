@@ -23,6 +23,7 @@
 
 ## Backlog
 
+* Refactor connections stuff out of the map request
 * Trips between locations should have events
 
 * Each location should have a list of goods for trade with quantities and prices

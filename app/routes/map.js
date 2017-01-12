@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 const util = require('../_util');
 const Location = require('../models/location');
+const Connection = require('../models/connection');
 
 router.use(util.loginRequired);
 
@@ -24,7 +25,7 @@ router.get('/', (req, res, next) => {
   }
   else {
     Location.getUserLocations(req.session.user.driverid)
-      .then(Location.getUserConnections)
+      .then(Connection.getUserConnections)
       .then(Location.getConnectedLocations)
       .then((mapData) => {
         res.send(mapData);

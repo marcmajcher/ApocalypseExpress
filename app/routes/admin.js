@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 const util = require('../_util');
 const Location = require('../models/location');
+const Connection = require('../models/connection');
 
 router.use(util.adminRequired);
 
@@ -19,8 +20,8 @@ router.get('/map', (req, res) => {
 });
 
 router.get('/mapseed', (req, res) => {
-  util.knex('locations').then((locations) => {
-    util.knex('connections').then((connections) => {
+  Location.list().then((locations) => {
+    Connection.list().then((connections) => {
       res.setHeader('Content-type', 'text/plain');
       res.charset = 'UTF-8';
       res.render('admin/mapseed.ejs', {

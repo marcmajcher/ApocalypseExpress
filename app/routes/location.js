@@ -10,7 +10,7 @@ const Location = require('../models/location');
 router.use(util.loginRequired);
 
 router.get('/', (req, res, next) => {
-  Location.list(req.session.user.driverid)
+  Location.localList(req.session.user.driverid)
     .then((location) => {
       res.send(location);
     })

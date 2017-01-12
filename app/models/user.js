@@ -5,6 +5,9 @@
 const util = require('../_util');
 const Joi = require('joi');
 const bcrypt = require('bcrypt-as-promised');
+const Driver = require('./driver');
+
+const userDb = 'users';
 const bcRounds = 12;
 const nameMax = 60;
 const passMin = 8;
@@ -34,7 +37,7 @@ exports.updatePasswordSchema = Joi.object().keys({
 });
 
 /* Get a user with given email/id */
-exports.get = email => util.knex('users').where('email', email).first();
+exports.get = email => util.knex(userDb).where('email', email).first();
 
 /* Create a new user with the provided info and return a promise */
 exports.create = (userInfo, isAdmin = false) => {
@@ -49,12 +52,12 @@ exports.create = (userInfo, isAdmin = false) => {
     .then(() => util.knex('config').where('config', 'default').first())
     .then((defaultConfig) => {
       config = defaultConfig;
-      return util.knex('drivers').insert({
+      return Driver.insert({
         name: util.generateApocName(),
         location: config.defaultLocation
       }, '*');
     })
-    .then(drivers => util.knex('users').insert({
+    .then(drivers => util.knex(userDb).insert({
       email: userInfo.email,
       firstname: userInfo.firstname,
       lastname: userInfo.lastname,
@@ -70,7 +73,7 @@ exports.create = (userInfo, isAdmin = false) => {
 
 /* Update a user with the given data */
 exports.update = (email, data) =>
-  util.knex('users').where('email', email).first()
+  util.knex(userDb).where('email', email).first()
   .update({
     firstname: data.firstname,
     lastname: data.lastname,
@@ -78,10 +81,10 @@ exports.update = (email, data) =>
 
 /* Update a user's password */
 exports.updatePassword = (email, currentPassword, newPassword) =>
-  util.knex('users').where('email', email).first()
+  util.knex(userDb).where('email', email).first()
   .then(user => bcrypt.compare(currentPassword, user.hashedPassword))
   .then(() => bcrypt.hash(newPassword, bcRounds))
-  .then(hashedPassword => util.knex('users').where('email', email)
+  .then(hashedPassword => util.knex(userDb).where('email', email)
     .update({
       hashedPassword
     }));
@@ -89,7 +92,7 @@ exports.updatePassword = (email, currentPassword, newPassword) =>
 /* Authenticate a user with given email and password */
 /* eslint no-confusing-arrow: 0 */
 exports.authenticate = (email, password) =>
-  util.knex('users').where('email', email).first()
+  util.knex(userDb).where('email', email).first()
   .then(user => user ?
     bcrypt.compare(password, user.hashedPassword)
     .then(() => new Promise(resolve => resolve(user))) :
