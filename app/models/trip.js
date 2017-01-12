@@ -61,29 +61,22 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       // TODO: this is a mess, needs serious optimization
       // TODO: grab speed from driver->vehicle speed
       if (trips.length > 0) {
-        console.log('trips: ', trips.map(e =>
-          `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`)); // eslint-disable-line
+        console.log('trips: ', trips.map(e => `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`)); // eslint-disable-line
         for (let i = 0; i < trips.length; i++) {
           const trip = trips[i];
           const newProgress = trip.progress + speed;
 
           if (testing || newProgress > trip.distance) {
-            return deleteTrip(trip.driverid)
-              .then(
-                () => {
-                  console.log('TRIP COMPLETED AND DELETED'); // eslint-disable-line
-                  return Driver.update(trip.driverid, {
-                    location: trip.destinationid,
-                    traveling: false
-                  });
-                })
-              .then(
-                () => {
-                  console.log('VISITING');
-                  return Location.visit(trip.driverid, trip.destinationid);
-                })
+            return Promise.all([
+                deleteTrip(trip.driverid),
+                Driver.update(trip.driverid, {
+                  location: trip.destinationid,
+                  traveling: false
+                }),
+                Location.visit(trip.driverid, trip.destinationid)
+              ])
               .catch(
-                (error) => {
+                (error) => { // jshint ignore:line
                   console.log('ERROR in tickerTripProgress-deleteTrip', error); // eslint-disable-line
                 });
           }
