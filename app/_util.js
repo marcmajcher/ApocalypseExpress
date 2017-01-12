@@ -52,9 +52,5 @@ module.exports = {
     const n1 = nameList[Math.floor(Math.random() * nameList.length)];
     const n2 = nameList[Math.floor(Math.random() * nameList.length)];
     return `${n1} ${n2}`;
-  },
-  logError: (error, wat) => {
-    console.log(`Error: ${wat}`); // eslint-disable-line
-    console.log(error); // eslint-disable-line
   }
 };
