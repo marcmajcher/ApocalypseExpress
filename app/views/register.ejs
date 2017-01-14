@@ -1,29 +1,70 @@
 <h1>Register new user</h1>
-<form class="" action="/user" method="post">
+<form name="register_form" class="" action="/user" method="post">
   <div class="form-group">
     <label for="firstname">First Name</label>
-    <input class="form-control" id="firstname" type="text" name="firstname" required>
+    <input class="form-control" ng-model="register.firstname" ng-maxlength="60" type="text" name="firstname" required>
+    <div class="error" ng-show="register_form.firstname.$dirty && register_form.firstname.$invalid">
+      <small class="error" ng-show="register_form.firstname.$error.required">
+First name is required.
+  </small>
+      <small class="error" ng-show="register_form.firstname.$error.maxlength">
+First name must be 60 characters or fewer.
+  </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="lastname">Last Name</label>
-    <input class="form-control" id="lastname" type="text" name="lastname" required>
+    <input class="form-control" ng-model="register.lastname" ng-maxlength="60" type="text" name="lastname" required>
+    <div class="error" ng-show="register_form.lastname.$dirty && register_form.lastname.$invalid">
+      <small class="error" ng-show="register_form.lastname.$error.required">
+Last name is required.
+  </small>
+      <small class="error" ng-show="register_form.lastname.$error.maxlength">
+Last name must be 60 characters or fewer.
+  </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input class="form-control" id="remail" type="email" name="email" required placeholder="your.email@wherever.com">
+    <input class="form-control" ng-model="register.email" type="email" name="email" required placeholder="your.email@wherever.com">
+    <div class="error" ng-show="register_form.email.$dirty && register_form.email.$invalid">
+      <small class="error" ng-show="register_form.email.$error.required">
+    Email address is required.
+      </small>
+      <small class="error" ng-show="register_form.email.$error.email">
+    Must be a valid email address.
+      </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="vemail">Verify Email Address</label>
-    <input class="form-control" id="vemail" type="email" name="vemail" required placeholder="your.email@wherever.com">
+    <input class="form-control" ng-model="register.vemail" type="email" name="vemail" required placeholder="your.email@wherever.com">
+    <div class="error" ng-show="register_form.vemail.$dirty && register_form.vemail.$invalid">
+      <small class="error" ng-show="register_form.vemail.$error.required">
+    Email address is required.
+      </small>
+      <small class="error" ng-show="register_form.vemail.$error.email">
+    Must be a valid email address.
+      </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="password">Password (must be at least 8 characters long, and contain a number and a special character)</label>
-    <input class="form-control" id="rpassword" type="password" required name="password">
+    <input class="form-control" ng-model="register.password" type="password" ng-minlength="8" ng-maxlength="64" required name="password">
+    <div class="error" ng-show="register_form.password.$dirty && register_form.password.$invalid">
+      <small class="error" ng-show="register_form.password.$error.minlength">
+    Password must be at least 8 characters long.
+  </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="vpassword">Verify Password</label>
-    <input class="form-control" id="vpassword" type="password" required name="vpassword">
+    <input class="form-control" ng-model="register.vpassword" type="password" ng-minlength="8" ng-maxlength="64" required name="vpassword">
+    <div class="error" ng-show="register_form.vpassword.$dirty && register_form.vpassword.$invalid">
+      <small class="error" ng-show="register_form.vpassword.$error.minlength">
+        Password must be at least 8 characters long.
+      </small>
+    </div>
   </div>
-  <button type="submit" id="register-submit" class="btn btn-default">Register</button>
+  <button type="submit" class="btn btn-default" ng-disabled="register_form.$invalid">Register</button>
 </form>
-<script>onLoadRegister();</script>

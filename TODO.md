@@ -2,8 +2,10 @@
 
 ## Implementing
 
-* connections model
-* Better handling of ajax errors on client
+* Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
+
+* Better handling of ajax errors on client - test when server down
+* set up little socket server for trip progress push
 
 ## Writing Unit Tests
 
@@ -13,17 +15,15 @@
 
 ## On Deck
 
-* set up little socket server for trip progress push
 * Driver should have a current vehicle
+* Refactor connections stuff out of the map request
 
 ## Bugs
 
-* Trip not working
 * Why is it making two calls to /map on the game page?
 
 ## Backlog
 
-* Refactor connections stuff out of the map request
 * Trips between locations should have events
 
 * Each location should have a list of goods for trade with quantities and prices
@@ -77,7 +77,6 @@
 
 * Update header to be responsive
 * Overall design
-* Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
 
 ## Backend Tasks
 
@@ -110,3 +109,5 @@ http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Get correct length for trips
 * Componentize angular directives/controllers
 * Connections between locations should have a correct distance and difficulty (# of events?)
+* Trip not working
+* connections model
