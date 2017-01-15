@@ -3,6 +3,7 @@
 ## Implementing
 
 * Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
+* Create custom directives for form validation
 
 * Better handling of ajax errors on client - test when server down
 * set up little socket server for trip progress push

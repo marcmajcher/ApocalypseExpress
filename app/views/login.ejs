@@ -1,12 +1,17 @@
 <h1>Log in</h1>
-<form class="" action="/login" method="post">
+<form name="login_form" class="" action="/login" method="post">
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input class="form-control" id="email" type="text" name="email" placeholder="your.email@wherever.com">
+    <input class="form-control" ng-model="login.email" type="email" name="email" placeholder="your.email@wherever.com">
+    <div class="error" ng-show="login_form.email.$dirty && login_form.email.$invalid">
+      <small class="error" ng-show="login_form.email.$error.required">
+    Email address is required.
+      </small>
+    </div>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input class="form-control" id="password" type="password" name="password">
+    <input class="form-control" ng-model="login.password" type="password" name="password">
   </div>
   <button type="submit" class="btn btn-default">Log In</button>
 </form>
