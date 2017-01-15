@@ -34,6 +34,9 @@ Last name must be 60 characters or fewer.
       <small class="error" ng-show="register_form.email.$error.email">
     Must be a valid email address.
       </small>
+      <small class="error" ng-show="register_form.email.$error.email">
+    Email addresses must match.
+      </small>
     </div>
   </div>
   <div class="form-group">
@@ -55,6 +58,12 @@ Last name must be 60 characters or fewer.
       <small class="error" ng-show="register_form.password.$error.minlength">
     Password must be at least 8 characters long.
   </small>
+      <small class="error" ng-show="register_form.password.$error.minlength">
+    Passwords must match.
+</small>
+      <small class="error" ng-show="register_form.password.$error.minlength">
+    Password must contain a number and a special character.
+</small>
     </div>
   </div>
   <div class="form-group">
@@ -67,4 +76,6 @@ Last name must be 60 characters or fewer.
     </div>
   </div>
   <button type="submit" class="btn btn-default" ng-disabled="register_form.$invalid">Register</button>
+</form>
+button>
 </form>
