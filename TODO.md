@@ -16,6 +16,7 @@
 
 ## On Deck
 
+* Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
 * Driver should have a current vehicle
 * Refactor connections stuff out of the map request
 
