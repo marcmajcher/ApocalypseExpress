@@ -16,7 +16,7 @@ exports.getUserConnections = mapData =>
     mapData.connections = connections;
     return mapData;
   })
-  .catch(error => error);
+  .catch(console.log.bind(console));
 
 exports.getDriverDestinationConnections = (driverid, destinationid) =>
   util.knex(connectionDb).where({
