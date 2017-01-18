@@ -7,87 +7,23 @@
 })();
 'use strict';
 
-var app = angular.module('apox', []);
-
-app.directive('apoxMatch', function () {
+angular.module('apox').directive('apoxMatch', function () {
   return {
     require: 'ngModel',
-    restrict: 'A',
     scope: {
-      apoxMatch: '='
+      otherModelValue: '=apoxMatch'
     },
-    link: function link(scope, elem, attr, ctrl) {
-      var validate = function validate() {
-        // values
-        var val1 = ctrl.$viewValue;
-        var val2 = attr.apoxMatch;
-
-        console.log('validate: ', val1, val2);
-        // set validity
-        ctrl.$setValidity('match', !val1 || !val2 || val1 === val2);
+    link: function link(scope, element, attributes, ngModel) {
+      ngModel.$validators.match = function (modelValue) {
+        return modelValue === scope.otherModelValue;
       };
 
-      scope.$watch('apoxMatch', function () {
-        console.log("ASFDASDFASDFASDF");
-        validate();
-      }, true);
-
-      setInterval(function () {
-        console.log(scope.apoxMatch);
-      }, 1000);
-
-      // console.log('mmmmmmmmmmmmm', scope.apoxMatch);
-      // attr.$observe('apoxMatch', function(val) {
-      //   console.log(attr.apoxMatch);
-      //   console.log('OBSERVER');
-      //   validate();
-      // });
-      // console.log(att.apoxMatch);
-      // console.log(scope.$modelValue);
-      // console.log('-----');
-      console.log(scope);
-      console.log(elem);
-      console.log(attr);
-      console.log(ctrl);
+      scope.$watch('otherModelValue', function () {
+        ngModel.$validate();
+      });
     }
   };
 });
-
-// app.directive('apoxPassword', () => {
-//   return {
-//     require: 'ngModel',
-//     restrict: 'A',
-//     link: function(scope, elem, att, ctrl) {
-//       // console.log(scope);
-//       // console.log(elem);
-//       // console.log(att);
-//       // console.log(ctrl);
-//       ctrl.$setValidity('special', false);
-//     }
-//   };
-// });
-
-
-// app.directive('ensureUnique', ['$http', function($http) {
-//   return {
-//     require: 'ngModel',
-//     link: function(scope, ele, attrs, c) {
-//       scope.$watch(attrs.ngModel, function() {
-//         $http({
-//           method: 'POST',
-//           url: '/api/check/' + attrs.ensureUnique,
-//           data: {
-//             'field': attrs.ensureUnique
-//           }
-//         }).success(function(data, status, headers, cfg) {
-//           c.$setValidity('unique', data.isUnique);
-//         }).error(function(data, status, headers, cfg) {
-//           c.$setValidity('unique', false);
-//         });
-//       });
-//     }
-//   }
-// }]);
 'use strict';
 
 (function () {

@@ -16,7 +16,7 @@ exports.getUserConnections = mapData =>
     mapData.connections = connections;
     return mapData;
   })
-  .catch(console.log.bind(console));
+  .catch(console.log.bind(console)); // eslint-disable-line
 
 exports.getDriverDestinationConnections = (driverid, destinationid) =>
   util.knex(connectionDb).where({

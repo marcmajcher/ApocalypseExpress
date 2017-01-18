@@ -26,7 +26,7 @@ Last name must be 60 characters or fewer.
   </div>
   <div class="form-group">
     <label for="email">Email Address</label>
-    <input class="form-control" ng-model="register.email" type="email" name="email" required placeholder="your.email@wherever.com">
+    <input class="form-control" ng-model="register.email" type="email" name="email" apox-match="register.vemail" required placeholder="your.email@wherever.com">
     <div class="error" ng-show="register_form.email.$dirty && register_form.email.$invalid">
       <small class="error" ng-show="register_form.email.$error.required">
     Email address is required.
@@ -34,7 +34,7 @@ Last name must be 60 characters or fewer.
       <small class="error" ng-show="register_form.email.$error.email">
     Must be a valid email address.
       </small>
-      <small class="error" ng-show="register_form.email.$error.email">
+      <small class="error" ng-show="register_form.email.$error.match">
     Email addresses must match.
       </small>
     </div>
@@ -53,7 +53,7 @@ Last name must be 60 characters or fewer.
   </div>
   <div class="form-group">
     <label for="password">Password (must be at least 8 characters long, and contain a number and a special character)</label>
-    <input class="form-control" ng-model="register.password" name="password" type="password" ng-minlength="8" ng-maxlength="64" apox-match="vpassword" apox-password required>
+    <input class="form-control" ng-model="register.password" name="password" type="password" apox-match="register.vpassword" ng-minlength="8" ng-maxlength="64" apox-password required>
     <div class="error" ng-show="register_form.password.$dirty && register_form.password.$invalid">
       <small class="error" ng-show="register_form.password.$error.minlength">
     Password must be at least 8 characters long.
@@ -68,7 +68,7 @@ Last name must be 60 characters or fewer.
   </div>
   <div class="form-group">
     <label for="vpassword">Verify Password</label>
-    <input class="form-control" ng-model="register.vpassword" type="password" ng-minlength="8" ng-maxlength="64" required name="vpassword">
+    <input class="form-control" ng-model="register.vpassword" name="vpassword" type="password" ng-minlength="8" ng-maxlength="64" apox-password required>
     <div class="error" ng-show="register_form.vpassword.$dirty && register_form.vpassword.$invalid">
       <small class="error" ng-show="register_form.vpassword.$error.minlength">
         Password must be at least 8 characters long.
