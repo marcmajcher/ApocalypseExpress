@@ -7,32 +7,36 @@
 })();
 'use strict';
 
-angular.module('apox').directive('apoxMatch', function () {
-  return {
-    require: 'ngModel',
-    scope: {
-      otherModelValue: '=apoxMatch'
-    },
-    link: function link(scope, elem, attr, ngModel) {
-      ngModel.$validators.match = function (modelValue) {
-        return modelValue === scope.otherModelValue;
-      };
+(function () {
+  'use strict';
 
-      scope.$watch('otherModelValue', function () {
-        ngModel.$validate();
-      });
-    }
-  };
-}).directive('apoxPassword', function () {
-  return {
-    require: 'ngModel',
-    link: function link(scope, elem, attr, ngModel) {
-      ngModel.$validators.pw = function (modelValue) {
-        return modelValue && !!modelValue.match(/\d/) && !!modelValue.match(/[\^`~!@#$%&*()_+=[{}|'";:/?.,><\-\\\]]/);
-      };
-    }
-  };
-});
+  angular.module('apox').directive('apoxMatch', function () {
+    return {
+      require: 'ngModel',
+      scope: {
+        otherModelValue: '=apoxMatch'
+      },
+      link: function link(scope, elem, attr, ngModel) {
+        ngModel.$validators.match = function (modelValue) {
+          return modelValue === scope.otherModelValue;
+        };
+
+        scope.$watch('otherModelValue', function () {
+          ngModel.$validate();
+        });
+      }
+    };
+  }).directive('apoxPassword', function () {
+    return {
+      require: 'ngModel',
+      link: function link(scope, elem, attr, ngModel) {
+        ngModel.$validators.pw = function (modelValue) {
+          return modelValue && !!modelValue.match(/\d/) && !!modelValue.match(/[\^`~!@#$%&*()_+=[{}|'";:/?.,><\-\\\]]/);
+        };
+      }
+    };
+  });
+})();
 'use strict';
 
 (function () {

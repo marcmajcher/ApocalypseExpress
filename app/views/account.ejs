@@ -6,26 +6,26 @@
   </div>
   <div class="form-group">
     <label for="firstname">First Name</label>
-    <input class="form-control" ng-model="account_form.firstname" type="text" name="firstname" required value="<%= user.firstname %>">
+    <input class="form-control" ng-model="account.firstname" type="text" ng-maxlength="60" name="firstname" required ng-init="account.firstname = '<%= user.firstname %>'">
     <div class="error" ng-show="account_form.firstname.$dirty && account_form.firstname.$invalid">
       <small class="error" ng-show="account_form.firstname.$error.required">
-First name is required.
-  </small>
+        First name is required.
+      </small>
       <small class="error" ng-show="account_form.firstname.$error.maxlength">
-First name must be 60 characters or fewer.
-  </small>
+        First name must be 60 characters or fewer.
+      </small>
     </div>
   </div>
   <div class="form-group">
     <label for="lastname">Last Name</label>
-    <input class="form-control" ng-model="account_form.lastname" type="text" name="lastname" required value="<%= user.lastname %>">
+    <input class="form-control" ng-model="account.lastname" type="text" ng-maxlength="60" name="lastname" required ng-init="account.lastname = '<%= user.lastname %>'">
     <div class="error" ng-show="account_form.lastname.$dirty && account_form.lastname.$invalid">
       <small class="error" ng-show="account_form.lastname.$error.required">
-Last name is required.
-  </small>
+        Last name is required.
+      </small>
       <small class="error" ng-show="account_form.lastname.$error.maxlength">
-Last name must be 60 characters or fewer.
-  </small>
+        Last name must be 60 characters or fewer.
+      </small>
     </div>
   </div>
   <button type="submit" class="btn btn-default" ng-disabled="account_form.$invalid">Update Info</button>
@@ -34,29 +34,26 @@ Last name must be 60 characters or fewer.
   <h2>Change Password</h2>
   <div class="form-group">
     <label for="cpassword">Current Password</label>
-    <input class="form-control" ng-model="password_form.cpassword" type="password" name="cpassword" required>
+    <input class="form-control" ng-model="password.cpassword" type="password" name="cpassword" required>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input class="form-control" ng-model="password_form.rpassword" type="password" name="password" required>
-    <div class="error" ng-show="password_form.rpassword.$dirty && password_form.rpassword.$invalid">
-      <small class="error" ng-show="password_form.rpassword.$error.minlength">
-    Password must be at least 8 characters long.
-  </small>
-      <small class="error" ng-show="password_form.rpassword.$error.minlength">
-    Passwords must match.
-</small>
-      <small class="error" ng-show="password_form.rpassword.$error.minlength">
-    Password must contain a number and a special character.
-</small>
+    <input class="form-control" ng-model="password.password" type="password" name="password" apox-match="password.vpassword" apox-password required>
+    <div class="error" ng-show="password_form.password.$dirty && password_form.password.$invalid">
+      <small class="error" ng-show="password_form.password.$error.minlength">
+        Password must be at least 8 characters long.
+      </small>
+      <small class="error" ng-show="password_form.password.$error.pw">
+        Password must contain a number and a special character.
+      </small>
+      <small class="error" ng-show="password_form.password.$error.match">
+        Passwords must match.
+      </small>
     </div>
   </div>
   <div class="form-group">
     <label for="vpassword">Verify Password</label>
-    <input class="form-control" ng-model="password_form.vpassword" type="password" name="vpassword" required>
+    <input class="form-control" ng-model="password.vpassword" type="password" name="vpassword" required>
   </div>
   <button type="submit" class="btn btn-default" ng-disabled="password_form.$invalid">Change Password</button>
 </form>
-<script>
-  onLoadAccount();
-</script>
