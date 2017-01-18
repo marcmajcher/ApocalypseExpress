@@ -13,7 +13,7 @@ angular.module('apox').directive('apoxMatch', function () {
     scope: {
       otherModelValue: '=apoxMatch'
     },
-    link: function link(scope, element, attributes, ngModel) {
+    link: function link(scope, elem, attr, ngModel) {
       ngModel.$validators.match = function (modelValue) {
         return modelValue === scope.otherModelValue;
       };
@@ -21,6 +21,15 @@ angular.module('apox').directive('apoxMatch', function () {
       scope.$watch('otherModelValue', function () {
         ngModel.$validate();
       });
+    }
+  };
+}).directive('apoxPassword', function () {
+  return {
+    require: 'ngModel',
+    link: function link(scope, elem, attr, ngModel) {
+      ngModel.$validators.pw = function (modelValue) {
+        return modelValue && !!modelValue.match(/\d/) && !!modelValue.match(/[\^`~!@#$%&*()_+=[{}|'";:/?.,><\-\\\]]/);
+      };
     }
   };
 });
