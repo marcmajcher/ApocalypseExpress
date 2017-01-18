@@ -5,27 +5,89 @@
 
   angular.module('apox', []);
 })();
-// function calcCrow(lat1, lon1, lat2, lon2)
-//   {
-//     var R = 6371; // km
-//     var dLat = toRad(lat2-lat1);
-//     var dLon = toRad(lon2-lon1);
-//     var lat1 = toRad(lat1);
-//     var lat2 = toRad(lat2);
-//
-//     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-//       Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
-//     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-//     var d = R * c;
-//     return d;
+'use strict';
+
+var app = angular.module('apox', []);
+
+app.directive('apoxMatch', function () {
+  return {
+    require: 'ngModel',
+    restrict: 'A',
+    scope: {
+      apoxMatch: '='
+    },
+    link: function link(scope, elem, attr, ctrl) {
+      var validate = function validate() {
+        // values
+        var val1 = ctrl.$viewValue;
+        var val2 = attr.apoxMatch;
+
+        console.log('validate: ', val1, val2);
+        // set validity
+        ctrl.$setValidity('match', !val1 || !val2 || val1 === val2);
+      };
+
+      scope.$watch('apoxMatch', function () {
+        console.log("ASFDASDFASDFASDF");
+        validate();
+      }, true);
+
+      setInterval(function () {
+        console.log(scope.apoxMatch);
+      }, 1000);
+
+      // console.log('mmmmmmmmmmmmm', scope.apoxMatch);
+      // attr.$observe('apoxMatch', function(val) {
+      //   console.log(attr.apoxMatch);
+      //   console.log('OBSERVER');
+      //   validate();
+      // });
+      // console.log(att.apoxMatch);
+      // console.log(scope.$modelValue);
+      // console.log('-----');
+      console.log(scope);
+      console.log(elem);
+      console.log(attr);
+      console.log(ctrl);
+    }
+  };
+});
+
+// app.directive('apoxPassword', () => {
+//   return {
+//     require: 'ngModel',
+//     restrict: 'A',
+//     link: function(scope, elem, att, ctrl) {
+//       // console.log(scope);
+//       // console.log(elem);
+//       // console.log(att);
+//       // console.log(ctrl);
+//       ctrl.$setValidity('special', false);
+//     }
+//   };
+// });
+
+
+// app.directive('ensureUnique', ['$http', function($http) {
+//   return {
+//     require: 'ngModel',
+//     link: function(scope, ele, attrs, c) {
+//       scope.$watch(attrs.ngModel, function() {
+//         $http({
+//           method: 'POST',
+//           url: '/api/check/' + attrs.ensureUnique,
+//           data: {
+//             'field': attrs.ensureUnique
+//           }
+//         }).success(function(data, status, headers, cfg) {
+//           c.$setValidity('unique', data.isUnique);
+//         }).error(function(data, status, headers, cfg) {
+//           c.$setValidity('unique', false);
+//         });
+//       });
+//     }
 //   }
-//
-//   // Converts numeric degrees to radians
-//   function toRad(Value)
-//   {
-//       return Value * Math.PI / 180;
-//   }
-"use strict";
+// }]);
 'use strict';
 
 (function () {

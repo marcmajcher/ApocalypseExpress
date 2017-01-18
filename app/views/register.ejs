@@ -53,15 +53,15 @@ Last name must be 60 characters or fewer.
   </div>
   <div class="form-group">
     <label for="password">Password (must be at least 8 characters long, and contain a number and a special character)</label>
-    <input class="form-control" ng-model="register.password" type="password" ng-minlength="8" ng-maxlength="64" required name="password">
+    <input class="form-control" ng-model="register.password" name="password" type="password" ng-minlength="8" ng-maxlength="64" apox-match="vpassword" apox-password required>
     <div class="error" ng-show="register_form.password.$dirty && register_form.password.$invalid">
       <small class="error" ng-show="register_form.password.$error.minlength">
     Password must be at least 8 characters long.
   </small>
-      <small class="error" ng-show="register_form.password.$error.minlength">
+      <small class="error" ng-show="register_form.password.$error.match">
     Passwords must match.
 </small>
-      <small class="error" ng-show="register_form.password.$error.minlength">
+      <small class="error" ng-show="register_form.password.$error.special">
     Password must contain a number and a special character.
 </small>
     </div>
@@ -76,6 +76,4 @@ Last name must be 60 characters or fewer.
     </div>
   </div>
   <button type="submit" class="btn btn-default" ng-disabled="register_form.$invalid">Register</button>
-</form>
-button>
 </form>
