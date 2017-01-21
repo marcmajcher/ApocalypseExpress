@@ -2,9 +2,6 @@
 
 ## Implementing
 
-* Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
-* Create custom directives for form validation
-
 * Better handling of ajax errors on client - test when server down
 * set up little socket server for trip progress push
 
@@ -96,8 +93,6 @@
 * Admin should be able to edit location connections
 
 ----
-* Update auth to use JWT
-http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * DB error checking everywhere
 
 ## Done
@@ -113,3 +108,6 @@ http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Connections between locations should have a correct distance and difficulty (# of events?)
 * Trip not working
 * connections model
+* Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
+* Create custom directives for form validation
+* NOT Update auth to use JWT http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
