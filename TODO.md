@@ -13,7 +13,6 @@
 
 ## On Deck
 
-* Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
 * Driver should have a current vehicle
 * Refactor connections stuff out of the map request
 
@@ -111,3 +110,4 @@
 * Angular form validation on login and register - http://www.ng-newsletter.com/posts/form-validation-with-angularjs.html
 * Create custom directives for form validation
 * NOT Update auth to use JWT http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
+* Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
