@@ -11,7 +11,6 @@ const gulp = require('gulp');
 // const imagemin = require('gulp-imagemin');
 const jshint = require('gulp-jshint');
 const nodemon = require('gulp-nodemon');
-// const notify = require("gulp-notify");
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 // const uglify = require('gulp-uglify');
