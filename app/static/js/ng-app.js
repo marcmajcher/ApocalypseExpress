@@ -201,6 +201,7 @@
       restrict: 'E',
       template: '<canvas class="map-canvas" resize="true"></canvas>',
       link: function link(scope, element) {
+        // console.log(element);
         paper.setup(element.context.firstChild);
 
         var bgLayer = new paper.Layer();
