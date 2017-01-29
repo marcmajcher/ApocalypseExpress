@@ -657,6 +657,11 @@
   /* eslint-env jquery, browser */
 
   var socketService = function socketService() {
+    var socket = io();
+    socket.on('apoxmsg', function (msg) {
+      console.log('Message for you:', msg);
+    });
+
     return {};
   };
 
