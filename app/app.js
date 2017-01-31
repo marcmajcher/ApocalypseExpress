@@ -2,19 +2,26 @@
 
 /* eslint-env node */
 
+require('dotenv').load();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
 const session = require('cookie-session');
 const randomstring = require('randomstring');
 const methodOverride = require('method-override');
-require('dotenv').load();
+const http = require('http');
 
 const app = express();
 app.disable('x-powered-by');
+
+const io = require('socket.io')(http.createServer(app));
+app.use((req, res) => {
+  res.io = io;
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

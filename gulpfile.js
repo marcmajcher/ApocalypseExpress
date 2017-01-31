@@ -16,6 +16,7 @@ const sourcemaps = require('gulp-sourcemaps');
 // const uglify = require('gulp-uglify');
 
 const lintable = [
+  'app/www',
   'app/**/*.js',
   'gulpfile.js',
   'knexfile.js',
@@ -103,6 +104,7 @@ gulp.task('nodemon', () => nodemon({
 
 gulp.task('watch', () => {
   gulp.watch([
+    'app/www',
     'app/**/*.js',
     'gulpfile.js',
     'knexfile.js',

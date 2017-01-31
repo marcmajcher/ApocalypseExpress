@@ -234,31 +234,6 @@
 
   angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
 })();
-//
-// app.factory('socket', function($rootScope){
-//   var socket = io.connect();
-//   return {
-//     on: function(eventName, callback) {
-//       socket.on(eventName, function() {
-//         var args = arguments;
-//         $rootScope.$apply(function() {
-//           callback.apply(socket, args);
-//         });
-//       });
-//     },
-//     emit: function(eventName, data, callback) {
-//       socket.emit(eventName, data, function() {
-//         var args = arguments;
-//         $rootScope.$apply(function() {
-//           if(callback) {
-//             callback.apply(socket, args);
-//           }
-//         });
-//       });
-//     }
-//   };
-// });
-"use strict";
 'use strict';
 
 (function () {
@@ -651,22 +626,32 @@
 })();
 'use strict';
 
-(function () {
-  'use strict';
+(function () {})();
 
-  /* eslint-env jquery, browser */
-
-  var socketService = function socketService() {
-    var socket = io();
-    socket.on('apoxmsg', function (msg) {
-      console.log('Message for you:', msg);
-    });
-
-    return {};
-  };
-
-  angular.module('apox').factory('SocketService', ['$http', socketService]);
-})();
+//
+// app.factory('socket', function($rootScope){
+//   var socket = io.connect();
+//   return {
+//     on: function(eventName, callback) {
+//       socket.on(eventName, function() {
+//         var args = arguments;
+//         $rootScope.$apply(function() {
+//           callback.apply(socket, args);
+//         });
+//       });
+//     },
+//     emit: function(eventName, data, callback) {
+//       socket.emit(eventName, data, function() {
+//         var args = arguments;
+//         $rootScope.$apply(function() {
+//           if(callback) {
+//             callback.apply(socket, args);
+//           }
+//         });
+//       });
+//     }
+//   };
+// });
 'use strict';
 
 (function () {
