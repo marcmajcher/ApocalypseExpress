@@ -14,6 +14,7 @@ const session = require('cookie-session');
 const randomstring = require('randomstring');
 const methodOverride = require('method-override');
 const http = require('http');
+const ticker = require('./ticker');
 
 const app = express();
 app.disable('x-powered-by');
@@ -106,7 +107,7 @@ app.use((err, req, res) => {
 
 /* Set up intervals for all the things */
 if (app.get('env') !== 'test') {
-  require('./ticker').start(); // eslint-disable-line global-require
+  ticker.start();
 }
 
 module.exports = app;
