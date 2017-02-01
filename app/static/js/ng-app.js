@@ -143,7 +143,7 @@
 
       // TODO: move to socketService
       var socket = io('//localhost:3000');
-      console.log('connecting to room', ctrl.driver.room);
+      // console.log('connecting to room', ctrl.driver.room);
       socket.emit('join', {
         room: ctrl.driver.room
       });

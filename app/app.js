@@ -21,36 +21,6 @@ app.disable('x-powered-by');
 
 const server = http.createServer(app);
 
-const io = require('socket.io')(server);
-
-io.on('connection', (socket) => {
-  console.log('connecting!!!!!!');
-  console.log(socket);
-  socket.on('join', (data) => {
-    socket.join(data.room)
-  })
-
-  function getCallback() {
-    let count = 0;
-    return (socket) => {
-      const msg = socket.id + ' ' + count++;
-      console.log('sending to', socket.id, ':', msg);
-      io.sockets.connected[socket.id].emit('message', msg)
-    }
-  }
-
-  const interval = setInterval(getCallback(), 1000, socket);
-  socket.on('disconnect', () => {
-    console.log('DISCONNECT');
-    clearInterval(interval);
-  });
-})
-
-app.use((req, res, next) => {
-  res.io = io;
-  next();
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -72,9 +42,46 @@ const randomKeys = [];
 for (let i = 0; i < numKeys; i++) {
   randomKeys.push(randomstring.generate());
 }
-app.use(session({
+const sessionMiddleware = session({
   keys: randomKeys
-}));
+});
+app.use(sessionMiddleware);
+
+/* socket setup */
+
+const io = require('socket.io')(server);
+
+io.use((socket, next) => {
+  sessionMiddleware(socket.request, socket.request.res, next);
+});
+
+io.on('connection', (socket) => {
+  // console.log(socket.request.session);
+  socket.on('join', (data) => {
+    socket.join(data.room);
+  });
+
+  function getCallback() {
+    let count = 0;
+    return (socket) => {
+      const msg = socket.id + ' ' + count++;
+      console.log('sending to', socket.id, ':', msg);
+      io.sockets.connected[socket.id].emit('message', msg);
+    };
+  }
+
+  const interval = setInterval(getCallback(), 1000, socket);
+  socket.on('disconnect', () => {
+    // console.log('DISCONNECT');
+    clearInterval(interval);
+  });
+});
+
+app.use((req, res, next) => {
+  res.io = io;
+  next();
+});
+
 
 /* flash messages */
 app.use((req, res, next) => {
