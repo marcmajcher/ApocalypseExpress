@@ -4,9 +4,12 @@
 
 /* eslint-env node */
 
-const app = require('./app');
+const {
+  app,
+  server
+} = require('./app');
 const debug = require('debug')('apox:server');
-const http = require('http');
+// const http = require('http');
 
 function normalizePort(val) {
   const port = parseInt(val, 10);
@@ -22,8 +25,6 @@ function normalizePort(val) {
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-
-const server = http.createServer(app);
 
 server.listen(port);
 

@@ -2,7 +2,7 @@
 
 /* eslint-env mocha, node */
 
-const app = require('../app/app.js');
+const app = require('../app/app.js').app;
 const request = require('supertest');
 const should = require('should');
 const util = require('./_util');

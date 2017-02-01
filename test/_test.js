@@ -2,7 +2,7 @@
 
 /* eslint-env mocha, node */
 
-const app = require('../app/app.js');
+const app = require('../app/app.js').app;
 const request = require('supertest');
 
 describe('Smoke Test', () => {

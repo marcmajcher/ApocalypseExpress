@@ -4,7 +4,7 @@
 /* eslint no-magic-numbers: "off" */
 /* eslint no-unused-expressions: "off" */
 
-const app = require('../app/app.js');
+const app = require('../app/app.js').app;
 const request = require('supertest');
 const util = require('./_util');
 const Trip = require('../app/models/trip');

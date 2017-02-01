@@ -19,9 +19,12 @@ const ticker = require('./ticker');
 const app = express();
 app.disable('x-powered-by');
 
-const io = require('socket.io')(http.createServer(app));
-app.use((req, res) => {
+const server = http.createServer(app);
+
+const io = require('socket.io')(server);
+app.use((req, res, next) => {
   res.io = io;
+  next();
 });
 
 // view engine setup
@@ -50,7 +53,6 @@ app.use(session({
 }));
 
 /* flash messages */
-/* eslint-disable no-param-reassign */
 app.use((req, res, next) => {
   const messages = req.session.messages || (req.session.messages = []);
   res.locals.messages = req.session.messages;
@@ -110,4 +112,7 @@ if (app.get('env') !== 'test') {
   ticker.start();
 }
 
-module.exports = app;
+module.exports = {
+  app,
+  server
+};

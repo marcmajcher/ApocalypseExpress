@@ -4,7 +4,7 @@
 
 const util = require('./_util');
 const should = require('should');
-const app = require('../app/app.js');
+const app = require('../app/app.js').app;
 const request = require('supertest');
 should.config.checkProtoEql = false;
 
