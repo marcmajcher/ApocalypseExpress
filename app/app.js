@@ -22,6 +22,30 @@ app.disable('x-powered-by');
 const server = http.createServer(app);
 
 const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  console.log('connecting!!!!!!');
+  console.log(socket);
+  socket.on('join', (data) => {
+    socket.join(data.room)
+  })
+
+  function getCallback() {
+    let count = 0;
+    return (socket) => {
+      const msg = socket.id + ' ' + count++;
+      console.log('sending to', socket.id, ':', msg);
+      io.sockets.connected[socket.id].emit('message', msg)
+    }
+  }
+
+  const interval = setInterval(getCallback(), 1000, socket);
+  socket.on('disconnect', () => {
+    console.log('DISCONNECT');
+    clearInterval(interval);
+  });
+})
+
 app.use((req, res, next) => {
   res.io = io;
   next();
