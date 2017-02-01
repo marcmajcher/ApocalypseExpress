@@ -38,7 +38,7 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
 
   Trip.create(driverid, req.body.destination)
     .then((location) => {
-      res.io.emit("apoxsox", "trip derp");
+      res.io.emit("apoxsox", "trip derp")
       res.send({
         ok: true,
         id: location.id,

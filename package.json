@@ -23,6 +23,7 @@
     "joi": "^10.1.0",
     "jsonwebtoken": "^7.2.1",
     "knex": "^0.12.5",
+    "md5": "^2.2.1",
     "method-override": "^2.3.6",
     "morgan": "~1.6.1",
     "paper": "^0.10.2",

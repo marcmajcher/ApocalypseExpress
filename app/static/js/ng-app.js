@@ -140,6 +140,16 @@
       ctrl.driver = GameService.driver;
       ctrl.currentLocation = GameService.currentLocation;
       ctrl.destination = GameService.destination;
+
+      // TODO: move to socketService
+      var socket = io('//localhost:3000');
+      console.log('connecting to room', ctrl.driver.room);
+      socket.emit('join', {
+        room: ctrl.driver.room
+      });
+      socket.on('message', function (data) {
+        console.log(data);
+      });
     });
 
     ctrl.setDestination = function setDestination(id) {
