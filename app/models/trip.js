@@ -7,6 +7,7 @@ const Location = require('./location');
 const Driver = require('./driver');
 const Connection = require('./connection');
 const ticker = require('../ticker');
+const socketlib = require('../socket');
 
 const tripDb = 'trips';
 const speed = 10000;
@@ -61,12 +62,17 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       // TODO: this is a mess, needs serious optimization
       // TODO: grab speed from driver->vehicle speed
       if (trips.length > 0) {
-        console.log('trips: ', trips.map(e => `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`)); // eslint-disable-line
+        // console.log('trips: ', trips.map(e => `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`)); // eslint-disable-line
         for (let i = 0; i < trips.length; i++) {
           const trip = trips[i];
+          const socket = socketlib.driverSocket(trip.driverid);
           const newProgress = trip.progress + speed;
 
           if (testing || newProgress > trip.distance) {
+            socket.send({
+              message: 'tripProgress',
+              progress: 'done'
+            });
             return Promise.all([
                 deleteTrip(trip.driverid),
                 Driver.update(trip.driverid, {
@@ -80,6 +86,12 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
                   console.log('ERROR in tickerTripProgress-deleteTrip', error); // eslint-disable-line
                 });
           }
+          // update client and db with new progress distance
+          //     io.sockets.connected[cbSocket.id].emit('message', msg);
+          socket.send({
+            message: 'tripProgress',
+            progress: newProgress
+          });
           return util.knex(tripDb).where('driverid', trip.driverid)
             .update('progress', newProgress, 'progress');
         }

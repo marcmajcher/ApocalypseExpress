@@ -2,11 +2,10 @@
 
 /* eslint-env node */
 
-const cookie = require('cookie');
 const socketio = require('socket.io');
 const sessions = {};
 
-const socketSession = sessionid => sessions[sessionid];
+const driverSocket = driverid => sessions[driverid];
 
 const expressMiddleware = (server, session) => {
   const io = socketio(server);
@@ -16,21 +15,13 @@ const expressMiddleware = (server, session) => {
   });
 
   io.on('connection', (socket) => {
-    const sessionid = cookie.parse(socket.request.headers.cookie).session;
-    sessions[sessionid] = socket;
+    const driverid = socket.request.session.user.driverid;
+    sessions[driverid] = socket;
 
-    // function getCallback() {
-    //   let count = 0;
-    //   return (cbSocket) => {
-    //     const msg = cbSocket.id + ' ' + count++;
     //     io.sockets.connected[cbSocket.id].emit('message', msg);
-    //   };
-    // }
-    // const interval = setInterval(getCallback(), 1000, socket);
 
     socket.on('disconnect', () => {
-      // clearInterval(interval);
-      delete sessions[sessionid];
+      delete sessions[driverid];
     });
   });
 
@@ -42,5 +33,5 @@ const expressMiddleware = (server, session) => {
 
 module.exports = {
   expressSocket: expressMiddleware,
-  socketSession
+  driverSocket
 };

@@ -3,16 +3,19 @@
 ## Implementing
 
 * Better handling of ajax errors on client - test when server down
-* set up little socket server for trip progress push
+* Show trip progress via socket messages, refresh when done
 
 ## Writing Unit Tests
 
 * Test everything by turning off server and displaying message for 500
 * Write tests for all services
 * Write tests for ticker
+* How to test sockets?
 
 ## On Deck
 
+* Disconnect sockets from clients when server shuts down (or handle error on restart)
+* Shut down socket when browser window closes, or on error?
 * Driver should have a current vehicle
 * Refactor connections stuff out of the map request
 
@@ -111,3 +114,4 @@
 * Create custom directives for form validation
 * NOT Update auth to use JWT http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
+* set up little socket server for trip progress push ("little")
