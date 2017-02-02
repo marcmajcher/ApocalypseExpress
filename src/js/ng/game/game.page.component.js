@@ -21,6 +21,9 @@
 
           SocketService.on('tripProgress', (data) => {
             console.log('TRIP PROGRESS:', data.progress);
+            if (data.progress === 'done') {
+              ctrl.getCurrentLocation();
+            }
           });
         });
 
