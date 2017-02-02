@@ -144,7 +144,7 @@
       // TODO: move to socketService
       var socket = io('//localhost:3000');
       socket.on('message', function (data) {
-        console.log(data);
+        console.log(data); // eslint-disable-line no-console
       });
     });
 

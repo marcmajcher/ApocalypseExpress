@@ -40,7 +40,6 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
   Trip.create(driverid, req.body.destination)
     .then((location) => {
       const sessionid = req.cookies.session;
-      // res.io.send('RTIP TRIP DERP DERP')
       const socket = socketlib.socketSession(sessionid);
       res.io.sockets.connected[socket.id].emit('message', 'DERP DERP TRIIIIP');
 

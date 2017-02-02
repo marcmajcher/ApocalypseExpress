@@ -1,7 +1,8 @@
 {
   "globals": {
     "angular": false,
-    "paper": false
+    "paper": false,
+    "io": true
   },
   "esversion": 6,
   "node": true,

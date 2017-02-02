@@ -6,9 +6,7 @@ const cookie = require('cookie');
 const socketio = require('socket.io');
 const sessions = {};
 
-const socketSession = (sessionid) => {
-  return sessions[sessionid];
-};
+const socketSession = sessionid => sessions[sessionid];
 
 const expressMiddleware = (server, session) => {
   const io = socketio(server);
@@ -21,18 +19,17 @@ const expressMiddleware = (server, session) => {
     const sessionid = cookie.parse(socket.request.headers.cookie).session;
     sessions[sessionid] = socket;
 
-    function getCallback() {
-      let count = 0;
-      return (cbSocket) => {
-        const msg = cbSocket.id + ' ' + count++;
-        io.sockets.connected[cbSocket.id].emit('message', msg);
-      };
-    }
-
-    const interval = setInterval(getCallback(), 1000, socket);
+    // function getCallback() {
+    //   let count = 0;
+    //   return (cbSocket) => {
+    //     const msg = cbSocket.id + ' ' + count++;
+    //     io.sockets.connected[cbSocket.id].emit('message', msg);
+    //   };
+    // }
+    // const interval = setInterval(getCallback(), 1000, socket);
 
     socket.on('disconnect', () => {
-      clearInterval(interval);
+      // clearInterval(interval);
       delete sessions[sessionid];
     });
   });

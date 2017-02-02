@@ -20,7 +20,7 @@
           // TODO: move to socketService
           const socket = io('//localhost:3000');
           socket.on('message', (data) => {
-            console.log(data);
+            console.log(data); // eslint-disable-line no-console
           });
         });
 
