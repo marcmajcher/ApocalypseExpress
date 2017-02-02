@@ -70,8 +70,7 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
           const newProgress = trip.progress + speed;
 
           if (testing || newProgress > trip.distance) {
-            socket.send({
-              message: 'tripProgress',
+            socket.emit('tripProgress', {
               progress: 'done'
             });
             return Promise.all([
@@ -89,8 +88,7 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
           }
           // update client and db with new progress distance
           //     io.sockets.connected[cbSocket.id].emit('message', msg);
-          socket.send({
-            message: 'tripProgress',
+          socket.emit('tripProgress', {
             progress: newProgress
           });
           return util.knex(tripDb).where('driverid', trip.driverid)

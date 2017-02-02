@@ -57,8 +57,8 @@
       ctrl.currentLocation = GameService.currentLocation;
       ctrl.destination = GameService.destination;
 
-      SocketService.on('message', function (data) {
-        console.log('here is the thing set on on in gameservice', data.progress);
+      SocketService.on('tripProgress', function (data) {
+        console.log('TRIP PROGRESS:', data.progress);
       });
     });
 
