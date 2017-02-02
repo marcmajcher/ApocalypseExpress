@@ -7,7 +7,6 @@ const router = express.Router();
 const util = require('../_util');
 const Trip = require('../models/trip');
 const Driver = require('../models/driver');
-const socketlib = require('../socket');
 
 router.use(util.loginRequired);
 
@@ -39,10 +38,6 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
 
   Trip.create(driverid, req.body.destination)
     .then((location) => {
-      const socket = socketlib.driverSocket(driverid);
-      console.log('THIS IS MY SOCKET', socket);
-      // res.io.sockets.connected[socket.id].emit('message', 'DERP DERP TRIIIIP');
-
       res.send({
         ok: true,
         id: location.id,
