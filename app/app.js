@@ -15,11 +15,11 @@ const randomstring = require('randomstring');
 const methodOverride = require('method-override');
 const http = require('http');
 const ticker = require('./ticker');
+const socket = require('./socket');
 
 const app = express();
-app.disable('x-powered-by');
-
 const server = http.createServer(app);
+app.disable('x-powered-by');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,46 +42,13 @@ const randomKeys = [];
 for (let i = 0; i < numKeys; i++) {
   randomKeys.push(randomstring.generate());
 }
-const sessionMiddleware = session({
+app.use(session({
   keys: randomKeys
-});
-app.use(sessionMiddleware);
+}));
 
 /* socket setup */
 
-const io = require('socket.io')(server);
-
-io.use((socket, next) => {
-  sessionMiddleware(socket.request, socket.request.res, next);
-});
-
-io.on('connection', (socket) => {
-  // console.log(socket.request.session);
-  socket.on('join', (data) => {
-    socket.join(data.room);
-  });
-
-  function getCallback() {
-    let count = 0;
-    return (socket) => {
-      const msg = socket.id + ' ' + count++;
-      console.log('sending to', socket.id, ':', msg);
-      io.sockets.connected[socket.id].emit('message', msg);
-    };
-  }
-
-  const interval = setInterval(getCallback(), 1000, socket);
-  socket.on('disconnect', () => {
-    // console.log('DISCONNECT');
-    clearInterval(interval);
-  });
-});
-
-app.use((req, res, next) => {
-  res.io = io;
-  next();
-});
-
+app.use(socket(server));
 
 /* flash messages */
 app.use((req, res, next) => {

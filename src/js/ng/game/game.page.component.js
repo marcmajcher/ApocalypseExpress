@@ -19,10 +19,6 @@
 
           // TODO: move to socketService
           const socket = io('//localhost:3000');
-          // console.log('connecting to room', ctrl.driver.room);
-          socket.emit('join', {
-            room: ctrl.driver.room
-          });
           socket.on('message', (data) => {
             console.log(data);
           });
