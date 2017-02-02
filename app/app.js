@@ -42,13 +42,11 @@ const randomKeys = [];
 for (let i = 0; i < numKeys; i++) {
   randomKeys.push(randomstring.generate());
 }
-app.use(session({
+const sessionMiddleware = session({
   keys: randomKeys
-}));
-
-/* socket setup */
-
-app.use(socket(server));
+});
+app.use(sessionMiddleware);
+app.use(socket.expressSocket(server, sessionMiddleware));
 
 /* flash messages */
 app.use((req, res, next) => {
