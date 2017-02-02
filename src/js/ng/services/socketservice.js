@@ -3,18 +3,22 @@
 
   /* eslint-env jquery, browser */
 
-  // const socketService = function socketService() {
-  //   const socket = io();
-  //   socket.on('apoxmsg', function(msg) {
-  //     console.log('Message for you:', msg);
-  //   });
-  //
-  //   return {
-  //
-  //   };
-  // };
-  //
-  // angular.module('apox').factory('SocketService', ['$http', socketService]);
+  const socketService = function socketService() {
+    const socket = io('//localhost:3000');
+
+    return {
+      init: () => {
+        socket.on('message', (data) => {
+          console.log(data); // eslint-disable-line no-console
+        });
+      },
+      on: (eventName, callback) => {
+        socket.on(eventName, callback);
+      }
+    };
+  };
+
+  angular.module('apox').factory('SocketService', ['$http', socketService]);
 })();
 
 //

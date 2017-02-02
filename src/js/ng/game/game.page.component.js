@@ -4,7 +4,8 @@
   /* eslint-env jquery, browser */
 
   const GamePageController =
-    function gamePageController(GameService, FactionService, LocationService, TripService) {
+    function gamePageController(GameService, FactionService, LocationService,
+      TripService, SocketService) {
       const ctrl = this;
 
       ctrl.working = false;
@@ -13,14 +14,13 @@
 
       GameService.init()
         .then(() => {
+          SocketService.init();
           ctrl.driver = GameService.driver;
           ctrl.currentLocation = GameService.currentLocation;
           ctrl.destination = GameService.destination;
 
-          // TODO: move to socketService
-          const socket = io('//localhost:3000');
-          socket.on('message', (data) => {
-            console.log(data); // eslint-disable-line no-console
+          SocketService.on('message', (data) => {
+            console.log('here is the thing set on on in gameservice', data.progress);
           });
         });
 
@@ -69,7 +69,9 @@
     };
 
   angular.module('apox').component('gamePage', {
-    controller: ['GameService', 'FactionService', 'LocationService', 'TripService', GamePageController],
+    controller: ['GameService', 'FactionService', 'LocationService',
+      'TripService', 'SocketService', GamePageController
+    ],
     templateUrl: '../tmpl/game/gamepage.template.html'
   });
 })();

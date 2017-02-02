@@ -44,7 +44,7 @@
 
   /* eslint-env jquery, browser */
 
-  var GamePageController = function gamePageController(GameService, FactionService, LocationService, TripService) {
+  var GamePageController = function gamePageController(GameService, FactionService, LocationService, TripService, SocketService) {
     var ctrl = this;
 
     ctrl.working = false;
@@ -52,14 +52,13 @@
     ctrl.factionTags = FactionService.factionTags;
 
     GameService.init().then(function () {
+      SocketService.init();
       ctrl.driver = GameService.driver;
       ctrl.currentLocation = GameService.currentLocation;
       ctrl.destination = GameService.destination;
 
-      // TODO: move to socketService
-      var socket = io('//localhost:3000');
-      socket.on('message', function (data) {
-        console.log(data); // eslint-disable-line no-console
+      SocketService.on('message', function (data) {
+        console.log('here is the thing set on on in gameservice', data.progress);
       });
     });
 
@@ -108,7 +107,7 @@
   };
 
   angular.module('apox').component('gamePage', {
-    controller: ['GameService', 'FactionService', 'LocationService', 'TripService', GamePageController],
+    controller: ['GameService', 'FactionService', 'LocationService', 'TripService', 'SocketService', GamePageController],
     templateUrl: '../tmpl/game/gamepage.template.html'
   });
 })();
@@ -632,7 +631,28 @@
 })();
 'use strict';
 
-(function () {})();
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var socketService = function socketService() {
+    var socket = io('//localhost:3000');
+
+    return {
+      init: function init() {
+        socket.on('message', function (data) {
+          console.log(data); // eslint-disable-line no-console
+        });
+      },
+      on: function on(eventName, callback) {
+        socket.on(eventName, callback);
+      }
+    };
+  };
+
+  angular.module('apox').factory('SocketService', ['$http', socketService]);
+})();
 
 //
 // app.factory('socket', function($rootScope){
