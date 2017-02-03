@@ -24,8 +24,12 @@
 
           SocketService.on('tripProgress', (data) => {
             if (data.progress === 'done') {
-              ctrl.getCurrentLocation();
-              ctrl.traveling = false;
+              ctrl.trip.progress = ctrl.trip.distance;
+              $scope.$apply();
+              setTimeout(() => {
+                ctrl.getCurrentLocation();
+                ctrl.traveling = false;
+              }, 1000); // eslint-disable-line no-magic-numbers
             }
             else {
               ctrl.trip.progress = data.progress;

@@ -3,7 +3,6 @@
 ## Implementing
 
 * Better handling of ajax errors on client - test when server down
-* Show trip progress via socket messages, refresh when done
 
 ## Writing Unit Tests
 
@@ -21,6 +20,7 @@
 
 ## Bugs
 
+* Set destination on load/game start if in progress or selected (set traveling flag)
 * Why not returning destination id on game load?
 * Why is it making two calls to /map on the game page?
 
@@ -116,3 +116,4 @@
 * NOT Update auth to use JWT http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/
 * Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
 * set up little socket server for trip progress push ("little")
+* Show trip progress via socket messages, refresh when done
