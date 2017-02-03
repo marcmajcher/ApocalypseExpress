@@ -18,8 +18,6 @@ const expressMiddleware = (server, session) => {
     const driverid = socket.request.session.user.driverid;
     sessions[driverid] = socket;
 
-    //     io.sockets.connected[cbSocket.id].emit('message', msg);
-
     socket.on('disconnect', () => {
       delete sessions[driverid];
     });

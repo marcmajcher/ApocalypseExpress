@@ -10,21 +10,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="c in $ctrl.location.connections | orderBy: c.distance" class="{{c.name === $ctrl.destinationName ? 'current' : 'select'}}" ng-click="$ctrl.setDestination()(c.id)">
+      <tr ng-repeat="c in $ctrl.location.connections | orderBy: c.distance" class="{{c.name === $ctrl.trip.destination ? 'current' : 'select'}}" ng-click="$ctrl.setDestination()(c.id)">
         <td class="col-faction">
           <div class="faction-dot {{$ctrl.tags[c.factionid]}}"></div>
         </td>
         <td class="col-name">{{c.name}}</td>
         <td class="col-distance">{{c.distance/1000 | number: 1}} km</td>
         <td class="button">
-          <button class="btn-go btn btn-warning" ng-show="c.name === $ctrl.destinationName" ng-click="$ctrl.goDestination();$event.stopPropagation()" ng-disabled="$ctrl.working">
+          <button class="btn-go btn btn-warning" ng-show="c.name === $ctrl.trip.destination" ng-click="$ctrl.goDestination();$event.stopPropagation()" ng-disabled="$ctrl.working">
             Hit the road!
           </button>
         </td>
       </tr>
       <tr>
         <td colspan="4" class="button">
-          <button class="btn btn-secondary" ng-click="$ctrl.clearDestination()" ng-disabled="$ctrl.working">
+          <button class="btn btn-secondary" ng-click="$ctrl.clearDestination()" ng-disabled="$ctrl.working || $ctrl.trip.destination === undefined">
             Clear Destination
           </button>
         </td>

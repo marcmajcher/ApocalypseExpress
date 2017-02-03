@@ -17,15 +17,21 @@
 * Shut down socket when browser window closes, or on error?
 * Driver should have a current vehicle
 * Refactor connections stuff out of the map request - use trip
+* Move map as driver travels - add travel dot
 
 ## Bugs
 
+* When user logs out during trip, don't emit:
+Unhandled rejection TypeError: Cannot read property 'emit' of undefined
+    at util.knex.where.then (/Users/majcher/repo/ApocalypseExpress/app/models/trip.js:91:17)
+(Also drivers.traveling=t/f bug)
 * Set destination on load/game start if in progress or selected (set traveling flag)
 * Why not returning destination id on game load?
 * Why is it making two calls to /map on the game page?
 
 ## Backlog
 
+* Is there something fun to do while they're driving? Minigame? Dashboard?
 * Trips between locations should have events
 * Replace location description with event log when traveling
 

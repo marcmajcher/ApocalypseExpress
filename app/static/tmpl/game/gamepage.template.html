@@ -6,7 +6,7 @@
   </div>
   <div class="col-md-6">
     <apox-map></apox-map>
-    <destination-list ng-if="!$ctrl.traveling" location="$ctrl.currentLocation" tags="$ctrl.factionTags" working="$ctrl.working" destination-name="$ctrl.destinationName" clear-destination="$ctrl.clearDestination()" go-destination="$ctrl.goDestination()" set-destination="$ctrl.setDestination"></destination-list>
+    <destination-list ng-if="!$ctrl.traveling" location="$ctrl.currentLocation" tags="$ctrl.factionTags" working="$ctrl.working" trip="$ctrl.trip" clear-destination="$ctrl.clearDestination()" go-destination="$ctrl.goDestination()" set-destination="$ctrl.setDestination"></destination-list>
     <trip-progress ng-if="$ctrl.traveling" trip="$ctrl.trip"></trip-progress>
   </div>
 </div>

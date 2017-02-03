@@ -134,7 +134,7 @@
       working: '<',
       location: '<',
       tags: '<',
-      destinationName: '<',
+      trip: '<',
       setDestination: '&',
       clearDestination: '&',
       goDestination: '&'
@@ -179,6 +179,7 @@
       ctrl.driver = GameService.driver;
       ctrl.currentLocation = GameService.currentLocation;
       ctrl.destination = GameService.destination;
+      // console.log('DEST', ctrl.destination);
 
       SocketService.on('tripProgress', function (data) {
         if (data.progress === 'done') {
@@ -201,7 +202,6 @@
       ctrl.working = true;
       TripService.setNextDestination(id).then(function (data) {
         if (data.ok) {
-          ctrl.destinationName = data.name;
           ctrl.destinationId = data.id;
           ctrl.trip = {
             progress: 0,
@@ -245,7 +245,6 @@
       ctrl.working = true;
       TripService.clearTrip().then(function (data) {
         if (data === 'ok') {
-          ctrl.destinationName = undefined;
           ctrl.destinationId = undefined;
           ctrl.trip = {
             origin: ctrl.currentLocation.name
@@ -731,14 +730,17 @@
 
   /* eslint-env jquery, browser */
 
-  var socketURL = '//localhost:3000/';
   var socketService = function socketService() {
-    var socket = io(socketURL);
+    var socket = io();
 
     return {
       init: function init() {
         socket.on('message', function (data) {
           console.log(data); // eslint-disable-line no-console
+        });
+        socket.on('disconnect', function (data) {
+          console.log('DISCONNECTED:', data);
+          socket.io.reconnection(false);
         });
       },
       on: function on(eventName, callback) {
@@ -749,31 +751,6 @@
 
   angular.module('apox').factory('SocketService', ['$http', socketService]);
 })();
-
-//
-// app.factory('socket', function($rootScope){
-//   var socket = io.connect();
-//   return {
-//     on: function(eventName, callback) {
-//       socket.on(eventName, function() {
-//         var args = arguments;
-//         $rootScope.$apply(function() {
-//           callback.apply(socket, args);
-//         });
-//       });
-//     },
-//     emit: function(eventName, data, callback) {
-//       socket.emit(eventName, data, function() {
-//         var args = arguments;
-//         $rootScope.$apply(function() {
-//           if(callback) {
-//             callback.apply(socket, args);
-//           }
-//         });
-//       });
-//     }
-//   };
-// });
 'use strict';
 
 (function () {

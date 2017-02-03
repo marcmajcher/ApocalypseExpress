@@ -21,6 +21,7 @@
           ctrl.driver = GameService.driver;
           ctrl.currentLocation = GameService.currentLocation;
           ctrl.destination = GameService.destination;
+          // console.log('DEST', ctrl.destination);
 
           SocketService.on('tripProgress', (data) => {
             if (data.progress === 'done') {
@@ -44,7 +45,6 @@
         ctrl.working = true;
         TripService.setNextDestination(id).then((data) => {
           if (data.ok) {
-            ctrl.destinationName = data.name;
             ctrl.destinationId = data.id;
             ctrl.trip = {
               progress: 0,
@@ -88,7 +88,6 @@
         ctrl.working = true;
         TripService.clearTrip().then((data) => {
           if (data === 'ok') {
-            ctrl.destinationName = undefined;
             ctrl.destinationId = undefined;
             ctrl.trip = {
               origin: ctrl.currentLocation.name

@@ -8,7 +8,7 @@
       working: '<',
       location: '<',
       tags: '<',
-      destinationName: '<',
+      trip: '<',
       setDestination: '&',
       clearDestination: '&',
       goDestination: '&'
