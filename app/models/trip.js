@@ -88,9 +88,11 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
           }
           // update client and db with new progress distance
           //     io.sockets.connected[cbSocket.id].emit('message', msg);
-          socket.emit('tripProgress', {
-            progress: newProgress
-          });
+          if (socket) {
+            socket.emit('tripProgress', {
+              progress: newProgress
+            });
+          }
           return util.knex(tripDb).where('driverid', trip.driverid)
             .update('progress', newProgress, 'progress');
         }
