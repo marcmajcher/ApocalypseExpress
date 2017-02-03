@@ -71,7 +71,6 @@ body.game-page {
         opacity: 0.5;
         height: 1em;
         width: 1em;
-
         background-color: grey;
         @include faction-colors;
       }
@@ -83,6 +82,16 @@ body.game-page {
     font-size: 1em;
     padding: 2px;
     color: black;
+  }
+
+  .trip-progress-bar {
+    margin-top: 40px;
+    border: 2px solid black;
+  }
+
+  .trip-progress {
+    font-size: 1.5em;
+    font-weight: bold;
   }
 
   canvas.map-canvas {

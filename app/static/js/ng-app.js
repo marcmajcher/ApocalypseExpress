@@ -326,7 +326,7 @@
     bindings: {
       trip: '<'
     },
-    template: '\n    <div class="progress">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div>\n      <span class="pull-left">{{$ctrl.trip.origin}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination}}</span>\n    </div>\n    '
+    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination}}</span>\n    </div>\n    '
   });
 })();
 'use strict';
