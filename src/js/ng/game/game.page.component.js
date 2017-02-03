@@ -5,13 +5,15 @@
   /* eslint max-params: ["error", 6] */
 
   const GamePageController =
-    function gamePageController(GameService, FactionService, LocationService, // jshint ignore: line
-      TripService, SocketService) {
+    function gamePageController($scope, GameService, FactionService, // jshint ignore: line
+      LocationService, TripService, SocketService) {
       const ctrl = this;
 
+      ctrl.loaded = false;
       ctrl.working = false;
       ctrl.traveling = false;
       ctrl.factionTags = FactionService.factionTags;
+      ctrl.trip = {};
 
       GameService.init()
         .then(() => {
@@ -21,11 +23,17 @@
           ctrl.destination = GameService.destination;
 
           SocketService.on('tripProgress', (data) => {
-            console.log('TRIP PROGRESS:', data.progress);
             if (data.progress === 'done') {
               ctrl.getCurrentLocation();
+              ctrl.traveling = false;
+            }
+            else {
+              ctrl.trip.progress = data.progress;
+              $scope.$apply();
             }
           });
+
+          ctrl.loaded = true;
         });
 
       ctrl.setDestination = function setDestination(id) {
@@ -34,6 +42,17 @@
           if (data.ok) {
             ctrl.destinationName = data.name;
             ctrl.destinationId = data.id;
+            ctrl.trip = {
+              progress: 0,
+              destination: data.name,
+              origin: ctrl.currentLocation.name
+            };
+            for (let i = 0; i < ctrl.currentLocation.connections.length; i++) {
+              if (ctrl.currentLocation.connections[i].id === data.id) {
+                ctrl.trip.distance = ctrl.currentLocation.connections[i].distance;
+                break;
+              }
+            }
             ctrl.working = false;
           }
           // TODO: error check
@@ -43,11 +62,9 @@
 
       ctrl.goDestination = function goDestination() {
         ctrl.working = true;
+        ctrl.traveling = true;
         TripService.beginTrip().then((data) => {
           if (data === 'ok') {
-            ctrl.getCurrentLocation();
-            ctrl.destinationName = undefined;
-            ctrl.destinationId = undefined;
             ctrl.working = false;
           }
         });
@@ -57,6 +74,9 @@
         LocationService.getCurrentLocation().then((location) => {
           ctrl.currentLocation = location;
           GameService.currentLocation = location;
+          ctrl.trip = {
+            origin: location.name
+          };
         });
       };
 
@@ -66,6 +86,9 @@
           if (data === 'ok') {
             ctrl.destinationName = undefined;
             ctrl.destinationId = undefined;
+            ctrl.trip = {
+              origin: ctrl.currentLocation.name
+            };
             ctrl.working = false;
           }
         });
@@ -73,7 +96,7 @@
     };
 
   angular.module('apox').component('gamePage', {
-    controller: ['GameService', 'FactionService', 'LocationService',
+    controller: ['$scope', 'GameService', 'FactionService', 'LocationService',
       'TripService', 'SocketService', GamePageController
     ],
     templateUrl: '../tmpl/game/gamepage.template.html'

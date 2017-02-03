@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<div class="row">
+<div class="row" ng-if="$ctrl.loaded">
   <div class="col-md-6">
     <driver-name name="$ctrl.driver.name"></driver-name>
     <location-details location="$ctrl.currentLocation" tags="$ctrl.factionTags"></location-details>
   </div>
   <div class="col-md-6">
     <apox-map></apox-map>
-    <destination-list location="$ctrl.currentLocation" tags="$ctrl.factionTags" working="$ctrl.working" destination-name="$ctrl.destinationName" clear-destination="$ctrl.clearDestination()" go-destination="$ctrl.goDestination()" set-destination="$ctrl.setDestination"></destination-list>
-    <div ng-if="$ctrl.traveling">
-      On the road....
-    </div>
+    <destination-list ng-if="!$ctrl.traveling" location="$ctrl.currentLocation" tags="$ctrl.factionTags" working="$ctrl.working" destination-name="$ctrl.destinationName" clear-destination="$ctrl.clearDestination()" go-destination="$ctrl.goDestination()" set-destination="$ctrl.setDestination"></destination-list>
+    <trip-progress ng-if="$ctrl.traveling" trip="$ctrl.trip"></trip-progress>
   </div>
 </div>

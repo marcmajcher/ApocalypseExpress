@@ -21,6 +21,7 @@
 
 ## Bugs
 
+* Why not returning destination id on game load?
 * Why is it making two calls to /map on the game page?
 
 ## Backlog
