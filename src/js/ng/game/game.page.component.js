@@ -4,6 +4,15 @@
   /* eslint-env jquery, browser */
   /* eslint max-params: ["error", 6] */
 
+  const getDistanceFromId = (location, id) => {
+    for (let i = 0; i < location.connections.length; i++) {
+      if (location.connections[i].id === id) {
+        return location.connections[i].distance;
+      }
+    }
+    return -1; // eslint-disable-line no-magic-numbers
+  };
+
   const GamePageController =
     function gamePageController($scope, GameService, FactionService, // jshint ignore: line
       LocationService, TripService, SocketService) {
@@ -20,7 +29,24 @@
           SocketService.init();
           ctrl.driver = GameService.driver;
           ctrl.currentLocation = GameService.currentLocation;
-          ctrl.destination = GameService.destination;
+          if (GameService.trip) {
+            const currentTrip = GameService.trip;
+            console.log('CURRENT TRIP:', currentTrip);
+            if (currentTrip.progress === 'done') {
+              ctrl.trip.progress = ctrl.trip.distance;
+              ctrl.getCurrentLocation();
+              ctrl.traveling = false;
+            }
+            else {
+              ctrl.trip = {
+                destination: currentTrip.name,
+                progress: currentTrip.progress,
+                origin: ctrl.currentLocation.name,
+                distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationId)
+              };
+              ctrl.traveling = currentTrip.progress > 0;
+            }
+          }
           // console.log('DEST', ctrl.destination);
 
           SocketService.on('tripProgress', (data) => {
@@ -34,6 +60,7 @@
             }
             else {
               ctrl.trip.progress = data.progress;
+              console.log('progress', ctrl.trip.progress);
               $scope.$apply();
             }
           });
@@ -49,14 +76,9 @@
             ctrl.trip = {
               progress: 0,
               destination: data.name,
-              origin: ctrl.currentLocation.name
+              origin: ctrl.currentLocation.name,
+              distance: getDistanceFromId(ctrl.currentLocation, data.id)
             };
-            for (let i = 0; i < ctrl.currentLocation.connections.length; i++) {
-              if (ctrl.currentLocation.connections[i].id === data.id) {
-                ctrl.trip.distance = ctrl.currentLocation.connections[i].distance;
-                break;
-              }
-            }
             ctrl.working = false;
           }
           // TODO: error check

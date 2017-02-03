@@ -164,6 +164,15 @@
   /* eslint-env jquery, browser */
   /* eslint max-params: ["error", 6] */
 
+  var getDistanceFromId = function getDistanceFromId(location, id) {
+    for (var i = 0; i < location.connections.length; i++) {
+      if (location.connections[i].id === id) {
+        return location.connections[i].distance;
+      }
+    }
+    return -1; // eslint-disable-line no-magic-numbers
+  };
+
   var GamePageController = function gamePageController($scope, GameService, FactionService, // jshint ignore: line
   LocationService, TripService, SocketService) {
     var ctrl = this;
@@ -178,7 +187,23 @@
       SocketService.init();
       ctrl.driver = GameService.driver;
       ctrl.currentLocation = GameService.currentLocation;
-      ctrl.destination = GameService.destination;
+      if (GameService.trip) {
+        var currentTrip = GameService.trip;
+        console.log('CURRENT TRIP:', currentTrip);
+        if (currentTrip.progress === 'done') {
+          ctrl.trip.progress = ctrl.trip.distance;
+          ctrl.getCurrentLocation();
+          ctrl.traveling = false;
+        } else {
+          ctrl.trip = {
+            destination: currentTrip.name,
+            progress: currentTrip.progress,
+            origin: ctrl.currentLocation.name,
+            distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationId)
+          };
+          ctrl.traveling = currentTrip.progress > 0;
+        }
+      }
       // console.log('DEST', ctrl.destination);
 
       SocketService.on('tripProgress', function (data) {
@@ -191,6 +216,7 @@
           }, 1000); // eslint-disable-line no-magic-numbers
         } else {
           ctrl.trip.progress = data.progress;
+          console.log('progress', ctrl.trip.progress);
           $scope.$apply();
         }
       });
@@ -206,14 +232,9 @@
           ctrl.trip = {
             progress: 0,
             destination: data.name,
-            origin: ctrl.currentLocation.name
+            origin: ctrl.currentLocation.name,
+            distance: getDistanceFromId(ctrl.currentLocation, data.id)
           };
-          for (var i = 0; i < ctrl.currentLocation.connections.length; i++) {
-            if (ctrl.currentLocation.connections[i].id === data.id) {
-              ctrl.trip.distance = ctrl.currentLocation.connections[i].distance;
-              break;
-            }
-          }
           ctrl.working = false;
         }
         // TODO: error check
@@ -401,16 +422,13 @@
         /* Get info for current trip, if any */
         TripService.getCurrentTrip().then(function (data) {
           if (data.trip[0]) {
-            _this.destination = {
-              id: data.trip[0].id,
-              name: data.trip[0].name
-            };
+            _this.trip = data.trip[0];
           }
         })]);
       },
       driver: undefined,
       currentLocation: undefined,
-      destination: undefined
+      trip: undefined
 
     };
   };

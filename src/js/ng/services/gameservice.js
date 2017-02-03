@@ -20,17 +20,14 @@
           /* Get info for current trip, if any */
           TripService.getCurrentTrip().then((data) => {
             if (data.trip[0]) {
-              this.destination = {
-                id: data.trip[0].id,
-                name: data.trip[0].name
-              };
+              this.trip = data.trip[0];
             }
           })
         ]);
       },
       driver: undefined,
       currentLocation: undefined,
-      destination: undefined
+      trip: undefined
 
     };
   };
