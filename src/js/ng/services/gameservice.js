@@ -31,6 +31,7 @@
       driver: undefined,
       currentLocation: undefined,
       destination: undefined
+
     };
   };
 

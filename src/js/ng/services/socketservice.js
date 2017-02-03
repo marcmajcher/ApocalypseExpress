@@ -3,8 +3,9 @@
 
   /* eslint-env jquery, browser */
 
+  const socketURL = '//localhost:3000/';
   const socketService = function socketService() {
-    const socket = io('//localhost:3000');
+    const socket = io(socketURL);
 
     return {
       init: () => {

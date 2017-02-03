@@ -2,9 +2,10 @@
   'use strict';
 
   /* eslint-env jquery, browser */
+  /* eslint max-params: ["error", 6] */
 
   const GamePageController =
-    function gamePageController(GameService, FactionService, LocationService,
+    function gamePageController(GameService, FactionService, LocationService, // jshint ignore: line
       TripService, SocketService) {
       const ctrl = this;
 
