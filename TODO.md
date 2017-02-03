@@ -16,7 +16,7 @@
 * Disconnect sockets from clients when server shuts down (or handle error on restart)
 * Shut down socket when browser window closes, or on error?
 * Driver should have a current vehicle
-* Refactor connections stuff out of the map request
+* Refactor connections stuff out of the map request - use trip
 
 ## Bugs
 
@@ -27,6 +27,7 @@
 ## Backlog
 
 * Trips between locations should have events
+* Replace location description with event log when traveling
 
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location
