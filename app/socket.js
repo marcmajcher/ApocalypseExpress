@@ -6,6 +6,14 @@ const socketio = require('socket.io');
 const sessions = {};
 
 const driverSocket = driverid => sessions[driverid];
+const driverEmitter = driverid => ({
+  socket: sessions[driverid],
+  emit(eventName, message) {
+    if (this.socket) {
+      this.socket.emit(eventName, message);
+    }
+  }
+});
 
 const expressMiddleware = (server, session) => {
   const io = socketio(server);
@@ -31,5 +39,6 @@ const expressMiddleware = (server, session) => {
 
 module.exports = {
   expressSocket: expressMiddleware,
-  driverSocket
+  driverSocket,
+  driverEmitter
 };

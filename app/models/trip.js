@@ -55,49 +55,38 @@ exports.begin = driverid => Driver.updateValue(driverid, 'traveling', true)
       underway: true
     }, '*'));
 
-
 const tickerTripProgress = function tickerTripProgress(testing = false) {
   return util.knex(tripDb).where('underway', true)
     .then((trips) => {
-      // TODO: this is a mess, needs serious optimization
       // TODO: grab speed from driver->vehicle speed
-      if (trips.length > 0) {
-        // console.log('trips: ', trips.map(e =>
-        // `${e.driverid} ${e.startid}->${e.destinationid} Progress: ${e.progress}`));
-        for (let i = 0; i < trips.length; i++) {
-          const trip = trips[i];
-          const socket = socketlib.driverSocket(trip.driverid);
-          const newProgress = trip.progress + speed;
+      const promises = [];
+      for (let i = 0; i < trips.length; i++) {
+        const trip = trips[i];
+        const emitter = socketlib.driverEmitter(trip.driverid);
+        const newProgress = trip.progress + speed;
 
-          if (testing || newProgress > trip.distance) {
-            socket.emit('tripProgress', {
-              progress: 'done'
-            });
-            return Promise.all([
-                deleteTrip(trip.driverid),
-                Driver.update(trip.driverid, {
-                  location: trip.destinationid,
-                  traveling: false
-                }),
-                Location.visit(trip.driverid, trip.destinationid)
-              ])
-              .catch(
-                (error) => { // jshint ignore:line
-                  console.log('ERROR in tickerTripProgress-deleteTrip', error); // eslint-disable-line
-                });
-          }
-          // update client and db with new progress distance
-          //     io.sockets.connected[cbSocket.id].emit('message', msg);
-          if (socket) {
-            socket.emit('tripProgress', {
-              progress: newProgress
-            });
-          }
-          return util.knex(tripDb).where('driverid', trip.driverid)
-            .update('progress', newProgress, 'progress');
+        if (testing || newProgress > trip.distance) {
+          emitter.emit('tripProgress', {
+            progress: 'done'
+          });
+          promises.push(deleteTrip(trip.driverid));
+          promises.push(Driver.update(trip.driverid, {
+            location: trip.destinationid,
+            traveling: false
+          }));
+          promises.push(Location.visit(trip.driverid, trip.destinationid));
         }
+        // update client and db with new progress distance
+        emitter.emit('tripProgress', {
+          progress: newProgress
+        });
+        promises.push(util.knex(tripDb).where('driverid', trip.driverid)
+          .update('progress', newProgress, 'progress'));
       }
-      return undefined;
+      return Promise.all(promises)
+        .catch((error) => { // jshint ignore:line
+          console.log('ERROR in tickerTripProgress-deleteTrip', error); // eslint-disable-line
+        });
     });
 };
 
