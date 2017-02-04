@@ -12,7 +12,7 @@
           console.log(data); // eslint-disable-line no-console
         });
         socket.on('disconnect', (data) => {
-          console.log('DISCONNECTED:', data);
+          console.log('DISCONNECTED:', data); // eslint-disable-line no-console
           socket.io.reconnection(false);
         });
       },

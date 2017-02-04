@@ -189,7 +189,6 @@
       ctrl.currentLocation = GameService.currentLocation;
       if (GameService.trip) {
         var currentTrip = GameService.trip;
-        console.log('CURRENT TRIP:', currentTrip);
         if (currentTrip.progress === 'done') {
           ctrl.trip.progress = ctrl.trip.distance;
           ctrl.getCurrentLocation();
@@ -199,12 +198,11 @@
             destination: currentTrip.name,
             progress: currentTrip.progress,
             origin: ctrl.currentLocation.name,
-            distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationId)
+            distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
           };
           ctrl.traveling = currentTrip.progress > 0;
         }
       }
-      // console.log('DEST', ctrl.destination);
 
       SocketService.on('tripProgress', function (data) {
         if (data.progress === 'done') {
@@ -216,7 +214,6 @@
           }, 1000); // eslint-disable-line no-magic-numbers
         } else {
           ctrl.trip.progress = data.progress;
-          console.log('progress', ctrl.trip.progress);
           $scope.$apply();
         }
       });
@@ -757,7 +754,7 @@
           console.log(data); // eslint-disable-line no-console
         });
         socket.on('disconnect', function (data) {
-          console.log('DISCONNECTED:', data);
+          console.log('DISCONNECTED:', data); // eslint-disable-line no-console
           socket.io.reconnection(false);
         });
       },
