@@ -178,11 +178,12 @@
 
   angular.module('apox').component('destinationList', {
     bindings: {
-      traveling: '=',
-      working: '=',
+      error: '=',
       location: '<',
       tags: '<',
-      trip: '='
+      traveling: '=',
+      trip: '=',
+      working: '='
     },
     controller: ['LocationService', 'TripService', DestinationListController],
     templateUrl: '../tmpl/game/destinations.template.html'
