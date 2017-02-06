@@ -2,17 +2,13 @@
 
 ## Implementing
 
-* Better handling of ajax errors on client - test when server down
-* Test everything by turning off server and displaying message for 500
-* Disconnect sockets from clients when server shuts down (or handle error on restart)
-* Shut down socket when browser window closes, or on error?
-* Refactor connections stuff out of the map request - use trip
 
 ## Writing Unit Tests
 
 * Write tests for all services
 * Write tests for ticker
 * How to test sockets?
+* TEST Better handling of ajax errors on client - test when server down
 
 ## On Deck
 
@@ -75,6 +71,8 @@
 
 * Refactor location positions from lat/long to x/y km from Ozz
 * Get browser sync and livereload working with gulp and nodemon
+* Disconnect sockets from clients when server shuts down (or handle error on restart)
+* Shut down socket when browser window closes, or on error?
 
 ## Frontend/UI Tasks
 
@@ -98,6 +96,7 @@
 
 ----
 * DB error checking everywhere
+* Refactor connections stuff out of the map request - use trip
 
 ## Done
 
@@ -124,3 +123,4 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 (Also drivers.traveling=t/f bug)
 * Set destination on load/game start if in progress or selected (set traveling flag)
 * Why not returning destination id on game load?
+* Test everything by turning off server and displaying message for 500

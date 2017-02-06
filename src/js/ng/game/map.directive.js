@@ -6,7 +6,6 @@
       restrict: 'E',
       template: '<canvas class="map-canvas" resize="true"></canvas>',
       link: (scope, element) => {
-        // console.log(element);
         paper.setup(element.context.firstChild);
 
         const bgLayer = new paper.Layer();
