@@ -26,7 +26,12 @@
     }
 
     ctrl.$onChanges = () => {
-      renderMap();
+      if (ctrl.location.render) {
+        renderMap();
+      }
+      else {
+        MapRenderer.centerMap(ctrl.location);
+      }
     };
   };
 

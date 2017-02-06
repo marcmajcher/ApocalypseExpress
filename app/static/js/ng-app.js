@@ -277,11 +277,13 @@
       var ratio = ctrl.trip.progress / ctrl.trip.distance;
       ctrl.currentLocation.latitude = ctrl.trip.origin.latitude + (ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio;
       ctrl.currentLocation.longitude = ctrl.trip.origin.longitude + (ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio;
+      ctrl.currentLocation.render = false;
       ctrl.currentLocation = angular.copy(ctrl.currentLocation);
     };
 
     ctrl.getCurrentLocation = function getCurrentLocation() {
       LocationService.getCurrentLocation().then(function (location) {
+        location.render = true;
         ctrl.currentLocation = location;
         GameService.currentLocation = location;
         ctrl.trip = {
@@ -344,7 +346,11 @@
     }
 
     ctrl.$onChanges = function () {
-      renderMap();
+      if (ctrl.location.render) {
+        renderMap();
+      } else {
+        MapRenderer.centerMap(ctrl.location);
+      }
     };
   };
 
@@ -433,6 +439,7 @@
 
         /* Get info for current location */
         LocationService.getCurrentLocation().then(function (location) {
+          location.render = true;
           _this.currentLocation = location;
         }),
 

@@ -66,11 +66,13 @@
           ((ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio);
         ctrl.currentLocation.longitude = ctrl.trip.origin.longitude +
           ((ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio);
+        ctrl.currentLocation.render = false;
         ctrl.currentLocation = angular.copy(ctrl.currentLocation);
       };
 
       ctrl.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
+          location.render = true;
           ctrl.currentLocation = location;
           GameService.currentLocation = location;
           ctrl.trip = {

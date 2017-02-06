@@ -14,6 +14,7 @@
 
           /* Get info for current location */
           LocationService.getCurrentLocation().then((location) => {
+            location.render = true;
             this.currentLocation = location;
           }),
 
