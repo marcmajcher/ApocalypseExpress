@@ -51,6 +51,9 @@
             }
             else {
               ctrl.trip.progress = data.progress;
+
+              // ctrl.currentLocation.latitude -= .1;
+              // ctrl.currentLocation = angular.copy(ctrl.currentLocation)
               $scope.$apply();
             }
           });

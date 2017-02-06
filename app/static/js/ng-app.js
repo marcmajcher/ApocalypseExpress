@@ -264,6 +264,9 @@
           }, refreshTime);
         } else {
           ctrl.trip.progress = data.progress;
+
+          // ctrl.currentLocation.latitude -= .1;
+          // ctrl.currentLocation = angular.copy(ctrl.currentLocation)
           $scope.$apply();
         }
       });
@@ -312,42 +315,40 @@
 (function () {
   'use strict';
 
-  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
-    return {
-      restrict: 'E',
-      template: '<canvas class="map-canvas" resize="true"></canvas>',
-      link: function link(scope, element) {
-        paper.setup(element.context.firstChild);
+  var ApoxMapController = function apoxMapController($element, GameService, MapService, MapRenderer) {
+    var ctrl = this;
 
-        var bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+    paper.setup($element.context.firstChild);
+    var bgLayer = new paper.Layer();
+    bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+    var mapLayer = new paper.Layer();
 
-        var mapLayer = new paper.Layer();
+    MapRenderer.setupMouseWheel($element, {
+      zoom: true
+    });
 
-        MapRenderer.setupMouseWheel(element, {
-          zoom: true
+    function renderMap() {
+      MapService.loadMap().then(function () {
+        MapRenderer.render({
+          isAdmin: false,
+          mapLayer: mapLayer
         });
+        MapRenderer.centerMap(ctrl.location);
+      });
+    }
 
-        function renderMap() {
-          MapService.loadMap().then(function () {
-            MapRenderer.render({
-              isAdmin: false,
-              mapLayer: mapLayer
-            });
-            MapRenderer.centerMap(GameService.currentLocation);
-          });
-        }
-
-        scope.$watch(function () {
-          return GameService.currentLocation;
-        }, function () {
-          renderMap();
-        }, true);
-      }
+    ctrl.$onChanges = function () {
+      renderMap();
     };
   };
 
-  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
+  angular.module('apox').component('apoxMap', {
+    controller: ['$element', 'GameService', 'MapService', 'MapRenderer', ApoxMapController],
+    template: '<canvas class="map-canvas" resize="true"></canvas>',
+    bindings: {
+      location: '<'
+    }
+  });
 })();
 'use strict';
 

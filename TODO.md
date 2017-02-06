@@ -1,7 +1,8 @@
 # ApocalypseExpress TODO List
 
 ## Implementing
-
+* Refactor connections stuff out of the map request - use trip
+* Move map as driver travels - add travel dot
 
 ## Writing Unit Tests
 
@@ -13,7 +14,6 @@
 ## On Deck
 
 * Driver should have a current vehicle
-* Move map as driver travels - add travel dot
 
 ## Bugs
 
@@ -96,7 +96,6 @@
 
 ----
 * DB error checking everywhere
-* Refactor connections stuff out of the map request - use trip
 
 ## Done
 
