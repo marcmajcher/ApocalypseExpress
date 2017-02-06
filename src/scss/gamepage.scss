@@ -1,4 +1,18 @@
 body.game-page {
+  .error-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200,200,200,.5);
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 25%;
+    z-index: 9999;
+  }
+
   .driver-name {
     background-color: #eee;
     font-size: 3em;

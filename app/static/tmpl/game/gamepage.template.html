@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<div class="row" ng-if="$ctrl.loaded">
+<div class="row" ng-if="$ctrl.loaded" ng-class="{blur: $ctrl.error}">
   <div class="col-md-6">
     <driver-name name="$ctrl.driver.name"></driver-name>
     <location-details location="$ctrl.currentLocation" tags="$ctrl.factionTags"></location-details>
@@ -10,3 +10,4 @@
     <trip-progress ng-if="$ctrl.traveling" trip="$ctrl.trip"></trip-progress>
   </div>
 </div>
+<div class="error-modal" ng-if="$ctrl.error">{{$ctrl.error}}</div>

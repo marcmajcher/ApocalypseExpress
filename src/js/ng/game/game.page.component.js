@@ -4,6 +4,8 @@
   /* eslint-env jquery, browser */
   /* eslint max-params: ["error", 6] */
 
+  const refreshTime = 1000;
+
   const getDistanceFromId = (location, id) => {
     for (let i = 0; i < location.connections.length; i++) {
       if (location.connections[i].id === id) {
@@ -18,6 +20,7 @@
       LocationService, TripService, SocketService) {
       const ctrl = this;
 
+      ctrl.error = false;
       ctrl.loaded = false;
       ctrl.working = false;
       ctrl.traveling = false;
@@ -54,7 +57,7 @@
               setTimeout(() => {
                 ctrl.getCurrentLocation();
                 ctrl.traveling = false;
-              }, 1000); // eslint-disable-line no-magic-numbers
+              }, refreshTime);
             }
             else {
               ctrl.trip.progress = data.progress;
@@ -68,19 +71,25 @@
       ctrl.setDestination = function setDestination(id) {
         ctrl.working = true;
         TripService.setNextDestination(id).then((data) => {
-          if (data.ok) {
-            ctrl.destinationId = data.id;
-            ctrl.trip = {
-              progress: 0,
-              destination: data.name,
-              origin: ctrl.currentLocation.name,
-              distance: getDistanceFromId(ctrl.currentLocation, data.id)
-            };
-            ctrl.working = false;
-          }
-          // TODO: error check
-          // TODO: better response from the route - return new id?
-        });
+            if (data.ok) {
+              ctrl.destinationId = data.id;
+              ctrl.trip = {
+                progress: 0,
+                destination: data.name,
+                origin: ctrl.currentLocation.name,
+                distance: getDistanceFromId(ctrl.currentLocation, data.id)
+              };
+              ctrl.working = false;
+            }
+            else {
+              ctrl.error = 'setNextDestination Error: Please try again later.';
+              console.error(data); // eslint-disable-line
+            }
+          })
+          .catch((error) => {
+            ctrl.error = 'setNextDestination Error: Please try again later.';
+            console.error(error); // eslint-disable-line
+          });
       };
 
       ctrl.goDestination = function goDestination() {

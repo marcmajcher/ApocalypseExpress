@@ -129,234 +129,6 @@
 
   /* eslint-env jquery, browser */
 
-  angular.module('apox').component('destinationList', {
-    bindings: {
-      working: '<',
-      location: '<',
-      tags: '<',
-      trip: '<',
-      setDestination: '&',
-      clearDestination: '&',
-      goDestination: '&'
-    },
-    templateUrl: '../tmpl/game/destinations.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('driverName', {
-    bindings: {
-      name: '<'
-    },
-    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.name}}</span>\n    </div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-  /* eslint max-params: ["error", 6] */
-
-  var getDistanceFromId = function getDistanceFromId(location, id) {
-    for (var i = 0; i < location.connections.length; i++) {
-      if (location.connections[i].id === id) {
-        return location.connections[i].distance;
-      }
-    }
-    return -1; // eslint-disable-line no-magic-numbers
-  };
-
-  var GamePageController = function gamePageController($scope, GameService, FactionService, // jshint ignore: line
-  LocationService, TripService, SocketService) {
-    var ctrl = this;
-
-    ctrl.loaded = false;
-    ctrl.working = false;
-    ctrl.traveling = false;
-    ctrl.factionTags = FactionService.factionTags;
-    ctrl.trip = {};
-
-    GameService.init().then(function () {
-      SocketService.init();
-      ctrl.driver = GameService.driver;
-      ctrl.currentLocation = GameService.currentLocation;
-      if (GameService.trip) {
-        var currentTrip = GameService.trip;
-        if (currentTrip.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
-          ctrl.getCurrentLocation();
-          ctrl.traveling = false;
-        } else {
-          ctrl.trip = {
-            destination: currentTrip.name,
-            progress: currentTrip.progress,
-            origin: ctrl.currentLocation.name,
-            distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
-          };
-          ctrl.traveling = currentTrip.progress > 0;
-        }
-      }
-
-      SocketService.on('tripProgress', function (data) {
-        if (data.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
-          $scope.$apply();
-          setTimeout(function () {
-            ctrl.getCurrentLocation();
-            ctrl.traveling = false;
-          }, 1000); // eslint-disable-line no-magic-numbers
-        } else {
-          ctrl.trip.progress = data.progress;
-          $scope.$apply();
-        }
-      });
-
-      ctrl.loaded = true;
-    });
-
-    ctrl.setDestination = function setDestination(id) {
-      ctrl.working = true;
-      TripService.setNextDestination(id).then(function (data) {
-        if (data.ok) {
-          ctrl.destinationId = data.id;
-          ctrl.trip = {
-            progress: 0,
-            destination: data.name,
-            origin: ctrl.currentLocation.name,
-            distance: getDistanceFromId(ctrl.currentLocation, data.id)
-          };
-          ctrl.working = false;
-        }
-        // TODO: error check
-        // TODO: better response from the route - return new id?
-      });
-    };
-
-    ctrl.goDestination = function goDestination() {
-      ctrl.working = true;
-      ctrl.traveling = true;
-      TripService.beginTrip().then(function (data) {
-        if (data === 'ok') {
-          ctrl.working = false;
-        }
-      });
-    };
-
-    ctrl.getCurrentLocation = function getCurrentLocation() {
-      LocationService.getCurrentLocation().then(function (location) {
-        ctrl.currentLocation = location;
-        GameService.currentLocation = location;
-        ctrl.trip = {
-          origin: location.name
-        };
-      });
-    };
-
-    ctrl.clearDestination = function clearDestination() {
-      ctrl.working = true;
-      TripService.clearTrip().then(function (data) {
-        if (data === 'ok') {
-          ctrl.destinationId = undefined;
-          ctrl.trip = {
-            origin: ctrl.currentLocation.name
-          };
-          ctrl.working = false;
-        }
-      });
-    };
-  };
-
-  angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'FactionService', 'LocationService', 'TripService', 'SocketService', GamePageController],
-    templateUrl: '../tmpl/game/gamepage.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('locationDetails', {
-    bindings: {
-      location: '<',
-      tags: '<'
-    },
-    template: '\n    <div class="location-header">\n      Location:\n      <span class="location-name" id="location-name">{{$ctrl.location.name}}</span>\n      <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>\n    </div>\n    <div class="location-info">\n      Population: {{$ctrl.location.population}}<br/> Tech Level: {{$ctrl.location.tech}}\n    </div>\n    <div class="location-description">{{$ctrl.location.description}}</div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
-    return {
-      restrict: 'E',
-      template: '<canvas class="map-canvas" resize="true"></canvas>',
-      link: function link(scope, element) {
-        // console.log(element);
-        paper.setup(element.context.firstChild);
-
-        var bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
-
-        var mapLayer = new paper.Layer();
-
-        MapRenderer.setupMouseWheel(element, {
-          zoom: true
-        });
-
-        function renderMap() {
-          MapService.loadMap().then(function () {
-            MapRenderer.render({
-              isAdmin: false,
-              mapLayer: mapLayer
-            });
-            MapRenderer.centerMap(GameService.currentLocation);
-          });
-        }
-
-        scope.$watch(function () {
-          return GameService.currentLocation;
-        }, function () {
-          renderMap();
-        }, true);
-      }
-    };
-  };
-
-  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('tripProgress', {
-    bindings: {
-      trip: '<'
-    },
-    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination}}</span>\n    </div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
   var driverRoute = '/driver';
 
   /* A service to interface with the driver routes */
@@ -821,4 +593,239 @@
   };
 
   angular.module('apox').factory('TripService', ['$http', '$q', tripService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('destinationList', {
+    bindings: {
+      working: '<',
+      location: '<',
+      tags: '<',
+      trip: '<',
+      setDestination: '&',
+      clearDestination: '&',
+      goDestination: '&'
+    },
+    templateUrl: '../tmpl/game/destinations.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('driverName', {
+    bindings: {
+      name: '<'
+    },
+    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.name}}</span>\n    </div>\n    '
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+  /* eslint max-params: ["error", 6] */
+
+  var refreshTime = 1000;
+
+  var getDistanceFromId = function getDistanceFromId(location, id) {
+    for (var i = 0; i < location.connections.length; i++) {
+      if (location.connections[i].id === id) {
+        return location.connections[i].distance;
+      }
+    }
+    return -1; // eslint-disable-line no-magic-numbers
+  };
+
+  var GamePageController = function gamePageController($scope, GameService, FactionService, // jshint ignore: line
+  LocationService, TripService, SocketService) {
+    var ctrl = this;
+
+    ctrl.error = false;
+    ctrl.loaded = false;
+    ctrl.working = false;
+    ctrl.traveling = false;
+    ctrl.factionTags = FactionService.factionTags;
+    ctrl.trip = {};
+
+    GameService.init().then(function () {
+      SocketService.init();
+      ctrl.driver = GameService.driver;
+      ctrl.currentLocation = GameService.currentLocation;
+      if (GameService.trip) {
+        var currentTrip = GameService.trip;
+        if (currentTrip.progress === 'done') {
+          ctrl.trip.progress = ctrl.trip.distance;
+          ctrl.getCurrentLocation();
+          ctrl.traveling = false;
+        } else {
+          ctrl.trip = {
+            destination: currentTrip.name,
+            progress: currentTrip.progress,
+            origin: ctrl.currentLocation.name,
+            distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
+          };
+          ctrl.traveling = currentTrip.progress > 0;
+        }
+      }
+
+      SocketService.on('tripProgress', function (data) {
+        if (data.progress === 'done') {
+          ctrl.trip.progress = ctrl.trip.distance;
+          $scope.$apply();
+          setTimeout(function () {
+            ctrl.getCurrentLocation();
+            ctrl.traveling = false;
+          }, refreshTime);
+        } else {
+          ctrl.trip.progress = data.progress;
+          $scope.$apply();
+        }
+      });
+
+      ctrl.loaded = true;
+    });
+
+    ctrl.setDestination = function setDestination(id) {
+      ctrl.working = true;
+      TripService.setNextDestination(id).then(function (data) {
+        if (data.ok) {
+          ctrl.destinationId = data.id;
+          ctrl.trip = {
+            progress: 0,
+            destination: data.name,
+            origin: ctrl.currentLocation.name,
+            distance: getDistanceFromId(ctrl.currentLocation, data.id)
+          };
+          ctrl.working = false;
+        } else {
+          ctrl.error = 'setNextDestination Error: Please try again later.';
+          console.error(data); // eslint-disable-line
+        }
+      }).catch(function (error) {
+        ctrl.error = 'setNextDestination Error: Please try again later.';
+        console.error(error); // eslint-disable-line
+      });
+    };
+
+    ctrl.goDestination = function goDestination() {
+      ctrl.working = true;
+      ctrl.traveling = true;
+      TripService.beginTrip().then(function (data) {
+        if (data === 'ok') {
+          ctrl.working = false;
+        }
+      });
+    };
+
+    ctrl.getCurrentLocation = function getCurrentLocation() {
+      LocationService.getCurrentLocation().then(function (location) {
+        ctrl.currentLocation = location;
+        GameService.currentLocation = location;
+        ctrl.trip = {
+          origin: location.name
+        };
+      });
+    };
+
+    ctrl.clearDestination = function clearDestination() {
+      ctrl.working = true;
+      TripService.clearTrip().then(function (data) {
+        if (data === 'ok') {
+          ctrl.destinationId = undefined;
+          ctrl.trip = {
+            origin: ctrl.currentLocation.name
+          };
+          ctrl.working = false;
+        }
+      });
+    };
+  };
+
+  angular.module('apox').component('gamePage', {
+    controller: ['$scope', 'GameService', 'FactionService', 'LocationService', 'TripService', 'SocketService', GamePageController],
+    templateUrl: '../tmpl/game/gamepage.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('locationDetails', {
+    bindings: {
+      location: '<',
+      tags: '<'
+    },
+    template: '\n    <div class="location-header">\n      Location:\n      <span class="location-name" id="location-name">{{$ctrl.location.name}}</span>\n      <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>\n    </div>\n    <div class="location-info">\n      Population: {{$ctrl.location.population}}<br/> Tech Level: {{$ctrl.location.tech}}\n    </div>\n    <div class="location-description">{{$ctrl.location.description}}</div>\n    '
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  var apoxMap = function apoxMap(GameService, MapService, MapRenderer) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        // console.log(element);
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapRenderer.setupMouseWheel(element, {
+          zoom: true
+        });
+
+        function renderMap() {
+          MapService.loadMap().then(function () {
+            MapRenderer.render({
+              isAdmin: false,
+              mapLayer: mapLayer
+            });
+            MapRenderer.centerMap(GameService.currentLocation);
+          });
+        }
+
+        scope.$watch(function () {
+          return GameService.currentLocation;
+        }, function () {
+          renderMap();
+        }, true);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxMap', ['GameService', 'MapService', 'MapRenderer', apoxMap]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('tripProgress', {
+    bindings: {
+      trip: '<'
+    },
+    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination}}</span>\n    </div>\n    '
+  });
 })();
