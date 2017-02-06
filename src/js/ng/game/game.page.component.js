@@ -2,20 +2,17 @@
   'use strict';
 
   /* eslint-env jquery, browser */
-  /* eslint max-params: ["error", 6] */
 
   const refreshTime = 1000;
 
   const GamePageController =
-    function gamePageController($scope, GameService, FactionService, // jshint ignore: line
-      LocationService, SocketService) {
+    function gamePageController($scope, GameService, LocationService, SocketService) {
       const ctrl = this;
 
       ctrl.error = false;
       ctrl.loaded = false;
       ctrl.working = false;
       ctrl.traveling = false;
-      ctrl.factionTags = FactionService.factionTags;
       ctrl.trip = {};
 
       GameService.init()
@@ -73,9 +70,7 @@
     };
 
   angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'FactionService', 'LocationService',
-      'SocketService', GamePageController
-    ],
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
     templateUrl: '../tmpl/game/gamepage.template.html'
   });
 })();

@@ -129,8 +129,9 @@
 
   /* eslint-env jquery, browser */
 
-  var DestinationListController = function destinationListController(LocationService, TripService) {
+  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
     var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
 
     ctrl.setDestination = function setDestination(id) {
       ctrl.working = true;
@@ -191,12 +192,11 @@
     bindings: {
       error: '=',
       location: '<',
-      tags: '<',
       traveling: '=',
       trip: '=',
       working: '='
     },
-    controller: ['LocationService', 'TripService', DestinationListController],
+    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
     templateUrl: '../tmpl/game/destinations.template.html'
   });
 })();
@@ -220,19 +220,16 @@
   'use strict';
 
   /* eslint-env jquery, browser */
-  /* eslint max-params: ["error", 6] */
 
   var refreshTime = 1000;
 
-  var GamePageController = function gamePageController($scope, GameService, FactionService, // jshint ignore: line
-  LocationService, SocketService) {
+  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
     var ctrl = this;
 
     ctrl.error = false;
     ctrl.loaded = false;
     ctrl.working = false;
     ctrl.traveling = false;
-    ctrl.factionTags = FactionService.factionTags;
     ctrl.trip = {};
 
     GameService.init().then(function () {
@@ -286,7 +283,7 @@
   };
 
   angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'FactionService', 'LocationService', 'SocketService', GamePageController],
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
     templateUrl: '../tmpl/game/gamepage.template.html'
   });
 })();
@@ -297,11 +294,16 @@
 
   /* eslint-env jquery, browser */
 
+  var LocationDetailsController = function locationDetailsController(FactionService) {
+    var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+  };
+
   angular.module('apox').component('locationDetails', {
     bindings: {
-      location: '<',
-      tags: '<'
+      location: '<'
     },
+    controller: ['FactionService', LocationDetailsController],
     template: '\n    <div class="location-header">\n      Location:\n      <span class="location-name" id="location-name">{{$ctrl.location.name}}</span>\n      <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>\n    </div>\n    <div class="location-info">\n      Population: {{$ctrl.location.population}}<br/> Tech Level: {{$ctrl.location.tech}}\n    </div>\n    <div class="location-description">{{$ctrl.location.description}}</div>\n    '
   });
 })();

@@ -3,11 +3,16 @@
 
   /* eslint-env jquery, browser */
 
+  const LocationDetailsController = function locationDetailsController(FactionService) {
+    const ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+  };
+
   angular.module('apox').component('locationDetails', {
     bindings: {
       location: '<',
-      tags: '<'
     },
+    controller: ['FactionService', LocationDetailsController],
     template: `
     <div class="location-header">
       Location:

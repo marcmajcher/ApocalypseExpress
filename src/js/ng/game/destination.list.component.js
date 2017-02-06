@@ -4,8 +4,9 @@
   /* eslint-env jquery, browser */
 
   const DestinationListController =
-    function destinationListController(LocationService, TripService) {
+    function destinationListController(FactionService, LocationService, TripService) {
       const ctrl = this;
+      ctrl.tags = FactionService.factionTags;
 
       ctrl.setDestination = function setDestination(id) {
         ctrl.working = true;
@@ -72,12 +73,11 @@
     bindings: {
       error: '=',
       location: '<',
-      tags: '<',
       traveling: '=',
       trip: '=',
       working: '='
     },
-    controller: ['LocationService', 'TripService', DestinationListController],
+    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
     templateUrl: '../tmpl/game/destinations.template.html'
   });
 })();
