@@ -14,7 +14,8 @@ const speed = 4000;
 
 exports.get = driverid => util.knex(tripDb).where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
-  .select('trips.destinationid', 'locations.name', 'trips.startid', 'trips.progress', 'trips.underway')
+  .select('locations.name', 'locations.latitude', 'locations.longitude',
+    'trips.destinationid', 'trips.startid', 'trips.progress', 'trips.underway')
   .orderBy('sequence');
 
 // TODO: don't delete if underway

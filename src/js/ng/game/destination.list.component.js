@@ -14,8 +14,8 @@
             if (data.ok) {
               ctrl.trip = {
                 progress: 0,
-                destination: data.name,
-                origin: ctrl.location.name,
+                destination: data,
+                origin: ctrl.location,
                 distance: LocationService.getDistanceFromId(ctrl.location, data.id)
               };
               ctrl.working = false;

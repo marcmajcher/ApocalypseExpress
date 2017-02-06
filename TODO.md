@@ -13,6 +13,7 @@
 
 ## On Deck
 
+* Add smooth transition animation for centerMap
 * Driver should have a current vehicle
 
 ## Bugs

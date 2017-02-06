@@ -139,8 +139,8 @@
         if (data.ok) {
           ctrl.trip = {
             progress: 0,
-            destination: data.name,
-            origin: ctrl.location.name,
+            destination: data,
+            origin: ctrl.location,
             distance: LocationService.getDistanceFromId(ctrl.location, data.id)
           };
           ctrl.working = false;
@@ -245,11 +245,12 @@
           ctrl.traveling = false;
         } else {
           ctrl.trip = {
-            destination: currentTrip.name,
+            origin: ctrl.currentLocation,
+            destination: currentTrip,
             progress: currentTrip.progress,
-            origin: ctrl.currentLocation.name,
             distance: LocationService.getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
           };
+          ctrl.setTripLocation();
           ctrl.traveling = currentTrip.progress > 0;
         }
       }
@@ -264,9 +265,7 @@
           }, refreshTime);
         } else {
           ctrl.trip.progress = data.progress;
-
-          // ctrl.currentLocation.latitude -= .1;
-          // ctrl.currentLocation = angular.copy(ctrl.currentLocation)
+          ctrl.setTripLocation();
           $scope.$apply();
         }
       });
@@ -274,12 +273,19 @@
       ctrl.loaded = true;
     });
 
+    ctrl.setTripLocation = function setTripLocation() {
+      var ratio = ctrl.trip.progress / ctrl.trip.distance;
+      ctrl.currentLocation.latitude = ctrl.trip.origin.latitude + (ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio;
+      ctrl.currentLocation.longitude = ctrl.trip.origin.longitude + (ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio;
+      ctrl.currentLocation = angular.copy(ctrl.currentLocation);
+    };
+
     ctrl.getCurrentLocation = function getCurrentLocation() {
       LocationService.getCurrentLocation().then(function (location) {
         ctrl.currentLocation = location;
         GameService.currentLocation = location;
         ctrl.trip = {
-          origin: location.name
+          origin: location
         };
       });
     };
@@ -361,7 +367,7 @@
     bindings: {
       trip: '<'
     },
-    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination}}</span>\n    </div>\n    '
+    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin.name}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination.name}}</span>\n    </div>\n    '
   });
 })();
 'use strict';

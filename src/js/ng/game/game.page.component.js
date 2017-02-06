@@ -30,12 +30,13 @@
             }
             else {
               ctrl.trip = {
-                destination: currentTrip.name,
+                origin: ctrl.currentLocation,
+                destination: currentTrip,
                 progress: currentTrip.progress,
-                origin: ctrl.currentLocation.name,
                 distance: LocationService.getDistanceFromId(
                   ctrl.currentLocation, currentTrip.destinationid)
               };
+              ctrl.setTripLocation();
               ctrl.traveling = currentTrip.progress > 0;
             }
           }
@@ -51,9 +52,7 @@
             }
             else {
               ctrl.trip.progress = data.progress;
-
-              // ctrl.currentLocation.latitude -= .1;
-              // ctrl.currentLocation = angular.copy(ctrl.currentLocation)
+              ctrl.setTripLocation();
               $scope.$apply();
             }
           });
@@ -61,12 +60,21 @@
           ctrl.loaded = true;
         });
 
+      ctrl.setTripLocation = function setTripLocation() {
+        const ratio = ctrl.trip.progress / ctrl.trip.distance;
+        ctrl.currentLocation.latitude = ctrl.trip.origin.latitude +
+          ((ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio);
+        ctrl.currentLocation.longitude = ctrl.trip.origin.longitude +
+          ((ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio);
+        ctrl.currentLocation = angular.copy(ctrl.currentLocation);
+      };
+
       ctrl.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
           ctrl.currentLocation = location;
           GameService.currentLocation = location;
           ctrl.trip = {
-            origin: location.name
+            origin: location
           };
         });
       };
