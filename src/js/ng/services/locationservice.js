@@ -19,6 +19,14 @@
                 reject(err);
               });
         });
+      },
+      getDistanceFromId: (location, id) => {
+        for (let i = 0; i < location.connections.length; i++) {
+          if (location.connections[i].id === id) {
+            return location.connections[i].distance;
+          }
+        }
+        return -1; // eslint-disable-line no-magic-numbers
       }
     };
   };

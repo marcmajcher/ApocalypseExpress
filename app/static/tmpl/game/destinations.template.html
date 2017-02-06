@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="c in $ctrl.location.connections | orderBy: c.distance" class="{{c.name === $ctrl.trip.destination ? 'current' : 'select'}}" ng-click="$ctrl.setDestination()(c.id)">
+      <tr ng-repeat="c in $ctrl.location.connections | orderBy: c.distance" class="{{c.name === $ctrl.trip.destination ? 'current' : 'select'}}" ng-click="$ctrl.setDestination(c.id)">
         <td class="col-faction">
           <div class="faction-dot {{$ctrl.tags[c.factionid]}}"></div>
         </td>

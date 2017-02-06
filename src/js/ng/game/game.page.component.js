@@ -6,18 +6,9 @@
 
   const refreshTime = 1000;
 
-  const getDistanceFromId = (location, id) => {
-    for (let i = 0; i < location.connections.length; i++) {
-      if (location.connections[i].id === id) {
-        return location.connections[i].distance;
-      }
-    }
-    return -1; // eslint-disable-line no-magic-numbers
-  };
-
   const GamePageController =
     function gamePageController($scope, GameService, FactionService, // jshint ignore: line
-      LocationService, TripService, SocketService) {
+      LocationService, SocketService) {
       const ctrl = this;
 
       ctrl.error = false;
@@ -32,6 +23,7 @@
           SocketService.init();
           ctrl.driver = GameService.driver;
           ctrl.currentLocation = GameService.currentLocation;
+
           if (GameService.trip) {
             const currentTrip = GameService.trip;
             if (currentTrip.progress === 'done') {
@@ -44,7 +36,8 @@
                 destination: currentTrip.name,
                 progress: currentTrip.progress,
                 origin: ctrl.currentLocation.name,
-                distance: getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
+                distance: LocationService.getDistanceFromId(
+                  ctrl.currentLocation, currentTrip.destinationid)
               };
               ctrl.traveling = currentTrip.progress > 0;
             }
@@ -68,40 +61,6 @@
           ctrl.loaded = true;
         });
 
-      ctrl.setDestination = function setDestination(id) {
-        ctrl.working = true;
-        TripService.setNextDestination(id).then((data) => {
-            if (data.ok) {
-              ctrl.destinationId = data.id;
-              ctrl.trip = {
-                progress: 0,
-                destination: data.name,
-                origin: ctrl.currentLocation.name,
-                distance: getDistanceFromId(ctrl.currentLocation, data.id)
-              };
-              ctrl.working = false;
-            }
-            else {
-              ctrl.error = 'setNextDestination Error: Please try again later.';
-              console.error(data); // eslint-disable-line
-            }
-          })
-          .catch((error) => {
-            ctrl.error = 'setNextDestination Error: Please try again later.';
-            console.error(error); // eslint-disable-line
-          });
-      };
-
-      ctrl.goDestination = function goDestination() {
-        ctrl.working = true;
-        ctrl.traveling = true;
-        TripService.beginTrip().then((data) => {
-          if (data === 'ok') {
-            ctrl.working = false;
-          }
-        });
-      };
-
       ctrl.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
           ctrl.currentLocation = location;
@@ -111,24 +70,11 @@
           };
         });
       };
-
-      ctrl.clearDestination = function clearDestination() {
-        ctrl.working = true;
-        TripService.clearTrip().then((data) => {
-          if (data === 'ok') {
-            ctrl.destinationId = undefined;
-            ctrl.trip = {
-              origin: ctrl.currentLocation.name
-            };
-            ctrl.working = false;
-          }
-        });
-      };
     };
 
   angular.module('apox').component('gamePage', {
     controller: ['$scope', 'GameService', 'FactionService', 'LocationService',
-      'TripService', 'SocketService', GamePageController
+      'SocketService', GamePageController
     ],
     templateUrl: '../tmpl/game/gamepage.template.html'
   });
