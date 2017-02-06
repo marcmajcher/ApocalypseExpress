@@ -32,24 +32,40 @@
 
       ctrl.goDestination = function goDestination() {
         ctrl.working = true;
-        ctrl.traveling = true;
         TripService.beginTrip().then((data) => {
-          if (data === 'ok') {
-            ctrl.working = false;
-          }
-        });
+            if (data === 'ok') {
+              ctrl.working = false;
+              ctrl.traveling = true;
+            }
+            else {
+              ctrl.error = 'goDestination Error: Please try again later.';
+              console.error(data); // eslint-disable-line
+            }
+          })
+          .catch((error) => {
+            ctrl.error = 'goDestination Error: Please try again later.';
+            console.error(error); // eslint-disable-line
+          });
       };
 
       ctrl.clearDestination = function clearDestination() {
         ctrl.working = true;
         TripService.clearTrip().then((data) => {
-          if (data === 'ok') {
-            ctrl.trip = {
-              origin: ctrl.location.name
-            };
-            ctrl.working = false;
-          }
-        });
+            if (data === 'ok') {
+              ctrl.trip = {
+                origin: ctrl.location.name
+              };
+              ctrl.working = false;
+            }
+            else {
+              ctrl.error = 'clearDestination Error: Please try again later.';
+              console.error(data); // eslint-disable-line
+            }
+          })
+          .catch((error) => {
+            ctrl.error = 'clearDestination Error: Please try again later.';
+            console.error(error); // eslint-disable-line
+          });
       };
     };
 

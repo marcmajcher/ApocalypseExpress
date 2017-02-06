@@ -155,11 +155,17 @@
 
     ctrl.goDestination = function goDestination() {
       ctrl.working = true;
-      ctrl.traveling = true;
       TripService.beginTrip().then(function (data) {
         if (data === 'ok') {
           ctrl.working = false;
+          ctrl.traveling = true;
+        } else {
+          ctrl.error = 'goDestination Error: Please try again later.';
+          console.error(data); // eslint-disable-line
         }
+      }).catch(function (error) {
+        ctrl.error = 'goDestination Error: Please try again later.';
+        console.error(error); // eslint-disable-line
       });
     };
 
@@ -171,7 +177,13 @@
             origin: ctrl.location.name
           };
           ctrl.working = false;
+        } else {
+          ctrl.error = 'clearDestination Error: Please try again later.';
+          console.error(data); // eslint-disable-line
         }
+      }).catch(function (error) {
+        ctrl.error = 'clearDestination Error: Please try again later.';
+        console.error(error); // eslint-disable-line
       });
     };
   };
