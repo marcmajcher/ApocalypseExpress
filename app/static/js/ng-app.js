@@ -144,12 +144,10 @@
           };
           ctrl.working = false;
         } else {
-          ctrl.error = 'setNextDestination Error: Please try again later.';
-          console.error(data); // eslint-disable-line
+          throw new Error();
         }
       }).catch(function (error) {
-        ctrl.error = 'setNextDestination Error: Please try again later.';
-        console.error(error); // eslint-disable-line
+        ctrl.showError(error, 'setDestination');
       });
     };
 
@@ -160,12 +158,10 @@
           ctrl.working = false;
           ctrl.traveling = true;
         } else {
-          ctrl.error = 'goDestination Error: Please try again later.';
-          console.error(data); // eslint-disable-line
+          throw new Error();
         }
       }).catch(function (error) {
-        ctrl.error = 'goDestination Error: Please try again later.';
-        console.error(error); // eslint-disable-line
+        ctrl.showError(error, 'goDestination');
       });
     };
 
@@ -178,13 +174,16 @@
           };
           ctrl.working = false;
         } else {
-          ctrl.error = 'clearDestination Error: Please try again later.';
-          console.error(data); // eslint-disable-line
+          throw new Error();
         }
       }).catch(function (error) {
-        ctrl.error = 'clearDestination Error: Please try again later.';
-        console.error(error); // eslint-disable-line
+        ctrl.showError(error, 'clearDestination');
       });
+    };
+
+    ctrl.showError = function showError(error, what) {
+      ctrl.error = what + ' Error: Please try again later.';
+      console.error(what + ' ERROR', error); // eslint-disable-line
     };
   };
 
@@ -439,7 +438,6 @@
       driver: undefined,
       currentLocation: undefined,
       trip: undefined
-
     };
   };
 

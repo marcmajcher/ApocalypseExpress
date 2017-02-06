@@ -53,7 +53,6 @@ router.put('/', /* isNotTraveling, */ (req, res, next) => {
 
 /* Begin current trip */
 router.post('/go', (req, res, next) => { // TODO: catch errors for delete, /* isNotTraveling, */
-  // TODO: use timer to travel (instant for admin)
   // TODO: add 'traveling' column, check that not already traveling
   // TODO: what's the behavior when we start a trip that doesn't exist? TEST
   Driver.get(req.session.user.driverid)

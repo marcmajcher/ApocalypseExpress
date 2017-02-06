@@ -28,7 +28,6 @@
       driver: undefined,
       currentLocation: undefined,
       trip: undefined
-
     };
   };
 
