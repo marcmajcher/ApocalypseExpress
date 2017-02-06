@@ -3,30 +3,24 @@
 ## Implementing
 
 * Better handling of ajax errors on client - test when server down
+* Test everything by turning off server and displaying message for 500
+* Disconnect sockets from clients when server shuts down (or handle error on restart)
+* Shut down socket when browser window closes, or on error?
+* Refactor connections stuff out of the map request - use trip
 
 ## Writing Unit Tests
 
-* Test everything by turning off server and displaying message for 500
 * Write tests for all services
 * Write tests for ticker
 * How to test sockets?
 
 ## On Deck
 
-* Disconnect sockets from clients when server shuts down (or handle error on restart)
-* Shut down socket when browser window closes, or on error?
 * Driver should have a current vehicle
-* Refactor connections stuff out of the map request - use trip
 * Move map as driver travels - add travel dot
 
 ## Bugs
 
-* When user logs out during trip, don't emit:
-Unhandled rejection TypeError: Cannot read property 'emit' of undefined
-    at util.knex.where.then (/Users/majcher/repo/ApocalypseExpress/app/models/trip.js:91:17)
-(Also drivers.traveling=t/f bug)
-* Set destination on load/game start if in progress or selected (set traveling flag)
-* Why not returning destination id on game load?
 * Why is it making two calls to /map on the game page?
 
 ## Backlog
@@ -124,3 +118,9 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Update ticker loop with Promise.all: https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
 * set up little socket server for trip progress push ("little")
 * Show trip progress via socket messages, refresh when done
+* When user logs out during trip, don't emit:
+Unhandled rejection TypeError: Cannot read property 'emit' of undefined
+    at util.knex.where.then (/Users/majcher/repo/ApocalypseExpress/app/models/trip.js:91:17)
+(Also drivers.traveling=t/f bug)
+* Set destination on load/game start if in progress or selected (set traveling flag)
+* Why not returning destination id on game load?
