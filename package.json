@@ -8,7 +8,8 @@
     "test": "NODE_ENV=test mocha",
     "prot": "protractor test-e2e/protractor.conf.js",
     "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update"
+    "update-webdriver": "webdriver-manager update",
+    "postinstall": "bower install"
   },
   "dependencies": {
     "bcrypt-as-promised": "^1.1.0",
