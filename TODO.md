@@ -1,8 +1,6 @@
 # ApocalypseExpress TODO List
 
 ## Implementing
-* Refactor connections stuff out of the map request - use trip
-* Move map as driver travels - add travel dot
 
 ## Writing Unit Tests
 
@@ -13,12 +11,10 @@
 
 ## On Deck
 
-* Add smooth transition animation for centerMap
 * Driver should have a current vehicle
 
 ## Bugs
 
-* Why is it making two calls to /map on the game page?
 
 ## Backlog
 
@@ -33,6 +29,8 @@
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location
 * User should be able to buy and sell goods at locations
+
+* Refactor connections stuff out of the map request - use trip
 
 * Driver should have reputations (for driving/exploring/combat/trade/etc.)
 * Create driver_reputations table
@@ -79,10 +77,14 @@
 * Disconnect sockets from clients when server shuts down (or handle error on restart)
 * Shut down socket when browser window closes, or on error?
 
+* Bots - virtual drivers to exercise System
+* Location thing - see who else is there, location chat
+
 ## Frontend/UI Tasks
 
 * Update header to be responsive
 * Overall design
+* Add smooth transition animation for centerMap
 
 ## Backend Tasks
 
@@ -128,3 +130,5 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Set destination on load/game start if in progress or selected (set traveling flag)
 * Why not returning destination id on game load?
 * Test everything by turning off server and displaying message for 500
+* Why is it making two calls to /map on the game page?
+* Move map as driver travels - add travel dot?

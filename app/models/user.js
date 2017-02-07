@@ -6,6 +6,7 @@ const util = require('../_util');
 const Joi = require('joi');
 const bcrypt = require('bcrypt-as-promised');
 const Driver = require('./driver');
+const Vehicle = require('./vehicle');
 
 const userDb = 'users';
 const bcRounds = 12;
@@ -52,11 +53,12 @@ exports.create = (userInfo, isAdmin = false) => {
     .then(() => util.knex('config').where('config', 'default').first())
     .then((defaultConfig) => {
       config = defaultConfig;
-      return Driver.insert({
-        name: util.generateApocName(),
-        location: config.defaultLocation
-      }, '*');
+      return Vehicle.createDefault();
     })
+    .then((vehicle) => Driver.create({
+      name: util.generateApocName(),
+      location: config.defaultLocation
+    }, '*'))
     .then(drivers => util.knex(userDb).insert({
       email: userInfo.email,
       firstname: userInfo.firstname,
