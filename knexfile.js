@@ -22,9 +22,9 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: process.env.PRODUCTION_DATABASE_URL,
+    connection: process.env.DATABASE_URL,
     seeds: {
-      directory: path.join(__dirname, '/seeds/production')
+      directory: path.join(__dirname, '/seeds/dev')
     }
   }
 };
