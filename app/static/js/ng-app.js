@@ -727,8 +727,6 @@
       }
     }
 
-    /* Factory object */
-
     return {
       centerMap: centerMap,
       render: render,

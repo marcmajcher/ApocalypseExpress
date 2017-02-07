@@ -10,7 +10,9 @@ const ticker = require('../ticker');
 const socketlib = require('../socket');
 
 const tripDb = 'trips';
-const speed = 4000;
+const kph = 70; // ~40mph
+const speedupFactor = 2.7;
+const speed = kph * speedupFactor;
 
 exports.get = driverid => util.knex(tripDb).where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')

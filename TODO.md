@@ -22,6 +22,10 @@
 
 ## Backlog
 
+* For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
+* For trips, record start and end time, and speed, to see how long it takes and whatnot.
+* Multiply kph * 2.7 for right time?
+* Difficulty of a trip (1-10) is x * .05 chance of an event every km
 * Is there something fun to do while they're driving? Minigame? Dashboard?
 * Trips between locations should have events
 * Replace location description with event log when traveling
