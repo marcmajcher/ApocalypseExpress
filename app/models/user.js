@@ -55,9 +55,10 @@ exports.create = (userInfo, isAdmin = false) => {
       config = defaultConfig;
       return Vehicle.createDefault();
     })
-    .then((vehicle) => Driver.create({
+    .then(vehicles => Driver.create({
       name: util.generateApocName(),
-      location: config.defaultLocation
+      location: config.defaultLocation,
+      vehicleid: vehicles[0].id
     }, '*'))
     .then(drivers => util.knex(userDb).insert({
       email: userInfo.email,
