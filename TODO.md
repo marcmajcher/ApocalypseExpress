@@ -2,7 +2,7 @@
 
 ## Implementing
 
-* Driver should have a current vehicle
+* display driver stats and vehicle on dashboard
 
 ## Writing Unit Tests
 
@@ -10,14 +10,12 @@
 * Write tests for ticker
 * How to test sockets?
 * TEST Better handling of ajax errors on client - test when server down
+* Driver should have a current vehicle
 
 ## On Deck
 
-
-## Bugs
-
-
-## Backlog
+* Vehicles should have a name
+* User should be able to rename vehicle
 
 * For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
 * For trips, record start and end time, and speed, to see how long it takes and whatnot.
@@ -26,6 +24,12 @@
 * Is there something fun to do while they're driving? Minigame? Dashboard?
 * Trips between locations should have events
 * Replace location description with event log when traveling
+* Generate AW-type description for new drivers
+
+## Bugs
+
+
+## Backlog
 
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location

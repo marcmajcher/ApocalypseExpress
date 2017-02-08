@@ -64,13 +64,9 @@ app.use((req, res, next) => {
 // TODO: CSRF?
 
 app.use('/', require('./routes/index'));
-app.use('/admin', require('./routes/admin'));
-app.use('/driver', require('./routes/driver'));
-app.use('/game', require('./routes/game'));
-app.use('/location', require('./routes/location'));
-app.use('/map', require('./routes/map'));
-app.use('/trip', require('./routes/trip'));
-app.use('/user', require('./routes/user'));
+['admin', 'driver', 'game', 'location', 'map', 'trip', 'user', 'vehicle'].forEach((e) => {
+  app.use(`/${e}`, require(`./routes/${e}`)); // eslint-disable-line global-require
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
