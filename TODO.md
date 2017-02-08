@@ -2,6 +2,8 @@
 
 ## Implementing
 
+* Driver should have a current vehicle
+
 ## Writing Unit Tests
 
 * Write tests for all services
@@ -11,7 +13,6 @@
 
 ## On Deck
 
-* Driver should have a current vehicle
 
 ## Bugs
 
