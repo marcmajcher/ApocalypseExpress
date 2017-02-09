@@ -21,7 +21,7 @@
           ctrl.driver = GameService.driver;
           ctrl.currentLocation = GameService.currentLocation;
 
-          if (GameService.trip) {
+          if (GameService.trip && GameService.trip.underway) {
             const currentTrip = GameService.trip;
             if (currentTrip.progress === 'done') {
               ctrl.trip.progress = ctrl.trip.distance;
@@ -34,10 +34,13 @@
                 destination: currentTrip,
                 progress: currentTrip.progress,
                 distance: LocationService.getDistanceFromId(
-                  ctrl.currentLocation, currentTrip.destinationid)
+                  ctrl.currentLocation, currentTrip.destinationid),
               };
               ctrl.setTripLocation();
               ctrl.traveling = currentTrip.progress > 0;
+              setTimeout(() => {
+                ctrl.currentLocation.render = false;
+              }, 0); // don't set false until after applied
             }
           }
 
@@ -66,7 +69,6 @@
           ((ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio);
         ctrl.currentLocation.longitude = ctrl.trip.origin.longitude +
           ((ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio);
-        ctrl.currentLocation.render = false;
         ctrl.currentLocation = angular.copy(ctrl.currentLocation);
       };
 

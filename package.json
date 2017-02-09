@@ -34,6 +34,7 @@
     "random-seed": "^0.3.0",
     "randomstring": "^1.1.5",
     "serve-favicon": "~2.3.0",
+    "shifty": "^1.5.4",
     "socket.io": "^1.7.2"
   },
   "devDependencies": {
