@@ -7,7 +7,7 @@
 
   const mapService = function mapService($http) {
     return {
-      loadMap: function loadMap() {
+      loadMap() {
         this.mapData.loaded = false;
         return $http.get('/map')
           .then((res) => {
@@ -16,7 +16,7 @@
             this.mapData.loaded = true;
           });
       },
-      updateLocation: function updateLocation(id, data) {
+      updateLocation(id, data) {
         return $http.patch(`/admin/map/location/${id}`, data);
       },
       mapData: {

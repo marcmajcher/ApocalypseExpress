@@ -7,9 +7,9 @@
 
   /* A service to interface with the driver routes */
 
-  const driverService = function driverService($http, $q) {
+  const DriverService = function driverService($http, $q) {
     return {
-      getDriver: function getDriver() {
+      getDriver() {
         return $q((resolve, reject) => {
           $http.get(driverRoute)
             .then((driver) => {
@@ -23,5 +23,5 @@
     };
   };
 
-  angular.module('apox').factory('DriverService', ['$http', '$q', driverService]);
+  angular.module('apox').factory('DriverService', ['$http', '$q', DriverService]);
 })();

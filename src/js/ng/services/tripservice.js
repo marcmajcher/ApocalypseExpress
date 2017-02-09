@@ -9,7 +9,7 @@
 
   const tripService = function tripService($http, $q) {
     return {
-      getCurrentTrip: function getCurrentTrip() {
+      getCurrentTrip() {
         return $q((resolve, reject) => {
           $http.get(tripRoute)
             .then((trip) => {
@@ -20,7 +20,7 @@
               });
         });
       },
-      setNextDestination: function setNextDestination(id) {
+      setNextDestination(id) {
         return $q((resolve, reject) => {
           $http.put(tripRoute, {
               destination: id
@@ -33,7 +33,7 @@
               });
         });
       },
-      clearTrip: function clearTrip() {
+      clearTrip() {
         return $q((resolve, reject) => {
           $http.delete(tripRoute)
             .then((res) => {
@@ -44,7 +44,7 @@
               });
         });
       },
-      beginTrip: function beginTrip() {
+      beginTrip() {
         return $q((resolve, reject) => {
           $http.post(`${tripRoute}/go`)
             .then((res) => {

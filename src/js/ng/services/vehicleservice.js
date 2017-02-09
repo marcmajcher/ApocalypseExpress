@@ -5,7 +5,7 @@
 
   const vehicleRoute = '/vehicle';
 
-  /* A service to interface with the driver routes */
+  /* A service to interface with the vehicle route */
 
   const VehicleService = function vehicleService($http, $q) {
     return {
@@ -23,5 +23,5 @@
     };
   };
 
-  angular.module('apox').factory('DriverService', ['$http', '$q', VehicleService]);
+  angular.module('apox').factory('VehicleService', ['$http', '$q', VehicleService]);
 })();

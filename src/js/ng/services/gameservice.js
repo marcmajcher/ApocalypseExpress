@@ -5,7 +5,7 @@
 
   const gameService = function gameService($q, DriverService, LocationService, TripService) {
     return {
-      init: function init() {
+      init() {
         return $q.all([
           /* Get driver info */
           DriverService.getDriver().then((driver) => {

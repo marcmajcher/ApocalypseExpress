@@ -9,7 +9,7 @@
 
   const locationService = function locationService($http, $q) {
     return {
-      getCurrentLocation: function getCurrentLocation() {
+      getCurrentLocation() {
         return $q((resolve, reject) => {
           $http.get(locationRoute)
             .then((location) => {
@@ -20,7 +20,7 @@
               });
         });
       },
-      getDistanceFromId: (location, id) => {
+      getDistanceFromId(location, id) {
         for (let i = 0; i < location.connections.length; i++) {
           if (location.connections[i].id === id) {
             return location.connections[i].distance;
