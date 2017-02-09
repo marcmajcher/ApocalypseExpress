@@ -129,260 +129,6 @@
 
   /* eslint-env jquery, browser */
 
-  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
-    var ctrl = this;
-    ctrl.tags = FactionService.factionTags;
-
-    ctrl.setDestination = function setDestination(id) {
-      ctrl.working = true;
-      TripService.setNextDestination(id).then(function (data) {
-        if (data.ok) {
-          ctrl.trip = {
-            progress: 0,
-            destination: data,
-            origin: ctrl.location,
-            distance: LocationService.getDistanceFromId(ctrl.location, data.id)
-          };
-          ctrl.working = false;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ctrl.showError(error, 'setDestination');
-      });
-    };
-
-    ctrl.goDestination = function goDestination() {
-      ctrl.working = true;
-      TripService.beginTrip().then(function (data) {
-        if (data === 'ok') {
-          ctrl.working = false;
-          ctrl.traveling = true;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ctrl.showError(error, 'goDestination');
-      });
-    };
-
-    ctrl.clearDestination = function clearDestination() {
-      ctrl.working = true;
-      TripService.clearTrip().then(function (data) {
-        if (data === 'ok') {
-          ctrl.trip = {
-            origin: ctrl.location.name
-          };
-          ctrl.working = false;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ctrl.showError(error, 'clearDestination');
-      });
-    };
-
-    ctrl.showError = function showError(error, what) {
-      ctrl.error = what + ' Error: Please try again later.';
-      console.error(what + ' ERROR', error); // eslint-disable-line
-    };
-  };
-
-  angular.module('apox').component('destinationList', {
-    bindings: {
-      error: '=',
-      location: '<',
-      traveling: '=',
-      trip: '=',
-      working: '='
-    },
-    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
-    templateUrl: '../tmpl/game/destinations.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('driverInfo', {
-    bindings: {
-      name: '<'
-    },
-    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.name}}</span>\n    </div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var refreshTime = 1000;
-
-  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
-    var ctrl = this;
-
-    ctrl.error = false;
-    ctrl.loaded = false;
-    ctrl.working = false;
-    ctrl.traveling = false;
-    ctrl.trip = {};
-
-    GameService.init().then(function () {
-      SocketService.init();
-      ctrl.driver = GameService.driver;
-      ctrl.currentLocation = GameService.currentLocation;
-
-      if (GameService.trip) {
-        var currentTrip = GameService.trip;
-        if (currentTrip.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
-          ctrl.getCurrentLocation();
-          ctrl.traveling = false;
-        } else {
-          ctrl.trip = {
-            origin: ctrl.currentLocation,
-            destination: currentTrip,
-            progress: currentTrip.progress,
-            distance: LocationService.getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
-          };
-          ctrl.setTripLocation();
-          ctrl.traveling = currentTrip.progress > 0;
-        }
-      }
-
-      SocketService.on('tripProgress', function (data) {
-        if (data.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
-          $scope.$apply();
-          setTimeout(function () {
-            ctrl.getCurrentLocation();
-            ctrl.traveling = false;
-          }, refreshTime);
-        } else {
-          ctrl.trip.progress = data.progress;
-          ctrl.setTripLocation();
-          $scope.$apply();
-        }
-      });
-
-      ctrl.loaded = true;
-    });
-
-    ctrl.setTripLocation = function setTripLocation() {
-      var ratio = ctrl.trip.progress / ctrl.trip.distance;
-      ctrl.currentLocation.latitude = ctrl.trip.origin.latitude + (ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio;
-      ctrl.currentLocation.longitude = ctrl.trip.origin.longitude + (ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio;
-      ctrl.currentLocation.render = false;
-      ctrl.currentLocation = angular.copy(ctrl.currentLocation);
-    };
-
-    ctrl.getCurrentLocation = function getCurrentLocation() {
-      LocationService.getCurrentLocation().then(function (location) {
-        location.render = true;
-        ctrl.currentLocation = location;
-        GameService.currentLocation = location;
-        ctrl.trip = {
-          origin: location
-        };
-      });
-    };
-  };
-
-  angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
-    templateUrl: '../tmpl/game/gamepage.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var LocationDetailsController = function locationDetailsController(FactionService) {
-    var ctrl = this;
-    ctrl.tags = FactionService.factionTags;
-  };
-
-  angular.module('apox').component('locationDetails', {
-    bindings: {
-      location: '<'
-    },
-    controller: ['FactionService', LocationDetailsController],
-    template: '\n    <div class="location-header">\n      Location:\n      <span class="location-name" id="location-name">{{$ctrl.location.name}}</span>\n      <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>\n    </div>\n    <div class="location-info">\n      Population: {{$ctrl.location.population}}<br/> Tech Level: {{$ctrl.location.tech}}\n    </div>\n    <div class="location-description">{{$ctrl.location.description}}</div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  var ApoxMapController = function apoxMapController($element, GameService, MapService, MapRenderer) {
-    var ctrl = this;
-
-    paper.setup($element.context.firstChild);
-    var bgLayer = new paper.Layer();
-    bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
-    var mapLayer = new paper.Layer();
-
-    MapRenderer.setupMouseWheel($element, {
-      zoom: true
-    });
-
-    function renderMap() {
-      MapService.loadMap().then(function () {
-        MapRenderer.render({
-          isAdmin: false,
-          mapLayer: mapLayer
-        });
-        MapRenderer.centerMap(ctrl.location);
-      });
-    }
-
-    ctrl.$onChanges = function () {
-      if (ctrl.location.render) {
-        renderMap();
-      } else {
-        MapRenderer.centerMap(ctrl.location);
-      }
-    };
-  };
-
-  angular.module('apox').component('apoxMap', {
-    controller: ['$element', 'GameService', 'MapService', 'MapRenderer', ApoxMapController],
-    template: '<canvas class="map-canvas" resize="true"></canvas>',
-    bindings: {
-      location: '<'
-    }
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('tripProgress', {
-    bindings: {
-      trip: '<'
-    },
-    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin.name}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination.name}}</span>\n    </div>\n    '
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
   var driverRoute = '/driver';
 
   /* A service to interface with the driver routes */
@@ -853,4 +599,272 @@
   };
 
   angular.module('apox').factory('TripService', ['$http', '$q', tripService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
+    var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+
+    ctrl.setDestination = function setDestination(id) {
+      ctrl.working = true;
+      TripService.setNextDestination(id).then(function (data) {
+        if (data.ok) {
+          ctrl.trip = {
+            progress: 0,
+            destination: data,
+            origin: ctrl.location,
+            distance: LocationService.getDistanceFromId(ctrl.location, data.id)
+          };
+          ctrl.working = false;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ctrl.showError(error, 'setDestination');
+      });
+    };
+
+    ctrl.goDestination = function goDestination() {
+      ctrl.working = true;
+      TripService.beginTrip().then(function (data) {
+        if (data === 'ok') {
+          ctrl.working = false;
+          ctrl.traveling = true;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ctrl.showError(error, 'goDestination');
+      });
+    };
+
+    ctrl.clearDestination = function clearDestination() {
+      ctrl.working = true;
+      TripService.clearTrip().then(function (data) {
+        if (data === 'ok') {
+          ctrl.trip = {
+            origin: ctrl.location.name
+          };
+          ctrl.working = false;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ctrl.showError(error, 'clearDestination');
+      });
+    };
+
+    ctrl.showError = function showError(error, what) {
+      ctrl.error = what + ' Error: Please try again later.';
+      console.error(what + ' ERROR', error); // eslint-disable-line
+    };
+  };
+
+  angular.module('apox').component('destinationList', {
+    bindings: {
+      error: '=',
+      location: '<',
+      traveling: '=',
+      trip: '=',
+      working: '='
+    },
+    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
+    templateUrl: '../tmpl/game/destinations.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('driverInfo', {
+    bindings: {
+      name: '<'
+    },
+    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.name}}</span>\n    </div>\n    '
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var refreshTime = 1000;
+
+  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
+    var ctrl = this;
+
+    ctrl.error = false;
+    ctrl.loaded = false;
+    ctrl.working = false;
+    ctrl.traveling = false;
+    ctrl.trip = {};
+
+    GameService.init().then(function () {
+      SocketService.init();
+      ctrl.driver = GameService.driver;
+      ctrl.currentLocation = GameService.currentLocation;
+
+      if (GameService.trip) {
+        var currentTrip = GameService.trip;
+        if (currentTrip.progress === 'done') {
+          ctrl.trip.progress = ctrl.trip.distance;
+          ctrl.getCurrentLocation();
+          ctrl.traveling = false;
+        } else {
+          ctrl.trip = {
+            origin: ctrl.currentLocation,
+            destination: currentTrip,
+            progress: currentTrip.progress,
+            distance: LocationService.getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
+          };
+          ctrl.setTripLocation();
+          ctrl.traveling = currentTrip.progress > 0;
+        }
+      }
+
+      SocketService.on('tripProgress', function (data) {
+        if (data.progress === 'done') {
+          ctrl.trip.progress = ctrl.trip.distance;
+          $scope.$apply();
+          setTimeout(function () {
+            ctrl.getCurrentLocation();
+            ctrl.traveling = false;
+          }, refreshTime);
+        } else {
+          ctrl.trip.progress = data.progress;
+          ctrl.setTripLocation();
+          $scope.$apply();
+        }
+      });
+
+      ctrl.loaded = true;
+    });
+
+    ctrl.setTripLocation = function setTripLocation() {
+      var ratio = ctrl.trip.progress / ctrl.trip.distance;
+      ctrl.currentLocation.latitude = ctrl.trip.origin.latitude + (ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio;
+      ctrl.currentLocation.longitude = ctrl.trip.origin.longitude + (ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio;
+      ctrl.currentLocation.render = false;
+      ctrl.currentLocation = angular.copy(ctrl.currentLocation);
+    };
+
+    ctrl.getCurrentLocation = function getCurrentLocation() {
+      LocationService.getCurrentLocation().then(function (location) {
+        location.render = true;
+        ctrl.currentLocation = location;
+        GameService.currentLocation = location;
+        ctrl.trip = {
+          origin: location
+        };
+      });
+    };
+  };
+
+  angular.module('apox').component('gamePage', {
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
+    templateUrl: '../tmpl/game/gamepage.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var LocationDetailsController = function locationDetailsController(FactionService) {
+    var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+  };
+
+  angular.module('apox').component('locationDetails', {
+    bindings: {
+      location: '<'
+    },
+    controller: ['FactionService', LocationDetailsController],
+    template: '\n    <div class="location-header">\n      Location:\n      <span class="location-name" id="location-name">{{$ctrl.location.name}}</span>\n      <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>\n    </div>\n    <div class="location-info">\n      Population: {{$ctrl.location.population}}<br/> Tech Level: {{$ctrl.location.tech}}\n    </div>\n    <div class="location-description">{{$ctrl.location.description}}</div>\n    '
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  var ApoxMapController = function apoxMapController($element, GameService, MapService, MapRenderer) {
+    var ctrl = this;
+
+    paper.setup($element.context.firstChild);
+    var bgLayer = new paper.Layer();
+    bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+    var mapLayer = new paper.Layer();
+
+    MapRenderer.setupMouseWheel($element, {
+      zoom: true
+    });
+
+    function renderMap() {
+      MapService.loadMap().then(function () {
+        MapRenderer.render({
+          isAdmin: false,
+          mapLayer: mapLayer
+        });
+        MapRenderer.centerMap(ctrl.location);
+      });
+    }
+
+    ctrl.$onChanges = function () {
+      if (ctrl.location.render) {
+        renderMap();
+      } else {
+        MapRenderer.centerMap(ctrl.location);
+      }
+    };
+  };
+
+  angular.module('apox').component('apoxMap', {
+    controller: ['$element', 'GameService', 'MapService', 'MapRenderer', ApoxMapController],
+    template: '<canvas class="map-canvas" resize="true"></canvas>',
+    bindings: {
+      location: '<'
+    }
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('tripProgress', {
+    bindings: {
+      trip: '<'
+    },
+    template: '\n    <div class="progress trip-progress-bar">\n      <div class="progress-bar" role="progressbar" style="width: {{100*($ctrl.trip.progress/$ctrl.trip.distance)}}%"></div>\n    </div>\n    <div class="trip-progress">\n      <span class="pull-left">{{$ctrl.trip.origin.name}}</span>\n      <span class="pull-right">{{$ctrl.trip.destination.name}}</span>\n    </div>\n    '
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('vehicleInfo', {
+    bindings: {
+      name: '<'
+    },
+    template: '\n    <div>Vehicle Info</div>\n    '
+  });
 })();
