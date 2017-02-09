@@ -3,7 +3,7 @@
 
   /* eslint-env jquery, browser */
 
-  angular.module('apox').component('driverName', {
+  angular.module('apox').component('driverInfo', {
     bindings: {
       name: '<'
     },
