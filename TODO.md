@@ -3,6 +3,8 @@
 ## Implementing
 
 * display driver stats and vehicle on dashboard
+* create component for driver stats
+* rearrange modules on page - tabbed?
 
 ## Writing Unit Tests
 
