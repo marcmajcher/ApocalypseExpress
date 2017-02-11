@@ -6,13 +6,12 @@ const util = require('../_util');
 const Location = require('./location');
 const Driver = require('./driver');
 const Connection = require('./connection');
+const Vehicle = require('./vehicle');
 const ticker = require('../ticker');
 const socketlib = require('../socket');
 
 const tripDb = 'trips';
-const kph = 70; // ~40mph
-const speedupFactor = 2.7;
-const speed = kph * speedupFactor * 30; // eslint-disable-line
+const speedupFactor = 2.7 * 30; // eslint-disable-line
 
 exports.get = driverid => util.knex(tripDb).where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
@@ -33,16 +32,18 @@ exports.create = (driverid, destinationid) =>
   Connection.getDriverDestinationConnections(driverid, destinationid)
   .then((connections) => {
     if (connections.length > 0) {
-      return deleteTrip(driverid).then(() =>
-        util.knex(tripDb).insert({
-          driverid,
-          destinationid,
-          startid: connections[0].start,
-          distance: connections[0].distance
-        })
-        .returning('destinationid')
-        .then(ids => Location.get(ids[0]))
-      );
+      return deleteTrip(driverid)
+        .then(() => Driver.get(driverid))
+        .then(driver => Vehicle.get(driver.vehicleid))
+        .then(vehicle => util.knex(tripDb).insert({
+            driverid,
+            destinationid,
+            startid: connections[0].start,
+            distance: connections[0].distance,
+            speed: vehicle.topspeed
+          })
+          .returning('destinationid'))
+        .then(ids => Location.get(ids[0]));
     }
     return undefined;
   })
@@ -66,7 +67,7 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       for (let i = 0; i < trips.length; i++) {
         const trip = trips[i];
         const emitter = socketlib.driverEmitter(trip.driverid);
-        const newProgress = trip.progress + trip.speed;
+        const newProgress = trip.progress + (trip.speed * speedupFactor);
 
         if (testing || newProgress > trip.distance) {
           emitter.emit('tripProgress', {
@@ -95,18 +96,3 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
 
 exports.tick = tickerTripProgress;
 ticker.addCallback(tickerTripProgress);
-
-
-// function isNotTraveling(req, res, next) {
-//   util.knex('drivers').where('id', req.session.user.driverid).first().select('traveling')
-//     .then((traveling) => {
-//       next();
-//       if (traveling) {
-//         next();
-//         // res.send('traveling');
-//       }
-//       else {
-//         next();
-//       }
-//     });
-// }

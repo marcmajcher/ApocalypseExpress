@@ -23,6 +23,7 @@ const defaultVehicle = {
 const junkerNames = ['Mule', 'Donkey', 'Burro', 'Jack', 'Hinny', 'Jennet', 'Molly', 'John', 'Jule'];
 
 exports.get = id => util.knex(vehicleDb).where('id', id).first();
+exports.getValue = (id, param) => util.knex.select(param).from(vehicleDb).where('id', id);
 
 exports.create = vehicleData => util.knex(vehicleDb).insert(vehicleData, '*');
 exports.createDefault = () => {
