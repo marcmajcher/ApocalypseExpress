@@ -66,7 +66,7 @@ const tickerTripProgress = function tickerTripProgress(testing = false) {
       for (let i = 0; i < trips.length; i++) {
         const trip = trips[i];
         const emitter = socketlib.driverEmitter(trip.driverid);
-        const newProgress = trip.progress + speed;
+        const newProgress = trip.progress + trip.speed;
 
         if (testing || newProgress > trip.distance) {
           emitter.emit('tripProgress', {
