@@ -52,6 +52,7 @@ describe('Trip', () => {
     req.cookies = userCookie;
     req.expect(200)
       .end((err, res) => {
+        console.log('=============', res.text);
         JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
         util.knex('trips').first().then((data) => {
           data.sequence.should.equal(1);

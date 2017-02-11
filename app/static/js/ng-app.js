@@ -269,6 +269,7 @@
         } else {
           ctrl.trip.progress = data.progress;
           ctrl.setTripLocation();
+          ctrl.currentLocation.render = false;
           $scope.$apply();
         }
       });
