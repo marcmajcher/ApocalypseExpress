@@ -45,6 +45,7 @@ exports.create = (driverid, destinationid) =>
           .returning('destinationid'))
         .then(ids => Location.get(ids[0]));
     }
+    console.log('NO DICE HOMBRE');
     return undefined;
   })
   .catch((error) => {
