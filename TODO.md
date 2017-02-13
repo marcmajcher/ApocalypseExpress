@@ -2,8 +2,6 @@
 
 ## Implementing
 
-* Get all the damn tests working again (my stuff works, but the tests don't?)
-
 * display driver stats and vehicle on dashboard
 * create component for driver stats
 * rearrange modules on page - tabbed?
