@@ -52,12 +52,14 @@ describe('Trip', () => {
     req.cookies = userCookie;
     req.expect(200)
       .end((err, res) => {
-        console.log('=============', res.text);
         JSON.parse(res.text).ok.should.be.true; // jshint ignore:line
         util.knex('trips').first().then((data) => {
-          data.sequence.should.equal(1);
-          data.destinationid.should.equal(2);
           data.driverid.should.equal(1);
+          data.startid.should.equal(1);
+          data.destinationid.should.equal(2);
+          data.distance.should.equal(97154);
+          data.underway.should.equal(false);
+          data.speed.should.equal(70);
           done();
         });
       });
