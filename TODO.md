@@ -6,17 +6,8 @@
 * create component for driver stats
 * rearrange modules on page - tabbed?
 
-## Writing Unit Tests
-
-* Write tests for all services
-* Write tests for ticker
-* How to test sockets?
-* TEST Better handling of ajax errors on client - test when server down
-* Driver should have a current vehicle
-
 ## On Deck
 
-* Vehicles should have a name
 * User should be able to rename vehicle
 
 * For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
@@ -27,6 +18,28 @@
 * Trips between locations should have events
 * Replace location description with event log when traveling
 * Generate AW-type description for new drivers
+
+## Writing Unit Tests
+
+* Write tests for all services
+* Write tests for ticker
+* How to test sockets?
+* TEST Better handling of ajax errors on client - test when server down
+* Driver should have a current vehicle
+* Vehicles should have a name
+* Vehicles should have a list of attributes
+  * Model
+  * Size
+  * Type
+  * Cargo Capacity
+  * Fuel Capacity
+  * kmpg
+  * Base Price
+  * Top Speed
+  * Passengers
+  * TRBL armor
+  * Weapons
+  * Add-ons
 
 ## Bugs
 
@@ -51,20 +64,6 @@
 * Add driver_vehicles for vehicle upgrades/alterations
 * Drivers should be able to upgrade/alter vehicles
 
-* Vehicles should have a list of attributes
-  * Model
-  * Size
-  * Type
-  * Cargo Capacity
-  * Fuel Capacity
-  * kmpg
-  * Base Price
-  * Top Speed
-  * Passengers
-  * TRBL armor
-  * Weapons
-  * Add-ons
-
 * Each location should have a set of services
   * Exits
   * Mission Board
@@ -79,9 +78,8 @@
 * Drivers should keep track of how many km they've driven
 * Badges should be available for various milestones
 
-* Refactor location positions from lat/long to x/y km from Ozz
-* Get browser sync and livereload working with gulp and nodemon
-* Disconnect sockets from clients when server shuts down (or handle error on restart)
+* Refactor location positions from lat/long to x/y km from Ozz?
+* Get browser sync and livereload working with gulp and nodemon?
 * Shut down socket when browser window closes, or on error?
 
 * Bots - virtual drivers to exercise System
