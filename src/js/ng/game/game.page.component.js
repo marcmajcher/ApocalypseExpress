@@ -19,6 +19,7 @@
         .then(() => {
           SocketService.init();
           ctrl.driver = GameService.driver;
+
           ctrl.currentLocation = GameService.currentLocation;
 
           if (GameService.trip && GameService.trip.underway) {
