@@ -209,9 +209,9 @@
 
   angular.module('apox').component('driverInfo', {
     bindings: {
-      name: '<'
+      driver: '<'
     },
-    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.name}}</span>\n    </div>\n    '
+    template: '\n    <div class="driver-name text-center">\n      <span id="driver-name">{{$ctrl.driver.name}}</span>\n    </div>\n    <div class="driver-info">\n    Bux: {{$ctrl.driver.money}}\n    </div>\n    '
   });
 })();
 'use strict';

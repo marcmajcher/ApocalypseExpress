@@ -114,6 +114,7 @@ gulp.task('watch', () => {
     'test-e2e/**/*.js'
   ], ['jshint', 'eslint']);
   gulp.watch('src/js/**/*.js', ['scripts']);
+  gulp.watch('src/js/ng/**/*.html', ['ng-templates']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
 });
 
