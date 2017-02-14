@@ -13,7 +13,6 @@ let testUserCookie;
 
 describe('Location', () => {
   before(util.rollback);
-  after(util.rollback);
 
   it('should have all required properties for a location', (done) => {
     util.knex('locations').where('id', 1).first().then((location) => {

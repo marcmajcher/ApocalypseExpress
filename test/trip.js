@@ -154,4 +154,8 @@ describe('Trip', () => {
         });
       });
   });
+
+  xit('should not be able to start a trip if one has not been created');
+
+  xit('should not be able to create a trip if driver does not have enough fuel');
 });

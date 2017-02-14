@@ -20,7 +20,6 @@
 
 ## Writing Unit Tests
 
-* User should not be able to undertake a trip they don't have enough fuel for
 * Write tests for all services
 
 * Write tests for ticker

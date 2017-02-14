@@ -6,13 +6,11 @@ const app = require('../app/app.js').app;
 const request = require('supertest');
 const should = require('should');
 const util = require('./_util');
-const defaultMoney = 0;
-const defaultHealth = 100;
 
-describe('Driver', () => {
+describe('Vehicle', () => {
   before(util.rollback);
 
-  it('should register a new user, which has a driver with a default location', (done) => {
+  xit('should register a new user, which has a default vehicle with a default location', (done) => {
     // move to protractor - test route instead
     request(app)
       .post('/user')
@@ -29,8 +27,6 @@ describe('Driver', () => {
                 util.knex('drivers').where('id', user.driverid).first()
                   .then((driver) => {
                     driver.location.should.equal(config.defaultLocation);
-                    driver.health.should.equal(defaultHealth);
-                    driver.money.should.equal(defaultMoney);
                     should.exist(driver.name); //  eslint-disable-line no-unused-expressions
                     done();
                   });

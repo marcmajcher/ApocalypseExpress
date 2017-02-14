@@ -15,7 +15,6 @@ let req;
 
 describe('Login', () => {
   before(util.rollback);
-  after(util.rollback);
 
   it('home page should have login form if not logged in', (done) => {
     request(app)
@@ -138,7 +137,6 @@ describe('Login', () => {
 
 describe('Registration', () => {
   before(util.rollback);
-  after(util.rollback);
 
   it('home page should have a registration link if not logged in', (done) => {
     request(app)
