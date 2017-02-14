@@ -388,7 +388,7 @@
 
   angular.module('apox').component('vehicleInfo', {
     bindings: {
-      name: '<'
+      vehicle: '<'
     },
     template: '\n    <div>Vehicle Info</div>\n    '
   });
@@ -401,15 +401,21 @@
   /* eslint-env jquery, browser */
 
   var driverRoute = '/driver';
+  var vehicleRoute = '/vehicle';
 
   /* A service to interface with the driver routes */
 
   var DriverService = function driverService($http, $q) {
+    var _getDriver = $http.get(driverRoute);
+    var getVehicle = $http.get(vehicleRoute);
+
     return {
       getDriver: function getDriver() {
         return $q(function (resolve, reject) {
-          $http.get(driverRoute).then(function (driver) {
-            resolve(driver.data);
+          $q.all([_getDriver, getVehicle]).then(function (data) {
+            var driverObj = data[0].data;
+            driverObj.vehicle = data[1].data;
+            resolve(driverObj);
           }, function (err) {
             reject(err);
           });

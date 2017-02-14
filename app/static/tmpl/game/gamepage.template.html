@@ -2,7 +2,7 @@
 <div class="row" ng-if="$ctrl.loaded" ng-class="{blur: $ctrl.error}">
   <div class="col-md-6">
     <driver-info driver="$ctrl.driver"></driver-info>
-    <vehicle-info></vehicle-info>
+    <vehicle-info vehicle="$ctrl.driver.vehicle"></vehicle-info>
     <destination-list ng-if="!$ctrl.traveling" location="$ctrl.currentLocation" traveling="$ctrl.traveling" working="$ctrl.working" trip="$ctrl.trip" error="$ctrl.error"></destination-list>
   </div>
   <div class="col-md-6">

@@ -5,7 +5,7 @@
 
   angular.module('apox').component('vehicleInfo', {
     bindings: {
-      name: '<'
+      vehicle: '<'
     },
     template: `
     <div>Vehicle Info</div>
