@@ -8,19 +8,19 @@
       vehicle: '<'
     },
     template: `
-    <div>Vehicle: {{$ctrl.vehicle.name}}</div>
+    <div class="vehicle-name">Vehicle: {{$ctrl.vehicle.name}}</div>
     <ul>
-      <li>Model: {{$ctrl.vehicle.model}}</li>
-      <li>Size: {{$ctrl.vehicle.size}}</li>
-      <li>Type: {{$ctrl.vehicle.type}}</li>
-      <li>Cargo Capacity: {{$ctrl.vehicle.cargocap}}</li>
-      <li>Passenger Capacity: {{$ctrl.vehicle.passengercap}}</li>
-      <li>Armor: {{$ctrl.vehicle.armor}}</li>
-      <li>Engine: {{$ctrl.vehicle.engine}}</li>
-      <li>Tires: {{$ctrl.vehicle.tires}}</li>
-      <li>Top Speed (km/h): {{$ctrl.vehicle.topspeed}}</li>
-      <li>Fuel Capacity: {{$ctrl.vehicle.fuelcap}}</li>
-      <li>Km/l: {{$ctrl.vehicle.kmpl}}</li>
+      <li><b>Model:</b> {{$ctrl.vehicle.model}}</li>
+      <li><b>Size:</b> {{$ctrl.vehicle.size}}</li>
+      <li><b>Type:</b> {{$ctrl.vehicle.type}}</li>
+      <li><b>Cargo Capacity:</b> {{$ctrl.vehicle.cargocap}}</li>
+      <li><b>Passenger Capacity:</b> {{$ctrl.vehicle.passengercap}}</li>
+      <li><b>Armor:</b> {{$ctrl.vehicle.armor}}</li>
+      <li><b>Engine:</b> {{$ctrl.vehicle.engine}}</li>
+      <li><b>Tires:</b> {{$ctrl.vehicle.tires}}</li>
+      <li><b>Top Speed (km/h):</b> {{$ctrl.vehicle.topspeed}}</li>
+      <li><b>Fuel Capacity:</b> {{$ctrl.vehicle.fuelcap}}</li>
+      <li><b>Km/l:</b> {{$ctrl.vehicle.kmpl}}</li>
     </ul>
     `
   });

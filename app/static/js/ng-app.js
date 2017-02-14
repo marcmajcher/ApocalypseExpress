@@ -44,6 +44,91 @@
 
   /* eslint-env jquery, browser */
 
+  var adminMapController = function adminMapController(MapService) {
+    var vm = this;
+
+    vm.location = {};
+    vm.mapData = {};
+    vm.showDetailPanel = true;
+    vm.dataLoaded = false;
+
+    vm.closeDetailPanel = function close() {
+      vm.showDetailPanel = false;
+    };
+
+    vm.updateLocationDetails = function update() {
+      var loc = vm.location;
+      if (loc.id > 0) {
+        // TODO: add waiting spinner
+        MapService.updateLocation(loc.id, {
+          name: loc.name,
+          longitude: loc.longitude,
+          latitude: loc.latitude,
+          description: loc.description,
+          population: loc.population,
+          tech: loc.tech,
+          type: loc.type,
+          factionid: loc.factionid
+        }).catch(function () {
+          window.alert('PATCH ERROR'); // eslint-disable-line no-alert
+        });
+        // .then(() => {
+        //   remove spinner
+        // });
+      }
+    };
+  };
+
+  angular.module('apox').controller('AdminMapController', ['MapService', adminMapController]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+  /* eslint no-magic-numbers: "off" */
+
+  var apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapService.loadMap().then(function () {
+          MapRenderer.render({
+            isAdmin: true,
+            mapLayer: mapLayer,
+            scope: scope
+          });
+        });
+
+        MapRenderer.setupMouseWheel(element, {
+          pan: true,
+          zoom: true,
+          zoomAlt: true
+        });
+
+        paper.view.center = new paper.Point(1100, 500);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
   var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
     var ctrl = this;
     ctrl.tags = FactionService.factionTags;
@@ -306,7 +391,7 @@
     bindings: {
       vehicle: '<'
     },
-    template: '\n    <div>Vehicle: {{$ctrl.vehicle.name}}</div>\n    <ul>\n      <li>Model: {{$ctrl.vehicle.model}}</li>\n      <li>Size: {{$ctrl.vehicle.size}}</li>\n      <li>Type: {{$ctrl.vehicle.type}}</li>\n      <li>Cargo Capacity: {{$ctrl.vehicle.cargocap}}</li>\n      <li>Passenger Capacity: {{$ctrl.vehicle.passengercap}}</li>\n      <li>Armor: {{$ctrl.vehicle.armor}}</li>\n      <li>Engine: {{$ctrl.vehicle.engine}}</li>\n      <li>Tires: {{$ctrl.vehicle.tires}}</li>\n      <li>Top Speed (km/h): {{$ctrl.vehicle.topspeed}}</li>\n      <li>Fuel Capacity: {{$ctrl.vehicle.fuelcap}}</li>\n      <li>Km/l: {{$ctrl.vehicle.kmpl}}</li>\n    </ul>\n    '
+    template: '\n    <div class="vehicle-name">Vehicle: {{$ctrl.vehicle.name}}</div>\n    <ul>\n      <li><b>Model:</b> {{$ctrl.vehicle.model}}</li>\n      <li><b>Size:</b> {{$ctrl.vehicle.size}}</li>\n      <li><b>Type:</b> {{$ctrl.vehicle.type}}</li>\n      <li><b>Cargo Capacity:</b> {{$ctrl.vehicle.cargocap}}</li>\n      <li><b>Passenger Capacity:</b> {{$ctrl.vehicle.passengercap}}</li>\n      <li><b>Armor:</b> {{$ctrl.vehicle.armor}}</li>\n      <li><b>Engine:</b> {{$ctrl.vehicle.engine}}</li>\n      <li><b>Tires:</b> {{$ctrl.vehicle.tires}}</li>\n      <li><b>Top Speed (km/h):</b> {{$ctrl.vehicle.topspeed}}</li>\n      <li><b>Fuel Capacity:</b> {{$ctrl.vehicle.fuelcap}}</li>\n      <li><b>Km/l:</b> {{$ctrl.vehicle.kmpl}}</li>\n    </ul>\n    '
   });
 })();
 'use strict';
@@ -821,89 +906,4 @@
   };
 
   angular.module('apox').factory('VehicleService', ['$http', '$q', VehicleService]);
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var adminMapController = function adminMapController(MapService) {
-    var vm = this;
-
-    vm.location = {};
-    vm.mapData = {};
-    vm.showDetailPanel = true;
-    vm.dataLoaded = false;
-
-    vm.closeDetailPanel = function close() {
-      vm.showDetailPanel = false;
-    };
-
-    vm.updateLocationDetails = function update() {
-      var loc = vm.location;
-      if (loc.id > 0) {
-        // TODO: add waiting spinner
-        MapService.updateLocation(loc.id, {
-          name: loc.name,
-          longitude: loc.longitude,
-          latitude: loc.latitude,
-          description: loc.description,
-          population: loc.population,
-          tech: loc.tech,
-          type: loc.type,
-          factionid: loc.factionid
-        }).catch(function () {
-          window.alert('PATCH ERROR'); // eslint-disable-line no-alert
-        });
-        // .then(() => {
-        //   remove spinner
-        // });
-      }
-    };
-  };
-
-  angular.module('apox').controller('AdminMapController', ['MapService', adminMapController]);
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-  /* eslint no-magic-numbers: "off" */
-
-  var apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
-    return {
-      restrict: 'E',
-      template: '<canvas class="map-canvas" resize="true"></canvas>',
-      link: function link(scope, element) {
-        paper.setup(element.context.firstChild);
-
-        var bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
-
-        var mapLayer = new paper.Layer();
-
-        MapService.loadMap().then(function () {
-          MapRenderer.render({
-            isAdmin: true,
-            mapLayer: mapLayer,
-            scope: scope
-          });
-        });
-
-        MapRenderer.setupMouseWheel(element, {
-          pan: true,
-          zoom: true,
-          zoomAlt: true
-        });
-
-        paper.view.center = new paper.Point(1100, 500);
-      }
-    };
-  };
-
-  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
 })();
