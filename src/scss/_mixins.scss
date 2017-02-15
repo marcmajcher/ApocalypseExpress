@@ -4,6 +4,9 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+@mixin random-offset($w, $h) {
+  background-position: left random($w)+px top random($h)+px;
+}
 @mixin faction-colors() {
   &.light {
     background-color: #aa0;
