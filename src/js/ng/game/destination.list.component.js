@@ -5,66 +5,66 @@
 
   const DestinationListController =
     function destinationListController(FactionService, LocationService, TripService) {
-      const ctrl = this;
-      ctrl.tags = FactionService.factionTags;
+      const ç = this;
+      ç.tags = FactionService.factionTags;
 
-      ctrl.setDestination = function setDestination(id) {
-        ctrl.working = true;
+      ç.setDestination = function setDestination(id) {
+        ç.working = true;
         TripService.setNextDestination(id).then((data) => {
             if (data.ok) {
-              ctrl.trip = {
+              ç.trip = {
                 progress: 0,
                 destination: data,
-                origin: ctrl.location,
-                distance: LocationService.getDistanceFromId(ctrl.location, data.id)
+                origin: ç.location,
+                distance: LocationService.getDistanceFromId(ç.location, data.id)
               };
-              ctrl.working = false;
+              ç.working = false;
             }
             else {
               throw new Error();
             }
           })
           .catch((error) => {
-            ctrl.showError(error, 'setDestination');
+            ç.showError(error, 'setDestination');
           });
       };
 
-      ctrl.goDestination = function goDestination() {
-        ctrl.working = true;
+      ç.goDestination = function goDestination() {
+        ç.working = true;
         TripService.beginTrip().then((data) => {
             if (data === 'ok') {
-              ctrl.working = false;
-              ctrl.traveling = true;
+              ç.working = false;
+              ç.traveling = true;
             }
             else {
               throw new Error();
             }
           })
           .catch((error) => {
-            ctrl.showError(error, 'goDestination');
+            ç.showError(error, 'goDestination');
           });
       };
 
-      ctrl.clearDestination = function clearDestination() {
-        ctrl.working = true;
+      ç.clearDestination = function clearDestination() {
+        ç.working = true;
         TripService.clearTrip().then((data) => {
             if (data === 'ok') {
-              ctrl.trip = {
-                origin: ctrl.location.name
+              ç.trip = {
+                origin: ç.location.name
               };
-              ctrl.working = false;
+              ç.working = false;
             }
             else {
               throw new Error();
             }
           })
           .catch((error) => {
-            ctrl.showError(error, 'clearDestination');
+            ç.showError(error, 'clearDestination');
           });
       };
 
-      ctrl.showError = function showError(error, what) {
-        ctrl.error = `${what} Error: Please try again later.`;
+      ç.showError = function showError(error, what) {
+        ç.error = `${what} Error: Please try again later.`;
         console.error(`${what} ERROR`, error); // eslint-disable-line
       };
     };

@@ -130,60 +130,60 @@
   /* eslint-env jquery, browser */
 
   var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
-    var ctrl = this;
-    ctrl.tags = FactionService.factionTags;
+    var ç = this;
+    ç.tags = FactionService.factionTags;
 
-    ctrl.setDestination = function setDestination(id) {
-      ctrl.working = true;
+    ç.setDestination = function setDestination(id) {
+      ç.working = true;
       TripService.setNextDestination(id).then(function (data) {
         if (data.ok) {
-          ctrl.trip = {
+          ç.trip = {
             progress: 0,
             destination: data,
-            origin: ctrl.location,
-            distance: LocationService.getDistanceFromId(ctrl.location, data.id)
+            origin: ç.location,
+            distance: LocationService.getDistanceFromId(ç.location, data.id)
           };
-          ctrl.working = false;
+          ç.working = false;
         } else {
           throw new Error();
         }
       }).catch(function (error) {
-        ctrl.showError(error, 'setDestination');
+        ç.showError(error, 'setDestination');
       });
     };
 
-    ctrl.goDestination = function goDestination() {
-      ctrl.working = true;
+    ç.goDestination = function goDestination() {
+      ç.working = true;
       TripService.beginTrip().then(function (data) {
         if (data === 'ok') {
-          ctrl.working = false;
-          ctrl.traveling = true;
+          ç.working = false;
+          ç.traveling = true;
         } else {
           throw new Error();
         }
       }).catch(function (error) {
-        ctrl.showError(error, 'goDestination');
+        ç.showError(error, 'goDestination');
       });
     };
 
-    ctrl.clearDestination = function clearDestination() {
-      ctrl.working = true;
+    ç.clearDestination = function clearDestination() {
+      ç.working = true;
       TripService.clearTrip().then(function (data) {
         if (data === 'ok') {
-          ctrl.trip = {
-            origin: ctrl.location.name
+          ç.trip = {
+            origin: ç.location.name
           };
-          ctrl.working = false;
+          ç.working = false;
         } else {
           throw new Error();
         }
       }).catch(function (error) {
-        ctrl.showError(error, 'clearDestination');
+        ç.showError(error, 'clearDestination');
       });
     };
 
-    ctrl.showError = function showError(error, what) {
-      ctrl.error = what + ' Error: Please try again later.';
+    ç.showError = function showError(error, what) {
+      ç.error = what + ' Error: Please try again later.';
       console.error(what + ' ERROR', error); // eslint-disable-line
     };
   };
@@ -224,73 +224,73 @@
   var refreshTime = 1000;
 
   var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
-    var ctrl = this;
+    var ç = this;
 
-    ctrl.error = false;
-    ctrl.loaded = false;
-    ctrl.working = false;
-    ctrl.traveling = false;
-    ctrl.trip = {};
+    ç.error = false;
+    ç.loaded = false;
+    ç.traveling = false;
+    ç.working = false;
+    ç.trip = {};
 
     GameService.init().then(function () {
       SocketService.init();
-      ctrl.driver = GameService.driver;
+      ç.driver = GameService.driver;
 
-      ctrl.currentLocation = GameService.currentLocation;
+      ç.currentLocation = GameService.currentLocation;
 
       if (GameService.trip && GameService.trip.underway) {
         var currentTrip = GameService.trip;
         if (currentTrip.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
-          ctrl.getCurrentLocation();
-          ctrl.traveling = false;
+          ç.trip.progress = ç.trip.distance;
+          ç.getCurrentLocation();
+          ç.traveling = false;
         } else {
-          ctrl.trip = {
-            origin: ctrl.currentLocation,
+          ç.trip = {
+            origin: ç.currentLocation,
             destination: currentTrip,
             progress: currentTrip.progress,
-            distance: LocationService.getDistanceFromId(ctrl.currentLocation, currentTrip.destinationid)
+            distance: LocationService.getDistanceFromId(ç.currentLocation, currentTrip.destinationid)
           };
-          ctrl.setTripLocation();
-          ctrl.traveling = currentTrip.progress > 0;
+          ç.setTripLocation();
+          ç.traveling = currentTrip.progress > 0;
           setTimeout(function () {
-            ctrl.currentLocation.render = false;
+            ç.currentLocation.render = false;
           }, 0); // don't set false until after applied
         }
       }
 
       SocketService.on('tripProgress', function (data) {
         if (data.progress === 'done') {
-          ctrl.trip.progress = ctrl.trip.distance;
+          ç.trip.progress = ç.trip.distance;
           $scope.$apply();
           setTimeout(function () {
-            ctrl.getCurrentLocation();
-            ctrl.traveling = false;
+            ç.getCurrentLocation();
+            ç.traveling = false;
           }, refreshTime);
         } else {
-          ctrl.trip.progress = data.progress;
-          ctrl.setTripLocation();
-          ctrl.currentLocation.render = false;
+          ç.trip.progress = data.progress;
+          ç.setTripLocation();
+          ç.currentLocation.render = false;
           $scope.$apply();
         }
       });
 
-      ctrl.loaded = true;
+      ç.loaded = true;
     });
 
-    ctrl.setTripLocation = function setTripLocation() {
-      var ratio = ctrl.trip.progress / ctrl.trip.distance;
-      ctrl.currentLocation.latitude = ctrl.trip.origin.latitude + (ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio;
-      ctrl.currentLocation.longitude = ctrl.trip.origin.longitude + (ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio;
-      ctrl.currentLocation = angular.copy(ctrl.currentLocation);
+    ç.setTripLocation = function setTripLocation() {
+      var ratio = ç.trip.progress / ç.trip.distance;
+      ç.currentLocation.latitude = ç.trip.origin.latitude + (ç.trip.destination.latitude - ç.trip.origin.latitude) * ratio;
+      ç.currentLocation.longitude = ç.trip.origin.longitude + (ç.trip.destination.longitude - ç.trip.origin.longitude) * ratio;
+      ç.currentLocation = angular.copy(ç.currentLocation);
     };
 
-    ctrl.getCurrentLocation = function getCurrentLocation() {
+    ç.getCurrentLocation = function getCurrentLocation() {
       LocationService.getCurrentLocation().then(function (location) {
         location.render = true;
-        ctrl.currentLocation = location;
+        ç.currentLocation = location;
         GameService.currentLocation = location;
-        ctrl.trip = {
+        ç.trip = {
           origin: location
         };
       });

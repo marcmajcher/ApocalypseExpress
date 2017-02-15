@@ -7,79 +7,79 @@
 
   const GamePageController =
     function gamePageController($scope, GameService, LocationService, SocketService) {
-      const ctrl = this;
+      const ç = this;
 
-      ctrl.error = false;
-      ctrl.loaded = false;
-      ctrl.working = false;
-      ctrl.traveling = false;
-      ctrl.trip = {};
+      ç.error = false;
+      ç.loaded = false;
+      ç.traveling = false;
+      ç.working = false;
+      ç.trip = {};
 
       GameService.init()
         .then(() => {
           SocketService.init();
-          ctrl.driver = GameService.driver;
+          ç.driver = GameService.driver;
 
-          ctrl.currentLocation = GameService.currentLocation;
+          ç.currentLocation = GameService.currentLocation;
 
           if (GameService.trip && GameService.trip.underway) {
             const currentTrip = GameService.trip;
             if (currentTrip.progress === 'done') {
-              ctrl.trip.progress = ctrl.trip.distance;
-              ctrl.getCurrentLocation();
-              ctrl.traveling = false;
+              ç.trip.progress = ç.trip.distance;
+              ç.getCurrentLocation();
+              ç.traveling = false;
             }
             else {
-              ctrl.trip = {
-                origin: ctrl.currentLocation,
+              ç.trip = {
+                origin: ç.currentLocation,
                 destination: currentTrip,
                 progress: currentTrip.progress,
                 distance: LocationService.getDistanceFromId(
-                  ctrl.currentLocation, currentTrip.destinationid),
+                  ç.currentLocation, currentTrip.destinationid),
               };
-              ctrl.setTripLocation();
-              ctrl.traveling = currentTrip.progress > 0;
+              ç.setTripLocation();
+              ç.traveling = currentTrip.progress > 0;
               setTimeout(() => {
-                ctrl.currentLocation.render = false;
+                ç.currentLocation.render = false;
               }, 0); // don't set false until after applied
             }
           }
 
           SocketService.on('tripProgress', (data) => {
             if (data.progress === 'done') {
-              ctrl.trip.progress = ctrl.trip.distance;
+              ç.trip.progress = ç.trip.distance;
               $scope.$apply();
               setTimeout(() => {
-                ctrl.getCurrentLocation();
-                ctrl.traveling = false;
+                ç.getCurrentLocation();
+                ç.traveling = false;
               }, refreshTime);
             }
             else {
-              ctrl.trip.progress = data.progress;
-              ctrl.setTripLocation();
-              ctrl.currentLocation.render = false;
+              ç.trip.progress = data.progress;
+              ç.setTripLocation();
+              ç.currentLocation.render = false;
               $scope.$apply();
             }
           });
 
-          ctrl.loaded = true;
+          ç.loaded = true;
         });
 
-      ctrl.setTripLocation = function setTripLocation() {
-        const ratio = ctrl.trip.progress / ctrl.trip.distance;
-        ctrl.currentLocation.latitude = ctrl.trip.origin.latitude +
-          ((ctrl.trip.destination.latitude - ctrl.trip.origin.latitude) * ratio);
-        ctrl.currentLocation.longitude = ctrl.trip.origin.longitude +
-          ((ctrl.trip.destination.longitude - ctrl.trip.origin.longitude) * ratio);
-        ctrl.currentLocation = angular.copy(ctrl.currentLocation);
+      ç.setTripLocation = function setTripLocation() {
+        const ratio = ç.trip.progress / ç.trip.distance;
+        ç.currentLocation.latitude = ç.trip.origin.latitude +
+          ((ç.trip.destination.latitude - ç.trip.origin.latitude) * ratio);
+        ç.currentLocation.longitude = ç.trip.origin.longitude +
+          ((ç.trip.destination.longitude - ç.trip.origin.longitude) * ratio);
+        ç.currentLocation = angular.copy(ç.currentLocation);
       };
 
-      ctrl.getCurrentLocation = function getCurrentLocation() {
+      ç.getCurrentLocation = function getCurrentLocation() {
         LocationService.getCurrentLocation().then((location) => {
           location.render = true;
-          ctrl.currentLocation = location;
+          ç.currentLocation = location;
           GameService.currentLocation = location;
-          ctrl.trip = {
+          ç.trip = {
             origin: location
           };
         });
