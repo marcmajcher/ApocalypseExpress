@@ -7,7 +7,7 @@
 
     paper.setup($element.context.firstChild);
     const bgLayer = new paper.Layer();
-    bgLayer.texasMap = new paper.Raster('/img/texasmap2.jpg');
+    bgLayer.texasMap = new paper.Raster('/img/playermapbg.jpg');
     const mapLayer = new paper.Layer();
 
     MapRenderer.setupMouseWheel($element, {
