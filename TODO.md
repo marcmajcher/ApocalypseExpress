@@ -8,15 +8,6 @@
 
 ## On Deck
 
-* User should be able to rename vehicle
-
-* For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
-* For trips, record start and end time, and speed, to see how long it takes and whatnot.
-* Difficulty of a trip (1-10) is x * .05 chance of an event every km
-* Is there something fun to do while they're driving? Minigame? Dashboard?
-* Trips between locations should have events
-* Replace location description with event log when traveling
-* Generate AW-type description for new drivers
 
 ## Writing Unit Tests
 
@@ -46,11 +37,20 @@
 
 ## Backlog
 
+* For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
+* For trips, record start and end time, and speed, to see how long it takes and whatnot.
+* Difficulty of a trip (1-10) is x * .05 chance of an event every km
+* Is there something fun to do while they're driving? Minigame? Dashboard?
+* Trips between locations should have events
+* Replace location description with event log when traveling
+* Generate AW-type description for new drivers
+
+* User should be able to rename vehicle
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location
 * User should be able to buy and sell goods at locations
 
-* Refactor connections stuff out of the map request - use trip
+* Refactor connections stuff out of the map request - use trip(??)
 
 * Driver should have reputations (for driving/exploring/combat/trade/etc.)
 * Create driver_reputations table
