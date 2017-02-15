@@ -2,8 +2,6 @@
 
 ## Implementing
 
-* display driver stats and vehicle on dashboard
-* create component for driver stats
 * rearrange modules on page - tabbed?
 
 ## On Deck
@@ -12,28 +10,13 @@
 ## Writing Unit Tests
 
 * Write tests for all services
-
 * Write tests for ticker
-* How to test sockets?
-* TEST Better handling of ajax errors on client - test when server down
-* Driver should have a current vehicle
-* Vehicles should have a name
-* Vehicles should have a list of attributes
-  * Model
-  * Size
-  * Type
-  * Cargo Capacity
-  * Fuel Capacity
-  * kmpg
-  * Base Price
-  * Top Speed
-  * Passengers
-  * TRBL armor
-  * Weapons
-  * Add-ons
+* Write tests for socket
+* Test handling of ajax errors on client - test when server down
 
 ## Bugs
 
+* Update header to be responsive on mobile
 
 ## Backlog
 
@@ -88,8 +71,6 @@
 
 ## Frontend/UI Tasks
 
-* Update header to be responsive
-* Overall design
 * Add smooth transition animation for centerMap
 
 ## Backend Tasks
@@ -138,3 +119,21 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Test everything by turning off server and displaying message for 500
 * Why is it making two calls to /map on the game page?
 * Move map as driver travels - add travel dot?
+* Driver should have a current vehicle
+* Vehicles should have a name
+* Vehicles should have a list of attributes
+  * Model
+  * Size
+  * Type
+  * Cargo Capacity
+  * Fuel Capacity
+  * kmpg
+  * Base Price
+  * Top Speed
+  * Passengers
+  * TRBL armor
+  * Weapons
+  * Add-ons
+  * display driver stats and vehicle on dashboard
+  * create component for driver stats
+* Overall design
