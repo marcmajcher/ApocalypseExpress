@@ -78,6 +78,6 @@
       working: '='
     },
     controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
-    templateUrl: '../tmpl/game/destinations.template.html'
+    templateUrl: '../template/destinations.template.html'
   });
 })();

@@ -51,7 +51,7 @@ gulp.task('imagemin', () =>
 gulp.task('ng-templates', () =>
   gulp
   .src('src/js/ng/**/*.html')
-  .pipe(gulp.dest('app/static/tmpl'))
+  .pipe(gulp.dest('app/static'))
 );
 
 gulp.task('scripts', () => {
