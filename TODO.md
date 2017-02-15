@@ -18,6 +18,10 @@
   * Driver Status
     * Buddies (driver/gunner/trader/etc)
 
+  * Make faction symbols for all the factions, put in header
+  * Use faction symbols for source cities
+  * make header bg opacity .5, overlay sand on metal
+
 ## On Deck
 
 

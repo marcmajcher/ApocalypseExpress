@@ -1,8 +1,8 @@
 /* RGB */
 $color_dark: rgba(28, 18, 2, 1);
-$color_hot: rgba(107, 1, 0, 1);
+$color_hot: rgba(107, 1, 0, 1); // $color_hot: #730101;
 $color_bright: rgba(242, 60, 0, 1);
-$color_light: rgba(219, 192, 99, 1);
+$color_light: rgba(219, 192, 99, 1); // $color_light: #917508;
 $color_pale: rgba(221, 211, 201, 1);
 $color_white: rgba(244, 244, 244, 1);
 @import '_mixins';
@@ -43,14 +43,4 @@ div.main-content {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
-}
-
-.header-box {
-  background-color: $color_light;
-  color: $color_dark;
-  border: 4px solid $color_dark;
-  font-weight: bold;
-  margin: 16px 0;
-  padding: 8px;
-  text-align: center;
 }
