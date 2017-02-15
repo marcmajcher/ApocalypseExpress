@@ -10,7 +10,8 @@ $color_white: rgba(244, 244, 244, 1);
 @import '_pages';
 
 body {
-  padding-top: 140px;
+  margin-top: 140px;
+  margin-bottom: 320px;
   background-color: $color_pale;
   color: $color_dark;
   background-image: url("/img/metal-bg.jpg");
