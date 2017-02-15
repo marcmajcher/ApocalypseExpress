@@ -6,7 +6,7 @@
   const factionService = function factionService() {
     return {
       factionColors: [
-        '#000000', '#6666ff', '#ff6666', '#669966', '#ac00e6', '#ffff66'
+        '#aaaaaa', '#0000aa', '#aa0000', '#00aa00', '#440088', '#aaaa00'
       ],
       factionTags: [
         '', 'republic', 'confederation', 'alliance', 'petrex', 'light'

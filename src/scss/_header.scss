@@ -1,10 +1,10 @@
 .navbar {
-  border-top: 20px solid black;
+  border-top: 20px solid $color_dark;
   height: 120px;
-  background-color: #bbc;
+  background-color: $color_light;
 
   a {
-    color: #333;
+    color: $color_hot;
   }
 }
 
@@ -29,6 +29,6 @@ div.greeting {
 
 div.flash-alert {
   margin: 20px 0;
-  color: red;
+  color: $color_hot;
   font-size: 24px;
 }

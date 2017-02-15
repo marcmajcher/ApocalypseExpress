@@ -6,22 +6,22 @@
 }
 @mixin faction-colors() {
   &.light {
-    background-color: yellow;
+    background-color: #aa0;
   }
 
   &.republic {
-    background-color: blue;
+    background-color: #00a;
   }
 
   &.confederation {
-    background-color: red;
+    background-color: #a00;
   }
 
   &.alliance {
-    background-color: green;
+    background-color: #0a0;
   }
 
   &.petrex {
-    background-color: indigo;
+    background-color: #408;
   }
 }

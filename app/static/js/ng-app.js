@@ -136,6 +136,7 @@
 
     ç.error = false;
     ç.loaded = false;
+    ç.tab = 'location'; // 'location', 'driver', 'map'
     ç.traveling = false;
     ç.working = false;
     ç.trip = {};
@@ -448,7 +449,7 @@
 
   var factionService = function factionService() {
     return {
-      factionColors: ['#000000', '#6666ff', '#ff6666', '#669966', '#ac00e6', '#ffff66'],
+      factionColors: ['#aaaaaa', '#0000aa', '#aa0000', '#00aa00', '#440088', '#aaaa00'],
       factionTags: ['', 'republic', 'confederation', 'alliance', 'petrex', 'light']
     };
   };

@@ -11,6 +11,7 @@
 
       ç.error = false;
       ç.loaded = false;
+      ç.tab = 'location'; // 'location', 'driver', 'map'
       ç.traveling = false;
       ç.working = false;
       ç.trip = {};
