@@ -58,6 +58,7 @@ exports.create = (userInfo, isAdmin = false) => {
     .then(vehicles => Driver.create({
       name: util.generateApocName(),
       location: config.defaultLocation,
+      money: config.defaultDriverMoney,
       vehicleid: vehicles[0].id
     }, '*'))
     .then(drivers => util.knex(userDb).insert({

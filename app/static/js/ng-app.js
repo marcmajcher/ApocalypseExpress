@@ -129,291 +129,6 @@
 
   /* eslint-env jquery, browser */
 
-  var refreshTime = 1000;
-
-  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
-    var ç = this;
-
-    ç.error = false;
-    ç.loaded = false;
-    ç.tab = 'location'; // 'location', 'driver', 'map'
-    ç.traveling = false;
-    ç.working = false;
-    ç.trip = {};
-
-    GameService.init().then(function () {
-      SocketService.init();
-      ç.driver = GameService.driver;
-
-      ç.currentLocation = GameService.currentLocation;
-
-      if (GameService.trip && GameService.trip.underway) {
-        var currentTrip = GameService.trip;
-        if (currentTrip.progress === 'done') {
-          ç.trip.progress = ç.trip.distance;
-          ç.getCurrentLocation();
-          ç.traveling = false;
-        } else {
-          ç.trip = {
-            origin: ç.currentLocation,
-            destination: currentTrip,
-            progress: currentTrip.progress,
-            distance: LocationService.getDistanceFromId(ç.currentLocation, currentTrip.destinationid)
-          };
-          ç.setTripLocation();
-          ç.traveling = currentTrip.progress > 0;
-          setTimeout(function () {
-            ç.currentLocation.render = false;
-          }, 0); // don't set false until after applied
-        }
-      }
-
-      SocketService.on('tripProgress', function (data) {
-        if (data.progress === 'done') {
-          ç.trip.progress = ç.trip.distance;
-          $scope.$apply();
-          setTimeout(function () {
-            ç.getCurrentLocation();
-            ç.traveling = false;
-          }, refreshTime);
-        } else {
-          ç.trip.progress = data.progress;
-          ç.setTripLocation();
-          ç.currentLocation.render = false;
-          $scope.$apply();
-        }
-      });
-
-      ç.loaded = true;
-    });
-
-    ç.setTripLocation = function setTripLocation() {
-      var ratio = ç.trip.progress / ç.trip.distance;
-      ç.currentLocation.latitude = ç.trip.origin.latitude + (ç.trip.destination.latitude - ç.trip.origin.latitude) * ratio;
-      ç.currentLocation.longitude = ç.trip.origin.longitude + (ç.trip.destination.longitude - ç.trip.origin.longitude) * ratio;
-      ç.currentLocation = angular.copy(ç.currentLocation);
-    };
-
-    ç.getCurrentLocation = function getCurrentLocation() {
-      LocationService.getCurrentLocation().then(function (location) {
-        location.render = true;
-        ç.currentLocation = location;
-        GameService.currentLocation = location;
-        ç.trip = {
-          origin: location
-        };
-      });
-    };
-  };
-
-  angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
-    templateUrl: '../template/gamepage.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('chatBox', {
-    bindings: {},
-    templateUrl: '../template/chatbox.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
-    var ç = this;
-    ç.tags = FactionService.factionTags;
-
-    ç.setDestination = function setDestination(id) {
-      ç.working = true;
-      TripService.setNextDestination(id).then(function (data) {
-        if (data.ok) {
-          ç.trip = {
-            progress: 0,
-            destination: data,
-            origin: ç.location,
-            distance: LocationService.getDistanceFromId(ç.location, data.id)
-          };
-          ç.working = false;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ç.showError(error, 'setDestination');
-      });
-    };
-
-    ç.goDestination = function goDestination() {
-      ç.working = true;
-      TripService.beginTrip().then(function (data) {
-        if (data === 'ok') {
-          ç.working = false;
-          ç.traveling = true;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ç.showError(error, 'goDestination');
-      });
-    };
-
-    ç.clearDestination = function clearDestination() {
-      ç.working = true;
-      TripService.clearTrip().then(function (data) {
-        if (data === 'ok') {
-          ç.trip = {
-            origin: ç.location.name
-          };
-          ç.working = false;
-        } else {
-          throw new Error();
-        }
-      }).catch(function (error) {
-        ç.showError(error, 'clearDestination');
-      });
-    };
-
-    ç.showError = function showError(error, what) {
-      ç.error = what + ' Error: Please try again later.';
-      console.error(what + ' ERROR', error); // eslint-disable-line
-    };
-  };
-
-  angular.module('apox').component('destinationList', {
-    bindings: {
-      error: '=',
-      location: '<',
-      traveling: '=',
-      trip: '=',
-      working: '='
-    },
-    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
-    templateUrl: '../template/destinations.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('driverInfo', {
-    bindings: {
-      driver: '<'
-    },
-    templateUrl: '../template/driverinfo.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var LocationDetailsController = function locationDetailsController(FactionService) {
-    var ctrl = this;
-    ctrl.tags = FactionService.factionTags;
-  };
-
-  angular.module('apox').component('locationDetails', {
-    bindings: {
-      location: '<'
-    },
-    controller: ['FactionService', LocationDetailsController],
-    templateUrl: '../template/location.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  var ApoxMapController = function apoxMapController($element, GameService, MapService, MapRenderer) {
-    var ctrl = this;
-
-    paper.setup($element.context.firstChild);
-    var bgLayer = new paper.Layer();
-    bgLayer.texasMap = new paper.Raster('/img/playermapbg.jpg');
-    var mapLayer = new paper.Layer();
-
-    MapRenderer.setupMouseWheel($element, {
-      zoom: true
-    });
-
-    function renderMap() {
-      MapService.loadMap().then(function () {
-        MapRenderer.render({
-          isAdmin: false,
-          mapLayer: mapLayer
-        });
-        MapRenderer.centerMap(ctrl.location);
-      });
-    }
-
-    ctrl.$onChanges = function () {
-      if (ctrl.location.render) {
-        renderMap();
-      } else {
-        MapRenderer.centerMap(ctrl.location);
-      }
-    };
-  };
-
-  angular.module('apox').component('apoxMap', {
-    controller: ['$element', 'GameService', 'MapService', 'MapRenderer', ApoxMapController],
-    template: '<canvas class="map-canvas" resize="true"></canvas>',
-    bindings: {
-      location: '<'
-    }
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('tripProgress', {
-    bindings: {
-      trip: '<'
-    },
-    templateUrl: '../template/progress.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  angular.module('apox').component('vehicleInfo', {
-    bindings: {
-      vehicle: '<'
-    },
-    templateUrl: '../template/vehicle.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
   var driverRoute = '/driver';
   var vehicleRoute = '/vehicle';
 
@@ -919,4 +634,289 @@
   };
 
   angular.module('apox').factory('VehicleService', ['$http', '$q', VehicleService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var refreshTime = 1000;
+
+  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
+    var ç = this;
+
+    ç.error = false;
+    ç.loaded = false;
+    ç.tab = 'location'; // 'location', 'driver', 'map'
+    ç.traveling = false;
+    ç.working = false;
+    ç.trip = {};
+
+    GameService.init().then(function () {
+      SocketService.init();
+      ç.driver = GameService.driver;
+
+      ç.currentLocation = GameService.currentLocation;
+
+      if (GameService.trip && GameService.trip.underway) {
+        var currentTrip = GameService.trip;
+        if (currentTrip.progress === 'done') {
+          ç.trip.progress = ç.trip.distance;
+          ç.getCurrentLocation();
+          ç.traveling = false;
+        } else {
+          ç.trip = {
+            origin: ç.currentLocation,
+            destination: currentTrip,
+            progress: currentTrip.progress,
+            distance: LocationService.getDistanceFromId(ç.currentLocation, currentTrip.destinationid)
+          };
+          ç.setTripLocation();
+          ç.traveling = currentTrip.progress > 0;
+          setTimeout(function () {
+            ç.currentLocation.render = false;
+          }, 0); // don't set false until after applied
+        }
+      }
+
+      SocketService.on('tripProgress', function (data) {
+        if (data.progress === 'done') {
+          ç.trip.progress = ç.trip.distance;
+          $scope.$apply();
+          setTimeout(function () {
+            ç.getCurrentLocation();
+            ç.traveling = false;
+          }, refreshTime);
+        } else {
+          ç.trip.progress = data.progress;
+          ç.setTripLocation();
+          ç.currentLocation.render = false;
+          $scope.$apply();
+        }
+      });
+
+      ç.loaded = true;
+    });
+
+    ç.setTripLocation = function setTripLocation() {
+      var ratio = ç.trip.progress / ç.trip.distance;
+      ç.currentLocation.latitude = ç.trip.origin.latitude + (ç.trip.destination.latitude - ç.trip.origin.latitude) * ratio;
+      ç.currentLocation.longitude = ç.trip.origin.longitude + (ç.trip.destination.longitude - ç.trip.origin.longitude) * ratio;
+      ç.currentLocation = angular.copy(ç.currentLocation);
+    };
+
+    ç.getCurrentLocation = function getCurrentLocation() {
+      LocationService.getCurrentLocation().then(function (location) {
+        location.render = true;
+        ç.currentLocation = location;
+        GameService.currentLocation = location;
+        ç.trip = {
+          origin: location
+        };
+      });
+    };
+  };
+
+  angular.module('apox').component('gamePage', {
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
+    templateUrl: '../template/gamepage.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('chatBox', {
+    bindings: {},
+    templateUrl: '../template/chatbox.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
+    var ç = this;
+    ç.tags = FactionService.factionTags;
+
+    ç.setDestination = function setDestination(id) {
+      ç.working = true;
+      TripService.setNextDestination(id).then(function (data) {
+        if (data.ok) {
+          ç.trip = {
+            progress: 0,
+            destination: data,
+            origin: ç.location,
+            distance: LocationService.getDistanceFromId(ç.location, data.id)
+          };
+          ç.working = false;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ç.showError(error, 'setDestination');
+      });
+    };
+
+    ç.goDestination = function goDestination() {
+      ç.working = true;
+      TripService.beginTrip().then(function (data) {
+        if (data === 'ok') {
+          ç.working = false;
+          ç.traveling = true;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ç.showError(error, 'goDestination');
+      });
+    };
+
+    ç.clearDestination = function clearDestination() {
+      ç.working = true;
+      TripService.clearTrip().then(function (data) {
+        if (data === 'ok') {
+          ç.trip = {
+            origin: ç.location.name
+          };
+          ç.working = false;
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        ç.showError(error, 'clearDestination');
+      });
+    };
+
+    ç.showError = function showError(error, what) {
+      ç.error = what + ' Error: Please try again later.';
+      console.error(what + ' ERROR', error); // eslint-disable-line
+    };
+  };
+
+  angular.module('apox').component('destinationList', {
+    bindings: {
+      error: '=',
+      location: '<',
+      traveling: '=',
+      trip: '=',
+      working: '='
+    },
+    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
+    templateUrl: '../template/destinations.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('driverInfo', {
+    bindings: {
+      driver: '<'
+    },
+    templateUrl: '../template/driverinfo.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var LocationDetailsController = function locationDetailsController(FactionService) {
+    var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+  };
+
+  angular.module('apox').component('locationDetails', {
+    bindings: {
+      location: '<'
+    },
+    controller: ['FactionService', LocationDetailsController],
+    templateUrl: '../template/location.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  var ApoxMapController = function apoxMapController($element, GameService, MapService, MapRenderer) {
+    var ctrl = this;
+
+    paper.setup($element.context.firstChild);
+    var bgLayer = new paper.Layer();
+    bgLayer.texasMap = new paper.Raster('/img/playermapbg.jpg');
+    var mapLayer = new paper.Layer();
+
+    MapRenderer.setupMouseWheel($element, {
+      zoom: true
+    });
+
+    function renderMap() {
+      MapService.loadMap().then(function () {
+        MapRenderer.render({
+          isAdmin: false,
+          mapLayer: mapLayer
+        });
+        MapRenderer.centerMap(ctrl.location);
+      });
+    }
+
+    ctrl.$onChanges = function () {
+      if (ctrl.location.render) {
+        renderMap();
+      } else {
+        MapRenderer.centerMap(ctrl.location);
+      }
+    };
+  };
+
+  angular.module('apox').component('apoxMap', {
+    controller: ['$element', 'GameService', 'MapService', 'MapRenderer', ApoxMapController],
+    template: '<canvas class="map-canvas" resize="true"></canvas>',
+    bindings: {
+      location: '<'
+    }
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('tripProgress', {
+    bindings: {
+      trip: '<'
+    },
+    templateUrl: '../template/progress.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  angular.module('apox').component('vehicleInfo', {
+    bindings: {
+      vehicle: '<'
+    },
+    templateUrl: '../template/vehicle.template.html'
+  });
 })();
