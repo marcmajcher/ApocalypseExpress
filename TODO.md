@@ -2,7 +2,21 @@
 
 ## Implementing
 
-* rearrange modules on page - tabbed?
+* rearrange modules on page
+* Tabs:
+  * News
+  * Location:
+    * Info
+    * Rumors/Bar/Etc
+    * Buy and Sell Cargo
+    * Buy and Sell Equipment / Weapons
+    * Chop Shop
+    * Mission Board
+    * (Bank??)
+    * Fuel Depot / Mechanic
+  * Travel
+  * Driver Status
+    * Buddies (driver/gunner/trader/etc)
 
 ## On Deck
 
