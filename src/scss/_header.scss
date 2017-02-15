@@ -1,10 +1,13 @@
 .navbar {
   border-top: 20px solid $color_dark;
   height: 120px;
-  background-color: $color_light;
+  background-color:: $color_light;
+  background-image: url("/img/header-bg.jpg");
+  background-position: 0 -10px;
 
   a {
     color: $color_hot;
+    font-weight: bold;
   }
 }
 
