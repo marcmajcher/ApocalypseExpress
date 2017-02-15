@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 
 <div class="driver-name text-center">
-  <span id="driver-name">{{$ctrl.driver.name}}</span>
+  Driver: {{$ctrl.driver.name}}
 </div>
-<div class="driver-info">
-  Bux: {{$ctrl.driver.money}}
+<div class="info-pane">
+  <table class="table">
+    <tr>
+      <td class="info-label">Bux:</td>
+      <td>{{$ctrl.driver.money}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Health:</td>
+      <td>{{$ctrl.driver.health}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Sokay:</td>
+      <td>sallright</td>
+    </tr>
+  </table>
 </div>

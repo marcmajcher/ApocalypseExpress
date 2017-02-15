@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <div class="vehicle-name">Vehicle: {{$ctrl.vehicle.name}}</div>
-<ul>
-  <li><b>Model:</b> {{$ctrl.vehicle.model}}</li>
-  <li><b>Size:</b> {{$ctrl.vehicle.size}}</li>
-  <li><b>Type:</b> {{$ctrl.vehicle.type}}</li>
-  <li><b>Cargo Capacity:</b> {{$ctrl.vehicle.cargocap}}</li>
-  <li><b>Passenger Capacity:</b> {{$ctrl.vehicle.passengercap}}</li>
-  <li><b>Armor:</b> {{$ctrl.vehicle.armor}}</li>
-  <li><b>Engine:</b> {{$ctrl.vehicle.engine}}</li>
-  <li><b>Tires:</b> {{$ctrl.vehicle.tires}}</li>
-  <li><b>Top Speed (km/h):</b> {{$ctrl.vehicle.topspeed}}</li>
-  <li><b>Fuel Capacity:</b> {{$ctrl.vehicle.fuelcap}}</li>
-  <li><b>Km/l:</b> {{$ctrl.vehicle.kmpl}}</li>
-</ul>
+<div class="info-pane">
+  <table>
+    <tr>
+      <td class="info-label">Model:</td>
+      <td>{{$ctrl.vehicle.model}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Size:</td>
+      <td>{{$ctrl.vehicle.size}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Type:</td>
+      <td>{{$ctrl.vehicle.type}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Cargo:</td>
+      <td>0/{{$ctrl.vehicle.cargocap}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Passengers:</td>
+      <td>0/{{$ctrl.vehicle.passengercap}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Armor:</td>
+      <td>{{$ctrl.vehicle.armor}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Engine:</td>
+      <td>{{$ctrl.vehicle.engine}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Tires:</td>
+      <td>{{$ctrl.vehicle.tires}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Top Speed:</td>
+      <td>{{$ctrl.vehicle.topspeed}} km/h</td>
+    </tr>
+    <tr>
+      <td class="info-label">Fuel:</td>
+      <td>{{$ctrl.vehicle.fuelcap}}/{{$ctrl.vehicle.fuelcap}}</td>
+    </tr>
+    <tr>
+      <td class="info-label">Km/l:</td>
+      <td>{{$ctrl.vehicle.kmpl}}</td>
+    </tr>
+  </table>
+</div>

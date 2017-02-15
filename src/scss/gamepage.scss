@@ -23,9 +23,33 @@ body.game-page {
     font-size: 1.5em;
   }
 
+  .info-pane {
+    background-color: $color_pale;
+    border: 2px solid $color_dark;
+    padding: 8px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+
+    .info-label {
+      font-weight: bold;
+      width: 8em;
+      text-align: right;
+      padding-right: 8px;
+    }
+
+    table {
+      margin: 0;
+
+      td {
+        vertical-align: middle;
+        padding: 4px;
+      }
+    }
+  }
+
   .location-header {
+    @extend .header-box;
     font-size: 2em;
-    margin: 16px 0;
   }
 
   .faction-slug {
@@ -41,17 +65,13 @@ body.game-page {
 
   .location-name {
     color: $color_hot;
-    font-weight: 300;
-  }
-
-  .location-info {
-    margin: 16px;
-    font-size: 1.2em;
+    font-weight: 400;
   }
 
   .location-description {
     font-size: 1.5em;
     line-height: 1.5em;
+    padding: 16px;
   }
 
   .destinations {
