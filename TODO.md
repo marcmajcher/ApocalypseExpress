@@ -2,7 +2,6 @@
 
 ## Implementing
 
-* rearrange modules on page
 * Tabs:
   * News
   * Location:
@@ -20,7 +19,6 @@
 
   * Make faction symbols for all the factions, put in header
   * Use faction symbols for source cities
-  * make header bg opacity .5, overlay sand on metal
 
 ## On Deck
 
@@ -155,3 +153,5 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
   * display driver stats and vehicle on dashboard
   * create component for driver stats
 * Overall design
+* make header bg opacity .5, overlay sand on metal
+* rearrange modules on page
