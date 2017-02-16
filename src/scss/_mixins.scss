@@ -4,6 +4,11 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+@mixin drop-shadow() {
+  -webkit-box-shadow: 3px 3px 1px 0 rgba(28,18,2,0.5);
+  -moz-box-shadow: 3px 3px 1px 0 rgba(28,18,2,0.5);
+  box-shadow: 3px 3px 1px 0 rgba(28,18,2,0.5);
+}
 @mixin random-offset($w, $h) {
   background-position: left random($w)+px top random($h)+px;
 }

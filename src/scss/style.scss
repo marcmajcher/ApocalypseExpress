@@ -26,6 +26,7 @@ div.main-content {
   margin: 16px 0;
   padding: 8px;
   text-align: center;
+  @include drop-shadow;
 }
 
 .stressed {
@@ -51,6 +52,7 @@ div.main-content {
   padding: 8px;
   font-size: 1.3em;
   line-height: 1.3em;
+  @include drop-shadow;
 
   .info-label {
     font-weight: bold;
