@@ -1,0 +1,10 @@
+.register-page {
+  .register-user::after {
+    @include random-offset(800, 446);
+  }
+
+  label em {
+    font-weight: lighter;
+    font-size: 0.8em;
+  }
+}

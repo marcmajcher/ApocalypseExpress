@@ -1,0 +1,5 @@
+.login-page {
+  .log-in::after {
+    @include random-offset(800, 446);
+  }
+}
