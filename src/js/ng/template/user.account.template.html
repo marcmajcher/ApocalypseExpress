@@ -1,0 +1,63 @@
+<h2 class="header-box user-info">Update User Info</h2>
+<div class="info-pane">
+  <div class="user-email">
+    <strong>Your email is:</strong> TODO EMAIL GOES HERE
+  </div>
+  <form name="account_form" class="" action="/user/account?_method=PATCH" method="post">
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input class="form-control" ng-model="account.firstname" type="text" ng-maxlength="60" name="firstname" required ng-init="account.firstname = 'TODO FIRSTNAME GOES HERE'">
+      <div class="error" ng-show="account_form.firstname.$dirty && account_form.firstname.$invalid">
+        <small class="error" ng-show="account_form.firstname.$error.required">
+        First name is required.
+      </small>
+        <small class="error" ng-show="account_form.firstname.$error.maxlength">
+        First name must be 60 characters or fewer.
+      </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input class="form-control" ng-model="account.lastname" type="text" ng-maxlength="60" name="lastname" required ng-init="account.lastname = 'TODO LASTNAME GOES HERE'">
+      <div class="error" ng-show="account_form.lastname.$dirty && account_form.lastname.$invalid">
+        <small class="error" ng-show="account_form.lastname.$error.required">
+        Last name is required.
+      </small>
+        <small class="error" ng-show="account_form.lastname.$error.maxlength">
+        Last name must be 60 characters or fewer.
+      </small>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="account_form.$invalid">Update Info</button>
+  </form>
+</div>
+
+<h2 class="header-box change-password">Change Password</h2>
+<div class="info-pane">
+  <form name="password_form" class="" action="/user/account?_method=PATCH" method="post">
+    <div class="form-group">
+      <label for="cpassword">Current Password</label>
+      <input class="form-control" ng-model="password.cpassword" type="password" name="cpassword" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" ng-model="password.password" type="password" name="password" apox-match="password.vpassword" apox-password required>
+      <div class="error" ng-show="password_form.password.$dirty && password_form.password.$invalid">
+        <small class="error" ng-show="password_form.password.$error.minlength">
+        Password must be at least 8 characters long.
+      </small>
+        <small class="error" ng-show="password_form.password.$error.pw">
+        Password must contain a number and a special character.
+      </small>
+        <small class="error" ng-show="password_form.password.$error.match">
+        Passwords must match.
+      </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="vpassword">Verify Password</label>
+      <input class="form-control" ng-model="password.vpassword" type="password" name="vpassword" required>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="password_form.$invalid">Change Password</button>
+  </form>
+</div>

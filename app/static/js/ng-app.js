@@ -218,6 +218,18 @@
 
   /* eslint-env jquery, browser */
 
+  angular.module('apox').component('userAccount', {
+    bindings: {},
+    templateUrl: '../template/user.account.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
   angular.module('apox').component('chatBox', {
     bindings: {},
     templateUrl: '../template/chatbox.template.html'

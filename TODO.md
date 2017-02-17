@@ -2,6 +2,12 @@
 
 ## Implementing
 
+* Think about using ui-router for paths/tabs
+* convert account tab to use controller for email/name
+* convert account update route to return ajax, not redirect
+
+## On Deck
+
 * Tabs:
   * News
   * Location:
@@ -16,12 +22,6 @@
   * Travel
   * Driver Status
     * Buddies (driver/gunner/trader/etc)
-
-  * Make faction symbols for all the factions, put in header
-  * Use faction symbols for source cities
-
-## On Deck
-
 
 ## Writing Unit Tests
 
@@ -60,6 +60,8 @@
 * Each faction should have a set of attributes
   * Name
   * Home location
+  * Make faction symbols for all the factions, put in header?
+  * Use faction symbols for source cities
 
 * Add driver_vehicles for vehicle upgrades/alterations
 * Drivers should be able to upgrade/alter vehicles
@@ -109,6 +111,7 @@
 
 ----
 * DB error checking everywhere
+* Do I want to use ui-router for tabs? I kind of don't.
 
 ## Done
 
@@ -158,3 +161,4 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Overall design
 * make header bg opacity .5, overlay sand on metal
 * rearrange modules on page
+* Should be able to switch between views with tabs
