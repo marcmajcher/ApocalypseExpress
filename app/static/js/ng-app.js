@@ -44,14 +44,99 @@
 
   /* eslint-env jquery, browser */
 
+  var adminMapController = function adminMapController(MapService) {
+    var vm = this;
+
+    vm.location = {};
+    vm.mapData = {};
+    vm.showDetailPanel = true;
+    vm.dataLoaded = false;
+
+    vm.closeDetailPanel = function close() {
+      vm.showDetailPanel = false;
+    };
+
+    vm.updateLocationDetails = function update() {
+      var loc = vm.location;
+      if (loc.id > 0) {
+        // TODO: add waiting spinner
+        MapService.updateLocation(loc.id, {
+          name: loc.name,
+          longitude: loc.longitude,
+          latitude: loc.latitude,
+          description: loc.description,
+          population: loc.population,
+          tech: loc.tech,
+          type: loc.type,
+          factionid: loc.factionid
+        }).catch(function () {
+          window.alert('PATCH ERROR'); // eslint-disable-line no-alert
+        });
+        // .then(() => {
+        //   remove spinner
+        // });
+      }
+    };
+  };
+
+  angular.module('apox').controller('AdminMapController', ['MapService', adminMapController]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+  /* eslint no-magic-numbers: "off" */
+
+  var apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
+    return {
+      restrict: 'E',
+      template: '<canvas class="map-canvas" resize="true"></canvas>',
+      link: function link(scope, element) {
+        paper.setup(element.context.firstChild);
+
+        var bgLayer = new paper.Layer();
+        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
+
+        var mapLayer = new paper.Layer();
+
+        MapService.loadMap().then(function () {
+          MapRenderer.render({
+            isAdmin: true,
+            mapLayer: mapLayer,
+            scope: scope
+          });
+        });
+
+        MapRenderer.setupMouseWheel(element, {
+          pan: true,
+          zoom: true,
+          zoomAlt: true
+        });
+
+        paper.view.center = new paper.Point(1100, 500);
+      }
+    };
+  };
+
+  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
   var refreshTime = 1000;
 
-  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService) {
+  var GamePageController = function gamePageController($scope, GameService, LocationService, SocketService, TabService) {
     var ç = this;
 
     ç.error = false;
     ç.loaded = false;
-    ç.tab = 'location'; // 'location', 'driver', 'map'
+    ç.state = TabService.state;
     ç.traveling = false;
     ç.working = false;
     ç.trip = {};
@@ -122,7 +207,7 @@
   };
 
   angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', 'TabService', GamePageController],
     templateUrl: '../template/gamepage.template.html'
   });
 })();
@@ -243,8 +328,7 @@
     ctrl.state = TabService.state;
 
     ctrl.setState = function (state) {
-      TabService.state = state;
-      console.log('SETTING TAB STATEE', TabService.state);
+      TabService.setTab(state);
     };
   };
 
@@ -344,91 +428,6 @@
     },
     templateUrl: '../template/vehicle.template.html'
   });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var adminMapController = function adminMapController(MapService) {
-    var vm = this;
-
-    vm.location = {};
-    vm.mapData = {};
-    vm.showDetailPanel = true;
-    vm.dataLoaded = false;
-
-    vm.closeDetailPanel = function close() {
-      vm.showDetailPanel = false;
-    };
-
-    vm.updateLocationDetails = function update() {
-      var loc = vm.location;
-      if (loc.id > 0) {
-        // TODO: add waiting spinner
-        MapService.updateLocation(loc.id, {
-          name: loc.name,
-          longitude: loc.longitude,
-          latitude: loc.latitude,
-          description: loc.description,
-          population: loc.population,
-          tech: loc.tech,
-          type: loc.type,
-          factionid: loc.factionid
-        }).catch(function () {
-          window.alert('PATCH ERROR'); // eslint-disable-line no-alert
-        });
-        // .then(() => {
-        //   remove spinner
-        // });
-      }
-    };
-  };
-
-  angular.module('apox').controller('AdminMapController', ['MapService', adminMapController]);
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-  /* eslint no-magic-numbers: "off" */
-
-  var apoxAdminMap = function apoxAdminMap(MapRenderer, MapService) {
-    return {
-      restrict: 'E',
-      template: '<canvas class="map-canvas" resize="true"></canvas>',
-      link: function link(scope, element) {
-        paper.setup(element.context.firstChild);
-
-        var bgLayer = new paper.Layer();
-        bgLayer.texasMap = new paper.Raster('/img/texasmap.jpg');
-
-        var mapLayer = new paper.Layer();
-
-        MapService.loadMap().then(function () {
-          MapRenderer.render({
-            isAdmin: true,
-            mapLayer: mapLayer,
-            scope: scope
-          });
-        });
-
-        MapRenderer.setupMouseWheel(element, {
-          pan: true,
-          zoom: true,
-          zoomAlt: true
-        });
-
-        paper.view.center = new paper.Point(1100, 500);
-      }
-    };
-  };
-
-  angular.module('apox').directive('apoxAdminMap', ['MapRenderer', 'MapService', apoxAdminMap]);
 })();
 'use strict';
 
@@ -869,7 +868,12 @@
 
   var tabService = function tabService() {
     return {
-      state: 'default'
+      state: {
+        tab: 'default'
+      },
+      setTab: function setTab(tab) {
+        this.state.tab = tab;
+      }
     };
   };
 

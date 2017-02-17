@@ -5,7 +5,12 @@
 
   const tabService = function tabService() {
     return {
-      state: 'default'
+      state: {
+        tab: 'default'
+      },
+      setTab(tab) {
+        this.state.tab = tab;
+      }
     };
   };
 

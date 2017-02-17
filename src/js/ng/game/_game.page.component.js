@@ -6,12 +6,12 @@
   const refreshTime = 1000;
 
   const GamePageController =
-    function gamePageController($scope, GameService, LocationService, SocketService) {
+    function gamePageController($scope, GameService, LocationService, SocketService, TabService) {
       const ç = this;
 
       ç.error = false;
       ç.loaded = false;
-      ç.tab = 'location'; // 'location', 'driver', 'map'
+      ç.state = TabService.state;
       ç.traveling = false;
       ç.working = false;
       ç.trip = {};
@@ -88,7 +88,7 @@
     };
 
   angular.module('apox').component('gamePage', {
-    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', GamePageController],
+    controller: ['$scope', 'GameService', 'LocationService', 'SocketService', 'TabService', GamePageController],
     templateUrl: '../template/gamepage.template.html'
   });
 })();
