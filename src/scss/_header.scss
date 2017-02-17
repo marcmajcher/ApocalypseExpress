@@ -36,7 +36,7 @@ a.navbar-right {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 160px;
   font-family: $font_header;
 
@@ -44,7 +44,7 @@ a.navbar-right {
     cursor: pointer;
     display: flex;
     width: 150px;
-    height: 1.5em;
+    height: 1.3em;
     margin: 0 4px;
     background: $color_dark;
     color: $color_white;
@@ -60,6 +60,14 @@ a.navbar-right {
       content: "";
       height: 0;
       width: 150px;
+    }
+
+    &:hover {
+      background-color: $color_grey;
+
+      &:before {
+        border-bottom: 10px solid $color_grey;
+      }
     }
 
     span {
