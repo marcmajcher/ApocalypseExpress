@@ -36,6 +36,7 @@
 
 ## Backlog
 
+* User should be able to update driver name
 * For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
 * For trips, record start and end time, and speed, to see how long it takes and whatnot.
 * Difficulty of a trip (1-10) is x * .05 chance of an event every km
@@ -89,6 +90,7 @@
 ## Frontend/UI Tasks
 
 * Add smooth transition animation for centerMap
+* set map font to roboto
 
 ## Backend Tasks
 
