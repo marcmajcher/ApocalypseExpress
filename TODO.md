@@ -84,6 +84,7 @@
 * Bots - virtual drivers to exercise System
 * Location thing - see who else is there, location chat
 * Chat/message window (tutorial), random location chatter generator
+* Click on map to navigate?
 
 ## Frontend/UI Tasks
 

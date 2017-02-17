@@ -1,18 +1,16 @@
 @import '_colors';
+@import '_fonts';
 @import '_mixins';
 @import '_header';
 @import '_pages';
 
 body {
+  font-family: $font_body;
   margin-top: 140px;
   margin-bottom: 100px;
   background-color: $color_pale;
   color: $color_dark;
   background-image: url("/img/metal-bg.jpg");
-}
-
-div.main-content {
-  // height: 100vh;
 }
 /*
   Section Headers
@@ -27,6 +25,7 @@ div.main-content {
   padding: 8px;
   text-align: center;
   @include drop-shadow;
+  font-family: $font_header;
 }
 
 .stressed {
