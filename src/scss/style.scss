@@ -19,12 +19,12 @@ body {
   @extend .stressed;
   background-color: $color_light;
   color: $color_dark;
-  border: 4px solid $color_dark;
+  // border: 4px solid $color_dark;
   font-weight: bold;
   margin: 16px 0;
   padding: 8px;
   text-align: center;
-  @include drop-shadow;
+  @include drop-shadow(4);
   font-family: $font_header;
   letter-spacing: 1px;
 }
@@ -48,13 +48,15 @@ body {
 */
 .info-pane {
   background-color: $color_pale;
-  border: 2px solid $color_dark;
+  // border: 2px solid $color_dark;
   padding: 8px;
   font-size: 1.3em;
   line-height: 1.3em;
-  @include drop-shadow;
+  @include drop-shadow(3);
 
   .info-label {
+    text-transform: uppercase;
+    font-size: 0.8em;
     font-weight: bold;
     width: 8em;
     text-align: right;

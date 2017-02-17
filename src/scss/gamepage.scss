@@ -55,10 +55,10 @@ body.game-page {
     Destination Selector
   */
   .destinations {
-    border: 8px solid $color_dark;
+    border: 1px solid $color_dark;
     margin: 8px 0;
     font-size: 1.5em;
-    @include drop-shadow;
+    @include drop-shadow(4);
 
     table {
       margin: 0;
@@ -134,7 +134,7 @@ body.game-page {
     background-color: $color_dark;
     width: 100%;
     height: 300px;
-    @include drop-shadow;
+    @include drop-shadow(4);
   }
   /*
     Chat Box
