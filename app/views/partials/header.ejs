@@ -2,26 +2,20 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="logo" href="/" id="logo">
-        <img src="/img/ApocXpressLogo-sm.png" alt="Apocalypse Express Logo" />
-        <!-- APOCALYPSE EXPRESS -->
+        <img src="/img/ApocXpressLogo-sm.png" alt="Apocalypse Express" />
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <% if (session.user) { %>
-        <div class="navbar-right">
-          <div class="greeting">
-            Welcome to the Apocalypse,
-            <%= session.user.firstname %>.
-              <% if (session.user.email === 'majcher@gmail.com') { %>
-                <a href="/admin">⚙</a>
-                <a href="/admin/map">🌎</a>
-                <% } %>
-          </div>
-          <div class="navbar-right">
-            <a href="/user/account">Manage account</a> |
-            <a href="/logout">Logout</a>
-          </div>
+        <div class="navbar-right logged-in">
+          <a href="/user/account">Manage account</a> |
+          <a href="/logout">Logout <%= session.user.firstname %></a>
+          <% if (session.user.email === 'majcher@gmail.com') { %>
+            <a href="/admin">⚙</a>
+            <a href="/admin/map">🌎</a>
+            <% } %>
         </div>
+        <game-tabs></game-tabs>
         <% } else { %>
           <div class="header-form navbar-right">
             <% if (page !== 'login') { %>

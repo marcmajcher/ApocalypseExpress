@@ -26,6 +26,7 @@ body {
   text-align: center;
   @include drop-shadow;
   font-family: $font_header;
+  letter-spacing: 1px;
 }
 
 .stressed {

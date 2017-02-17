@@ -24,11 +24,50 @@
 a.navbar-right {
   padding-right: 12px;
   font-size: 1.5em;
-  color: #333;
 }
 
-div.greeting {
-  font-size: 2em;
+.logged-in {
+  font-size: 1.2em;
+}
+/*
+  Game Tabs
+*/
+.game-tabs {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: -2px;
+  left: 160px;
+  font-family: $font_header;
+
+  .tab {
+    cursor: pointer;
+    display: flex;
+    width: 150px;
+    height: 1.5em;
+    margin: 0 4px;
+    background: $color_dark;
+    color: $color_white;
+    font-size: 1.5em;
+    justify-content: center;
+
+    &:before {
+      position: absolute;
+      top: -10px;
+      border-bottom: 10px solid $color_dark;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      content: "";
+      height: 0;
+      width: 150px;
+    }
+
+    span {
+      align-self: center;
+      display: block;
+      bottom: 0;
+    }
+  }
 }
 
 div.flash-alert {

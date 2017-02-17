@@ -5,19 +5,19 @@ body.game-page {
   .driver-name {
     @extend .header-box;
     font-size: 2em;
-  }
 
-  .driver-name::after {
-    @include random-offset(800, 446);
+    &::after {
+      @include random-offset(800, 446);
+    }
   }
 
   .vehicle-name {
     @extend .header-box;
     font-size: 1.5em;
-  }
 
-  .vehicle-name::after {
-    @include random-offset(800, 446);
+    &::after {
+      @include random-offset(800, 446);
+    }
   }
 
   .location-header {
@@ -25,10 +25,10 @@ body.game-page {
     text-align: left !important;
     font-size: 2em;
     padding-left: 16px !important;
-  }
 
-  .location-header::after {
-    @include random-offset(800, 446);
+    &::after {
+      @include random-offset(800, 446);
+    }
   }
 
   .location-name {
@@ -50,23 +50,6 @@ body.game-page {
     font-size: 1.5em;
     line-height: 1.5em;
     padding: 16px;
-  }
-  /*
-    Game Tabs
-  */
-  .game-tabs {
-    display: flex;
-    justify-content: center;
-
-    .tab {
-      margin-top: -10px;
-      text-align: center;
-      width: 200px;
-      height: 50px;
-      background: $color_dark;
-      color: white;
-      font-size: 2em;
-    }
   }
   /*
     Destination Selector
