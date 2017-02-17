@@ -8,7 +8,7 @@
 
     ctrl.state = TabService.state;
 
-    ctrl.setState = function(state) {
+    ctrl.setState = (state) => {
       TabService.setTab(state);
     };
   };

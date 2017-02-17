@@ -15,7 +15,7 @@
   "funcscope": true,
   "maxcomplexity": 5,
   "maxdepth": 3,
-  "maxparams": 4,
+  "maxparams": 5,
   "maxstatements": 20,
   "nonbsp": true,
   "notypeof": true,
