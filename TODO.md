@@ -3,8 +3,7 @@
 ## Implementing
 
 * Think about using ui-router for paths/tabs
-* convert account tab to use controller for email/name
-* convert account update route to return ajax, not redirect
+* convert account update route to return and handle ajax, not redirect
 * update tests to reflect new account info update method
 
 ## On Deck
@@ -164,3 +163,4 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * make header bg opacity .5, overlay sand on metal
 * rearrange modules on page
 * Should be able to switch between views with tabs
+* convert account tab to use controller for email/name

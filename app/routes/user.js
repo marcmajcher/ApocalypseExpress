@@ -30,12 +30,8 @@ router.post('/', (req, res, next) => {
 /* User account pages */
 router.use(util.loginRequired);
 
-// router.get('/account', (req, res) => {
-//   util.renderTemplate(req, res, 'account');
-// });
-
 /* Return basic user info */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.send({
     firstname: req.session.user.firstname,
     lastname: req.session.user.lastname,
@@ -60,7 +56,10 @@ router.patch('/account', (req, res, next) => {
             req.session.user.firstname = req.body.firstname;
             req.session.user.lastname = req.body.lastname;
             req.flash('Name updated.');
-            util.renderTemplate(req, res, 'account');
+            // util.renderTemplate(req, res, 'account');
+            res.send({
+              ok: true
+            });
           })
           .catch((error) => {
             next(error);
@@ -78,11 +77,16 @@ router.patch('/account', (req, res, next) => {
         User.updatePassword(req.session.user.email, req.body.cpassword, req.body.password)
           .then(() => {
             req.flash('Password updated.');
-            util.renderTemplate(req, res, 'account');
+            res.send({
+              ok: true
+            });
           })
-          .catch(() => {
+          .catch((error) => {
             req.flash('Password incorrect.');
-            res.redirect('/user/account');
+            res.send({
+              ok: false,
+              error
+            });
           });
       }
     });
