@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<div class="location-header">
-  Location:
-  <span class="location-name">{{$ctrl.location.name}}</span>
+<div class="location-details">
+  <div class="location-header">
+    Location:
+    <span class="location-name">{{$ctrl.location.name}}</span>
+  </div>
+  <div class="sub-tabs">
+    <div class="sub-tab"><span>Rumors</span></div>
+    <div class="sub-tab"><span>Cargo Exchange</span></div>
+    <div class="sub-tab"><span>Service Station</span></div>
+    <div class="sub-tab"><span>Equipment and Weapons</span></div>
+    <div class="sub-tab"><span>Chop Shop</span></div>
+    <div class="sub-tab"><span>Mission Board</span></div>
+  </div>
   <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>
+  <div class="info-pane">
+    <table class="table">
+      <tr>
+        <td class="info-label">Population:</td>
+        <td>{{$ctrl.location.population}}</td>
+      </tr>
+      <tr>
+        <td class="info-label">Tech Level:</td>
+        <td>{{$ctrl.location.tech}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="info-pane location-description">{{$ctrl.location.description}}</div>
 </div>
-<div class="info-pane">
-  <table class="table">
-    <tr>
-      <td class="info-label">Population:</td>
-      <td>{{$ctrl.location.population}}</td>
-    </tr>
-    <tr>
-      <td class="info-label">Tech Level:</td>
-      <td>{{$ctrl.location.tech}}</td>
-    </tr>
-  </table>
-</div>
-<div class="info-pane location-description">{{$ctrl.location.description}}</div>

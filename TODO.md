@@ -2,29 +2,27 @@
 
 ## Implementing
 
-* Think about using ui-router for paths/tabs
-* convert account update route to return and handle ajax, not redirect
-* update tests to reflect new account info update method
+* update account component to handle return ajax, not redirect
+* Add summary of play to News tab
 
 ## On Deck
 
-* Tabs:
-  * News
-  * Location:
-    * Info
-    * Rumors/Bar/Etc
-    * Buy and Sell Cargo
-    * Buy and Sell Equipment / Weapons
-    * Chop Shop
-    * Mission Board
-    * (Bank??)
-    * Fuel Depot / Mechanic
-  * Travel
-  * Driver Status
-    * Buddies (driver/gunner/trader/etc)
+* Create fake news for News tab (location-based)
+* Create sub-tabs for Location tab
+  * Info
+  * Rumors/Bar/Etc
+  * Buy and Sell Cargo
+  * Buy and Sell Equipment / Weapons
+  * Chop Shop
+  * Mission Board
+  * (Bank??)
+  * Fuel Depot / Mechanic
+* Travel tab - should just be location tab when traveling?
 
 ## Writing Unit Tests
 
+* update tests to reflect new account info update method
+* move all frontend tests to protractor
 * Write tests for all services
 * Write tests for ticker
 * Write tests for socket
@@ -36,6 +34,8 @@
 
 ## Backlog
 
+* Gin up something for the home page
+* Looks like we need something for the "news" page, too.
 * User should be able to update driver name
 * For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
 * For trips, record start and end time, and speed, to see how long it takes and whatnot.
@@ -83,6 +83,7 @@
 * Refactor location positions from lat/long to x/y km from Ozz?
 * Get browser sync and livereload working with gulp and nodemon?
 * Shut down socket when browser window closes, or on error?
+* Buddies (driver/gunner/trader/etc)
 
 * Bots - virtual drivers to exercise System
 * Location thing - see who else is there, location chat
@@ -96,7 +97,7 @@
 
 ## Backend Tasks
 
-* update all api routes to start with /api
+* update all api routes to start with /api (update tests)
 * System should create event log for every route action
 * Index db tables
 * Think about internationalization
@@ -164,3 +165,6 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * rearrange modules on page
 * Should be able to switch between views with tabs
 * convert account tab to use controller for email/name
+* Driver Status tab
+* Think about using ui-router for paths/tabs (thought about it, nah)
+* convert account update route to return and handle ajax, not redirect
