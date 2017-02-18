@@ -218,9 +218,18 @@
 
   /* eslint-env jquery, browser */
 
+  var UserAccountController = function userAccountController($scope, UserService) {
+    var ctrl = this;
+
+    UserService.getUser().then(function (user) {
+      ctrl.user = user;
+    });
+  };
+
   angular.module('apox').component('userAccount', {
     bindings: {},
-    templateUrl: '../template/user.account.template.html'
+    templateUrl: '../template/user.account.template.html',
+    controller: ['$scope', 'UserService', UserAccountController]
   });
 })();
 'use strict';
@@ -946,6 +955,33 @@
   };
 
   angular.module('apox').factory('TripService', ['$http', '$q', tripService]);
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var userRoute = '/user';
+
+  /* A service to interface with the user route */
+
+  var UserService = function userService($http, $q) {
+    return {
+      getUser: function getUser() {
+        return $q(function (resolve, reject) {
+          $http.get(userRoute).then(function (user) {
+            resolve(user.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
+      }
+    };
+  };
+
+  angular.module('apox').factory('UserService', ['$http', '$q', UserService]);
 })();
 'use strict';
 

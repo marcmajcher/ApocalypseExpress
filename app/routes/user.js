@@ -30,8 +30,17 @@ router.post('/', (req, res, next) => {
 /* User account pages */
 router.use(util.loginRequired);
 
-router.get('/account', (req, res) => {
-  util.renderTemplate(req, res, 'account');
+// router.get('/account', (req, res) => {
+//   util.renderTemplate(req, res, 'account');
+// });
+
+/* Return basic user info */
+router.get('/', (req, res, next) => {
+  res.send({
+    firstname: req.session.user.firstname,
+    lastname: req.session.user.lastname,
+    email: req.session.user.email
+  });
 });
 
 /* Update user account information */

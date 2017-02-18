@@ -5,6 +5,7 @@
 * Think about using ui-router for paths/tabs
 * convert account tab to use controller for email/name
 * convert account update route to return ajax, not redirect
+* update tests to reflect new account info update method
 
 ## On Deck
 
@@ -96,6 +97,7 @@
 
 ## Backend Tasks
 
+* update all api routes to start with /api
 * System should create event log for every route action
 * Index db tables
 * Think about internationalization
