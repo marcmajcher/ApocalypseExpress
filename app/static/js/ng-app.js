@@ -289,7 +289,7 @@
     };
 
     ç.showError = function showError(error, what) {
-      ç.error = what + ' Error: Please try again later.';
+      ç.error = what + ' Error: Please try again later.'; // TODO: move to ErrorService
       console.error(what + ' ERROR', error); // eslint-disable-line
     };
   };
@@ -447,18 +447,32 @@
 
   /* eslint-env jquery, browser */
 
-  var UserAccountController = function userAccountController($scope, UserService) {
+  var UserAccountController = function userAccountController($scope, UserService, ModalService) {
     var ctrl = this;
     ctrl.pass = {};
 
     ctrl.$onInit = function () {
       UserService.getUser().then(function (user) {
         ctrl.user = user;
+      }).catch(function (error) {
+        console.error('UserInit ERROR', error); // eslint-disable-line
       });
     };
 
     ctrl.updateInfo = function () {
-      UserService.updateInfo(ctrl.user);
+      ModalService.loadModal();
+      UserService.updateInfo({
+        firstname: ctrl.user.firstname,
+        lastname: ctrl.user.lastname
+      }).then(function (res) {
+        if (res.ok) {
+          ModalService.readyModal('User Info Updated.');
+        } else {
+          throw new Error();
+        }
+      }).catch(function (error) {
+        console.error('updateInfo ERROR', error); // eslint-disable-line
+      });
     };
 
     ctrl.changePassword = function () {
@@ -468,7 +482,7 @@
 
   angular.module('apox').component('userAccount', {
     templateUrl: '../template/user.account.template.html',
-    controller: ['$scope', 'UserService', UserAccountController]
+    controller: ['$scope', 'UserService', 'ModalService', UserAccountController]
   });
 })();
 'use strict';
@@ -889,10 +903,36 @@
 })();
 'use strict';
 
+/* eslint-env jquery, browser */
+
 (function () {
+  var txtLoading = 'Loading';
+  var elModal = $('#main-modal');
+  var elTitle = $('#main-modal .modal-title');
+  var elBody = $('#main-modal .modal-body');
+  var elButton = $('#btn-okay');
 
   var modalService = function modalService() {
-    return {};
+    return {
+      loadModal: function loadModal() {
+        elButton.hide();
+        elTitle.text(txtLoading);
+        elBody.text('...');
+        elModal.modal({
+          keyboard: false,
+          show: true
+        });
+      },
+
+      // .on('hide.bs.modal', (e) => {
+      //   e.preventDefault();
+      // });
+      readyModal: function readyModal(msg) {
+        elButton.show();
+        elTitle.text('');
+        elBody.text(msg);
+      }
+    };
   };
 
   angular.module('apox').factory('ModalService', [modalService]);
@@ -1010,6 +1050,7 @@
   /* eslint-env jquery, browser */
 
   var userRoute = '/user';
+  var accountRoute = userRoute + '/account';
 
   /* A service to interface with the user route */
 
@@ -1025,10 +1066,13 @@
         });
       },
       updateInfo: function updateInfo(info) {
-        // action="/user/account?_method=PATCH" method="post"
-        $('#myModal').modal('show');
-        console.log('UPDATE INFO');
-        console.log(info);
+        return $q(function (resolve, reject) {
+          $http.patch(accountRoute, info).then(function (res) {
+            resolve(res.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
       },
       changePassword: function changePassword(pass) {
         console.log('CHANGE PASS');

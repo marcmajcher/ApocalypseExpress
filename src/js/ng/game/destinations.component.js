@@ -66,7 +66,7 @@
       };
 
       ç.showError = function showError(error, what) {
-        ç.error = `${what} Error: Please try again later.`;
+        ç.error = `${what} Error: Please try again later.`; // TODO: move to ErrorService
         console.error(`${what} ERROR`, error); // eslint-disable-line
       };
     };

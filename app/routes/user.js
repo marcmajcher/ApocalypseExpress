@@ -55,8 +55,6 @@ router.patch('/account', (req, res, next) => {
           .then(() => {
             req.session.user.firstname = req.body.firstname;
             req.session.user.lastname = req.body.lastname;
-            req.flash('Name updated.');
-            // util.renderTemplate(req, res, 'account');
             res.send({
               ok: true
             });

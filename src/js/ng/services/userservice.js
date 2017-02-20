@@ -4,6 +4,7 @@
   /* eslint-env jquery, browser */
 
   const userRoute = '/user';
+  const accountRoute = `${userRoute}/account`;
 
   /* A service to interface with the user route */
 
@@ -21,10 +22,15 @@
         });
       },
       updateInfo(info) {
-        // action="/user/account?_method=PATCH" method="post"
-        $('#myModal').modal('show');
-        console.log('UPDATE INFO');
-        console.log(info);
+        return $q((resolve, reject) => {
+          $http.patch(accountRoute, info)
+            .then((res) => {
+                resolve(res.data);
+              },
+              (err) => {
+                reject(err);
+              });
+        });
       },
       changePassword(pass) {
         console.log('CHANGE PASS');
