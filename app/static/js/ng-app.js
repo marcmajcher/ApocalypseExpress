@@ -476,7 +476,16 @@
     };
 
     ctrl.changePassword = function () {
-      UserService.changePassword(ctrl.pass);
+      ModalService.loadModal();
+      UserService.changePassword(ctrl.pass).then(function (res) {
+        if (res.ok) {
+          ModalService.readyModal('Password Updated');
+        } else {
+          ModalService.readyModal('Error: ' + res.error.name);
+        }
+      }).catch(function (error) {
+        console.error('updateInfo ERROR', error); // eslint-disable-line
+      });
     };
   };
 
@@ -923,10 +932,6 @@
           show: true
         });
       },
-
-      // .on('hide.bs.modal', (e) => {
-      //   e.preventDefault();
-      // });
       readyModal: function readyModal(msg) {
         elButton.show();
         elTitle.text('');
@@ -1053,13 +1058,14 @@
   var accountRoute = userRoute + '/account';
 
   /* A service to interface with the user route */
+  // TODO: refactor out resolve/rejects
 
   var UserService = function userService($http, $q) {
     return {
       getUser: function getUser() {
         return $q(function (resolve, reject) {
-          $http.get(userRoute).then(function (user) {
-            resolve(user.data);
+          $http.get(userRoute).then(function (res) {
+            resolve(res.data);
           }, function (err) {
             reject(err);
           });
@@ -1075,8 +1081,13 @@
         });
       },
       changePassword: function changePassword(pass) {
-        console.log('CHANGE PASS');
-        console.log(pass);
+        return $q(function (resolve, reject) {
+          $http.patch(accountRoute, pass).then(function (res) {
+            resolve(res.data);
+          }, function (err) {
+            reject(err);
+          });
+        });
       }
     };
   };

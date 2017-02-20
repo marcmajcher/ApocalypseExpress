@@ -74,13 +74,11 @@ router.patch('/account', (req, res, next) => {
       else {
         User.updatePassword(req.session.user.email, req.body.cpassword, req.body.password)
           .then(() => {
-            req.flash('Password updated.');
             res.send({
               ok: true
             });
           })
           .catch((error) => {
-            req.flash('Password incorrect.');
             res.send({
               ok: false,
               error

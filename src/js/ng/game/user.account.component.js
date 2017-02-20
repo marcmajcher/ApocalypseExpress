@@ -33,12 +33,24 @@
             }
           })
           .catch((error) => {
-            console.error(`updateInfo ERROR`, error); // eslint-disable-line
+            console.error('updateInfo ERROR', error); // eslint-disable-line
           });
       };
 
       ctrl.changePassword = () => {
-        UserService.changePassword(ctrl.pass);
+        ModalService.loadModal();
+        UserService.changePassword(ctrl.pass)
+          .then((res) => {
+            if (res.ok) {
+              ModalService.readyModal('Password Updated');
+            }
+            else {
+              ModalService.readyModal(`Error: ${res.error.name}`);
+            }
+          })
+          .catch((error) => {
+            console.error('updateInfo ERROR', error); // eslint-disable-line
+          });
       };
     };
 

@@ -7,7 +7,7 @@
   const elModal = $('#main-modal');
   const elTitle = $('#main-modal .modal-title');
   const elBody = $('#main-modal .modal-body');
-  const elButton = $('#btn-okay')
+  const elButton = $('#btn-okay');
 
   const modalService = function modalService() {
     return {
@@ -20,9 +20,6 @@
           show: true
         });
       },
-      // .on('hide.bs.modal', (e) => {
-      //   e.preventDefault();
-      // });
       readyModal(msg) {
         elButton.show();
         elTitle.text('');

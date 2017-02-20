@@ -7,14 +7,15 @@
   const accountRoute = `${userRoute}/account`;
 
   /* A service to interface with the user route */
+  // TODO: refactor out resolve/rejects
 
   const UserService = function userService($http, $q) {
     return {
       getUser() {
         return $q((resolve, reject) => {
           $http.get(userRoute)
-            .then((user) => {
-                resolve(user.data);
+            .then((res) => {
+                resolve(res.data);
               },
               (err) => {
                 reject(err);
@@ -33,8 +34,15 @@
         });
       },
       changePassword(pass) {
-        console.log('CHANGE PASS');
-        console.log(pass);
+        return $q((resolve, reject) => {
+          $http.patch(accountRoute, pass)
+            .then((res) => {
+                resolve(res.data);
+              },
+              (err) => {
+                reject(err);
+              });
+        });
       }
     };
   };

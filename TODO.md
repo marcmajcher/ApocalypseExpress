@@ -2,12 +2,10 @@
 
 ## Implementing
 
-* update account component to handle return ajax, not redirect
 * Add summary of play to News tab
 
 ## On Deck
 
-* Deactivate Location tab while traveling
 * Create fake news for News tab (location-based)
 * Create sub-tabs for Location tab
   * Info
@@ -23,6 +21,7 @@
 ## Writing Unit Tests
 
 * update tests to reflect new account info update method
+* test new password change method
 * move all frontend tests to protractor
 * Write tests for all services
 * Write tests for ticker
@@ -31,6 +30,7 @@
 
 ## Bugs
 
+* Update "logout $user" in header when user info is updated
 * Fix flash messaging
 * Update header to be responsive on mobile
 
@@ -170,3 +170,4 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Driver Status tab
 * Think about using ui-router for paths/tabs (thought about it, nah)
 * convert account update route to return and handle ajax, not redirect
+* Deactivate Location tab while traveling
