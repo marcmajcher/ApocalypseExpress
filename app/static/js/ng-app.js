@@ -211,28 +211,7 @@
 
   angular.module('apox').component('gamePage', {
     controller: ['$scope', 'GameService', 'LocationService', 'SocketService', 'TabService', GamePageController],
-    templateUrl: '../template/gamepage.template.html'
-  });
-})();
-'use strict';
-
-(function () {
-  'use strict';
-
-  /* eslint-env jquery, browser */
-
-  var UserAccountController = function userAccountController($scope, UserService) {
-    var ctrl = this;
-
-    UserService.getUser().then(function (user) {
-      ctrl.user = user;
-    });
-  };
-
-  angular.module('apox').component('userAccount', {
-    bindings: {},
-    templateUrl: '../template/user.account.template.html',
-    controller: ['$scope', 'UserService', UserAccountController]
+    templateUrl: '../template/_gamepage.template.html'
   });
 })();
 'use strict';
@@ -458,7 +437,28 @@
     bindings: {
       trip: '<'
     },
-    templateUrl: '../template/progress.template.html'
+    templateUrl: '../template/trip.progress.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var UserAccountController = function userAccountController($scope, UserService) {
+    var ctrl = this;
+
+    UserService.getUser().then(function (user) {
+      ctrl.user = user;
+    });
+  };
+
+  angular.module('apox').component('userAccount', {
+    bindings: {},
+    templateUrl: '../template/user.account.template.html',
+    controller: ['$scope', 'UserService', UserAccountController]
   });
 })();
 'use strict';

@@ -92,6 +92,6 @@
 
   angular.module('apox').component('gamePage', {
     controller: ['$scope', 'GameService', 'LocationService', 'SocketService', 'TabService', GamePageController],
-    templateUrl: '../template/gamepage.template.html'
+    templateUrl: '../template/_gamepage.template.html'
   });
 })();

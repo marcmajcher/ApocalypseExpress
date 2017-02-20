@@ -7,6 +7,6 @@
     bindings: {
       trip: '<'
     },
-    templateUrl: '../template/progress.template.html'
+    templateUrl: '../template/trip.progress.template.html'
   });
 })();
