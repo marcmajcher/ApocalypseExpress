@@ -59,21 +59,30 @@ body.game-page {
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 16px;
+      margin-left: -8px;
+      margin-top: -8px;
 
       .sub-tab {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        display: block;
-        @include drop-shadow(2);
+        font-family: $font_header;
+        font-size: 1.3em;
+        cursor: pointer;
+        @include drop-shadow(3);
         background-color: $color_light;
-        width: 48%;
         height: 2em;
-        padding: 4px;
-        margin: 4px;
+        margin: 8px 0 0 8px;
+        display: flex;
+        flex-basis: calc(50% - 8px);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
 
-        span {
-          display: block;
+        &:hover {
+          opacity: 0.85;
+          left: 2px;
+        }
+
+        &:active {
+          @include drop-shadow(-2);
         }
       }
     }
