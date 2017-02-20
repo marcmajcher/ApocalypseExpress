@@ -449,14 +449,24 @@
 
   var UserAccountController = function userAccountController($scope, UserService) {
     var ctrl = this;
+    ctrl.pass = {};
 
-    UserService.getUser().then(function (user) {
-      ctrl.user = user;
-    });
+    ctrl.$onInit = function () {
+      UserService.getUser().then(function (user) {
+        ctrl.user = user;
+      });
+    };
+
+    ctrl.updateInfo = function () {
+      UserService.updateInfo(ctrl.user);
+    };
+
+    ctrl.changePassword = function () {
+      UserService.changePassword(ctrl.pass);
+    };
   };
 
   angular.module('apox').component('userAccount', {
-    bindings: {},
     templateUrl: '../template/user.account.template.html',
     controller: ['$scope', 'UserService', UserAccountController]
   });
@@ -880,6 +890,16 @@
 'use strict';
 
 (function () {
+
+  var modalService = function modalService() {
+    return {};
+  };
+
+  angular.module('apox').factory('ModalService', [modalService]);
+})();
+'use strict';
+
+(function () {
   'use strict';
 
   /* eslint-env jquery, browser */
@@ -1003,6 +1023,16 @@
             reject(err);
           });
         });
+      },
+      updateInfo: function updateInfo(info) {
+        // action="/user/account?_method=PATCH" method="post"
+        $('#myModal').modal('show');
+        console.log('UPDATE INFO');
+        console.log(info);
+      },
+      changePassword: function changePassword(pass) {
+        console.log('CHANGE PASS');
+        console.log(pass);
       }
     };
   };

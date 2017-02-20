@@ -9,7 +9,7 @@
 
   const UserService = function userService($http, $q) {
     return {
-      getUser: function getUser() {
+      getUser() {
         return $q((resolve, reject) => {
           $http.get(userRoute)
             .then((user) => {
@@ -19,6 +19,16 @@
                 reject(err);
               });
         });
+      },
+      updateInfo(info) {
+        // action="/user/account?_method=PATCH" method="post"
+        $('#myModal').modal('show');
+        console.log('UPDATE INFO');
+        console.log(info);
+      },
+      changePassword(pass) {
+        console.log('CHANGE PASS');
+        console.log(pass);
       }
     };
   };

@@ -6,15 +6,25 @@
   const UserAccountController =
     function userAccountController($scope, UserService) {
       const ctrl = this;
+      ctrl.pass = {};
 
-      UserService.getUser()
-        .then((user) => {
-          ctrl.user = user;
-        });
+      ctrl.$onInit = () => {
+        UserService.getUser()
+          .then((user) => {
+            ctrl.user = user;
+          });
+      };
+
+      ctrl.updateInfo = () => {
+        UserService.updateInfo(ctrl.user);
+      };
+
+      ctrl.changePassword = () => {
+        UserService.changePassword(ctrl.pass);
+      };
     };
 
   angular.module('apox').component('userAccount', {
-    bindings: {},
     templateUrl: '../template/user.account.template.html',
     controller: ['$scope', 'UserService', UserAccountController]
   });
