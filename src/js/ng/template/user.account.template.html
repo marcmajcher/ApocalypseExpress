@@ -60,6 +60,6 @@
       <label for="vpassword">Verify Password</label>
       <input class="form-control" ng-model="$ctrl.pass.vpassword" type="password" name="vpassword" required>
     </div>
-    <button type="submit" class="btn btn-primary" ng-click="$ctrl.changePassword()" ng-disabled="password_form.$invalid">Change Password</button>
+    <button type="submit" class="btn btn-primary" ng-click="$ctrl.changePassword()" ng-disabled="password_form.password.$pristine || password_form.$invalid">Change Password</button>
   </form>
 </div>
