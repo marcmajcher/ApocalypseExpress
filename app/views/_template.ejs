@@ -17,20 +17,21 @@
 </head>
 
 <body class="<%=page.replace(/\W/g,'')%>-page" ng-cloak>
-  <% include partials/header %>
-    <div class="container main-content">
-      <% if (typeof messages !== 'undefined') {
+  <% include partials/modal %>
+    <% include partials/header %>
+      <div class="container main-content">
+        <% if (typeof messages !== 'undefined') {
           while (messages.length > 0) {
             var message = messages.pop();
       %>
-        <div class="flash-<%=message.type%>">
-          <%= message.message %>
-        </div>
-        <%    }
+          <div class="flash-<%=message.type%>">
+            <%= message.message %>
+          </div>
+          <%    }
       } %>
-          <%- include(page) %>
-    </div>
-    <script src="/js/ng-app.js"></script>
+            <%- include(page) %>
+      </div>
+      <script src="/js/ng-app.js"></script>
 </body>
 
 </html>

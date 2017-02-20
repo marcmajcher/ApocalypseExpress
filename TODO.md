@@ -31,6 +31,7 @@
 
 ## Bugs
 
+* Fix flash messaging
 * Update header to be responsive on mobile
 
 ## Backlog
