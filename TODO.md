@@ -7,6 +7,7 @@
 
 ## On Deck
 
+* Deactivate Location tab while traveling
 * Create fake news for News tab (location-based)
 * Create sub-tabs for Location tab
   * Info

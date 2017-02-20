@@ -4,9 +4,10 @@
   /* eslint-env jquery, browser */
 
   const DestinationListController =
-    function destinationListController(FactionService, LocationService, TripService) {
+    function destinationListController(FactionService, LocationService, TripService, TabService) {
       const ç = this;
       ç.tags = FactionService.factionTags;
+      ç.state = TabService.state;
 
       ç.setDestination = function setDestination(id) {
         ç.working = true;
@@ -35,6 +36,7 @@
             if (data === 'ok') {
               ç.working = false;
               ç.traveling = true;
+              ç.state.traveling = true;
             }
             else {
               throw new Error();
@@ -77,7 +79,7 @@
       trip: '=',
       working: '='
     },
-    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
+    controller: ['FactionService', 'LocationService', 'TripService', 'TabService', DestinationListController],
     templateUrl: '../template/destinations.template.html'
   });
 })();

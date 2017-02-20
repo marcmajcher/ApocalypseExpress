@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <div class="location-details">
-  <div class="location-header">
-    Location:
-    <span class="location-name">{{$ctrl.location.name}}</span>
-    <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>
-  </div>
+  <location-header location="$ctrl.location"></location-header>
   <div class="sub-tabs">
     <div class="sub-tab">Rumors</div>
     <div class="sub-tab">Cargo Exchange</div>

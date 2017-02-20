@@ -13,9 +13,14 @@
   </div>
   <div ng-show="$ctrl.state.tab === 'travel'">
     <div class="col-md-6">
+      <div ng-if="!$ctrl.traveling">
+        <location-header location="$ctrl.currentLocation"></location-header>
+        <destination-list location="$ctrl.currentLocation" traveling="$ctrl.traveling" working="$ctrl.working" trip="$ctrl.trip" error="$ctrl.error"></destination-list>
+      </div>
+    </div>
+    <div class="col-md-6">
       <apox-map location="$ctrl.currentLocation"></apox-map>
       <trip-progress ng-if="$ctrl.traveling" trip="$ctrl.trip "></trip-progress>
-      <destination-list ng-if="!$ctrl.traveling" location="$ctrl.currentLocation" traveling="$ctrl.traveling" working="$ctrl.working" trip="$ctrl.trip" error="$ctrl.error"></destination-list>
     </div>
   </div>
   <div ng-show="$ctrl.state.tab === 'driver'">

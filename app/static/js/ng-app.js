@@ -153,6 +153,7 @@
           ç.trip.progress = ç.trip.distance;
           ç.getCurrentLocation();
           ç.traveling = false;
+          ç.state.traveling = false;
         } else {
           ç.trip = {
             origin: ç.currentLocation,
@@ -162,6 +163,7 @@
           };
           ç.setTripLocation();
           ç.traveling = currentTrip.progress > 0;
+          ç.state.traveling = currentTrip.progress > 0;
           setTimeout(function () {
             ç.currentLocation.render = false;
           }, 0); // don't set false until after applied
@@ -175,6 +177,7 @@
           setTimeout(function () {
             ç.getCurrentLocation();
             ç.traveling = false;
+            ç.state.traveling = false;
           }, refreshTime);
         } else {
           ç.trip.progress = data.progress;
@@ -251,9 +254,10 @@
 
   /* eslint-env jquery, browser */
 
-  var DestinationListController = function destinationListController(FactionService, LocationService, TripService) {
+  var DestinationListController = function destinationListController(FactionService, LocationService, TripService, TabService) {
     var ç = this;
     ç.tags = FactionService.factionTags;
+    ç.state = TabService.state;
 
     ç.setDestination = function setDestination(id) {
       ç.working = true;
@@ -280,6 +284,7 @@
         if (data === 'ok') {
           ç.working = false;
           ç.traveling = true;
+          ç.state.traveling = true;
         } else {
           throw new Error();
         }
@@ -318,7 +323,7 @@
       trip: '=',
       working: '='
     },
-    controller: ['FactionService', 'LocationService', 'TripService', DestinationListController],
+    controller: ['FactionService', 'LocationService', 'TripService', 'TabService', DestinationListController],
     templateUrl: '../template/destinations.template.html'
   });
 })();
@@ -376,6 +381,26 @@
     },
     controller: ['FactionService', LocationDetailsController],
     templateUrl: '../template/location.template.html'
+  });
+})();
+'use strict';
+
+(function () {
+  'use strict';
+
+  /* eslint-env jquery, browser */
+
+  var LocationHeaderController = function locationHeaderController(FactionService) {
+    var ctrl = this;
+    ctrl.tags = FactionService.factionTags;
+  };
+
+  angular.module('apox').component('locationHeader', {
+    bindings: {
+      location: '<'
+    },
+    controller: ['FactionService', LocationHeaderController],
+    templateUrl: '../template/location.header.template.html'
   });
 })();
 'use strict';
@@ -890,7 +915,8 @@
   var tabService = function tabService() {
     return {
       state: {
-        tab: 'default'
+        tab: 'default',
+        traveling: false
       },
       setTab: function setTab(tab) {
         this.state.tab = tab;

@@ -6,7 +6,8 @@
   const tabService = function tabService() {
     return {
       state: {
-        tab: 'default'
+        tab: 'default',
+        traveling: false
       },
       setTab(tab) {
         this.state.tab = tab;

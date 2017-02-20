@@ -29,6 +29,7 @@
               ç.trip.progress = ç.trip.distance;
               ç.getCurrentLocation();
               ç.traveling = false;
+              ç.state.traveling = false;
             }
             else {
               ç.trip = {
@@ -40,6 +41,7 @@
               };
               ç.setTripLocation();
               ç.traveling = currentTrip.progress > 0;
+              ç.state.traveling = currentTrip.progress > 0;
               setTimeout(() => {
                 ç.currentLocation.render = false;
               }, 0); // don't set false until after applied
@@ -53,6 +55,7 @@
               setTimeout(() => {
                 ç.getCurrentLocation();
                 ç.traveling = false;
+                ç.state.traveling = false;
               }, refreshTime);
             }
             else {
