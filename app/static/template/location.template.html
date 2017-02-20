@@ -3,6 +3,7 @@
   <div class="location-header">
     Location:
     <span class="location-name">{{$ctrl.location.name}}</span>
+    <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>
   </div>
   <div class="sub-tabs">
     <div class="sub-tab">Rumors</div>
@@ -12,7 +13,6 @@
     <div class="sub-tab">Chop Shop</div>
     <div class="sub-tab">Mission Board</div>
   </div>
-  <div class="faction-slug {{$ctrl.tags[$ctrl.location.factionid]}}"></div>
   <div class="info-pane">
     <table class="table">
       <tr>

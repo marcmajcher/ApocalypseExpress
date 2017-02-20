@@ -68,7 +68,7 @@ body.game-page {
         cursor: pointer;
         @include drop-shadow(3);
         background-color: $color_light;
-        height: 2em;
+        min-height: 2em;
         margin: 8px 0 0 8px;
         display: flex;
         flex-basis: calc(50% - 8px);
