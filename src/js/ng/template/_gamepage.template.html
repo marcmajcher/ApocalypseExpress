@@ -3,7 +3,7 @@
   <!-- Location Tab -->
   <div ng-show="$ctrl.state.tab === 'news'">
     <div class="col-md-6">
-      News
+      <location-header location="$ctrl.currentLocation"></location-header>
     </div>
   </div>
   <div ng-show="$ctrl.state.tab === 'default' || $ctrl.state.tab === 'location'">

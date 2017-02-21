@@ -3,26 +3,27 @@
 ## Implementing
 
 * Add summary of play to News tab
+  * Location / Date/time
+  * Driver / Vehicle
+  * Local News
 
 ## On Deck
 
-* Create fake news for News tab (location-based)
-* Create sub-tabs for Location tab
-  * Info
-  * Rumors/Bar/Etc
-  * Buy and Sell Cargo
-  * Buy and Sell Equipment / Weapons
-  * Chop Shop
-  * Mission Board
-  * (Bank??)
-  * Fuel Depot / Mechanic
-* Travel tab - should just be location tab when traveling?
+* Each location should have a list of goods for trade with quantities and prices
+* Each trade good should have a base price, modified by multipliers in each location
+* User should be able to buy and sell goods at locations
+
+* User should not be able to take trip unless they have sufficient fuel
+* Destinations should be disabled if unavailable
+* Trips should take fuel based on distance and km/l
+* Player should be able to refuel at cost in locations
 
 ## Writing Unit Tests
 
 * update tests to reflect new account info update method
 * test new password change method
 * move all frontend tests to protractor
+* update all protractor tests
 * Write tests for all services
 * Write tests for ticker
 * Write tests for socket
@@ -38,19 +39,19 @@
 
 * Gin up something for the home page
 * Looks like we need something for the "news" page, too.
+* Create fake news for News tab (location-based)
+
 * User should be able to update driver name
+* User should be able to rename vehicle
+
 * For trips, set vehicle top speed, allow user to choose max speed for trip (slower, safer)
 * For trips, record start and end time, and speed, to see how long it takes and whatnot.
 * Difficulty of a trip (1-10) is x * .05 chance of an event every km
 * Is there something fun to do while they're driving? Minigame? Dashboard?
+
 * Trips between locations should have events
 * Replace location description with event log when traveling
 * Generate AW-type description for new drivers
-
-* User should be able to rename vehicle
-* Each location should have a list of goods for trade with quantities and prices
-* Each trade good should have a base price, modified by multipliers in each location
-* User should be able to buy and sell goods at locations
 
 * Refactor connections stuff out of the map request - use trip(??)
 
@@ -104,7 +105,10 @@
 * Index db tables
 * Think about internationalization
 
-## Admin Map Editor
+## Admin / Game Management
+
+* Add page to add/edit news for locations
+  * (add missions to deliver news)
 
 * Add ability to edit distance and difficulty of connections
 * Fix zoom multiplier bug on location move
@@ -115,7 +119,6 @@
 
 ----
 * DB error checking everywhere
-* Do I want to use ui-router for tabs? I kind of don't.
 
 ## Done
 
@@ -171,3 +174,17 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Think about using ui-router for paths/tabs (thought about it, nah)
 * convert account update route to return and handle ajax, not redirect
 * Deactivate Location tab while traveling
+* Create sub-tabs for Location tab
+  * Info
+  * Rumors/Bar/Etc
+  * Buy and Sell Cargo
+  * Buy and Sell Equipment / Weapons
+  * Chop Shop
+  * Mission Board
+  * (Bank??)
+  * Fuel Depot / Mechanic
+* Travel tab - should just be location tab when traveling?
+* Do I want to use ui-router for tabs? I kind of don't.
+* Each second, advance trip progress according to speed
+  * 60 km/h = 60000 m/h = 1000 m/min = 16.667 m/sec
+  * m/sec = km/h / 3.6 real time; 60x = km/h * 16.6667 / 6 => 2.777

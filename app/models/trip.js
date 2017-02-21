@@ -11,7 +11,7 @@ const ticker = require('../ticker');
 const socketlib = require('../socket');
 
 const tripDb = 'trips';
-const speedupFactor = 2.7 * 30; // eslint-disable-line
+const speedupFactor = 16.6667; /* 2.7777778 */ // eslint-disable-line
 
 exports.get = driverid => util.knex(tripDb).where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
@@ -51,6 +51,7 @@ exports.create = (driverid, destinationid) =>
     console.log('Error in models/trip.create', error); // eslint-disable-line
   });
 
+/* Start the current trip */
 exports.begin = driverid => Driver.updateValue(driverid, 'traveling', true)
   .then(() =>
     util.knex(tripDb).where('driverid', driverid)
@@ -59,15 +60,15 @@ exports.begin = driverid => Driver.updateValue(driverid, 'traveling', true)
       underway: true
     }, '*'));
 
+/* Each second, advance progress of all active trips, end trips when done */
 const tickerTripProgress = function tickerTripProgress(testing = false) {
   return util.knex(tripDb).where('underway', true)
     .then((trips) => {
-      // TODO: grab speed from driver->vehicle speed
       const promises = [];
       for (let i = 0; i < trips.length; i++) {
         const trip = trips[i];
         const emitter = socketlib.driverEmitter(trip.driverid);
-        const newProgress = trip.progress + (trip.speed * speedupFactor);
+        const newProgress = trip.progress + Math.ceil(trip.speed * speedupFactor);
 
         if (testing || newProgress > trip.distance) {
           emitter.emit('tripProgress', {
