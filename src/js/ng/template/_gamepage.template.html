@@ -10,6 +10,26 @@
     <div class="col-md-6">
       <location-details ng-if="!$ctrl.traveling" location="$ctrl.currentLocation"></location-details>
     </div>
+    <div class="col-md-6">
+      <div ng-show="$ctrl.state.loc === 'rumor'">
+        Rumors
+      </div>
+      <div ng-show="$ctrl.state.loc === 'cargo'">
+        Cargo Exchange
+      </div>
+      <div ng-show="$ctrl.state.loc === 'service'">
+        Service Station
+      </div>
+      <div ng-show="$ctrl.state.loc === 'equip'">
+        Equipment and Weapons
+      </div>
+      <div ng-show="$ctrl.state.loc === 'garage'">
+        Chop Shop
+      </div>
+      <div ng-show="$ctrl.state.loc === 'mission'">
+        Mission Board
+      </div>
+    </div>
   </div>
   <div ng-show="$ctrl.state.tab === 'travel'">
     <div class="col-md-6">

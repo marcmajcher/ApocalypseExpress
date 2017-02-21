@@ -21,6 +21,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
+  // TODO: only send name, etc for non-current location
   // TODO: write tests
   Location.get(req.params.id)
     .then((location) => {

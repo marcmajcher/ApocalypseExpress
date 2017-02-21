@@ -2,9 +2,11 @@
 
 ## Implementing
 
+* Set up Location screens/tabs
+
 * Add summary of play to News tab
   * Location / Date/time
-    * Calculate Date/time => Start at 1/1/2017GMT, time goes 10x faster
+    * Calculate Date/time => Start at 12/21/2012GMT, time goes 10x faster
   * Driver / Vehicle
   * Local News
 

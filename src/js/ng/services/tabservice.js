@@ -7,10 +7,14 @@
     return {
       state: {
         tab: 'default',
-        traveling: false
+        traveling: false,
+        loc: 'default'
       },
       setTab(tab) {
         this.state.tab = tab;
+      },
+      setLoc(loc) {
+        this.state.loc = loc;
       }
     };
   };

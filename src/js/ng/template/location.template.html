@@ -2,12 +2,12 @@
 <div class="location-details">
   <location-header location="$ctrl.location"></location-header>
   <div class="sub-tabs">
-    <div class="sub-tab">Rumors</div>
-    <div class="sub-tab">Cargo Exchange</div>
-    <div class="sub-tab">Service Station</div>
-    <div class="sub-tab">Equipment and Weapons</div>
-    <div class="sub-tab">Chop Shop</div>
-    <div class="sub-tab">Mission Board</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('rumor')">Rumors</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('cargo')">Cargo Exchange</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('service')">Service Station</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('equip')">Equipment and Weapons</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('garage')">Chop Shop</div>
+    <div class="sub-tab" ng-click="$ctrl.setLoc('mission')">Mission Board</div>
   </div>
   <div class="info-pane">
     <table class="table">
