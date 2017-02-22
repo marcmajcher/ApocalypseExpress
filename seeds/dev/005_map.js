@@ -2,7 +2,7 @@
 
 /* eslint-env node */
 
-const config = require('../../data/map_config');
+const config = require('../../app/data/map_config');
 
 exports.seed = knex => knex('locations').del()
   .then(() => knex('locations').insert(config.locations))
