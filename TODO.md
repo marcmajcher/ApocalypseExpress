@@ -23,7 +23,7 @@
 
 * Item cost calculations
 
-Items have [itemId, name, minimumTech, and basePrice]
+Items have [itemId, name, minimumTech, rarity, and basePrice]
 Location_Items have [locationId, itemId, price, modifier, stock, capacity, demand, and production]
 
 Price for a location is calculated:
@@ -35,6 +35,19 @@ Price for a location is calculated:
                    (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.06 : 0.9
   modifier = flowBase + rarityMod - volumeMod + 0.05
   price = basePrice * modifier
+
+* Every day, increase population by 1/50,000
+  * if pop < 50k, increase by one by random %
+* Every day, adjust trade good production and demands by % of population
+
+To set up seeds:
+* For each location:
+  * For each trade good, if the tech level of the location is at least the level of the good,
+    * Roll %, if under rarity of good:
+      * Add trade good to location
+        * Capacity, Demand, Production are location population * good rarity +/- random 0-50%
+        * Stock is random % of Capacity
+      * Modifier and price are calculated when item is added to location
 
 ## Writing Unit Tests
 
