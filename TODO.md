@@ -28,11 +28,11 @@ Location_Items have [locationId, itemId, price, modifier, stock, capacity, deman
 
 Price for a location is calculated:
 
-  volumeMod = Math.log10(Math.max(1, demand - Math.max(1, demand - production))) * 0.01;
-  rarityMod = (1 - (stock / Math.max(1, capacity))) / 10;
-  flow = production - demand
-  flowBase = (flow > 0) ? 0.9 - Math.log10(flow) * 0.02 :
-             (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.04 : 0.9
+  const volumeMod = Math.log10(Math.max(1, demand - Math.max(1, demand - production))) * 0.01;
+  const rarityMod = (1 - (stock / Math.max(1, capacity))) / 10;
+  const flow = production - demand
+  const flowBase = (flow > 0) ? 0.9 - Math.log10(flow) * 0.03 :
+                   (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.06 : 0.9
   modifier = flowBase + rarityMod - volumeMod + 0.05
   price = basePrice * modifier
 
