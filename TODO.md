@@ -15,11 +15,20 @@
 * Each location should have a list of goods for trade with quantities and prices
 * Each trade good should have a base price, modified by multipliers in each location
 * User should be able to buy and sell goods at locations
+* User should not be able to buy goods if none in stock
+* User should not be able to sell goods if no capacity left
+* User should not be able to buy goods if they don't have enough money
+* User should not be able to buy goods if they don't have enough cargo space
+* User should not be able to buy or sell goods from a location that doesn't have them
 
 * User should not be able to take trip unless they have sufficient fuel
 * Destinations should be disabled if unavailable
 * Trips should take fuel based on distance and km/l
 * Player should be able to refuel at cost in locations
+
+* Update population, stock, demand, and production for each location and trade good daily
+  * If capacity is full, increase capacity or demand?
+* Recalculate modifier and price when location_goods is updated
 
 * Item cost calculations
 
@@ -51,6 +60,8 @@ To set up seeds:
 
 ## Writing Unit Tests
 
+* seed files for tradegoods and location_goods
+* tests for tradegoods and location_goods
 * update tests to reflect new account info update method
 * test new password change method
 * move all frontend tests to protractor
