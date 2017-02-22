@@ -7,8 +7,8 @@ module.exports = {
     name: 'Ozz',
     latitude: 30.2672,
     longitude: -97.7431,
-    description: 'The Freehold of Ozz is the capitol of the Republic of Anatexis, and the seat of power in the central Hills. The city houses nearly a hundred thousand souls, and provides what little stability there is to the region. The freehold\'s leaders hold close ties with Petrex Enterprises, which allows them to also provide its inhabitants and allies with plentiful fuel and other luxuries. The presiding Chair of the freehold, Preston Federman, has pledged to keep order within the walls of the city, and vows to maintain the Republic\'s presence in the area, pushing back the encroaching Hills Confederacy, and fending off incursions by various renegade motor-gangs.',
-    population: 716512,
+    description: 'The Freehold of Ozz is the capitol of the Republic of Anatexis, and the seat of power in the central Hills. The city houses nearly two hundred thousand souls, and provides what little stability there is to the region. The freehold\'s leaders hold close ties with Petrex Enterprises, which allows them to also provide its inhabitants and allies with plentiful fuel and other luxuries. The presiding Chair of the freehold, Preston Federman, has pledged to keep order within the walls of the city, and vows to maintain the Republic\'s presence in the area, pushing back the encroaching Hills Confederacy, and fending off incursions by various renegade motor-gangs.',
+    population: 176512,
     type: 'freehold',
     tech: 8,
     factionid: 1

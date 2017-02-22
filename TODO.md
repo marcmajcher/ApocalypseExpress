@@ -21,6 +21,21 @@
 * Trips should take fuel based on distance and km/l
 * Player should be able to refuel at cost in locations
 
+* Item cost calculations
+
+Items have [itemId, name, minimumTech, and basePrice]
+Location_Items have [locationId, itemId, price, modifier, stock, capacity, demand, and production]
+
+Price for a location is calculated:
+
+  volumeMod = Math.log10(Math.max(1, demand - Math.max(1, demand - production))) * 0.01;
+  rarityMod = (1 - (stock / Math.max(1, capacity))) / 10;
+  flow = production - demand
+  flowBase = (flow > 0) ? 0.9 - Math.log10(flow) * 0.02 :
+             (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.04 : 0.9
+  modifier = flowBase + rarityMod - volumeMod + 0.05
+  price = basePrice * modifier
+
 ## Writing Unit Tests
 
 * update tests to reflect new account info update method
