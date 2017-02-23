@@ -2,18 +2,12 @@
 
 ## Implementing
 
-* Set up Location screens/tabs
 
-* Add summary of play to News tab
-  * Location / Date/time
-    * Calculate Date/time => Start at 12/21/2012GMT, time goes 10x faster
-  * Driver / Vehicle
-  * Local News
 
 ## On Deck
 
 * Each location should have a list of goods for trade with quantities and prices
-* Each trade good should have a base price, modified by multipliers in each location
+
 * User should be able to buy and sell goods at locations
 * User should not be able to buy goods if none in stock
 * User should not be able to sell goods if no capacity left
@@ -21,44 +15,25 @@
 * User should not be able to buy goods if they don't have enough cargo space
 * User should not be able to buy or sell goods from a location that doesn't have them
 
+* Trips should take fuel based on distance and km/l
 * User should not be able to take trip unless they have sufficient fuel
 * Destinations should be disabled if unavailable
-* Trips should take fuel based on distance and km/l
 * Player should be able to refuel at cost in locations
+
+* Move modifier/price calculation to library
+* Load base goods/prices on server load, keep in memory/service
 
 * Update population, stock, demand, and production for each location and trade good daily
   * If capacity is full, increase capacity or demand?
 * Recalculate modifier and price when location_goods is updated
 
-* Item cost calculations
-
-Items have [itemId, name, minimumTech, rarity, and basePrice]
-Location_Items have [locationId, itemId, price, modifier, stock, capacity, demand, and production]
-
-Price for a location is calculated:
-
-  const volumeMod = Math.log10(Math.max(1, demand - Math.max(1, demand - production))) * 0.01;
-  const rarityMod = (1 - (stock / Math.max(1, capacity))) / 10;
-  const flow = production - demand
-  const flowBase = (flow > 0) ? 0.9 - Math.log10(flow) * 0.03 :
-                   (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.06 : 0.9
-  modifier = flowBase + rarityMod - volumeMod + 0.05
-  price = basePrice * modifier
-
 * Every day, increase population by 1/50,000
   * if pop < 50k, increase by one by random %
 * Every day, adjust trade good production and demands by % of population
 
-To set up seeds:
-* For each location:
-  * For each trade good, if the tech level of the location is at least the level of the good,
-    * Roll %, if under rarity of good:
-      * Add trade good to location
-        * Capacity, Demand, Production are location population * good rarity +/- random 0-50%
-        * Stock is random % of Capacity
-      * Modifier and price are calculated when item is added to location
-
 ## Writing Unit Tests
+
+* Streamline protractor testing process
 
 * seed files for tradegoods and location_goods
 * tests for tradegoods and location_goods
@@ -78,6 +53,12 @@ To set up seeds:
 * Update header to be responsive on mobile
 
 ## Backlog
+
+* Add summary of play to News tab
+  * Location / Date/time
+    * Calculate Date/time => Start at 12/21/2012GMT, time goes 10x faster
+  * Driver / Vehicle
+  * Local News
 
 * Gin up something for the home page
 * Looks like we need something for the "news" page, too.
@@ -230,3 +211,30 @@ Unhandled rejection TypeError: Cannot read property 'emit' of undefined
 * Each second, advance trip progress according to speed
   * 60 km/h = 60000 m/h = 1000 m/min = 16.667 m/sec
   * m/sec = km/h / 3.6 real time; 60x = km/h * 16.6667 / 6 => 2.777
+* Set up Location screens/tabs
+
+* Item cost calculations
+
+Items have [itemId, name, minimumTech, rarity, and basePrice]
+Location_Items have [locationId, itemId, price, modifier, stock, capacity, demand, and production]
+
+Price for a location is calculated:
+
+  const volumeMod = Math.log10(Math.max(1, demand - Math.max(1, demand - production))) * 0.01;
+  const rarityMod = (1 - (stock / Math.max(1, capacity))) / 10;
+  const flow = production - demand
+  const flowBase = (flow > 0) ? 0.9 - Math.log10(flow) * 0.03 :
+                   (flow < 0) ? 0.9 + Math.log10(demand - production) * 0.06 : 0.9
+  modifier = flowBase + rarityMod - volumeMod + 0.05
+  price = basePrice * modifier
+
+* Each trade good should have a base price, modified by multipliers in each location
+
+To set up seeds:
+* For each location:
+  * For each trade good, if the tech level of the location is at least the level of the good,
+    * Roll %, if under rarity of good:
+      * Add trade good to location
+        * Capacity, Demand, Production are location population * good rarity +/- random 0-50%
+        * Stock is random % of Capacity
+      * Modifier and price are calculated when item is added to location
