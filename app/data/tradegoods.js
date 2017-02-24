@@ -1,3 +1,7 @@
+'use strict';
+
+/* eslint-env node */
+
 module.exports = [{
     name: 'Scrap Metal',
     mintech: 1,
