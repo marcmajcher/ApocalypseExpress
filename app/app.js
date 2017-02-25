@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 // TODO: CSRF?
 
 app.use('/', require('./routes/index'));
-['admin', 'driver', 'game', 'location', 'map', 'trip', 'user', 'vehicle'].forEach((e) => {
+['admin', 'driver', 'game', 'location', 'map', 'trade', 'trip', 'user', 'vehicle'].forEach((e) => {
   app.use(`/${e}`, require(`./routes/${e}`)); // eslint-disable-line global-require
 });
 
