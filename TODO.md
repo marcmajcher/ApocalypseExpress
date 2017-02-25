@@ -9,6 +9,7 @@
 * Each location should have a list of goods for trade with quantities and prices
 
 * User should be able to buy and sell goods at locations
+* User should not be able to buy and sell while traveling
 * User should not be able to buy goods if none in stock
 * User should not be able to sell goods if no capacity left
 * User should not be able to buy goods if they don't have enough money
@@ -30,6 +31,8 @@
 * Every day, increase population by 1/50,000
   * if pop < 50k, increase by one by random %
 * Every day, adjust trade good production and demands by % of population
+
+* User should be able to click on city on map to set destination
 
 ## Writing Unit Tests
 
