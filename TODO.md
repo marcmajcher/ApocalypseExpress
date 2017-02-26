@@ -3,7 +3,6 @@
 ## Implementing
 
 * Each location should have a list of goods for trade with quantities and prices
-* location info should return list of goods 
 
 ## On Deck
 
@@ -50,6 +49,8 @@
 * Test handling of ajax errors on client - test when server down
 
 ## Bugs
+
+* Check out paper bug on home page
 
 * Update "logout $user" in header when user info is updated
 * Fix flash messaging
@@ -241,3 +242,5 @@ To set up seeds:
         * Capacity, Demand, Production are location population * good rarity +/- random 0-50%
         * Stock is random % of Capacity
       * Modifier and price are calculated when item is added to location
+
+* location info should return list of goods
