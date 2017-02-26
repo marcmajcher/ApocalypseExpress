@@ -2,11 +2,11 @@
 
 ## Implementing
 
-
+* Each location should have a list of goods for trade with quantities and prices
+* location info should return list of goods 
 
 ## On Deck
 
-* Each location should have a list of goods for trade with quantities and prices
 
 * User should be able to buy and sell goods at locations
 * User should not be able to buy and sell while traveling

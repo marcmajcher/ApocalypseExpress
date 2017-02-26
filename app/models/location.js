@@ -5,6 +5,7 @@
 const util = require('../_util');
 const Connection = require('./connection');
 const Driver = require('./driver');
+const Goods = require('./goods');
 const locationDb = 'locations';
 
 /* Convert locations array into indexed object */
@@ -66,16 +67,19 @@ exports.get = id => util.knex(locationDb).where('id', id).first();
    and all adjacent locations */
 exports.localList = driverid =>
   util.knex(locationDb).where('id',
-    // util.knex('drivers').where('id', driverid).select('location'))
-    Driver.getValue(driverid, 'location'))
-  .first()
+    Driver.getValue(driverid, 'location')).first()
   .then(location =>
     util.knex('connections').where('start', location.id)
     .innerJoin(locationDb, 'locations.id', 'connections.end')
     .select('id', 'distance', 'name', 'factionid', 'type')
     .then((connections) => {
       location.connections = connections;
-      return new Promise(resolve => resolve(location));
+
+      return Goods.getByLocation(location.id)
+        .then((goods) => {
+          location.goods = goods;
+          return new Promise(resolve => resolve(location));
+        });
     })
   );
 

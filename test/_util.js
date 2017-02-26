@@ -100,6 +100,7 @@ module.exports = {
       tech: 5,
       factionid: 0,
       type: 'hold',
+      goods: [],
       connections: [{
         name: 'Amethyst',
         id: 2,
