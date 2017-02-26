@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <div ng-show="$ctrl.state.loc === 'cargo'">
 
-
-  Cargoooooo {{$ctrl.goods}}
+  <div class="vehicle-name">Cargo Exchange</div>
+  <div class="info-pane">
+    <table>
+      <thead>
+        <tr>
+          <th>Good</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tr ng-repeat="good in $ctrl.goods">
+        <td>{{good.name}}</td>
+        <td>${{good.price}}</td>
+        <td>{{good.stock}}/{{good.capacity}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

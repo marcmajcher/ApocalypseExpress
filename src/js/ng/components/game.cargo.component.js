@@ -8,8 +8,6 @@
 
     ctrl.state = TabService.state;
     ctrl.goods = GameService.currentLocation.goods;
-
-
   };
 
   angular.module('apox').component('gameCargo', {
