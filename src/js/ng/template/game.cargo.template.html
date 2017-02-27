@@ -3,7 +3,7 @@
 
   <div class="vehicle-name">Cargo Exchange</div>
   <div class="info-pane">
-    <table>
+    <table class="info-table">
       <thead>
         <tr>
           <th>Good</th>
@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tr ng-repeat="good in $ctrl.goods">
-        <td>{{good.name}}</td>
+        <td class="info-label">{{good.name}}</td>
         <td>${{good.price}}</td>
         <td>{{good.stock}}/{{good.capacity}}</td>
       </tr>

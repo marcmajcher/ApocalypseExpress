@@ -71,6 +71,25 @@ body {
       padding: 4px;
     }
   }
+
+  .info-table {
+    margin: 0;
+
+    th {
+      background-color: $color_light;
+      opacity: 0.7;
+      font-family: $font_header;
+    }
+
+    td {
+      vertical-align: middle;
+      background-color: $color_white;
+    }
+
+    td.col-name {
+      font-weight: 300;
+    }
+  }
 }
 /*
   Buttons
