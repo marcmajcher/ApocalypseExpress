@@ -14,7 +14,7 @@
       <div ng-show="$ctrl.state.loc === 'rumor'">
         Rumors
       </div>
-      <game-cargo></game-cargo>
+      <game-cargo goods="$ctrl.currentLocation.goods"></game-cargo>
       <div ng-show="$ctrl.state.loc === 'service'">
         Service Station
       </div>

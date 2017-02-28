@@ -327,17 +327,18 @@
 
   /* eslint-env jquery, browser */
 
-  var GameCargoController = function gameCargoController(TabService, GameService) {
+  var GameCargoController = function gameCargoController(TabService) {
     var ctrl = this;
 
     ctrl.state = TabService.state;
-    ctrl.goods = GameService.currentLocation.goods;
   };
 
   angular.module('apox').component('gameCargo', {
-    bindings: {},
+    bindings: {
+      goods: '='
+    },
     templateUrl: '../template/game.cargo.template.html',
-    controller: ['TabService', 'GameService', GameCargoController]
+    controller: ['TabService', GameCargoController]
   });
 })();
 'use strict';
