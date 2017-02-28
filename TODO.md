@@ -2,10 +2,9 @@
 
 ## Implementing
 
-* Each location should have a list of goods for trade with quantities and prices
+* Good prices should update after travel
 
 ## On Deck
-
 
 * User should be able to buy and sell goods at locations
 * User should not be able to buy and sell while traveling
@@ -27,10 +26,6 @@
   * If capacity is full, increase capacity or demand?
 * Recalculate modifier and price when location_goods is updated
 
-* Every day, increase population by 1/50,000
-  * if pop < 50k, increase by one by random %
-* Every day, adjust trade good production and demands by % of population
-
 * User should be able to click on city on map to set destination
 
 ## Writing Unit Tests
@@ -50,7 +45,7 @@
 
 ## Bugs
 
-* Check out paper bug on home page
+* Check out paper bug on home page - in map component, I reckon
 
 * Update "logout $user" in header when user info is updated
 * Fix flash messaging
@@ -120,10 +115,17 @@
 * Chat/message window (tutorial), random location chatter generator
 * Click on map to navigate?
 
+* Every day, increase population by 1/50,000
+  * if pop < 50k, increase by one by random %
+* Every day, adjust trade good production and demands by % of population
+
 ## Frontend/UI Tasks
 
 * Add smooth transition animation for centerMap
 * set map font to roboto
+
+* Graphics - find city/landscape images and process
+  - HDR/de|saturate with drip filters
 
 ## Backend Tasks
 
@@ -244,3 +246,4 @@ To set up seeds:
       * Modifier and price are calculated when item is added to location
 
 * location info should return list of goods
+* Each location should have a list of goods for trade with quantities and prices

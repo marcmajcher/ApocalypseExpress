@@ -11,7 +11,7 @@ const ticker = require('../ticker');
 const socketlib = require('../socket');
 
 const tripDb = 'trips';
-const speedupFactor = 16.6667; /* 2.7777778 */ // eslint-disable-line
+const speedupFactor = 100; // 16.6667; /* 2.7777778 */ // eslint-disable-line
 
 exports.get = driverid => util.knex(tripDb).where('driverid', driverid)
   .join('locations', 'trips.destinationid', 'locations.id')
