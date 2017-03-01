@@ -12,6 +12,7 @@
         UserService.getUser()
           .then((user) => {
             ctrl.user = user;
+            console.log('PASSSS', ctrl.pass);
           })
           .catch((error) => {
             console.error(`UserInit ERROR`, error); // eslint-disable-line

@@ -2,7 +2,6 @@
 
 ## Implementing
 
-* Good prices should update after travel
 
 ## On Deck
 
@@ -27,6 +26,7 @@
 * Recalculate modifier and price when location_goods is updated
 
 * User should be able to click on city on map to set destination
+* Animate screen transitions
 
 ## Writing Unit Tests
 
@@ -46,7 +46,7 @@
 ## Bugs
 
 * Check out paper bug on home page - in map component, I reckon
-
+* Fix header tab tops in Safari
 * Update "logout $user" in header when user info is updated
 * Fix flash messaging
 * Update header to be responsive on mobile
@@ -247,3 +247,4 @@ To set up seeds:
 
 * location info should return list of goods
 * Each location should have a list of goods for trade with quantities and prices
+* Good prices should update after travel
