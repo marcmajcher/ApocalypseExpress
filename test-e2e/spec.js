@@ -12,9 +12,11 @@ const driverName = 'Toecutter';
 const location1 = 'Garnet';
 const location2 = 'Amethyst';
 const location3 = 'Pearl';
+const testuser = 'test@gmail.com';
+const testpass = 'test';
 
 describe('Apocalypse eXpress', () => {
-  it('should have a title', () => {
+  it('should have a title (smoke test)', () => {
     browser.get(base);
     expect(browser.getTitle()).toEqual(mainTitle);
   });

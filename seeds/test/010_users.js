@@ -3,6 +3,7 @@
 /* eslint-env node */
 
 const User = require('../../app/models/user');
+const Driver = require('../../app/models/driver');
 
 const user1 = {
   email: 'test@gmail.com',
@@ -19,4 +20,5 @@ const user2 = {
 
 exports.seed = knex => knex('users').del()
   .then(() => User.create(user1))
-  .then(() => User.create(user2, true));
+  .then(() => User.create(user2, true))
+  .then(() => Driver.updateValue(1, 'name', 'Toecutter'));
