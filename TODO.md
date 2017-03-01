@@ -2,10 +2,12 @@
 
 ## Implementing
 
+* Streamline protractor testing process
+  - Add webdriver, app start, and protractor running to gulp task
+* User should be able to buy and sell goods at locations
 
 ## On Deck
 
-* User should be able to buy and sell goods at locations
 * User should not be able to buy and sell while traveling
 * User should not be able to buy goods if none in stock
 * User should not be able to sell goods if no capacity left
@@ -30,8 +32,6 @@
 
 ## Writing Unit Tests
 
-* Streamline protractor testing process
-
 * seed files for tradegoods and location_goods
 * tests for tradegoods and location_goods
 * update tests to reflect new account info update method
@@ -46,13 +46,14 @@
 ## Bugs
 
 * Check out paper bug on home page - in map component, I reckon
-* Fix header tab tops in Safari
+* Fix header tab tops in Safari (https://github.com/postcss/autoprefixer?)
 * Update "logout $user" in header when user info is updated
 * Fix flash messaging
 * Update header to be responsive on mobile
 
 ## Backlog
 
+* update gulp to use webpack?
 * Add summary of play to News tab
   * Location / Date/time
     * Calculate Date/time => Start at 12/21/2012GMT, time goes 10x faster
