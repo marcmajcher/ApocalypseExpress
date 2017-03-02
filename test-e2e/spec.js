@@ -23,6 +23,7 @@ const textLogout = `Logout ${testFirstName}`;
 const textLogout2 = `Logout ${testFirstName2}`;
 const textUpdateInfo = 'Update Info';
 const textChangePassword = 'Change Password';
+const location1 = 'Garnet';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
@@ -78,7 +79,7 @@ describe('Basic Game Functionality', () => {
     element(by.buttonText(textUpdateInfo)).click();
     const okButton = element(by.id('btn-ok'));
     browser.wait(protractor.ExpectedConditions.presenceOf(okButton));
-    okButton.click();
+    // okButton.click();
 
     browser.get(baseURL);
     expect(element(by.linkText(textLogout2)).getTagName()).toBe('a');
@@ -100,7 +101,7 @@ describe('Basic Game Functionality', () => {
     element(by.buttonText(textChangePassword)).click();
     const okButton = element(by.id('btn-ok'));
     browser.wait(protractor.ExpectedConditions.presenceOf(okButton));
-    okButton.click();
+    // okButton.click();
   });
 
   it('should be able to log in with new password', () => {
@@ -114,15 +115,27 @@ describe('Basic Game Functionality', () => {
   });
 });
 
+describe('News', () => {
+  it('should be able to visit the news tab', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-news')).click();
+    expect(element(by.css('#ui-state-news .location-name')).getText()).toBe(location1);
+  });
+});
+
 describe('Location', () => {
-  xit('should be able to visit the location tab', () => {
-    // get location name
+  it('should be able to visit the location tab', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-location')).click();
+    expect(element(by.css('#ui-state-location .location-name')).getText()).toBe(location1);
     // get location population
     // get location tech level
     // get location description
   });
 
-  xit('should be able to visit sub menus', () => {
+  it('should be able to visit sub menus', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-location')).click();
     // Rumors
     // Cargo
     // Service Station
@@ -133,22 +146,29 @@ describe('Location', () => {
 });
 
 describe('Driver', () => {
-  xit('should be able to visit the driver tab', () => {
-    // get driver name
+  it('should be able to visit the driver tab', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-driver')).click();
+    // expect(element(by.css('#ui-state-driver .driver-name')).getText()).toContain(driverName);
     // get driver health
   });
 });
 
 describe('Vehicle', () => {
-  xit('should be able to visit the vehicle tab', () => {
-    // get vehicle name
+  it('should be able to visit the vehicle tab', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-vehicle')).click();
+    // expect(element(by.css('#ui-state-vehicle .vehicle-name')).getText()).toBe(vehicleName);
     // get vehicle stats
     // get cargo
   });
 });
 
 describe('Travel', () => {
-  xit('should be able to visit the travel tab', () => {
+  it('should be able to visit the travel tab', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-travel')).click();
+    expect(element(by.css('#ui-state-travel .location-name')).getText()).toBe(location1);
     //     const destinations = element.all(by.repeater('c in game.currentLocation.connections'));
     //     expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
     //     expect(destinations.get(0).getText()).toContain(location2);

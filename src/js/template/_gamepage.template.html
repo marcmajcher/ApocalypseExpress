@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <div class="row" ng-if="$ctrl.loaded" ng-class="{blur: $ctrl.error}">
-  <!-- Location Tab -->
-  <div ng-show="$ctrl.state.tab === 'news'">
+  <div id="ui-state-news" ng-show="$ctrl.state.tab === 'news'">
     <div class="col-md-6">
       <location-header location="$ctrl.currentLocation"></location-header>
     </div>
   </div>
-  <div ng-show="$ctrl.state.tab === 'default' || $ctrl.state.tab === 'location'">
+  <div id="ui-state-location" ng-show="$ctrl.state.tab === 'default' || $ctrl.state.tab === 'location'">
     <div class="col-md-6">
       <location-details ng-if="!$ctrl.traveling" location="$ctrl.currentLocation"></location-details>
     </div>
@@ -29,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div ng-show="$ctrl.state.tab === 'travel'">
+  <div id="ui-state-travel" ng-show="$ctrl.state.tab === 'travel'">
     <div class="col-md-6">
       <div ng-if="!$ctrl.traveling">
         <location-header location="$ctrl.currentLocation"></location-header>
@@ -41,17 +40,17 @@
       <trip-progress ng-if="$ctrl.traveling" trip="$ctrl.trip "></trip-progress>
     </div>
   </div>
-  <div ng-show="$ctrl.state.tab === 'driver'">
+  <div id="ui-state-driver" ng-show="$ctrl.state.tab === 'driver'">
     <div class="col-md-6">
       <driver-info driver="$ctrl.driver"></driver-info>
     </div>
   </div>
-  <div ng-show="$ctrl.state.tab === 'vehicle'">
+  <div id="ui-state-news" ng-show="$ctrl.state.tab === 'vehicle'">
     <div class="col-md-6">
       <vehicle-info vehicle="$ctrl.driver.vehicle"></vehicle-info>
     </div>
   </div>
-  <div ng-show="$ctrl.state.tab === 'account'">
+  <div id="ui-state-account" ng-show="$ctrl.state.tab === 'account'">
     <div class="col-md-8 col-md-offset-2">
       <user-account></user-account>
     </div>
