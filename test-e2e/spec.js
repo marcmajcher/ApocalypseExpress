@@ -7,15 +7,16 @@ const util = require('../test/_util');
 
 const baseURL = 'http://localhost:3000/';
 
-const titleMain = 'Apocalypse eXpress';
-const titleRegister = 'ApoX: Register';
-const titleGame = 'Apocalypse eXpress - Main';
-const textRegister = 'Register';
-
 const testFirstName = 'Greg';
 const testLastName = 'Universe';
 const testEmail = 'greg@itsawash.com';
 const testPassword = '!un1v3rs3';
+
+const titleMain = 'Apocalypse eXpress';
+const titleRegister = 'ApoX: Register';
+const titleGame = 'Apocalypse eXpress - Main';
+const textRegister = 'Register';
+const textLogout = `Logout ${testFirstName}`;
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
@@ -46,20 +47,26 @@ describe('Register and Login', () => {
     element(by.id('login-email')).sendKeys(testEmail);
     element(by.id('login-password')).sendKeys(testPassword);
     element(by.id('login-submit')).click();
-
     expect(browser.getTitle()).toEqual(titleGame);
   });
 });
 
+describe('Basic Game Functionality', () => {
+  it('should have standard items for logged in user', () => {
+    browser.get(baseURL);
+    expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
 
-// xdescribe('Game', () => {
-//   xit('should log in a new user and display name and location', () => {
-//     browser.get(baseURL);
-//     element(by.id('login-email')).sendKeys(util.users.testUser.email);
-//     element(by.id('login-password')).sendKeys(util.users.testUser.password);
-//     element(by.id('login-submit')).click();
-//
-//     expect(browser.getTitle()).toEqual(gameTitle);
+  });
+});
+
+describe('Logout', () => {
+  it('should be able to log out user', () => {
+    browser.get(baseURL);
+    expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
+    element(by.linkText(textLogout)).click();
+    expect(browser.getTitle()).toEqual(titleMain);
+  });
+});
 //     expect(element(by.id('driver-name')).getText()).toBe(driverName);
 //     expect(element(by.id('location-name')).getText()).toBe(location1);
 //
@@ -67,5 +74,3 @@ describe('Register and Login', () => {
 //     expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
 //     expect(destinations.get(0).getText()).toContain(location2);
 //     expect(destinations.get(1).getText()).toContain(location3);
-//   });
-// });
