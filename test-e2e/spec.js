@@ -9,6 +9,8 @@ const baseURL = 'http://localhost:3000/';
 
 const testFirstName = 'Greg';
 const testLastName = 'Universe';
+const testFirstName2 = 'Rose';
+const testLastName2 = 'Quartz';
 const testEmail = 'greg@itsawash.com';
 const testPassword = '!un1v3rs3';
 
@@ -17,6 +19,8 @@ const titleRegister = 'ApoX: Register';
 const titleGame = 'Apocalypse eXpress - Main';
 const textRegister = 'Register';
 const textLogout = `Logout ${testFirstName}`;
+const textLogout2 = `Logout ${testFirstName2}`;
+const textUpdateInfo = 'Update Info';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
@@ -64,7 +68,17 @@ describe('Basic Game Functionality', () => {
     expect(element(by.name('lastname')).getAttribute('value')).toBe(testLastName);
   });
 
-  xit('should be able to update user name', () => {
+  it('should be able to update user name', () => {
+    element(by.name('firstname')).clear();
+    element(by.name('firstname')).sendKeys(testFirstName2);
+    element(by.name('lastname')).clear();
+    element(by.name('lastname')).sendKeys(testLastName2);
+    element(by.buttonText(textUpdateInfo)).click();
+    // 'Logout $firstname' text should be changed
+    browser.get(baseURL);
+    element(by.id('game-tab-account')).click();
+    expect(element(by.name('firstname')).getAttribute('value')).toBe(testFirstName2);
+    expect(element(by.name('lastname')).getAttribute('value')).toBe(testLastName2);
 
   });
 
@@ -122,8 +136,8 @@ describe('Travel', () => {
 describe('Logout', () => {
   it('should be able to log out user', () => {
     browser.get(baseURL);
-    expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
-    element(by.linkText(textLogout)).click();
+    expect(element(by.linkText(textLogout2)).getTagName()).toBe('a');
+    element(by.linkText(textLogout2)).click();
     expect(browser.getTitle()).toEqual(titleMain);
   });
 });

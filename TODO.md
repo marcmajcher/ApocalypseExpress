@@ -2,8 +2,6 @@
 
 ## Implementing
 
-* Streamline protractor testing process
-  - Add webdriver, app start, and protractor running to gulp task
 * User should be able to buy and sell goods at locations
 
 ## On Deck
@@ -30,14 +28,13 @@
 * User should be able to click on city on map to set destination
 * Animate screen transitions
 
-## Writing Unit Tests
+## Testing
 
 * seed files for tradegoods and location_goods
 * tests for tradegoods and location_goods
 * update tests to reflect new account info update method
 * test new password change method
 * move all frontend tests to protractor
-* update all protractor tests
 * Write tests for all services
 * Write tests for ticker
 * Write tests for socket
@@ -50,6 +47,7 @@
 * Update "logout $user" in header when user info is updated
 * Fix flash messaging
 * Update header to be responsive on mobile
+* Remove 'ok' from loading on name change/error?
 
 ## Backlog
 
@@ -249,3 +247,7 @@ To set up seeds:
 * location info should return list of goods
 * Each location should have a list of goods for trade with quantities and prices
 * Good prices should update after travel
+
+* Streamline protractor testing process
+  - Add webdriver, app start, and protractor running to gulp task
+* update all protractor tests
