@@ -34,3 +34,6 @@ exports.createDefault = () => {
   /* eslint-enable */
   return exports.create(vehicleData);
 };
+
+exports.updateValue = (id, param, value) => util.knex(vehicleDb)
+  .update(param, value).where('id', id).returning(param);

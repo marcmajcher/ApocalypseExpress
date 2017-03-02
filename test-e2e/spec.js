@@ -4,6 +4,8 @@
 /* globals browser, expect, element, by, beforeAll, protractor */
 
 const util = require('../test/_util');
+const Driver = require('../app/models/driver');
+const Vehicle = require('../app/models/vehicle');
 
 const baseURL = 'http://localhost:3000/';
 
@@ -14,6 +16,8 @@ const testLastName2 = 'Quartz';
 const testEmail = 'greg@itsawash.com';
 const testPassword = '!un1v3rs3';
 const testPassword2 = 'v3rs3!un1';
+const driverName = 'Toecutter';
+const vehicleName = 'Molly2317';
 
 const titleMain = 'Apocalypse eXpress';
 const titleRegister = 'ApoX: Register';
@@ -50,6 +54,7 @@ describe('Register and Login', () => {
     element(by.id('register-password')).sendKeys(testPassword);
     element(by.id('register-vpassword')).sendKeys(testPassword);
     element(by.buttonText(textRegister)).click();
+
   });
 
   it('should be able to log in a new user', () => {
@@ -61,6 +66,12 @@ describe('Register and Login', () => {
 });
 
 describe('Basic Game Functionality', () => {
+  beforeAll((done) => {
+    Driver.updateValue(3, 'name', driverName)
+      .then(() => Vehicle.updateValue(3, 'name', vehicleName))
+      .then(() => done());
+  });
+
   it('should have standard items for logged in user', () => {
     browser.get(baseURL);
     expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
@@ -149,7 +160,7 @@ describe('Driver', () => {
   it('should be able to visit the driver tab', () => {
     browser.get(baseURL);
     element(by.id('game-tab-driver')).click();
-    // expect(element(by.css('#ui-state-driver .driver-name')).getText()).toContain(driverName);
+    expect(element(by.css('#ui-state-driver .driver-name')).getText()).toContain(driverName);
     // get driver health
   });
 });
@@ -158,7 +169,7 @@ describe('Vehicle', () => {
   it('should be able to visit the vehicle tab', () => {
     browser.get(baseURL);
     element(by.id('game-tab-vehicle')).click();
-    // expect(element(by.css('#ui-state-vehicle .vehicle-name')).getText()).toBe(vehicleName);
+    expect(element(by.css('#ui-state-vehicle .vehicle-name')).getText()).toContain(vehicleName);
     // get vehicle stats
     // get cargo
   });
