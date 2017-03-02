@@ -3,39 +3,46 @@
 /* eslint-env node, mocha */
 /* globals browser, expect, element, by */
 
-const util = require('../test/_util');
+// const util = require('../test/_util');
 
-const base = 'http://localhost:3000/';
+const baseURL = 'http://localhost:3000/';
 const mainTitle = 'Apocalypse eXpress';
-const gameTitle = 'Apocalypse eXpress - Main';
-const driverName = 'Toecutter';
-const location1 = 'Garnet';
-const location2 = 'Amethyst';
-const location3 = 'Pearl';
-const testuser = 'test@gmail.com';
-const testpass = 'test';
+// const gameTitle = 'Apocalypse eXpress - Main';
+// const location1 = 'Garnet';
+// const location2 = 'Amethyst';
+// const location3 = 'Pearl';
+// const testuser = 'bingo@clowno.com';
+// const testpass = '!un1v3rs3';
 
 describe('Apocalypse eXpress', () => {
-  it('should have a title (smoke test)', () => {
-    browser.get(base);
+  it('should have a title on the home page', () => {
+    browser.get(baseURL);
     expect(browser.getTitle()).toEqual(mainTitle);
   });
 });
 
-xdescribe('Game', () => {
-  xit('should log in a new user and display name and location', () => {
-    browser.get(base);
-    element(by.id('login-email')).sendKeys(util.users.testUser.email);
-    element(by.id('login-password')).sendKeys(util.users.testUser.password);
-    element(by.id('login-submit')).click();
-
-    expect(browser.getTitle()).toEqual(gameTitle);
-    expect(element(by.id('driver-name')).getText()).toBe(driverName);
-    expect(element(by.id('location-name')).getText()).toBe(location1);
-
-    const destinations = element.all(by.repeater('c in game.currentLocation.connections'));
-    expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
-    expect(destinations.get(0).getText()).toContain(location2);
-    expect(destinations.get(1).getText()).toContain(location3);
+describe('Register and Login', () => {
+  it('should be able to register a new user', () => {
+    browser.get(baseURL);
+    expect(element(by.linkText('Register')).getTagName()).toBe('a');
   });
 });
+
+
+// xdescribe('Game', () => {
+//   xit('should log in a new user and display name and location', () => {
+//     browser.get(baseURL);
+//     element(by.id('login-email')).sendKeys(util.users.testUser.email);
+//     element(by.id('login-password')).sendKeys(util.users.testUser.password);
+//     element(by.id('login-submit')).click();
+//
+//     expect(browser.getTitle()).toEqual(gameTitle);
+//     expect(element(by.id('driver-name')).getText()).toBe(driverName);
+//     expect(element(by.id('location-name')).getText()).toBe(location1);
+//
+//     const destinations = element.all(by.repeater('c in game.currentLocation.connections'));
+//     expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
+//     expect(destinations.get(0).getText()).toContain(location2);
+//     expect(destinations.get(1).getText()).toContain(location3);
+//   });
+// });

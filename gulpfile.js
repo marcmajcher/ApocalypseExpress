@@ -50,13 +50,13 @@ gulp.task('imagemin', () =>
 
 gulp.task('ng-templates', () =>
   gulp
-  .src('src/js/ng/**/*.html')
+  .src('src/js/**/*.html')
   .pipe(gulp.dest('app/static'))
 );
 
 gulp.task('scripts', () => {
   gulp
-    .src('src/js/ng/**/*.js')
+    .src('src/js/**/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -114,7 +114,7 @@ gulp.task('watch', () => {
     'test-e2e/**/*.js'
   ], ['jshint', 'eslint']);
   gulp.watch('src/js/**/*.js', ['scripts']);
-  gulp.watch('src/js/ng/**/*.html', ['ng-templates']);
+  gulp.watch('src/js/**/*.html', ['ng-templates']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
 });
 
