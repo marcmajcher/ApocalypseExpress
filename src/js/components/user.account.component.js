@@ -26,7 +26,7 @@
           })
           .then((res) => {
             if (res.ok) {
-              ModalService.readyModal('User Info Updated.');
+              ModalService.readyModal('User Info Updated.', true);
             }
             else {
               throw new Error();

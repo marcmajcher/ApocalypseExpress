@@ -20,8 +20,13 @@
           show: true
         });
       },
-      readyModal(msg) {
+      readyModal(msg, reload = false) {
         elButton.show();
+        if (reload) {
+          elModal.on('hidden.bs.modal', () => {
+            window.location.reload();
+          });
+        }
         elTitle.text('');
         elBody.text(msg);
       }

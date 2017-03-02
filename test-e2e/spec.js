@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env node, mocha */
-/* globals browser, expect, element, by, beforeAll */
+/* globals browser, expect, element, by, beforeAll, protractor */
 
 const util = require('../test/_util');
 
@@ -13,6 +13,7 @@ const testFirstName2 = 'Rose';
 const testLastName2 = 'Quartz';
 const testEmail = 'greg@itsawash.com';
 const testPassword = '!un1v3rs3';
+const testPassword2 = 'v3rs3!un1';
 
 const titleMain = 'Apocalypse eXpress';
 const titleRegister = 'ApoX: Register';
@@ -21,6 +22,7 @@ const textRegister = 'Register';
 const textLogout = `Logout ${testFirstName}`;
 const textLogout2 = `Logout ${testFirstName2}`;
 const textUpdateInfo = 'Update Info';
+const textChangePassword = 'Change Password';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
@@ -74,20 +76,41 @@ describe('Basic Game Functionality', () => {
     element(by.name('lastname')).clear();
     element(by.name('lastname')).sendKeys(testLastName2);
     element(by.buttonText(textUpdateInfo)).click();
-    // 'Logout $firstname' text should be changed
+    const okButton = element(by.id('btn-ok'));
+    browser.wait(protractor.ExpectedConditions.presenceOf(okButton));
+    okButton.click();
+
     browser.get(baseURL);
+    expect(element(by.linkText(textLogout2)).getTagName()).toBe('a');
     element(by.id('game-tab-account')).click();
     expect(element(by.name('firstname')).getAttribute('value')).toBe(testFirstName2);
     expect(element(by.name('lastname')).getAttribute('value')).toBe(testLastName2);
-
   });
 
-  xit('should be able to change the password', () => {
+  it('should be able to change the password', () => {
+    browser.get(baseURL);
+    element(by.id('game-tab-account')).click();
+    element(by.name('cpassword')).clear();
+    element(by.name('cpassword')).sendKeys(testPassword);
+    element(by.name('password')).clear();
+    element(by.name('password')).sendKeys(testPassword2);
+    element(by.name('vpassword')).clear();
+    element(by.name('vpassword')).sendKeys(testPassword2);
 
+    element(by.buttonText(textChangePassword)).click();
+    const okButton = element(by.id('btn-ok'));
+    browser.wait(protractor.ExpectedConditions.presenceOf(okButton));
+    okButton.click();
   });
 
-  xit('should be able to log in with new password', () => {
-
+  it('should be able to log in with new password', () => {
+    browser.get(baseURL);
+    element(by.linkText(textLogout2)).click();
+    element(by.id('login-email')).sendKeys(testEmail);
+    element(by.id('login-password')).sendKeys(testPassword2);
+    element(by.id('login-submit')).click();
+    expect(browser.getTitle()).toEqual(titleGame);
+    expect(element(by.linkText(textLogout2)).getTagName()).toBe('a');
   });
 });
 
