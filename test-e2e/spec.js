@@ -63,15 +63,6 @@ describe('Basic Game Functionality', () => {
     expect(element(by.name('firstname')).getAttribute('value')).toBe(testFirstName);
     expect(element(by.name('lastname')).getAttribute('value')).toBe(testLastName);
   });
-});
-
-describe('Logout', () => {
-  it('should be able to log out user', () => {
-    browser.get(baseURL);
-    expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
-    element(by.linkText(textLogout)).click();
-    expect(browser.getTitle()).toEqual(titleMain);
-  });
 
   xit('should be able to update user name', () => {
 
@@ -86,10 +77,53 @@ describe('Logout', () => {
   });
 });
 
-//     expect(element(by.id('driver-name')).getText()).toBe(driverName);
-//     expect(element(by.id('location-name')).getText()).toBe(location1);
-//
-//     const destinations = element.all(by.repeater('c in game.currentLocation.connections'));
-//     expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
-//     expect(destinations.get(0).getText()).toContain(location2);
-//     expect(destinations.get(1).getText()).toContain(location3);
+describe('Location', () => {
+  xit('should be able to visit the location tab', () => {
+    // get location name
+    // get location population
+    // get location tech level
+    // get location description
+  });
+
+  xit('should be able to visit sub menus', () => {
+    // Rumors
+    // Cargo
+    // Service Station
+    // Equipment
+    // Chop Shop
+    // Mission Board
+  });
+});
+
+describe('Driver', () => {
+  xit('should be able to visit the driver tab', () => {
+    // get driver name
+    // get driver health
+  });
+});
+
+describe('Vehicle', () => {
+  xit('should be able to visit the vehicle tab', () => {
+    // get vehicle name
+    // get vehicle stats
+    // get cargo
+  });
+});
+
+describe('Travel', () => {
+  xit('should be able to visit the travel tab', () => {
+    //     const destinations = element.all(by.repeater('c in game.currentLocation.connections'));
+    //     expect(destinations.count()).toEqual(2); // eslint-disable-line no-magic-numbers
+    //     expect(destinations.get(0).getText()).toContain(location2);
+    //     expect(destinations.get(1).getText()).toContain(location3);  });
+  });
+});
+
+describe('Logout', () => {
+  it('should be able to log out user', () => {
+    browser.get(baseURL);
+    expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
+    element(by.linkText(textLogout)).click();
+    expect(browser.getTitle()).toEqual(titleMain);
+  });
+});
