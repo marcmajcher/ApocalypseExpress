@@ -17,6 +17,10 @@ const user2 = {
   password: 'admin'
 };
 
-exports.seed = knex => knex('users').del()
+exports.seed = knex => Promise.all([
+    knex('users').del(),
+    knex('drivers').del(),
+    knex('vehicles').del()
+  ])
   .then(() => User.create(user1))
   .then(() => User.create(user2, true));

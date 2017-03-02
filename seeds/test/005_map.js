@@ -79,5 +79,6 @@ const config = {
 
 exports.seed = knex =>
   knex('locations').del()
+  .then(() => knex('connections').del())
   .then(() => knex('locations').insert(config.locations))
   .then(() => knex('connections').insert(config.connections));

@@ -3,28 +3,51 @@
 /* eslint-env node, mocha */
 /* globals browser, expect, element, by */
 
-// const util = require('../test/_util');
+const util = require('../test/_util');
 
 const baseURL = 'http://localhost:3000/';
-const mainTitle = 'Apocalypse eXpress';
-// const gameTitle = 'Apocalypse eXpress - Main';
-// const location1 = 'Garnet';
-// const location2 = 'Amethyst';
-// const location3 = 'Pearl';
-// const testuser = 'bingo@clowno.com';
-// const testpass = '!un1v3rs3';
+
+const titleMain = 'Apocalypse eXpress';
+const titleRegister = 'ApoX: Register';
+const titleGame = 'Apocalypse eXpress - Main';
+const textRegister = 'Register';
+
+const testFirstName = 'Greg';
+const testLastName = 'Universe';
+const testEmail = 'greg@itsawash.com';
+const testPassword = '!un1v3rs3';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
     browser.get(baseURL);
-    expect(browser.getTitle()).toEqual(mainTitle);
+    expect(browser.getTitle()).toEqual(titleMain);
   });
 });
 
 describe('Register and Login', () => {
+  beforeAll(util.rollback);
+
   it('should be able to register a new user', () => {
     browser.get(baseURL);
-    expect(element(by.linkText('Register')).getTagName()).toBe('a');
+    expect(element(by.linkText(textRegister)).getTagName()).toBe('a');
+    element(by.linkText(textRegister)).click();
+
+    expect(browser.getTitle()).toEqual(titleRegister);
+    element(by.id('register-firstname')).sendKeys(testFirstName);
+    element(by.id('register-lastname')).sendKeys(testLastName);
+    element(by.id('register-email')).sendKeys(testEmail);
+    element(by.id('register-vemail')).sendKeys(testEmail);
+    element(by.id('register-password')).sendKeys(testPassword);
+    element(by.id('register-vpassword')).sendKeys(testPassword);
+    element(by.buttonText(textRegister)).click();
+  });
+
+  it('should be able to log in a new user', () => {
+    element(by.id('login-email')).sendKeys(testEmail);
+    element(by.id('login-password')).sendKeys(testPassword);
+    element(by.id('login-submit')).click();
+
+    expect(browser.getTitle()).toEqual(titleGame);
   });
 });
 
