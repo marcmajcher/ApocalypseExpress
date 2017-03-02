@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <div class="game-tabs">
-  <div class="tab" ng-click="$ctrl.setState('news')"><span>News</span></div>
-  <div class="tab" ng-click="!$ctrl.state.traveling && $ctrl.setState('location')" ng-class="{disabled: $ctrl.state.traveling}">
+  <div class="tab" id="game-tab-news" ng-click="$ctrl.setState('news')">
+    <span>News</span>
+  </div>
+  <div class="tab" id="game-tab-location" ng-click="!$ctrl.state.traveling && $ctrl.setState('location')" ng-class="{disabled: $ctrl.state.traveling}">
     <span>Location</span>
   </div>
-  <div class="tab " ng-click="$ctrl.setState('driver') "><span>Driver</span></div>
-  <div class="tab " ng-click="$ctrl.setState('vehicle') "><span>Vehicle</span></div>
-  <div class="tab " ng-click="$ctrl.setState('travel') "><span>Travel</span></div>
-  <div class="tab " ng-click="$ctrl.setState('account') "><span>Account</span></div>
+  <div class="tab" id="game-tab-driver" ng-click="$ctrl.setState('driver')">
+    <span>Driver</span>
+  </div>
+  <div class="tab" id="game-tab-vehicle" ng-click="$ctrl.setState('vehicle')">
+    <span>Vehicle</span>
+  </div>
+  <div class="tab" id="game-tab-travel" ng-click="$ctrl.setState('travel')">
+    <span>Travel</span>
+  </div>
+  <div class="tab" id="game-tab-account" ng-click="$ctrl.setState('account')">
+    <span>Account</span>
+  </div>
 </div>

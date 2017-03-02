@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env node, mocha */
-/* globals browser, expect, element, by */
+/* globals browser, expect, element, by, beforeAll */
 
 const util = require('../test/_util');
 
@@ -20,6 +20,8 @@ const textLogout = `Logout ${testFirstName}`;
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
+    browser.manage().window().setSize(1400, 900);
+    browser.manage().window().maximize();
     browser.get(baseURL);
     expect(browser.getTitle()).toEqual(titleMain);
   });
@@ -56,6 +58,10 @@ describe('Basic Game Functionality', () => {
     browser.get(baseURL);
     expect(element(by.linkText(textLogout)).getTagName()).toBe('a');
 
+    element(by.id('game-tab-account')).click();
+    expect(element(by.cssContainingText('.user-email', testEmail)).getText()).toContain(testEmail);
+    expect(element(by.name('firstname')).getAttribute('value')).toBe(testFirstName);
+    expect(element(by.name('lastname')).getAttribute('value')).toBe(testLastName);
   });
 });
 
@@ -66,7 +72,20 @@ describe('Logout', () => {
     element(by.linkText(textLogout)).click();
     expect(browser.getTitle()).toEqual(titleMain);
   });
+
+  xit('should be able to update user name', () => {
+
+  });
+
+  xit('should be able to change the password', () => {
+
+  });
+
+  xit('should be able to log in with new password', () => {
+
+  });
 });
+
 //     expect(element(by.id('driver-name')).getText()).toBe(driverName);
 //     expect(element(by.id('location-name')).getText()).toBe(location1);
 //

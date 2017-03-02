@@ -2,8 +2,7 @@
   "globals": {
     "angular": false,
     "paper": false,
-    "io": true,
-    "beforeAll": true
+    "io": true
   },
   "esversion": 6,
   "node": true,

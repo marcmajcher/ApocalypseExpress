@@ -5,8 +5,7 @@
   globals: {
     angular: 1,
     paper: 1,
-    io: 1,
-    beforeAll: 1
+    io: 1
   },
   parserOptions: {
     ecmaVersion: 6,
