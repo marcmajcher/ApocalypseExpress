@@ -2,6 +2,7 @@
 
 ## Implementing
 
+* MOAR TESTS
 * User should be able to buy and sell goods at locations
 
 ## On Deck
