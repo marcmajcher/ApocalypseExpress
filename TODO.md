@@ -4,10 +4,15 @@
 
 * MOAR TESTS
 * User should be able to buy and sell goods at locations
+  * Update goods list in UI with Buy/Sell buttons
+  * Update goods list screen with available cargo and money
+  * Write trade route to buy items
+  * Write trade route to sell items
 
 ## On Deck
 
 * User should not be able to buy and sell while traveling
+  * Refactor the currentLocation while traveling to lastLocation
 * User should not be able to buy goods if none in stock
 * User should not be able to sell goods if no capacity left
 * User should not be able to buy goods if they don't have enough money
@@ -16,10 +21,11 @@
 
 * Trips should take fuel based on distance and km/l
 * User should not be able to take trip unless they have sufficient fuel
-* Destinations should be disabled if unavailable
+* Destinations should be disabled in UI if unavailable
 * Player should be able to refuel at cost in locations
+* Player should not be able to refuel if they don't have enough money
 
-* Move modifier/price calculation to library
+* Move trade good modifier/price calculation to library
 * Load base goods/prices on server load, keep in memory/service
 
 * Update population, stock, demand, and production for each location and trade good daily
@@ -129,9 +135,8 @@
 
 ## Backend Tasks
 
-* update all api routes to start with /api (update tests)
 * System should create event log for every route action
-* Index db tables
+* Look at what db tables might need to be indexed
 * Think about internationalization
 
 ## Admin / Game Management
@@ -252,3 +257,5 @@ To set up seeds:
 * Streamline protractor testing process
   - Add webdriver, app start, and protractor running to gulp task
 * update all protractor tests
+
+* update all api routes to start with /api (update tests) NAH
