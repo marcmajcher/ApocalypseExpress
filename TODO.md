@@ -3,6 +3,7 @@
 ## Implementing
 
 * MOAR TESTS
+  * Update tests to unit test routes and models 
 * User should be able to buy and sell goods at locations
   * Update goods list in UI with Buy/Sell buttons
   * Update goods list screen with available cargo and money
