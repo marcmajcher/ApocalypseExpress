@@ -3,7 +3,7 @@
 ## Implementing
 
 * MOAR TESTS
-  * Update tests to unit test routes and models 
+  * Update tests to unit test routes and models
 * User should be able to buy and sell goods at locations
   * Update goods list in UI with Buy/Sell buttons
   * Update goods list screen with available cargo and money
@@ -156,6 +156,9 @@
 * DB error checking everywhere
 
 ## Done
+
+* Primary game map data stored in map_config
+
 
 * Work on models (services?) for locations/drivers/etc in object class format
 * Add server side check for password and email validity on register and /account
