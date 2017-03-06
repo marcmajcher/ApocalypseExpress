@@ -8,7 +8,12 @@ const Driver = require('./driver');
 const Goods = require('./goods');
 const locationDb = 'locations';
 
-/* Convert locations array into indexed object */
+/**
+ * indexLocations - Converts array of locations into object indexed by id
+ *
+ * @param  {Array} locations Array of location objects
+ * @return {type} Object of locations indexed by id
+ */
 function indexLocations(locations) {
   return locations.reduce((last, cur) => {
     last[cur.id] = cur;
@@ -25,15 +30,6 @@ exports.getAllLocations = () => util.knex(locationDb)
   }))
   .catch(error => error);
 
-/* Select all connections from db */
-exports.getAllConnections = mapData =>
-  Connection.list()
-  .then((connections) => {
-    mapData.connections = connections;
-    return mapData;
-  })
-  .catch(error => error);
-
 /* Select locations from db for a given user */
 exports.getUserLocations = driverId =>
   util.knex(locationDb)
@@ -47,6 +43,15 @@ exports.getUserLocations = driverId =>
   }))
   .catch(error => error);
 
+/* Select all connections from db */
+exports.getAllConnections = mapData =>
+  Connection.list()
+  .then((connections) => {
+    mapData.connections = connections;
+    return mapData;
+  })
+  .catch(error => error);
+
 exports.getConnectedLocations = mapData =>
   util.knex(locationDb)
   .whereIn('id', mapData.connections.map(el => el.end))
@@ -54,11 +59,9 @@ exports.getConnectedLocations = mapData =>
     locations.forEach((el) => {
       mapData.locations[el.id] = el;
     });
-    // mapData.locations = locations;
     return mapData;
   })
   .catch(error => error);
-
 
 /* Get the info for a single location given an id */
 exports.get = id => util.knex(locationDb).where('id', id).first();

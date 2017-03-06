@@ -13,7 +13,8 @@ const connectionDb = 'connections';
 exports.list = () => util.knex(connectionDb);
 
 /**
- * Promises
+ * Promises a
+ * @param {object} mapData 
  */
 exports.getUserConnections = mapData =>
   util.knex(connectionDb)

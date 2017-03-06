@@ -27,6 +27,10 @@ router.get('/', (req, res, next) => {
   }
   else {
     Location.getUserLocations(req.session.user.driverid)
+      .then(mapData => {
+        console.log('MAPDATA', mapData);
+        return mapData;
+      })
       .then(Connection.getUserConnections)
       .then(Location.getConnectedLocations)
       .then((mapData) => {
@@ -39,3 +43,4 @@ router.get('/', (req, res, next) => {
 });
 
 module.exports = router;
+router;
