@@ -7,8 +7,14 @@ const Driver = require('./driver');
 
 const connectionDb = 'connections';
 
+/**
+ * Promises a list of all connections between locations
+ */
 exports.list = () => util.knex(connectionDb);
 
+/**
+ * Promises
+ */
 exports.getUserConnections = mapData =>
   util.knex(connectionDb)
   .whereIn('start', Object.keys(mapData.locations))

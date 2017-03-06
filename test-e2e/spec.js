@@ -6,6 +6,7 @@
 const util = require('../test/_util');
 const Driver = require('../app/models/driver');
 const Vehicle = require('../app/models/vehicle');
+const driverId = 3;
 
 const baseURL = 'http://localhost:3000/';
 
@@ -31,7 +32,7 @@ const location1 = 'Garnet';
 
 describe('Apocalypse eXpress', () => {
   it('should have a title on the home page', () => {
-    browser.manage().window().setSize(1400, 900);
+    browser.manage().window().setSize(1400, 900); // eslint-disable-line
     browser.manage().window().maximize();
     browser.get(baseURL);
     expect(browser.getTitle()).toEqual(titleMain);
@@ -54,7 +55,6 @@ describe('Register and Login', () => {
     element(by.id('register-password')).sendKeys(testPassword);
     element(by.id('register-vpassword')).sendKeys(testPassword);
     element(by.buttonText(textRegister)).click();
-
   });
 
   it('should be able to log in a new user', () => {
@@ -67,8 +67,8 @@ describe('Register and Login', () => {
 
 describe('Basic Game Functionality', () => {
   beforeAll((done) => {
-    Driver.updateValue(3, 'name', driverName)
-      .then(() => Vehicle.updateValue(3, 'name', vehicleName))
+    Driver.updateValue(driverId, 'name', driverName)
+      .then(() => Vehicle.updateValue(driverId, 'name', vehicleName))
       .then(() => done());
   });
 

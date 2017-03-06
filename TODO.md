@@ -158,7 +158,11 @@
 ## Done
 
 * Primary game map data stored in map_config
+* Initial trade goods base data stored in tradegoods.js
+* Names for random name generation stored in uniquenames.js
 
+* Connections.list promises a list of all connections between locations
+* Connections.getUserConnections 
 
 * Work on models (services?) for locations/drivers/etc in object class format
 * Add server side check for password and email validity on register and /account

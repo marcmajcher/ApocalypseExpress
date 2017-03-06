@@ -10,8 +10,10 @@ const Connection = require('../models/connection');
 
 router.use(util.loginRequired);
 
-/* GET /map route */
-
+/**
+ * Returns an object containing all locations and connections available
+ * to the user. Returns all locations and connections for admin.
+ */
 router.get('/', (req, res, next) => {
   if (req.session.user.role === 'admin') {
     Location.getAllLocations()
