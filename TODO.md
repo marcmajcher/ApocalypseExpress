@@ -162,7 +162,10 @@
 * Names for random name generation stored in uniquenames.js
 
 * Connections.list promises a list of all connections between locations
-* Connections.getUserConnections 
+* Connections.getUserConnections promises a list of all connections from a set of locations, given an object with the list of locations
+
+
+* Location.getUserLocations promises a list of all the locations a driver has visited
 
 * Work on models (services?) for locations/drivers/etc in object class format
 * Add server side check for password and email validity on register and /account

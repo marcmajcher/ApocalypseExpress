@@ -30,7 +30,10 @@ exports.getAllLocations = () => util.knex(locationDb)
   }))
   .catch(error => error);
 
-/* Select locations from db for a given user */
+/**
+ * getUserLocations - given a driverId, promises an object containing an array
+ *                    (key: 'locations') of locations the driver has visited
+ */
 exports.getUserLocations = driverId =>
   util.knex(locationDb)
   .join('driver_visited', {
