@@ -157,15 +157,99 @@
 
 ## Done
 
+### Data
+
 * Primary game map data stored in map_config
 * Initial trade goods base data stored in tradegoods.js
 * Names for random name generation stored in uniquenames.js
 
+### Models
+
 * Connections.list promises a list of all connections between locations
 * Connections.getUserConnections promises a list of all connections from a set of locations, given an object with the list of locations
+* Connections.getDriverDestinationConnections
 
+* Driver.get
+* Driver.getValue
+* Driver.create
+* Driver.update
+* Driver.updateValue
 
+* Goods.get
+* Goods.getValue
+* Goods.getByLocation
+
+* Location.indexLocations
+* Location.list
+* Location.getAllLocations
 * Location.getUserLocations promises a list of all the locations a driver has visited
+* Location.getAllLocations
+* Location.getAllConnections
+* Location.getConnectedLocations
+* Location.get
+* Location.localList
+* Location.update
+* Location.visit
+
+* Trip.get
+* Trip.deleteTrip
+* Trip.create
+* Trip.begin
+* Trip.tickerTripProgress
+* Trip.tick
+
+* User.createSchema
+* User.updateSchema
+* User.updatePasswordSchema
+* User.get
+* User.create
+* User.update
+* User.updatePassword
+* User.authenticate
+
+* Vehicle.get
+* Vehicle.getValue
+* Vehicle.update
+* Vehicle.createDefault
+* Vehicle.update
+
+### Routes
+
+* get /admin
+* get /admin/map
+* get /admin/mapseed
+* patch /admin/map/location/:locid
+
+* get /driver
+
+* get /game
+
+* get /
+* get /register
+* get /login  
+* post /login
+* get /logout
+* get /booyah
+
+* get /location
+* get /location/:id
+
+* get /map
+
+* get /trade/:id
+
+* get /trip
+* put /trip
+* post /trip/go
+* delete /trip
+
+* post /user
+* get /user
+* patch /user/account
+
+* get /vehicle
+
+### App
 
 * Work on models (services?) for locations/drivers/etc in object class format
 * Add server side check for password and email validity on register and /account
