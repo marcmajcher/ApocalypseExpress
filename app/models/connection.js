@@ -15,7 +15,7 @@ exports.list = () => util.knex(connectionDb);
 /**
  * Given an object with a list of locations, promises that object, with
  * a list of connections from those locations
- * 
+ *
  * @param {object} mapData an object with a locations key representing
  *                         an array of location objects
  */
