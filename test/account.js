@@ -16,18 +16,6 @@ let req;
 describe('Login', () => {
   before(util.rollback);
 
-  it('home page should have login form if not logged in', (done) => {
-    request(app)
-      .get('/')
-      .set('Accept', 'text/html')
-      .expect(200)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.text.should.match(/action="\/login/);
-        done();
-      });
-  });
-
   it('should be able to log in a test user and redirect to game', (done) => {
     const userLogin =
       `email=${util.users.testUser.email}&password=${util.users.testUser.password}`;
@@ -40,74 +28,6 @@ describe('Login', () => {
       .end((err, res) => {
         res.headers.location.should.equal('/game');
         testUserCookie = util.getCookie(res);
-        done();
-      });
-  });
-
-  it('home page should not have login form if logged in', (done) => {
-    req = request(app)
-      .get('/')
-      .set('Accept', 'text/html');
-    req.cookies = testUserCookie;
-    req
-      .expect(200)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.text.should.not.match(/action="\/login/);
-        done();
-      });
-  });
-
-  it('should redirect logged in user to game page from home', (done) => {
-    req = request(app)
-      .get('/')
-      .set('Accept', 'text/html');
-    req.cookies = testUserCookie;
-    req.expect(302)
-      .end((err, res) => {
-        res.headers.location.should.equal('/game');
-        done();
-      });
-  });
-
-  it('game page should have logout link if logged in', (done) => {
-    req = request(app)
-      .get('/game')
-      .set('Accept', 'text/html');
-    req.cookies = testUserCookie;
-    req
-      .expect(200)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.text.should.match(/href="\/logout/);
-        done();
-      });
-  });
-
-  it('game page should greet player by first name', (done) => {
-    req = request(app)
-      .get('/game')
-      .set('Accept', 'text/html');
-    req.cookies = testUserCookie;
-    req
-      .expect(200)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.text.should.match(new RegExp(util.users.testUser.firstName));
-        done();
-      });
-  });
-
-  it('registration should redirect a logged in user to the game page', (done) => {
-    req = request(app)
-      .get('/register')
-      .set('Accept', 'text/html');
-    req.cookies = testUserCookie;
-    req
-      .expect(302)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.headers.location.should.equal('/game');
         done();
       });
   });
@@ -138,20 +58,8 @@ describe('Login', () => {
 describe('Registration', () => {
   before(util.rollback);
 
-  it('home page should have a registration link if not logged in', (done) => {
-    request(app)
-      .get('/')
-      .set('Accept', 'text/html')
-      .expect(200)
-      .expect('Content-Type', /text/)
-      .end((err, res) => {
-        res.text.should.match(/href="\/register/);
-        done();
-      });
-  });
-
-  it(
-    'should be able to register a new player account and redirect to home page', (done) => {
+  it('should be able to register a new player account and redirect to home page',
+    (done) => {
       request(app)
         .post('/user')
         .set('Accept', 'text/html')
@@ -247,26 +155,6 @@ describe('Registration', () => {
   });
 
   describe('Account', () => {
-    it('should only allow logged in users to access account management page', (done) => {
-      request(app)
-        .get('/user/account')
-        .expect(304)
-        .end((err, res) => {
-          res.headers.location.should.equal('/');
-          done();
-        });
-    });
-
-    xit('should have a page to allow users to manage their account if logged in', (done) => {
-      req = request(app)
-        .get('/user/account')
-        .set('Accept', 'text/html');
-      req.cookies = testUserCookie;
-      req
-        .expect(200)
-        .expect('Content-Type', /text/, done);
-    });
-
     it('should allow a user to change their first and last name', (done) => {
       req = request(app)
         .patch('/user/account')
@@ -320,7 +208,7 @@ describe('Registration', () => {
         });
     });
 
-    xit('should require a user to enter their current password to change it', (done) => {
+    it('should require a user to enter their current password to change it', (done) => {
       req = request(app)
         .patch('/user/account')
         .set('Accept', 'text/html');
@@ -331,9 +219,8 @@ describe('Registration', () => {
           password: util.users.newUser.password,
           vpassword: util.users.newUser.password
         })
-        .expect(304)
         .end((err, res) => {
-          res.headers.location.should.equal('/user/account');
+          res.body.ok.should.equal(false);
           done();
         });
     });

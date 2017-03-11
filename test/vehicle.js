@@ -11,7 +11,6 @@ describe('Vehicle', () => {
   before(util.rollback);
 
   xit('should register a new user, which has a default vehicle with a default location', (done) => {
-    // move to protractor - test route instead
     request(app)
       .post('/user')
       .set('Accept', 'text/html')

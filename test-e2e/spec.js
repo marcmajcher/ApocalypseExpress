@@ -3,6 +3,28 @@
 /* eslint-env node, mocha */
 /* globals browser, expect, element, by, beforeAll, protractor */
 
+/* Tests to add:
+
+  it('home page should have login form if not logged in', (done) => {
+  it('home page should not have login form if logged in', (done) => {
+  it('should redirect logged in user to game page from home', (done) => {
+  it('game page should have logout link if logged in', (done) => {
+  it('game page should greet player by first name', (done) => {
+  it('registration should redirect a logged in user to the game page', (done) => {
+
+  it('home page should have a registration link if not logged in', (done) => {
+
+  it('should only allow logged in users to access account management page', (done) => {
+  xit('should have a page to allow users to manage their account if logged in', (done) => {
+
+  xit('should register a new user, which has a driver with a default location', (done) => {
+  it('should return the correct data for the get location route', (done) => {
+
+  it('should not allow user that is not logged in to see map data', (done) => {
+  it('should return correct map data for a logged in user', (done) => {
+
+*/
+
 const util = require('../test/_util');
 const Driver = require('../app/models/driver');
 const Vehicle = require('../app/models/vehicle');
@@ -162,6 +184,7 @@ describe('Driver', () => {
     element(by.id('game-tab-driver')).click();
     expect(element(by.css('#ui-state-driver .driver-name')).getText()).toContain(driverName);
     // get driver health
+    // get driver money
   });
 });
 

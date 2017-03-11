@@ -9,8 +9,6 @@ const util = require('./_util');
 let adminCookie;
 let userCookie;
 
-// move to protractor - test routes instead
-
 describe('Map', () => {
   before(util.rollback);
   before((done) => {
