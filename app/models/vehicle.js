@@ -2,7 +2,7 @@
 
 /* eslint-env node */
 
-const util = require('../_util');
+const Model = require('./_model');
 const vehicleDb = 'vehicles';
 
 const defaultVehicle = {
@@ -22,18 +22,15 @@ const defaultVehicle = {
 
 const junkerNames = ['Mule', 'Donkey', 'Burro', 'Jack', 'Hinny', 'Jennet', 'Molly', 'John', 'Jule'];
 
-exports.get = id => util.knex(vehicleDb).where('id', id).first();
-exports.getValue = (id, param) => util.knex.select(param).from(vehicleDb).where('id', id);
+const Vehicle = new Model(vehicleDb);
 
-exports.create = vehicleData => util.knex(vehicleDb).insert(vehicleData, '*');
-exports.createDefault = () => {
+Vehicle.createDefault = () => {
   const vehicleData = JSON.parse(JSON.stringify(defaultVehicle));
   /* eslint-disable */
   vehicleData.name =
     `${junkerNames[Math.floor(Math.random()*junkerNames.length)]}${Math.floor(Math.random()*7000)+1000}`;
   /* eslint-enable */
-  return exports.create(vehicleData);
+  return Vehicle.create(vehicleData);
 };
 
-exports.updateValue = (id, param, value) => util.knex(vehicleDb)
-  .update(param, value).where('id', id).returning(param);
+module.exports = Vehicle;

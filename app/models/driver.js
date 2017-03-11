@@ -2,17 +2,7 @@
 
 /* eslint-env node */
 
-const util = require('../_util');
+const Model = require('./_model');
 const driverDb = 'drivers';
 
-exports.get = id => util.knex(driverDb).where('id', id).first();
-
-exports.getValue = (id, param) => util.knex.select(param).from(driverDb).where('id', id);
-
-exports.create = driverData => util.knex(driverDb).insert(driverData, '*');
-
-exports.update = (id, data) =>
-  util.knex(driverDb).update(data).where('id', id).returning('*');
-
-exports.updateValue = (id, param, value) => util.knex(driverDb)
-  .update(param, value).where('id', id).returning(param);
+module.exports = new Model(driverDb);

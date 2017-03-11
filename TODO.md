@@ -4,6 +4,7 @@
 
 * MOAR TESTS
   * Update tests to unit test routes and models
+
 * User should be able to buy and sell goods at locations
   * Update goods list in UI with Buy/Sell buttons
   * Update goods list screen with available cargo and money
@@ -164,6 +165,14 @@
 * Names for random name generation stored in uniquenames.js
 
 ### Models
+
+* Base Model:
+  * list()
+  * get(id)
+  * getValue(id, param)
+  * create(data)
+  * update(id, data)
+  * updateValue(id, param, value)
 
 * Connections.list promises a list of all connections between locations
 * Connections.getUserConnections promises a list of all connections from a set of locations, given an object with the list of locations

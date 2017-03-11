@@ -2,5 +2,7 @@
 
 /* eslint-env node */
 
-// const util = require('../_util');
-// const factionDb = 'factions';
+const Model = require('./_model');
+const factionDb = 'factions';
+
+module.exports = new Model(factionDb);

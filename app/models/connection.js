@@ -3,22 +3,11 @@
 /* eslint-env node */
 
 const util = require('../_util');
+const connectionDb = 'connections';
 const Driver = require('./driver');
 
-const connectionDb = 'connections';
-
-/**
- * Promises a list of all connections between locations
- */
 exports.list = () => util.knex(connectionDb);
 
-/**
- * Given an object with a list of locations, promises that object, with
- * a list of connections from those locations
- *
- * @param {object} mapData an object with a locations key representing
- *                         an array of location objects
- */
 exports.getUserConnections = mapData =>
   util.knex(connectionDb)
   .whereIn('start', Object.keys(mapData.locations))
