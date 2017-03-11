@@ -4,11 +4,12 @@
 
 const util = require('../_util');
 const connectionDb = 'connections';
+const Model = require('./_model');
 const Driver = require('./driver');
 
-exports.list = () => util.knex(connectionDb);
+const Connection = new Model(connectionDb);
 
-exports.getUserConnections = mapData =>
+Connection.getUserConnections = mapData =>
   util.knex(connectionDb)
   .whereIn('start', Object.keys(mapData.locations))
   .then((connections) => {
@@ -17,8 +18,10 @@ exports.getUserConnections = mapData =>
   })
   .catch(console.log.bind(console)); // eslint-disable-line
 
-exports.getDriverDestinationConnections = (driverid, destinationid) =>
+Connection.getDriverDestinationConnections = (driverid, destinationid) =>
   util.knex(connectionDb).where({
     end: destinationid,
     start: Driver.getValue(driverid, 'location')
   });
+
+module.exports = Connection;

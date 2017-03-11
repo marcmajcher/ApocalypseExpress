@@ -7,13 +7,9 @@ const Connection = require('./connection');
 const Driver = require('./driver');
 const Goods = require('./goods');
 const locationDb = 'locations';
+const Model = require('./_model');
 
-/**
- * indexLocations - Converts array of locations into object indexed by id
- *
- * @param  {Array} locations Array of location objects
- * @return {type} Object of locations indexed by id
- */
+/* Converts array of locations into object indexed by id */
 function indexLocations(locations) {
   return locations.reduce((last, cur) => {
     last[cur.id] = cur;
@@ -21,20 +17,18 @@ function indexLocations(locations) {
   }, {});
 }
 
-exports.list = () => util.knex(locationDb);
+const Location = new Model(locationDb);
 
 /* Select all locations from db and index */
-exports.getAllLocations = () => util.knex(locationDb)
+Location.getAllLocations = () => util.knex(locationDb)
   .then(locations => ({
     locations: indexLocations(locations)
   }))
   .catch(error => error);
 
-/**
- * getUserLocations - given a driverId, promises an object containing an array
- *                    (key: 'locations') of locations the driver has visited
- */
-exports.getUserLocations = driverId =>
+/* given a driverId, promises an object containing an array
+  (key: 'locations') of locations the driver has visited */
+Location.getUserLocations = driverId =>
   util.knex(locationDb)
   .join('driver_visited', {
     'locations.id': 'driver_visited.locationid',
@@ -47,7 +41,7 @@ exports.getUserLocations = driverId =>
   .catch(error => error);
 
 /* Select all connections from db */
-exports.getAllConnections = mapData =>
+Location.getAllConnections = mapData =>
   Connection.list()
   .then((connections) => {
     mapData.connections = connections;
@@ -55,7 +49,7 @@ exports.getAllConnections = mapData =>
   })
   .catch(error => error);
 
-exports.getConnectedLocations = mapData =>
+Location.getConnectedLocations = mapData =>
   util.knex(locationDb)
   .whereIn('id', mapData.connections.map(el => el.end))
   .then((locations) => {
@@ -66,12 +60,9 @@ exports.getConnectedLocations = mapData =>
   })
   .catch(error => error);
 
-/* Get the info for a single location given an id */
-exports.get = id => util.knex(locationDb).where('id', id).first();
-
 /* Given a driver, get the info for the driver's current location,
    and all adjacent locations */
-exports.localList = driverid =>
+Location.localList = driverid =>
   util.knex(locationDb).where('id',
     Driver.getValue(driverid, 'location')).first()
   .then(location =>
@@ -89,7 +80,8 @@ exports.localList = driverid =>
     })
   );
 
-exports.update = (id, data) =>
+/* fix model and route and callers to use Model.update */
+Location.update = (id, data) =>
   util.knex(locationDb).where('id', id).first().update({
     name: data.name,
     longitude: data.longitude,
@@ -101,7 +93,7 @@ exports.update = (id, data) =>
     factionid: data.factionid
   }, '*');
 
-exports.visit = (driverid, locationid) =>
+Location.visit = (driverid, locationid) =>
   util.knex('driver_visited').where({
     locationid,
     driverid
@@ -115,3 +107,5 @@ exports.visit = (driverid, locationid) =>
     }
     return undefined;
   });
+
+module.exports = Location;
