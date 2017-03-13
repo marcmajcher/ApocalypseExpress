@@ -2,6 +2,8 @@
 
 ## Implementing
 
+ Next up: items trading - test first
+ 
 * MOAR TESTS
   * Update tests to unit test routes and models
 
