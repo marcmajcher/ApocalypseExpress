@@ -2,6 +2,8 @@
 <div ng-show="$ctrl.state.loc === 'cargo' || $ctrl.state.loc == 'default'">
 
   <div class="vehicle-name">Cargo Exchange</div>
+  <div>Current Cash: 6666 </div>
+  <div>Cost: 1111</div>
   <div class="info-pane">
     <table class="info-table">
       <thead>
@@ -16,7 +18,9 @@
         <td class="info-label">{{good.name}}</td>
         <td>${{good.price}}</td>
         <td>{{good.stock}}/{{good.capacity}}</td>
+        <td>Buy <button>-</button> 666 <button>+</button> Sell</td>
       </tr>
     </table>
+    <button>Make the Trade</button>
   </div>
 </div>
