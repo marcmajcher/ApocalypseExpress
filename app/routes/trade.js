@@ -20,4 +20,8 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.post('/trade', (req, res, next) => {
+  res.send('ok');
+});
+
 module.exports = router;
