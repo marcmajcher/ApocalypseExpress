@@ -30,6 +30,11 @@
 * Player should be able to refuel at cost in locations
 * Player should not be able to refuel if they don't have enough money
 
+* Events are broadcast to player with distance updates
+  * Events have an x/100 chance per km, based on difficulty
+  * Vehicle/skill may have an effect on events
+  * 80%-ish events color - create apoc generator 
+
 * Move trade good modifier/price calculation to library
 * Load base goods/prices on server load, keep in memory/service
 
