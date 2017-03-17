@@ -3,7 +3,8 @@
 ## Implementing
 
  Next up: items trading - test first
- 
+ - protractor test for buying, selling, traveling, check for cash change
+
 * MOAR TESTS
   * Update tests to unit test routes and models
 
