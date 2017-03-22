@@ -4,7 +4,18 @@
    We'll start off with color events, and go from there. */
 
 /* Oh, man, we're going to have to build a grammar engine for this, aren't we?
-  Well, hey, at least we can use it for name generation, too. */
+  Well, hey, at least we can use it for name generation, too.
+
+  Actually, we can probably use or modify these:
+    https://github.com/dhconnelly/erratic
+    https://github.com/dhconnelly/prettybnf
+
+    I'd like to add some weighting to the BNF syntax, though, so we can have stuff like:
+
+    <event> ::= <enemy> | <animals/2> | <loot> | <weather/5>;
+
+    so that when we do a random selection, some are more likely to come up than others
+   */
 
 /*
 Time-specific events
