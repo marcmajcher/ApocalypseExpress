@@ -1,4 +1,4 @@
-# ApocalypseExpress TODO List
+ cd# ApocalypseExpress TODO List
 
 ## Implementing
 
@@ -15,6 +15,8 @@
   * Write trade route to sell items
 
 ## On Deck
+
+* Refactor update user info into two discrete routes
 
 * User should not be able to buy and sell while traveling
   * Refactor the currentLocation while traveling to lastLocation
@@ -33,7 +35,7 @@
 * Events are broadcast to player with distance updates
   * Events have an x/100 chance per km, based on difficulty
   * Vehicle/skill may have an effect on events
-  * 80%-ish events color - create apoc generator 
+  * 80%-ish events color - create apoc generator
 
 * Move trade good modifier/price calculation to library
 * Load base goods/prices on server load, keep in memory/service

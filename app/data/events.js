@@ -3,6 +3,9 @@
 /* In here, we're going to build a grammar for events while traveling.
    We'll start off with color events, and go from there. */
 
+/* Oh, man, we're going to have to build a grammar engine for this, aren't we?
+  Well, hey, at least we can use it for name generation, too. */
+
 /*
 Time-specific events
   sunrise
