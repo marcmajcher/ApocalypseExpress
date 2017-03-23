@@ -75,7 +75,10 @@
   * Location / Date/time
     * Calculate Date/time => Start at 12/21/2012GMT, time goes 10x faster
   * Driver / Vehicle
+  * Fuel - Guz, Dynamo, Steam, or Shard
   * Local News
+  * Garages
+  * Mission List
 
 * Gin up something for the home page
 * Looks like we need something for the "news" page, too.
@@ -136,6 +139,45 @@
 * Every day, increase population by 1/50,000
   * if pop < 50k, increase by one by random %
 * Every day, adjust trade good production and demands by % of population
+
+Mission Types
+Mission Board:
+     - Time to complete
+     - Bonus completion goals
+     - Faction effects
+
+Assassination:
+     Find a specific person on the road, and kill them
+     Find a specific person in a town, and kill them
+     Find a specific vehicle, and destroy it
+
+Bounty Hunting:
+     Destroy a certain number of targets of a certain type/faction
+
+Charity
+     Give a certain amount of resource or $cratch to a faction
+
+Courier
+     Take a certain thing (cargo/data/message) to a certain place
+
+Passenger
+     Take a person or people to a destination
+
+Resource
+     Aquire a certain number of resources and return with them
+
+Piracy
+     Steal cargo, bring it back
+
+Smuggling
+
+Community goals
+     Sell commodity at location
+     Kill faction in war zone
+     Sell exploration data
+
+Exploration
+Turning in bounties
 
 ## Frontend/UI Tasks
 
