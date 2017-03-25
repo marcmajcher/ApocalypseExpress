@@ -18,6 +18,23 @@
    */
 
 /*
+<event> ::= <timeEvent> | <locationEvent> | <weatherEvent> | <creatureEvent> | <weirdEvent> | <humanEvent>;
+
+<timeEvent> ::= ... ;
+
+<locationEvent> ::= ... ;
+
+<weatherEvent> ::= ... ;
+
+<creatureEvent> ::= ... ;
+
+<weirdEvent> ::= ... ;
+
+<humanEvent> ::= ... ;
+
+*/
+
+/*
 Time-specific events
   sunrise
   sunset
