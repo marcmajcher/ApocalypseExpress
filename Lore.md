@@ -11,3 +11,5 @@ Many, too many, fell to Earth.
 Most of the smaller fragments of the wreckage burned up in the atmosphere, creating a strange foreign haze that hung over the world for decades. Larger pieces of the ruined ship, however - the Shards, as they became to be known — impacted and embedded themselves in the earth, twisting the world around them.
 
 Things got weird after that.
+
+## The Rebublic
