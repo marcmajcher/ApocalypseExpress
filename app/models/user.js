@@ -7,6 +7,7 @@ const Joi = require('joi');
 const bcrypt = require('bcrypt-as-promised');
 const Driver = require('./driver');
 const Vehicle = require('./vehicle');
+const names = require('../data/uniquenames.js');
 
 const userDb = 'users';
 const bcRounds = 12;
@@ -56,7 +57,7 @@ exports.create = (userInfo, isAdmin = false) => {
       return Vehicle.createDefault();
     })
     .then(vehicles => Driver.create({
-      name: util.generateApocName(),
+      name: names.generateApocName(),
       location: config.defaultLocation,
       money: config.defaultDriverMoney,
       vehicleid: vehicles[0].id

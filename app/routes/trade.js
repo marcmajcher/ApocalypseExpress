@@ -22,6 +22,7 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/trade', (req, res, next) => {
   res.send('ok');
+  next(500);
 });
 
 module.exports = router;

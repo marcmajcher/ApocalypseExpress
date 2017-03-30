@@ -18,7 +18,8 @@
    */
 
 /*
-<event> ::= <timeEvent> | <locationEvent> | <weatherEvent> | <creatureEvent> | <weirdEvent> | <humanEvent>;
+<event> ::= <timeEvent> | <locationEvent> | <weatherEvent> |
+            <creatureEvent> | <weirdEvent> | <humanEvent>;
 
 <timeEvent> ::= ... ;
 

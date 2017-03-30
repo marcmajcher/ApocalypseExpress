@@ -4,7 +4,6 @@
 
 const config = require('../knexfile')[process.env.NODE_ENV || 'development'];
 const knex = require('knex')(config);
-const nameList = require('./data/uniquenames');
 
 module.exports = {
   knex,
@@ -47,10 +46,5 @@ module.exports = {
       err.status = 500;
       next(err);
     }
-  },
-  generateApocName: () => {
-    const n1 = nameList[Math.floor(Math.random() * nameList.length)];
-    const n2 = nameList[Math.floor(Math.random() * nameList.length)];
-    return `${n1} ${n2}`;
   }
 };

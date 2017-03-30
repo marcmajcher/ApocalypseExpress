@@ -4,12 +4,12 @@
 
 const util = require('./_util');
 const should = require('should');
-const app = require('../app/app.js').app;
-const request = require('supertest');
+// const app = require('../app/app.js').app;
+// const request = require('supertest');
 should.config.checkProtoEql = false;
 
-let req;
-let testUserCookie;
+// let req;
+// let testUserCookie;
 
 describe('Location', () => {
   before(util.rollback);
@@ -39,5 +39,4 @@ describe('Location', () => {
   //       .end((err2, res2) => {
   //         JSON.parse(res2.text).should.deepEqual(util.locations.userLocationData);
   //         done();
-
 });

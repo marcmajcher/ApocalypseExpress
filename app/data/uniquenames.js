@@ -2,7 +2,8 @@
 
 /* eslint-env node */
 
-module.exports = [
+
+const nameList = [
   'A.T.',
   'Abay',
   'Abe',
@@ -1291,3 +1292,9 @@ module.exports = [
   'Zuto',
   'Zuzu'
 ];
+
+exports.generateApocName = () => {
+  const n1 = nameList[Math.floor(Math.random() * nameList.length)];
+  const n2 = nameList[Math.floor(Math.random() * nameList.length)];
+  return `${n1} ${n2}`;
+};
