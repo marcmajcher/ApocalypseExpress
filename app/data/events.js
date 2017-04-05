@@ -22,6 +22,8 @@ exports.generateEvent = () => {
    */
 
 /*
+(NB: not actually going to write the grammar that way, we'll just use js data structures.)
+
 <event> ::= <timeEvent> | <locationEvent> | <weatherEvent> |
             <creatureEvent> | <weirdEvent> | <humanEvent>;
 
