@@ -47,6 +47,8 @@
 * User should be able to click on city on map to set destination
 * Animate screen transitions
 
+* https://www.npmjs.com/package/ws ?
+
 ## Testing
 
 * seed files for tradegoods and location_goods
