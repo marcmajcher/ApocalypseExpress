@@ -1,6 +1,10 @@
 'use strict';
 
+/* eslint-env node */
+
 exports.generateEvent = () => {
+  'do stuff here';
+
   return 'Event';
 };
 
