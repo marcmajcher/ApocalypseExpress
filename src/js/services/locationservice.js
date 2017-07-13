@@ -2,6 +2,7 @@
   'use strict';
 
   /* eslint-env jquery, browser */
+  /* eslint class-methods-use-this: off */
 
   const locationRoute = '/location';
 
