@@ -569,19 +569,21 @@
 })();
 'use strict';
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (function () {
   'use strict';
 
   /* eslint-env jquery, browser */
 
-  var factionService = function factionService() {
-    return {
-      factionColors: ['#aaaaaa', '#0000aa', '#aa0000', '#00aa00', '#440088', '#aaaa00'],
-      factionTags: ['', 'republic', 'confederation', 'alliance', 'petrex', 'light']
-    };
+  var FactionService = function FactionService() {
+    _classCallCheck(this, FactionService);
+
+    this.factionColors = ['#aaaaaa', '#0000aa', '#aa0000', '#00aa00', '#440088', '#aaaa00'];
+    this.factionTags = ['', 'republic', 'confederation', 'alliance', 'petrex', 'light'];
   };
 
-  angular.module('apox').factory('FactionService', [factionService]);
+  angular.module('apox').service('FactionService', FactionService);
 })();
 'use strict';
 
@@ -625,6 +627,10 @@
 })();
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (function () {
   'use strict';
 
@@ -634,18 +640,30 @@
 
   /* A service to interface with the location routes */
 
-  var locationService = function locationService($http, $q) {
-    return {
-      getCurrentLocation: function getCurrentLocation() {
-        return $q(function (resolve, reject) {
-          $http.get(locationRoute).then(function (location) {
+  var LocationService = function () {
+    function LocationService($http, $q) {
+      _classCallCheck(this, LocationService);
+
+      this.$http = $http;
+      this.$q = $q;
+    }
+
+    _createClass(LocationService, [{
+      key: 'getCurrentLocation',
+      value: function getCurrentLocation() {
+        var _this = this;
+
+        return this.$q(function (resolve, reject) {
+          _this.$http.get(locationRoute).then(function (location) {
             resolve(location.data);
           }, function (err) {
             reject(err);
           });
         });
-      },
-      getDistanceFromId: function getDistanceFromId(location, id) {
+      }
+    }, {
+      key: 'getDistanceFromId',
+      value: function getDistanceFromId(location, id) {
         for (var i = 0; i < location.connections.length; i++) {
           if (location.connections[i].id === id) {
             return location.connections[i].distance;
@@ -653,10 +671,36 @@
         }
         return -1; // eslint-disable-line no-magic-numbers
       }
-    };
-  };
+    }]);
 
-  angular.module('apox').factory('LocationService', ['$http', '$q', locationService]);
+    return LocationService;
+  }();
+
+  // const locationService = function locationService($http, $q) {
+  //   return {
+  //     getCurrentLocation() {
+  //       return $q((resolve, reject) => {
+  //         $http.get(locationRoute)
+  //           .then((location) => {
+  //               resolve(location.data);
+  //             },
+  //             (err) => {
+  //               reject(err);
+  //             });
+  //       });
+  //     },
+  //     getDistanceFromId(location, id) {
+  //       for (let i = 0; i < location.connections.length; i++) {
+  //         if (location.connections[i].id === id) {
+  //           return location.connections[i].distance;
+  //         }
+  //       }
+  //       return -1; // eslint-disable-line no-magic-numbers
+  //     }
+  //   };
+  // };
+
+  angular.module('apox').service('LocationService', ['$http', '$q', LocationService]);
 })();
 'use strict';
 
@@ -814,81 +858,79 @@
       var data = MapService.mapData;
 
       if (data.locations && data.connections) {
-        (function () {
-          /* calculate location points */
-          Object.keys(data.locations).forEach(function (id) {
-            data.locations[id].point = locToPoint(data.locations[id]);
-            data.locations[id].paths = [];
-            data.locations[id].ends = [];
-          });
+        /* calculate location points */
+        Object.keys(data.locations).forEach(function (id) {
+          data.locations[id].point = locToPoint(data.locations[id]);
+          data.locations[id].paths = [];
+          data.locations[id].ends = [];
+        });
 
-          mapLayer.removeChildren();
+        mapLayer.removeChildren();
 
-          /* Draw connections */
-          for (var i = 0; i < data.connections.length; i++) {
-            var connection = data.connections[i];
-            var start = data.locations[connection.start];
-            var end = data.locations[connection.end];
+        /* Draw connections */
+        for (var i = 0; i < data.connections.length; i++) {
+          var connection = data.connections[i];
+          var start = data.locations[connection.start];
+          var end = data.locations[connection.end];
 
-            if (start && end) {
-              var path = new paper.Path.Line({
-                from: start.point,
-                to: end.point,
-                strokeColor: 'black',
-                strokeWidth: baseConWidth
-              });
-              mapLayer.addChild(path);
+          if (start && end) {
+            var path = new paper.Path.Line({
+              from: start.point,
+              to: end.point,
+              strokeColor: 'black',
+              strokeWidth: baseConWidth
+            });
+            mapLayer.addChild(path);
 
-              start.ends.push(path.segments[0].point);
-              end.ends.push(path.segments[1].point);
-              start.paths.push(path);
-              end.paths.push(path);
-            }
+            start.ends.push(path.segments[0].point);
+            end.ends.push(path.segments[1].point);
+            start.paths.push(path);
+            end.paths.push(path);
           }
+        }
 
-          /* render locations */
-          var textOffset = [0, -20];
-          var locationKeys = Object.keys(data.locations).sort(function (a, b) {
-            return data.locations[a].latitude < data.locations[b].latitude;
+        /* render locations */
+        var textOffset = [0, -20];
+        var locationKeys = Object.keys(data.locations).sort(function (a, b) {
+          return data.locations[a].latitude < data.locations[b].latitude;
+        });
+
+        locationKeys.forEach(function (id) {
+          var location = data.locations[id];
+
+          var dot = new paper.Path.Circle({
+            center: location.point,
+            radius: baseDotSize * Math.ceil(Math.log10(location.population)),
+            fillColor: new paper.Color(FactionService.factionColors[location.factionid]),
+            strokeColor: 'black',
+            name: 'dot'
           });
 
-          locationKeys.forEach(function (id) {
-            var location = data.locations[id];
-
-            var dot = new paper.Path.Circle({
-              center: location.point,
-              radius: baseDotSize * Math.ceil(Math.log10(location.population)),
-              fillColor: new paper.Color(FactionService.factionColors[location.factionid]),
-              strokeColor: 'black',
-              name: 'dot'
-            });
-
-            var text = new paper.PointText({
-              point: location.point.add(textOffset),
-              justification: 'center',
-              fillColor: 'white',
-              strokeColor: 'black',
-              strokeWidth: 0.5,
-              content: location.name,
-              name: 'locname',
-              visible: !isAdmin,
-              fontSize: 30
-            });
-
-            var locGroup = new paper.Group([dot, text]);
-            locGroup.location = location;
-            locGroup.scope = scope;
-
-            if (isAdmin) {
-              locGroup.onMouseEnter = rolloverLocation;
-              locGroup.onMouseLeave = rolloutLocation;
-              locGroup.onMouseDrag = dragLocation;
-              locGroup.onMouseDown = mousedownLocation;
-              locGroup.onMouseUp = mouseupLocation;
-            }
-            mapLayer.addChild(locGroup);
+          var text = new paper.PointText({
+            point: location.point.add(textOffset),
+            justification: 'center',
+            fillColor: 'white',
+            strokeColor: 'black',
+            strokeWidth: 0.5,
+            content: location.name,
+            name: 'locname',
+            visible: !isAdmin,
+            fontSize: 30
           });
-        })();
+
+          var locGroup = new paper.Group([dot, text]);
+          locGroup.location = location;
+          locGroup.scope = scope;
+
+          if (isAdmin) {
+            locGroup.onMouseEnter = rolloverLocation;
+            locGroup.onMouseLeave = rolloutLocation;
+            locGroup.onMouseDrag = dragLocation;
+            locGroup.onMouseDown = mousedownLocation;
+            locGroup.onMouseUp = mouseupLocation;
+          }
+          mapLayer.addChild(locGroup);
+        });
       }
     }
 

@@ -3,16 +3,16 @@
 
   /* eslint-env jquery, browser */
 
-  const factionService = function factionService() {
-    return {
-      factionColors: [
+  class FactionService {
+    constructor() {
+      this.factionColors = [
         '#aaaaaa', '#0000aa', '#aa0000', '#00aa00', '#440088', '#aaaa00'
-      ],
-      factionTags: [
+      ];
+      this.factionTags = [
         '', 'republic', 'confederation', 'alliance', 'petrex', 'light'
-      ]
-    };
-  };
+      ];
+    }
+  }
 
-  angular.module('apox').factory('FactionService', [factionService]);
+  angular.module('apox').service('FactionService', FactionService);
 })();

@@ -2,6 +2,14 @@
 
 ## Implementing
 
+ * Add tests for FactionService
+ * Test LocationService.getDistanceFromId (return location.connections[i].distance;)
+ * Test LocationService.getCurrentLocation
+
+ Uncaught TypeError: Cannot read property 'length' of undefined
+    at getKey (paper-full.js:12951)
+    at HTMLDocument.keydown (paper-full.js:12992)
+    
  Next up: items trading - test first
  - protractor test for buying, selling, traveling, check for cash change
 
