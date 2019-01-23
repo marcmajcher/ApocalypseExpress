@@ -6,7 +6,7 @@ const app = require('../app/app.js').app;
 const request = require('supertest');
 const should = require('should');
 const util = require('./_util');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
 
 let testUserCookie;
 let req;
@@ -194,15 +194,17 @@ describe('Registration', () => {
           util.knex('users').where('email', util.users.testUser.email)
             .first().then((user) => {
               bcrypt.compare(util.users.newUser.password, user.hashedPassword)
-                .then(() => {
-                  should.ok(util.users.newUser.password);
-                  done();
-                })
-                .catch(() => {
-                  should.fail(util.users.newUser.password,
-                    util.users.testUser.password,
-                    'Passwords did not match');
-                  done();
+                .then((res) => {
+                  if (res) {
+                    should.ok(util.users.newUser.password);
+                    done();
+                  }
+                  else {
+                    should.fail(util.users.newUser.password,
+                      util.users.testUser.password,
+                      'Passwords did not match');
+                    done();
+                  }
                 });
             });
         });

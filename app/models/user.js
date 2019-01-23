@@ -4,7 +4,7 @@
 
 const util = require('../_util');
 const Joi = require('joi');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
 const Driver = require('./driver');
 const Vehicle = require('./vehicle');
 const names = require('../data/uniquenames.js');
@@ -88,18 +88,17 @@ exports.update = (email, data) =>
 exports.updatePassword = (email, currentPassword, newPassword) =>
   util.knex(userDb).where('email', email).first()
   .then(user => bcrypt.compare(currentPassword, user.hashedPassword))
-  .then(() => bcrypt.hash(newPassword, bcRounds))
+  .then(match => (match ? bcrypt.hash(newPassword, bcRounds)
+    : Promise.reject(new Error('password mismatch'))))
   .then(hashedPassword => util.knex(userDb).where('email', email)
     .update({
       hashedPassword
     }));
 
 /* Authenticate a user with given email and password */
-/* eslint no-confusing-arrow: 0 */
 exports.authenticate = (email, password) =>
   util.knex(userDb).where('email', email).first()
-  .then(user => user ?
-    bcrypt.compare(password, user.hashedPassword)
-    .then(() => new Promise(resolve => resolve(user))) :
-    undefined
+  .then(user =>
+      bcrypt.compare(password, user.hashedPassword)
+      .then(() => new Promise(resolve => resolve(user)))
   );

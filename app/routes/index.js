@@ -5,10 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const util = require('../_util');
-const bcrypt = require('bcrypt-as-promised');
 const User = require('../models/user');
-
-// TODO: move db stuff to models
 
 /* GET home page with user, driver, and location info */
 router.get('/', (req, res) => {
@@ -37,20 +34,19 @@ router.get('/login', (req, res) => {
 });
 
 /* Log user in and redirect them to the game page */
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
   User.authenticate(req.body.email, req.body.password)
     .then((user) => {
-      /* Login successful, redirect to game page */
-      req.session.user = user;
-      delete req.session.hashedPassword;
-      res.redirect('/game');
-    })
-    .catch(bcrypt.MISMATCH_ERROR, () => {
-      req.flash('Incorrect email or password.');
-      util.renderTemplate(req, res, 'login');
-    })
-    .catch((err) => {
-      next(err);
+      if (user) {
+        /* Login successful, redirect to game page */
+        req.session.user = user;
+        delete req.session.hashedPassword;
+        res.redirect('/game');
+      }
+      else {
+        req.flash('Incorrect email or password.');
+        util.renderTemplate(req, res, 'login');
+      }
     });
 });
 
